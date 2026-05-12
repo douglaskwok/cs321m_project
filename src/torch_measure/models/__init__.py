@@ -14,6 +14,7 @@ from torch_measure.models.ggm import GaussianGraphicalModel
 from torch_measure.models.ising import IsingModel
 from torch_measure.models.logistic_fm import LogisticFM
 from torch_measure.models.multifacet import MultiFacetRasch
+from torch_measure.models.multifacet_twopl import MultiFacet2PL
 from torch_measure.models.rasch import Rasch
 from torch_measure.models.rotation import bifactor_rotation, promax_rotation, varimax_rotation
 from torch_measure.models.testlet import TestletRasch, build_testlet_map
@@ -36,6 +37,7 @@ __all__ = [
     "BetaTwoPL",
     "AmortizedIRT",
     "MultiFacetRasch",
+    "MultiFacet2PL",
     "TestletRasch",
     "LogisticFM",
     "Bifactor",
