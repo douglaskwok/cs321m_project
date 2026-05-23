@@ -1,32 +1,40 @@
 """KUDGE Pairwise judgment benchmark (Son et al., 2024).
 
-Runs an OpenAI model as a pairwise judge on all items from
-``HAERAE-HUB/KUDGE`` (config ``Pairwise-False``) and saves a
-(1 × n_items) binary correct/incorrect response matrix together with
-raw model outputs.
+Runs an OpenAI or Anthropic model as a pairwise judge on the ``korean-easy``
+and ``korean-hard`` subsets of ``amphora/kudge-challenge``, constructing
+prompts in the judge_query format from ``HAERAE-HUB/KUDGE``.  For each item
+the ``chosen`` response is placed deterministically as either Response A or
+Response B (alternating by index), and the gold winner is set accordingly.
+Results are saved as a (1 × n_items) binary correct/incorrect response matrix
+together with raw model outputs.
 
 Usage
 -----
-First, create the OpenAI secret in Modal (one-time setup)::
+One-time secret setup in Modal::
 
     modal secret create openai-secret OPENAI_API_KEY=sk-...
+    modal secret create anthropic-secret ANTHROPIC_API_KEY=sk-ant-...
 
 Then run::
 
     modal run benchmarks/kudge_pairwise.py [--model MODEL]
 
-``MODEL`` defaults to ``gpt-5.4-nano``.  Pass any OpenAI model name, e.g.::
+``MODEL`` defaults to ``gpt-5.4-nano``.  Pass any OpenAI or Anthropic model
+name — models whose name starts with ``claude-`` are routed to Anthropic
+automatically, e.g.::
 
+    modal run benchmarks/kudge_pairwise.py --model claude-haiku-4-5-20251001
+    modal run benchmarks/kudge_pairwise.py --model claude-sonnet-4-6
     modal run benchmarks/kudge_pairwise.py --model gpt-4o-mini
 
 Results are written to two files (slug derived from the model name):
 
 * ``benchmarks/results/kudge_pairwise_<slug>.npz`` — response matrix and
-  metadata arrays (``response_matrix``, ``item_ids``, ``gold``,
+  metadata arrays (``response_matrix``, ``item_ids``, ``subsets``, ``gold``,
   ``predicted``).  ``response_matrix`` has shape ``(1, n_items)``, dtype int8.
 * ``benchmarks/results/kudge_pairwise_<slug>_responses.jsonl`` — one JSON
-  record per item with ``id``, ``gold``, ``predicted``, ``correct``, and the
-  full ``raw`` model response.
+  record per item with ``id``, ``subset``, ``gold``, ``predicted``, ``correct``,
+  and the full ``raw`` model response.
 """
 
 from __future__ import annotations
@@ -45,6 +53,7 @@ import numpy as np
 image = modal.Image.debian_slim(python_version="3.11").pip_install(
     "datasets>=2.20",
     "openai>=1.30",
+    "anthropic>=0.25",
     "numpy>=1.24",
 )
 
@@ -54,8 +63,7 @@ app = modal.App("kudge-pairwise", image=image)
 # Constants
 # ---------------------------------------------------------------------------
 
-DATASET_ID = "HAERAE-HUB/KUDGE"
-DATASET_CONFIG = "Pairwise"
+DATASET_ID = "amphora/kudge-challenge"
 DEFAULT_MODEL = "gpt-5.4-nano"
 TEST_LIMIT: int | None = None  # set to a small int to smoke-test
 
@@ -70,6 +78,35 @@ def _out_paths(model: str) -> tuple[Path, Path]:
     return (
         base / f"kudge_pairwise_{slug}.npz",
         base / f"kudge_pairwise_{slug}_responses.jsonl",
+    )
+
+
+# ---------------------------------------------------------------------------
+# Judge prompt template (HAERAE-HUB/KUDGE format)
+# ---------------------------------------------------------------------------
+
+_JUDGE_SYSTEM = (
+    "Please act as an impartial judge and evaluate the quality of the responses "
+    "provided by two AI assistants to the user question displayed below. You should "
+    "choose the assistant that follows the user's instructions and answers the user's "
+    "question better. Your evaluation should consider factors such as the helpfulness, "
+    "relevance, accuracy, depth, creativity, and level of detail of their responses. "
+    "Begin your evaluation by comparing the two responses and provide a short "
+    'explanation. Avoid any position biases and ensure that the order in which the '
+    "responses were presented does not influence your decision. Do not allow the length "
+    "of the responses to influence your evaluation. Do not favor certain names of the "
+    'assistants. Be as objective as possible. After providing your explanation, output '
+    'your final verdict by strictly following this format: "[[A]]" if assistant A is '
+    'better, "[[B]]" if assistant B is better.'
+)
+
+
+def _build_judge_query(instruction: str, response_a: str, response_b: str) -> str:
+    return (
+        f"{_JUDGE_SYSTEM}\n\n"
+        f"### Instruction:\n{instruction}\n\n"
+        f"### Response A:\n{response_a}\n\n"
+        f"### Response B:\n{response_b}"
     )
 
 
@@ -110,18 +147,6 @@ def _parse_winner(text: str) -> str | None:
     return None
 
 
-def _normalise_gold(raw_winner: str) -> str:
-    """Normalise the dataset's ``winner`` field to 'A', 'B', or 'tie'."""
-    w = str(raw_winner).strip().upper()
-    if w in ("TIE", "C", "NONE", ""):
-        return "tie"
-    if w in ("A", "MODEL_A", "MODELA"):
-        return "A"
-    if w in ("B", "MODEL_B", "MODELB"):
-        return "B"
-    return w  # pass through anything unexpected
-
-
 # ---------------------------------------------------------------------------
 # Modal function: load dataset
 # ---------------------------------------------------------------------------
@@ -129,21 +154,32 @@ def _normalise_gold(raw_winner: str) -> str:
 
 @app.function(image=image)
 def fetch_items() -> list[dict]:
-    """Download KUDGE Pairwise-False and return all rows."""
-    from datasets import get_dataset_split_names, load_dataset
+    """Download kudge-challenge and build pairwise judge_query prompts."""
+    from datasets import load_dataset
 
-    splits = get_dataset_split_names(DATASET_ID, DATASET_CONFIG)
-    split = splits[0]  # typically "test"
+    ds = load_dataset(DATASET_ID, split="train")
+    all_subsets = sorted({row["subset"] for row in ds})
+    print(f"Available subsets: {all_subsets}")
 
-    ds = load_dataset(DATASET_ID, DATASET_CONFIG, split=split)
-    items = [
-        {
-            "id": str(i),
-            "judge_query": row["judge_query"],
-            "winner": _normalise_gold(row["winner"]),
-        }
-        for i, row in enumerate(ds)
-    ]
+    _SUBSETS = {"Korean-Easy", "Korean-Hard"}
+    items = []
+    for i, row in enumerate(ds):
+        if row["subset"] not in _SUBSETS:
+            continue
+        # Alternate which response is placed as A to avoid systematic position bias.
+        chosen_is_a = (i % 2 == 0)
+        response_a = row["chosen"] if chosen_is_a else row["rejected"]
+        response_b = row["rejected"] if chosen_is_a else row["chosen"]
+        items.append(
+            {
+                "id": row["id"],
+                "subset": row["subset"],
+                "judge_query": _build_judge_query(row["prompt"], response_a, response_b),
+                "winner": "A" if chosen_is_a else "B",
+            }
+        )
+
+    items.sort(key=lambda x: (x["subset"], x["id"]))
     if TEST_LIMIT is not None:
         items = items[:TEST_LIMIT]
     return items
@@ -156,36 +192,51 @@ def fetch_items() -> list[dict]:
 
 @app.function(
     image=image,
-    secrets=[modal.Secret.from_name("openai-secret")],
+    secrets=[
+        modal.Secret.from_name("openai-secret"),
+        modal.Secret.from_name("anthropic-secret"),
+    ],
     max_containers=13,
     retries=2,
     timeout=300,
 )
 def score_item(item: dict) -> dict:
     """Send one pairwise judge query to the model and score the response."""
+    import random
     import time
 
-    from openai import OpenAI
-
-    client = OpenAI()
     model = item["model"]
     gold = item["winner"]
-
-    import random
-
-    from openai import RateLimitError
+    use_anthropic = model.startswith("claude-")
 
     raw = ""
     last_exc: Exception | None = None
     for attempt in range(6):
         try:
-            resp = client.chat.completions.create(
-                model=model,
-                messages=[{"role": "user", "content": item["judge_query"]}],
-                max_completion_tokens=1024,
-                temperature=0.0,
-            )
-            raw = resp.choices[0].message.content or ""
+            if use_anthropic:
+                from anthropic import Anthropic
+                from anthropic import RateLimitError
+
+                client = Anthropic()
+                resp = client.messages.create(
+                    model=model,
+                    max_tokens=1024,
+                    temperature=0.0,
+                    messages=[{"role": "user", "content": item["judge_query"]}],
+                )
+                raw = resp.content[0].text
+            else:
+                from openai import OpenAI
+                from openai import RateLimitError
+
+                client = OpenAI()
+                resp = client.chat.completions.create(
+                    model=model,
+                    messages=[{"role": "user", "content": item["judge_query"]}],
+                    max_completion_tokens=1024,
+                    temperature=0.0,
+                )
+                raw = resp.choices[0].message.content or ""
             last_exc = None
             break
         except RateLimitError as exc:
@@ -205,6 +256,7 @@ def score_item(item: dict) -> dict:
 
     return {
         "id": item["id"],
+        "subset": item["subset"],
         "gold": gold,
         "predicted": predicted or "",
         "correct": correct,
@@ -227,6 +279,9 @@ def main(model: str = DEFAULT_MODEL) -> None:
         item["model"] = model
     n = len(items)
     print(f"Loaded {n} pairwise items")
+    if n == 0:
+        print("No items matched the subset filter — check 'Available subsets' output above.")
+        return
 
     results = list(score_item.map(items, order_outputs=True))
 
@@ -238,6 +293,7 @@ def main(model: str = DEFAULT_MODEL) -> None:
         out_path,
         response_matrix=response_matrix,
         item_ids=np.array([r["id"] for r in results]),
+        subsets=np.array([r["subset"] for r in results]),
         gold=np.array([r["gold"] for r in results]),
         predicted=np.array([r["predicted"] for r in results]),
     )
@@ -249,6 +305,7 @@ def main(model: str = DEFAULT_MODEL) -> None:
                 json.dumps(
                     {
                         "id": r["id"],
+                        "subset": r["subset"],
                         "gold": r["gold"],
                         "predicted": r["predicted"],
                         "correct": r["correct"],
@@ -259,11 +316,11 @@ def main(model: str = DEFAULT_MODEL) -> None:
                 + "\n"
             )
 
-    gold_labels = [r["gold"] for r in results]
-    for label in sorted(set(gold_labels)):
-        subset = [r for r in results if r["gold"] == label]
-        acc = np.mean([r["correct"] for r in subset])
-        print(f"Gold={label:<4}: {acc:.3f}  (n={len(subset)})")
+    subsets = sorted({r["subset"] for r in results})
+    for subset in subsets:
+        subset_results = [r for r in results if r["subset"] == subset]
+        acc = np.mean([r["correct"] for r in subset_results])
+        print(f"{subset:<16}: {acc:.3f}  (n={len(subset_results)})")
 
     print(f"\nOverall  : {responses.mean():.3f}  ({int(responses.sum())}/{n})")
     print(f"\nSaved → {out_path}")
