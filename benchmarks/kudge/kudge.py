@@ -41,10 +41,17 @@ import numpy as np
 # Modal image & app
 # ---------------------------------------------------------------------------
 
-image = modal.Image.debian_slim(python_version="3.11").pip_install(
-    "datasets>=2.20",
-    "openai>=1.30",
-    "numpy>=1.24",
+image = (
+    modal.Image.debian_slim(python_version="3.11")
+    .pip_install(
+        "datasets>=2.20",
+        "openai>=1.30",
+        "numpy>=1.24",
+    )
+    .add_local_file(
+        Path(__file__).parent.parent / "llm_client.py",
+        remote_path="/root/llm_client.py",
+    )
 )
 
 app = modal.App("kudge", image=image)
@@ -131,43 +138,18 @@ def fetch_items() -> list[dict]:
 )
 def score_item(item: dict) -> dict:
     """Query an OpenAI model on one KUDGE item; return correctness metadata."""
-    import time
+    from llm_client import query_model
 
-    from openai import OpenAI
-
-    client = OpenAI()
     gold = _gold_letter(item["chosen"])
     model = item["model"]
 
-    # Use the dataset's own prompt verbatim (chain-of-thought format with
-    # ### 풀이: header), and ask the model to end with [ANSWER] X [END].
-    
     # IMPORTANT: this prompting strategy is not directly from the paper, but
     # the original prompts didn't specify the answer format which is needed
     prompt = item["prompt"] + (
         "\n풀이를 마친 후 반드시 '[ANSWER] (a/b/c/d) [END]' 형식으로 최종 답을 표시하세요."
     )
 
-    raw = ""
-    last_exc: Exception | None = None
-    for attempt in range(3):
-        try:
-            resp = client.chat.completions.create(
-                model=model,
-                messages=[{"role": "user", "content": prompt}],
-                max_completion_tokens=2048,
-                temperature=0.0,
-            )
-            raw = resp.choices[0].message.content or ""
-            last_exc = None
-            break
-        except Exception as exc:
-            last_exc = exc
-            if attempt < 2:
-                time.sleep(2**attempt)
-    if last_exc is not None:
-        raise last_exc
-
+    raw = query_model(model, prompt, max_tokens=2048, max_attempts=3)
     predicted = _parse_letter(raw)
     correct = int(predicted == gold) if (predicted and gold) else 0
 

@@ -50,11 +50,18 @@ import numpy as np
 # Modal image & app
 # ---------------------------------------------------------------------------
 
-image = modal.Image.debian_slim(python_version="3.11").pip_install(
-    "datasets>=2.20",
-    "openai>=1.30",
-    "anthropic>=0.25",
-    "numpy>=1.24",
+image = (
+    modal.Image.debian_slim(python_version="3.11")
+    .pip_install(
+        "datasets>=2.20",
+        "openai>=1.30",
+        "anthropic>=0.25",
+        "numpy>=1.24",
+    )
+    .add_local_file(
+        Path(__file__).parent.parent / "llm_client.py",
+        remote_path="/root/llm_client.py",
+    )
 )
 
 app = modal.App("kudge-pairwise", image=image)
@@ -202,55 +209,11 @@ def fetch_items() -> list[dict]:
 )
 def score_item(item: dict) -> dict:
     """Send one pairwise judge query to the model and score the response."""
-    import random
-    import time
+    from llm_client import query_model
 
     model = item["model"]
     gold = item["winner"]
-    use_anthropic = model.startswith("claude-")
-
-    raw = ""
-    last_exc: Exception | None = None
-    for attempt in range(6):
-        try:
-            if use_anthropic:
-                from anthropic import Anthropic
-                from anthropic import RateLimitError
-
-                client = Anthropic()
-                resp = client.messages.create(
-                    model=model,
-                    max_tokens=1024,
-                    temperature=0.0,
-                    messages=[{"role": "user", "content": item["judge_query"]}],
-                )
-                raw = resp.content[0].text
-            else:
-                from openai import OpenAI
-                from openai import RateLimitError
-
-                client = OpenAI()
-                resp = client.chat.completions.create(
-                    model=model,
-                    messages=[{"role": "user", "content": item["judge_query"]}],
-                    max_completion_tokens=1024,
-                    temperature=0.0,
-                )
-                raw = resp.choices[0].message.content or ""
-            last_exc = None
-            break
-        except RateLimitError as exc:
-            last_exc = exc
-            if attempt < 5:
-                delay = min(2 ** attempt * 5, 30) + random.uniform(0, 2)
-                time.sleep(delay)
-        except Exception as exc:
-            last_exc = exc
-            if attempt < 5:
-                time.sleep(2 ** attempt)
-    if last_exc is not None:
-        raise last_exc
-
+    raw = query_model(model, item["judge_query"])
     predicted = _parse_winner(raw)
     correct = int(predicted == gold) if predicted is not None else 0
 
