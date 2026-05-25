@@ -50,6 +50,8 @@ import numpy as np
 # Modal image & app
 # ---------------------------------------------------------------------------
 
+_llm_client = Path(__file__).parent.parent / "llm_client.py"
+
 image = (
     modal.Image.debian_slim(python_version="3.11")
     .pip_install(
@@ -58,11 +60,27 @@ image = (
         "anthropic>=0.25",
         "numpy>=1.24",
     )
-    .add_local_file(
-        Path(__file__).parent.parent / "llm_client.py",
-        remote_path="/root/llm_client.py",
-    )
+    .add_local_file(_llm_client, remote_path="/root/llm_client.py")
 )
+
+hf_image = (
+    modal.Image.debian_slim(python_version="3.11")
+    .pip_install(
+        "torch>=2.4",
+        "transformers==5.9.0",
+        "accelerate>=1.0",
+        "safetensors>=0.4.3",
+        "sentencepiece>=0.2.0",
+        "torchvision",
+        "pillow",
+        "mistral-common>=1.8.6",
+        "kernels",
+        "numpy>=1.24",
+    )
+    .add_local_file(_llm_client, remote_path="/root/llm_client.py")
+)
+
+hf_cache = modal.Volume.from_name("hf-cache", create_if_missing=True)
 
 app = modal.App("kudge-pairwise", image=image)
 
@@ -81,7 +99,7 @@ def _model_slug(model: str) -> str:
 
 def _out_paths(model: str) -> tuple[Path, Path]:
     slug = _model_slug(model)
-    base = Path(__file__).parent / "results"
+    base = Path(__file__).parent / "results" / "kudge_judge_easy_hard"
     return (
         base / f"kudge_pairwise_{slug}.npz",
         base / f"kudge_pairwise_{slug}_responses.jsonl",
@@ -197,18 +215,7 @@ def fetch_items() -> list[dict]:
 # ---------------------------------------------------------------------------
 
 
-@app.function(
-    image=image,
-    secrets=[
-        modal.Secret.from_name("openai-secret"),
-        modal.Secret.from_name("anthropic-secret"),
-    ],
-    max_containers=13,
-    retries=2,
-    timeout=300,
-)
-def score_item(item: dict) -> dict:
-    """Send one pairwise judge query to the model and score the response."""
+def _score_item_impl(item: dict) -> dict:
     from llm_client import query_model
 
     model = item["model"]
@@ -225,6 +232,47 @@ def score_item(item: dict) -> dict:
         "correct": correct,
         "raw": raw,
     }
+
+
+@app.function(
+    image=image,
+    secrets=[
+        modal.Secret.from_name("openai-secret"),
+        modal.Secret.from_name("anthropic-secret"),
+    ],
+    max_containers=13,
+    retries=2,
+    timeout=300,
+)
+def score_item(item: dict) -> dict:
+    """Send one pairwise judge query to an API model and score the response."""
+    return _score_item_impl(item)
+
+
+@app.function(
+    image=hf_image,
+    gpu="A10G",
+    volumes={"/root/.cache/huggingface": hf_cache},
+    secrets=[modal.Secret.from_name("hf-secret")],
+    retries=2,
+    timeout=1200,
+)
+def score_item_hf_a10g(item: dict) -> dict:
+    """Send one pairwise judge query to a local HF model on A10G and score the response."""
+    return _score_item_impl(item)
+
+
+@app.function(
+    image=hf_image,
+    gpu="H100",
+    volumes={"/root/.cache/huggingface": hf_cache},
+    secrets=[modal.Secret.from_name("hf-secret")],
+    retries=2,
+    timeout=1200,
+)
+def score_item_hf_h100(item: dict) -> dict:
+    """Send one pairwise judge query to a local HF model on H100 and score the response."""
+    return _score_item_impl(item)
 
 
 # ---------------------------------------------------------------------------
@@ -246,24 +294,21 @@ def main(model: str = DEFAULT_MODEL) -> None:
         print("No items matched the subset filter — check 'Available subsets' output above.")
         return
 
-    results = list(score_item.map(items, order_outputs=True))
+    resolved = re.sub(r"[^a-z0-9.\-]", "", model.lower())
+    is_api = resolved.startswith(("gpt-", "o1", "o2", "o3", "o4", "chatgpt-", "claude-"))
+    is_mistral = resolved.startswith("mistral") or resolved.startswith("ministral")
+    if is_api:
+        scorer = score_item
+    elif is_mistral:
+        scorer = score_item_hf_h100
+    else:
+        scorer = score_item_hf_a10g
 
-    responses = np.array([r["correct"] for r in results], dtype=np.int8)
-    response_matrix = responses.reshape(1, -1)  # (1, n_items)
-
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    np.savez(
-        out_path,
-        response_matrix=response_matrix,
-        item_ids=np.array([r["id"] for r in results]),
-        subsets=np.array([r["subset"] for r in results]),
-        gold=np.array([r["gold"] for r in results]),
-        predicted=np.array([r["predicted"] for r in results]),
-    )
-
+    results = []
     out_jsonl.parent.mkdir(parents=True, exist_ok=True)
     with out_jsonl.open("w", encoding="utf-8") as fh:
-        for r in results:
+        for r in scorer.map(items, order_outputs=True):
+            results.append(r)
             fh.write(
                 json.dumps(
                     {
@@ -278,6 +323,20 @@ def main(model: str = DEFAULT_MODEL) -> None:
                 )
                 + "\n"
             )
+            fh.flush()
+
+    responses = np.array([r["correct"] for r in results], dtype=np.int8)
+    response_matrix = responses.reshape(1, -1)  # (1, n_items)
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    np.savez(
+        out_path,
+        response_matrix=response_matrix,
+        item_ids=np.array([r["id"] for r in results]),
+        subsets=np.array([r["subset"] for r in results]),
+        gold=np.array([r["gold"] for r in results]),
+        predicted=np.array([r["predicted"] for r in results]),
+    )
 
     subsets = sorted({r["subset"] for r in results})
     for subset in subsets:
