@@ -1,6 +1,9 @@
 from pathlib import Path
 import subprocess
+import sys
+
 import modal
+
 
 REPO_ROOT = Path.cwd()
 if not (REPO_ROOT / "HarmBench").exists():
@@ -10,10 +13,16 @@ if not (REPO_ROOT / "HarmBench").exists():
 
 image = (
     modal.Image.debian_slim(python_version="3.11")
+    .apt_install("git")
     .pip_install(
+        "vllm==0.10.2",
+        "transformers==4.57.3",
+        "accelerate",
+        "sentencepiece",
+        "pandas",
         "pyyaml",
         "tqdm",
-        "numpy",
+        "ray",
     )
     .add_local_dir(REPO_ROOT / "HarmBench", remote_path="/root/HarmBench")
     .add_local_file(
@@ -22,20 +31,14 @@ image = (
     )
 )
 
-app = modal.App("harmbench-attack-generation", image=image)
+app = modal.App("harmbench-attack-generation-heavy", image=image)
 attack_cases_volume = modal.Volume.from_name("harmbench-attack-cases", create_if_missing=True)
 
 METHODS = {
-    "direct": ("DirectRequest", "default", "DirectRequest", "A10G"),
-    "human": ("HumanJailbreaks", "random_subset_5", "HumanJailbreaks", "A10G"),
     "pap": ("PAP", "top_5", "PAP-top5", "A100"),
     "gcg": ("GCG", "vicuna_7b_v1_5", "GCG-vicuna_7b_v1_5", "A100"),
     "autodan": ("AutoDAN", "vicuna_7b_v1_5", "AutoDAN-vicuna_7b_v1_5", "A100"),
-    "pair": ("PAIR", "vicuna_7b_v1_5", "PAIR-vicuna_7b_v1_5", "A100"),
-    "gptfuzz": ("GPTFuzz", "vicuna_7b_v1_5", "GPTFuzz-vicuna_7b_v1_5", "A100"),
 }
-
-LIGHTWEIGHT_METHODS = {"direct", "human"}
 
 
 @app.function(
@@ -44,12 +47,6 @@ LIGHTWEIGHT_METHODS = {"direct", "human"}
     volumes={"/outputs": attack_cases_volume},
 )
 def generate_attack(method_key: str):
-    if method_key not in LIGHTWEIGHT_METHODS:
-        raise ValueError(
-            f"{method_key} needs the heavy model-generation image. "
-            f"This lightweight runner supports: {sorted(LIGHTWEIGHT_METHODS)}"
-        )
-
     method_name, experiment_name, out_name, _gpu = METHODS[method_key]
     save_dir = f"/outputs/{out_name}"
 
@@ -63,16 +60,33 @@ def generate_attack(method_key: str):
         "--overwrite",
     ]
 
-    subprocess.run(cmd, cwd="/root/HarmBench", check=True)
+    result = subprocess.run(
+        cmd,
+        cwd="/root/HarmBench",
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+    )
+    print(result.stdout)
+    sys.stdout.flush()
+    if result.returncode != 0:
+        raise RuntimeError(
+            f"HarmBench exited with status {result.returncode}. "
+            "See subprocess output above."
+        )
     attack_cases_volume.commit()
     return save_dir
 
 
 @app.local_entrypoint()
-def main(method: str = "human"):
+def main(method: str = "pap"):
     if method not in METHODS:
         raise ValueError(f"Unknown method {method}. Choose from: {sorted(METHODS)}")
     save_dir = generate_attack.remote(method)
+    output_name = Path(save_dir).name
     print(f"Saved to Modal volume harmbench-attack-cases: {save_dir}")
     print("Download with:")
-    print(f"  modal volume get harmbench-attack-cases /{Path(save_dir).name} benchmarks/safety/attack_cases/{Path(save_dir).name}")
+    print(
+        "  modal volume get harmbench-attack-cases "
+        f"/{output_name} benchmarks/safety/attack_cases/{output_name}"
+    )
