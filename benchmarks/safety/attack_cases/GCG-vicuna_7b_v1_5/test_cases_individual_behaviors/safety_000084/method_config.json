@@ -1,0 +1,26 @@
+{
+    "num_test_cases_per_behavior": 1,
+    "num_steps": 10,
+    "adv_string_init": "! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! ! !",
+    "allow_non_ascii": false,
+    "search_width": 64,
+    "use_prefix_cache": false,
+    "targets_path": "/root/benchmarks/safety/safety_solver_targets.json",
+    "eval_steps": 5,
+    "early_stopping": false,
+    "early_stopping_min_loss": 0.05,
+    "eval_with_check_refusal": true,
+    "check_refusal_min_loss": 0.05,
+    "target_model": {
+        "model_name_or_path": "lmsys/vicuna-7b-v1.5",
+        "use_fast_tokenizer": false,
+        "dtype": "float16",
+        "chat_template": "vicuna"
+    },
+    "dependencies": {
+        "transformers": "4.56.1",
+        "vllm": "0.10.2",
+        "ray": "2.49.1",
+        "fastchat": "0.2.36"
+    }
+}
