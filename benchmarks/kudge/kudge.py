@@ -38,8 +38,10 @@ import modal
 import numpy as np
 
 # ---------------------------------------------------------------------------
-# Modal image & app
+# Modal images & app
 # ---------------------------------------------------------------------------
+
+_llm_client = Path(__file__).parent.parent / "llm_client.py"
 
 image = (
     modal.Image.debian_slim(python_version="3.11")
@@ -48,11 +50,27 @@ image = (
         "openai>=1.30",
         "numpy>=1.24",
     )
-    .add_local_file(
-        Path(__file__).parent.parent / "llm_client.py",
-        remote_path="/root/llm_client.py",
-    )
+    .add_local_file(_llm_client, remote_path="/root/llm_client.py")
 )
+
+hf_image = (
+    modal.Image.debian_slim(python_version="3.11")
+    .pip_install(
+        "torch>=2.4",
+        "transformers==5.9.0",
+        "accelerate>=1.0",
+        "safetensors>=0.4.3",
+        "sentencepiece>=0.2.0",
+        "torchvision",
+        "pillow",
+        "mistral-common>=1.8.6",
+        "kernels",
+        "numpy>=1.24",
+    )
+    .add_local_file(_llm_client, remote_path="/root/llm_client.py")
+)
+
+hf_cache = modal.Volume.from_name("hf-cache", create_if_missing=True)
 
 app = modal.App("kudge", image=image)
 
@@ -62,8 +80,10 @@ app = modal.App("kudge", image=image)
 
 DATASET_ID = "amphora/kudge-challenge"
 DEFAULT_MODEL = "gpt-5.4-nano"
-KOREAN_SUBSETS = frozenset({"Korean-Easy"})
+KOREAN_SUBSETS = frozenset({"Korean-Hard"})
 TEST_LIMIT: int | None = None  # set to None to run all items
+
+GROUNDTRUTH_PATH = Path(__file__).parent / "kudge_korean_hard_groundtruth_labels.json"
 
 
 def _model_slug(model: str) -> str:
@@ -127,20 +147,13 @@ def fetch_items() -> list[dict]:
 
 
 # ---------------------------------------------------------------------------
-# Modal function: score one item (runs in cloud; needs `openai` package)
+# Modal functions: score one item
 # ---------------------------------------------------------------------------
 
-@app.function(
-    image=image,
-    secrets=[modal.Secret.from_name("openai-secret")],
-    retries=2,
-    timeout=120,
-)
-def score_item(item: dict) -> dict:
-    """Query an OpenAI model on one KUDGE item; return correctness metadata."""
+def _score_item_impl(item: dict) -> dict:
     from llm_client import query_model
 
-    gold = _gold_letter(item["chosen"])
+    gold = item.get("groundtruth_answer") or _gold_letter(item["chosen"])
     model = item["model"]
 
     # IMPORTANT: this prompting strategy is not directly from the paper, but
@@ -163,6 +176,26 @@ def score_item(item: dict) -> dict:
     }
 
 
+@app.function(
+    image=image,
+    secrets=[modal.Secret.from_name("openai-secret")],
+    retries=2,
+    timeout=120,
+)
+def score_item(item: dict) -> dict:
+    return _score_item_impl(item)
+
+
+@app.function(
+    image=hf_image,
+    gpu="H100",
+    volumes={"/root/.cache/huggingface": hf_cache},
+    timeout=600,
+)
+def score_item_hf(item: dict) -> dict:
+    return _score_item_impl(item)
+
+
 # ---------------------------------------------------------------------------
 # Local entrypoint
 # ---------------------------------------------------------------------------
@@ -172,15 +205,26 @@ def main(model: str = DEFAULT_MODEL) -> None:
     out_path, out_jsonl = _out_paths(model)
     print(f"Model: {model}  (slug: {_model_slug(model)})")
 
+    groundtruth: dict[str, str] = {}
+    if GROUNDTRUTH_PATH.exists():
+        with GROUNDTRUTH_PATH.open(encoding="utf-8") as fh:
+            for entry in json.load(fh):
+                groundtruth[str(entry["id"])] = entry["groundtruth_answer"]
+
     items = fetch_items.remote()
     for item in items:
         item["model"] = model
+        if item["subset"] == "Korean-Hard" and item["id"] in groundtruth:
+            item["groundtruth_answer"] = groundtruth[item["id"]]
     n = len(items)
     print(f"Loaded {n} Korean items  "
           f"(Easy={sum(1 for x in items if x['subset']=='Korean-Easy')}, "
           f"Hard={sum(1 for x in items if x['subset']=='Korean-Hard')})")
 
-    results = list(score_item.map(items, order_outputs=True))
+    resolved = re.sub(r"[^a-z0-9.\-]", "", model.lower())
+    is_api = resolved.startswith(("gpt-", "o1", "o2", "o3", "o4", "chatgpt-", "claude-"))
+    scorer = score_item if is_api else score_item_hf
+    results = list(scorer.map(items, order_outputs=True))
 
     responses = np.array([r["correct"] for r in results], dtype=np.int8)
     response_matrix = responses.reshape(1, -1)  # (1, n_items)
