@@ -42,6 +42,7 @@ app = modal.App("safety-hf", image=image)
 DEFAULT_INPUT_PATH = Path(__file__).parent / "safety_solver.json"
 DEFAULT_MODEL = "qwen3.5-0.8b"
 DEFAULT_LIMIT = -1
+DEFAULT_TARGET_MODEL_NAME = ""
 
 
 def _slug(value: str) -> str:
@@ -55,6 +56,32 @@ def _default_output_paths(model_id: str) -> tuple[Path, Path]:
         out_dir / f"safety_solver_{slug}_responses.jsonl",
         out_dir / f"safety_solver_{slug}.json",
     )
+
+
+def _default_target_model_name(model_id: str) -> str:
+    normalized = model_id.lower()
+    if "qwen" in normalized:
+        return "Qwen"
+    if "mistral" in normalized or "ministral" in normalized:
+        return "Mistral"
+    return model_id
+
+
+def _retarget_prompt(prompt: str, target_model_name: str) -> str:
+    if not target_model_name:
+        return prompt
+    return re.sub(
+        r"\bvicuna(?:\s*[-_ ]\s*\d+b)?(?:\s*[-_ ]\s*v?\d+(?:[._]\d+)*)?\b",
+        target_model_name,
+        prompt,
+        flags=re.IGNORECASE,
+    )
+
+
+def _retarget_items(items: list[dict], target_model_name: str) -> None:
+    for item in items:
+        prompt = str(item.get("harmful_prompt", ""))
+        item["harmful_prompt"] = _retarget_prompt(prompt, target_model_name)
 
 
 def _read_json_list(path: Path) -> list[dict]:
@@ -135,6 +162,16 @@ def run_prompt_h100(item: dict) -> dict:
     return _run_prompt_impl(item)
 
 
+@app.function(
+    image=image,
+    gpu="B200",
+    volumes={"/root/.cache/huggingface": hf_cache},
+    timeout=1200,
+)
+def run_prompt_b200(item: dict) -> dict:
+    return _run_prompt_impl(item)
+
+
 @app.local_entrypoint()
 def main(
     model: str = DEFAULT_MODEL,
@@ -145,11 +182,13 @@ def main(
     max_tokens: int = 256,
     temperature: float = 0.0,
     gpu: str = "A10G",
+    target_model_name: str = DEFAULT_TARGET_MODEL_NAME,
 ) -> None:
     from benchmarks.llm_client import resolve_model_alias
 
     model_id = resolve_model_alias(model)
     input_file = Path(input_path)
+    resolved_target_model_name = target_model_name.strip() or _default_target_model_name(model_id)
     out_jsonl, out_json = _default_output_paths(model_id)
     if output_jsonl:
         out_jsonl = Path(output_jsonl)
@@ -157,6 +196,7 @@ def main(
         out_json = Path(output_json)
 
     all_items, loaded_from = _load_all_items(input_file, out_json)
+    _retarget_items(all_items, resolved_target_model_name)
     items = _pending_items(all_items, limit=limit)
 
     print(f"Model alias: {model}")
@@ -166,9 +206,9 @@ def main(
     print(f"Output JSON: {out_json}")
     print(f"Limit      : {limit}")
     print(f"GPU        : {gpu}")
+    print(f"Retarget   : Vicuna -> {resolved_target_model_name}")
     if items:
         print(f"First pending index: {items[0]['_input_index']}")
-        print(f"First pending prompt: {items[0]['harmful_prompt'][:160]}")
     for item in items:
         item["model_id"] = model_id
         item["max_tokens"] = max_tokens
@@ -179,7 +219,17 @@ def main(
         return
 
     print(f"Running {len(items)} prompt(s)...")
-    run_function = run_prompt_h100 if gpu.upper() == "H100" else run_prompt_a10g
+    gpu_functions = {
+        "A10G": run_prompt_a10g,
+        "H100": run_prompt_h100,
+        "B200": run_prompt_b200,
+    }
+    try:
+        run_function = gpu_functions[gpu.upper()]
+    except KeyError as exc:
+        supported = ", ".join(sorted(gpu_functions))
+        raise ValueError(f"Unsupported GPU {gpu!r}. Choose one of: {supported}") from exc
+
     results = list(run_function.map(items, order_outputs=True))
 
     out_jsonl.parent.mkdir(parents=True, exist_ok=True)

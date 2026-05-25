@@ -1,0 +1,31 @@
+{
+  "PAP": {
+    "rows": 117,
+    "status": "written",
+    "source": "/Users/dkoffical/Documents/GitHub/cs321m_project/benchmarks/safety/attack_cases/PAP-top5"
+  },
+  "PAIR": {
+    "rows": 117,
+    "status": "written",
+    "source": "/Users/dkoffical/Documents/GitHub/cs321m_project/benchmarks/safety/attack_cases/PAIR-vicuna_7b_v1_5"
+  },
+  "GPTFuzzer": {
+    "rows": 0,
+    "status": "missing"
+  },
+  "DAN": {
+    "rows": 117,
+    "status": "written",
+    "source": "HarmBench DAN human-jailbreak template"
+  },
+  "AutoDAN": {
+    "rows": 117,
+    "status": "written",
+    "source": "/Users/dkoffical/Documents/GitHub/cs321m_project/benchmarks/safety/attack_cases/AutoDAN-vicuna_7b_v1_5"
+  },
+  "GCG": {
+    "rows": 117,
+    "status": "written",
+    "source": "/Users/dkoffical/Documents/GitHub/cs321m_project/benchmarks/safety/attack_cases/GCG-vicuna_7b_v1_5"
+  }
+}

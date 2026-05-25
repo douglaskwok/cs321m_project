@@ -20,12 +20,12 @@ HF_MODEL_ALIASES = {
     "qwen3.5-0.8b": "Qwen/Qwen3.5-0.8B",
     "qwen-3.5-0.8b": "Qwen/Qwen3.5-0.8B",
     "qwen35-0.8b": "Qwen/Qwen3.5-0.8B",
-    "mistral-14b": "mistralai/Ministral-3-14B-Instruct-2512",
-    "ministral-14b": "mistralai/Ministral-3-14B-Instruct-2512",
-    "mistral-8b": "mistralai/Ministral-3-8B-Instruct-2512",
-    "ministral-8b": "mistralai/Ministral-3-8B-Instruct-2512",
-    "mistral-3b": "mistralai/Ministral-3-3B-Instruct-2512",
-    "ministral-3b": "mistralai/Ministral-3-3B-Instruct-2512",
+    "mistral-14b": "mistralai/Ministral-3-14B-Instruct-2512-BF16",
+    "ministral-14b": "mistralai/Ministral-3-14B-Instruct-2512-BF16",
+    "mistral-8b": "mistralai/Ministral-3-8B-Instruct-2512-BF16",
+    "ministral-8b": "mistralai/Ministral-3-8B-Instruct-2512-BF16",
+    "mistral-3b": "mistralai/Ministral-3-3B-Instruct-2512-BF16",
+    "ministral-3b": "mistralai/Ministral-3-3B-Instruct-2512-BF16",
 }
 
 
@@ -67,7 +67,11 @@ def _load_hf_model(model: str):
         from transformers import FineGrainedFP8Config, Mistral3ForConditionalGeneration, MistralCommonBackend
 
         tokenizer = MistralCommonBackend.from_pretrained(model)
-        if torch.cuda.is_available() and torch.cuda.get_device_capability()[0] < 9:
+        if (
+            torch.cuda.is_available()
+            and torch.cuda.get_device_capability()[0] < 9
+            and not model.endswith("-BF16")
+        ):
             model_kwargs["quantization_config"] = FineGrainedFP8Config(dequantize=True)
         hf_model = Mistral3ForConditionalGeneration.from_pretrained(model, **model_kwargs)
         hf_model.eval()

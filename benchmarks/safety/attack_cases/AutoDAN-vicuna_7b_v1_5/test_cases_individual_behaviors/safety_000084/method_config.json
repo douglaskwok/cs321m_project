@@ -1,0 +1,30 @@
+{
+    "num_steps": 20,
+    "eval_steps": 5,
+    "num_test_cases_per_behavior": 1,
+    "batch_size": 16,
+    "num_elites": 0.1,
+    "crossover": 0.5,
+    "num_points": 5,
+    "mutation": 0.01,
+    "eval_with_check_refusal": true,
+    "targets_path": "/root/benchmarks/safety/safety_solver_targets.json",
+    "mutate_model": {
+        "model_name_or_path": "mistralai/Mistral-7B-Instruct-v0.2",
+        "use_vllm": true,
+        "num_gpus": 1,
+        "dtype": "bfloat16"
+    },
+    "target_model": {
+        "model_name_or_path": "lmsys/vicuna-7b-v1.5",
+        "use_fast_tokenizer": false,
+        "use_flash_attention_2": true,
+        "chat_template": "vicuna"
+    },
+    "dependencies": {
+        "transformers": "4.56.1",
+        "vllm": "0.10.2",
+        "ray": "2.49.1",
+        "fastchat": "0.2.36"
+    }
+}
