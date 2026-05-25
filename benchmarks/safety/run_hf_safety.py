@@ -70,8 +70,14 @@ def _default_target_model_name(model_id: str) -> str:
 def _retarget_prompt(prompt: str, target_model_name: str) -> str:
     if not target_model_name:
         return prompt
-    return re.sub(
+    prompt = re.sub(
         r"\bvicuna(?:\s*[-_ ]\s*\d+b)?(?:\s*[-_ ]\s*v?\d+(?:[._]\d+)*)?\b",
+        target_model_name,
+        prompt,
+        flags=re.IGNORECASE,
+    )
+    return re.sub(
+        r"\bchat\s*gpt\b|\bchatgpt\b|\bgpt\b(?![-\s]?\d)",
         target_model_name,
         prompt,
         flags=re.IGNORECASE,
