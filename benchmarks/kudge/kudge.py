@@ -125,7 +125,7 @@ def _gold_letter(chosen: str) -> str:
 # Modal function: load dataset (runs in cloud; needs `datasets` package)
 # ---------------------------------------------------------------------------
 
-@app.function(image=image, secrets=[modal.Secret.from_name("hf-secret")])
+@app.function(image=image)
 def fetch_items() -> list[dict]:
     """Download KUDGE Challenge and return all Korean-subset rows."""
     from datasets import load_dataset
@@ -179,7 +179,6 @@ def _score_item_impl(item: dict) -> dict:
 
 @app.function(
     image=image,
-    secrets=[modal.Secret.from_name("openai-secret"), modal.Secret.from_name("anthropic-secret")],
     retries=2,
     timeout=120,
 )
@@ -191,7 +190,6 @@ def score_item(item: dict) -> dict:
     image=hf_image,
     gpu="A10G",
     volumes={"/root/.cache/huggingface": hf_cache},
-    secrets=[modal.Secret.from_name("hf-secret")],
     retries=2,
     timeout=1200,
 )
@@ -203,11 +201,21 @@ def score_item_hf_a10g(item: dict) -> dict:
     image=hf_image,
     gpu="H100",
     volumes={"/root/.cache/huggingface": hf_cache},
-    secrets=[modal.Secret.from_name("hf-secret")],
     retries=2,
     timeout=1200,
 )
 def score_item_hf_h100(item: dict) -> dict:
+    return _score_item_impl(item)
+
+
+@app.function(
+    image=hf_image,
+    gpu="B200",
+    volumes={"/root/.cache/huggingface": hf_cache},
+    retries=2,
+    timeout=1200,
+)
+def score_item_hf_b200(item: dict) -> dict:
     return _score_item_impl(item)
 
 
@@ -246,7 +254,7 @@ def main(model: str = DEFAULT_MODEL) -> None:
     elif is_mistral or is_large_hf:
         scorer = score_item_hf_h100
     else:
-        scorer = score_item_hf_a10g
+        scorer = score_item_hf_b200
 
     results = []
     out_jsonl.parent.mkdir(parents=True, exist_ok=True)

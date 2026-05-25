@@ -1,0 +1,538 @@
+question_index,original_ids,source,in_claude,in_gpt,claude_pair_ids,gpt_pair_ids,claude_labels,gpt_labels,question
+1,2826,mmlu-pro-biology,True,True,9461f002-1439-51fd-9531-36f752f3f1e4,a3f45559-827d-53c5-9f1b-200ea1876ac8,B>A,B>A,"A gene C mutates to c with a frequency of 2 × 10^-6 per generation. There are no other forces acting on these alleles and mating is random. How many generations are needed to increase the frequency of gene c from 2 percent to 3 percent?
+(A) 2,500 generations
+(B) 6,200 generations
+(C) 15,000 generations
+(D) 8,764 generations
+(E) 10,000 generations
+(F) 20,000 generations
+(G) 3,000 generations
+(H) 1,000 generations
+(I) 7,500 generations
+(J) 5,128 generations
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+4,2934,mmlu-pro-biology,True,True,8fc8e1f1-e82e-5c20-822c-af0e60866580,6c5f9b09-193f-5070-9dfd-2dee1f69a9a3,A>B,B>A,"A stem-boring beetle has laid its eggs in the center of a 5-year-old wood twig, and the eggs have matured into larvae. In proper order (inside to outside), what tissues and tissue regions would the larvae encounter as they eat their way toward the outside of the twig? (For simplicity, assume that the epidermis has already fallen off completely.)
+(A) Pith; primary xylem; secondary xylem; vascular cambium; primary phloem; secondary phloem; cortex
+(B) Pith; primary xylem; vascular cambium; secondary xylem; primary phloem; secondary phloem; cortex
+(C) Pith; secondary xylem; primary xylem; vascular cambium; primary phloem; secondary phloem; cortex
+(D) Pith; vascular cambium; primary xylem; secondary xylem; primary phloem; secondary phloem; cortex
+(E) Pith; primary xylem; secondary xylem; vascular cambium; primary phloem; cortex; secondary phloem
+(F) Pith; primary xylem; secondary xylem; vascular cambium; secondary phloem; primary phloem; cortex
+(G) Pith; secondary xylem; primary xylem; vascular cambium; secondary phloem; primary phloem; cortex
+(H) Pith; secondary xylem; vascular cambium; primary xylem; secondary phloem; primary phloem; cortex
+(I) Vascular cambium; primary xylem; secondary xylem; pith; secondary phloem; primary phloem; cortex
+(J) Pith; primary xylem; vascular cambium; secondary xylem; secondary phloem; primary phloem; cortex
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+6,3122,mmlu-pro-biology,True,True,0f080546-ca02-545b-a1f0-c626bb610a2a,14d2e455-2416-5cd3-8913-8f833aeab1b2,B>A,B>A,"Gene flow between populations results in
+(A) disruption of Hardy-Weinberg equilibrium in the metapopulation
+(B) an increased likelihood of speciation
+(C) a decrease in the likelihood of speciation
+(D) an increased likelihood of genetic drift in the metapopulation
+(E) a decrease in genetic diversity in the metapopulation
+(F) an increase in the rate of genetic diseases in the metapopulation
+(G) an increase in the rate of deleterious mutations in the metapopulation
+(H) an increase in genetic homogeneity in the metapopulation
+(I) a decrease in the rate of beneficial mutations in the metapopulation
+(J) stabilization of Hardy-Weinberg equilibrium in the metapopulation
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+9,3250,mmlu-pro-biology,True,True,e82d2ea3-2496-5b19-a2e2-a15fe6d57534,49c0f568-1ac2-53dc-be78-f3eea93820fd,B>A,A>B,"Arthropods have an exoskeleton. How is movement accomplished?
+(A) They use their wings to move
+(B) They move by changing the shape of their exoskeleton
+(C) They use cilia on the surface of their exoskeleton to move
+(D) They move due to their muscular system
+(E) They have a soft, pliable inner layer that bends to facilitate movement
+(F) Movement is achieved through hydraulic pressure changes within each segment
+(G) They release a special fluid that lubricates the joints of the exoskeleton for movement
+(H) The exoskeleton contracts and expands allowing for movement
+(I) Movement is achieved by the exoskeleton splitting and reforming in new positions
+(J) The body is segmented and the segments are joined by a thin layer of flexible chitin
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+10,3257,mmlu-pro-biology,True,True,1a5432b2-ca09-5833-8909-bf891a3c22e9,df6e9ec0-0bd1-51ec-a81f-3a58cc415253,B>A,B>A,"Howarethe type of muscle tissues differentiated?
+(A) Muscle tissues are differentiated by the presence or absence of striations under a microscope
+(B) Muscle tissues are differentiated by the types of hormones they respond to
+(C) Muscle tissues are differentiated by their color under standard lighting conditions
+(D) Muscle tissues are differentiated by their size and shape
+(E) Muscle tissues are differentiated by their ability to produce electrical impulses
+(F) Muscle tissues are differentiated by their ability to heal and regenerate
+(G) Muscle tissues are differentiated by the number of nuclei per cell
+(H) Muscle tissues are differentiated by the speed of contraction and relaxation
+(I) Muscle tissues are differentiated by their location in the body
+(J) Skeletal muscle is responsible for most voluntary movements, smooth muscle is involved in most involuntary movements of internal organs, and cardiac muscle is the tissue of which much of the heart wall is composed.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+14,3435,mmlu-pro-biology,True,True,7269c247-cd48-5ed3-a77f-f028e773d7f4,52dc37ec-fb24-59d8-9390-53185cb0c6d1,A>B,A>B,"Which of the following about meiosis is NOT true?
+(A) Meiosis produces two haploid gametes.
+(B) Homologous chromosomes join during synapsis.
+(C) Sister chromatids separate during meiosis I.
+(D) Crossing-over increases genetic variation in gametes.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+49,4381,mmlu-pro-chemistry,True,True,fa4a7de8-dc94-51c2-af35-9a2a2feb9439,cd01c08e-2906-5d2a-b3d8-3d3425f397db,A>B,A>B,"Skeletal muscle contains about 5 × 10^-6 mole of ATP and (30 × 10^-6) mole of phosphocreatine per gram wet weight. Calculate how much work (in calories) a 400\rule{1em}{1pt}gram muscle can theoretically carry out at the expense of its high- energy phosphate bonds alone, assuming that both glycolysis and respiration are inhibited.
+(A) 90 cal
+(B) 138.2 cal
+(C) 75 cal
+(D) 165 cal
+(E) 120 cal
+(F) 100 cal
+(G) 110 cal
+(H) 150 cal
+(I) 180 cal
+(J) 200 cal
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+53,4471,mmlu-pro-chemistry,True,True,dc1df9a6-ac72-5834-bf91-c324da3d88ed,ea56946d-14fb-5016-9550-1216f26856f5,B>A,A>B,"Clay contains 30 % AI_2 O_3, 55 % SiO_2, and 15 % H_2 O. What weight of limestone is required per ton of clay to carry out the following chemical change? 6CaCO_3 + AI_2O_3 + SiO_2\rightarrow3CaO\bulletAl_2 O_3 + 3CaO\bulletSiO_2 + 6CO_2. (limestone)
+(A) 4.80 × 10^6 grams of CaCO_3
+(B) 1.00 × 10^6 grams of CaCO_3
+(C) 3.30 × 10^6 grams of CaCO_3
+(D) 1.60 × 10^6 grams of CaCO_3
+(E) 2.20 × 10^6 grams of CaCO_3
+(F) 2.67 × 10^3 grams of CaCO_3
+(G) 5.00 × 10^5 grams of CaCO_3
+(H) 9.50 × 10^5 grams of CaCO_3
+(I) 1.25 × 10^4 grams of CaCO_3
+(J) 8.32 × 10^3 grams of CaCO_3
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+69,10608,mmlu-pro-computer science,True,True,84c8ebef-336e-50d8-9986-9db880d844f3,799a7559-a3b1-5dc3-bec3-54d5e930fd24,B>A,A>B,"Suppose the codeword that we use to describe a random variable X always starts with a symbol chosen from the set {7, 8, 9} , followed by binary digits {0, 1}. Thus we have a ternary code for the first symbol and binary thereafter. Give the optimal uniquely decodeable code (minimum expected number of symbols) for the probability distribution $p = (16/69, 15/69, 12/69, 10/69, 8/69, 8/69)$.
+(A) [7, 8, 9, 73, 83, 93]
+(B) [7, 8, 9, 71, 81, 91]
+(C) [7, 8, 9, 710, 810, 910]
+(D) [7, 8, 9, 70, 80, 90]
+(E) [7, 8, 9, 700, 800, 900]
+(F) [7, 8, 9, 74, 84, 94]
+(G) [7, 8, 9, 77, 87, 97]
+(H) [7, 8, 9, 75, 85, 95]
+(I) [7, 8, 9, 72, 82, 92]
+(J) [7, 8, 9, 76, 86, 96]
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+70,10610,mmlu-pro-computer science,True,True,76eabdfb-15f8-5b97-907e-85149dfc2983,9e079604-2288-52ba-9d89-4868ccd34200,B>A,A>B,"A TCP entity sends 6 segments across the Internet. The measured round-trip times (RTTM) for the 6 segments are 68ms, 42ms, 65ms, 80ms, 38ms, and 75ms, respectively. Assume that the smooth averaged RTT (RTTs) and Deviation (RTTD) was respectively 70ms and 10ms just before the first of these six samples. According to the Jacobson's algorithm, the retransmission timeout (RTO) is given by one RTTs plus 4 times the value of RTTD. Determine the value of RTO (in ms) after the six segments using the Jacobson's algorithm if the exponential smoothing parameters (a and B) are 0.15 and 0.2 for calculating RTTs and RTTD respectively.
+(A) 140.00
+(B) 97.56
+(C) 114.28
+(D) 138.32
+(E) 150.34
+(F) 130.45
+(G) 120.48
+(H) 110.22
+(I) 105.62
+(J) 125.78
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+75,10716,mmlu-pro-computer science,True,True,b29adb50-ba02-5a98-8811-300f49fb8aa2,754b1cf8-067c-513f-a0d3-c8bd401e8afb,B>A,B>A,"A sorted list of 120 integers is to be searched to determine whether the value 100 is in the list. Assuming that the most efficient searching algorithm is used, what is the maximum number of elements that must be examined?
+(A) 100
+(B) 30
+(C) 120
+(D) 10
+(E) 8
+(F) 7
+(G) 15
+(H) 12
+(I) 20
+(J) 60
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+79,6956,mmlu-pro-economics,True,True,1ecf95ed-55a1-56b0-9971-13dbe52bcc84,ba87d469-ec2e-5a8f-95e8-b3065f20b584,A>B,A>B,"In what ways is contractionary fiscal policy in the United States likely to affect domestic interest rates and the international value of the dollar?
+(A) Interest rates increase and the dollar depreciates.
+(B) Interest rates remain the same and the dollar depreciates.
+(C) Interest rates decrease and the dollar appreciates.
+(D) Interest rates and the value of the dollar both remain the same.
+(E) Interest rates increase but the value of the dollar remains the same.
+(F) Interest rates remain the same and the dollar appreciates.
+(G) There is no predictable effect on either interest rates or the value of the dollar.
+(H) Interest rates decrease and the dollar depreciates.
+(I) Interest rates increase and the dollar appreciates.
+(J) Interest rates decrease but the value of the dollar remains the same.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+81,7024,mmlu-pro-economics,True,True,f1891276-ff88-5171-8720-61908bff5e77,aaf21925-4fcc-5841-b6e5-9afdf75a3b2e,B>A,B>A,"When the capital/output ratio for the annual output is 2, what isit for quarterly output?
+(A) 10
+(B) 5
+(C) 0.5
+(D) 3
+(E) 2
+(F) 4
+(G) 7
+(H) 1
+(I) 6
+(J) 8
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+86,7403,mmlu-pro-economics,True,True,d956ee41-b3b1-52d5-ad3c-787d7d71a574,07019bab-fc3e-5c91-ac9c-36869cfe79b0,B>A,B>A,"What is a margin requirement?
+(A) The financial reserve a trader must maintain to cover potential losses on leveraged positions
+(B) Percentage of the value of a stock purchase required to be paid immediately
+(C) The maximum percentage of a portfolio that can be invested in a single stock
+(D) The total cost of a stock purchase
+(E) The commission fee paid to a broker for executing a stock trade
+(F) The minimum number of shares required to be purchased in a stock transaction
+(G) The profit margin that a company must maintain on its stock price
+(H) The amount of money required to open a stock account
+(I) The interest rate on a stock purchase
+(J) The insurance premium for protecting a stock portfolio against losses
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+88,7450,mmlu-pro-economics,True,True,3be7f975-9f0b-51d0-a360-9dc7487e8f4f,f805817d-968d-5b0b-a2b2-4c62c9b848d3,A>B,A>B,"If the standard tools for time-series analysis, such as estimation of the acf, pacf and spectral analysis, find no evidence of structure in the data, this implies that the data are which of the following?
+(A) Multivariate
+(B) Normally distributed
+(C) Bimodal
+(D) Negatively skewed
+(E) Independent
+(F) Fat-tailed
+(G) Non-stationary
+(H) Uncorrelated
+(I) Stationary
+(J) Positively skewed
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+93,7623,mmlu-pro-economics,True,True,e07001e9-2961-50e0-99b8-4d3433716c65,3c6f3a85-c058-543a-8226-852972410970,A>B,B>A,"Households demand more money as an asset when
+(A) the demand for goods and services decreases.
+(B) the stock market crashes.
+(C) bond prices fall.
+(D) the nominal interest rate falls.
+(E) the unemployment rate rises.
+(F) the supply of bonds increases.
+(G) nominal GDP falls.
+(H) the inflation rate rises.
+(I) the supply of money falls.
+(J) real GDP falls.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+104,11712,mmlu-pro-engineering,True,True,d3bd3ea3-22ed-5a6f-bbbe-5c0cae8e0b59,3239d81d-8220-5b81-99e0-1b7a470df3be,A>B,A>B,"A pair of mating spur gears increases the speed of the shaft approximately by 4 times. Thediametralpitch for the gear is 8 in. and it is desired that the center distance be approximately 12 in. Determine the actual velocity ratio and the center distance for the gears.
+(A) V_R = 4.5, C_d = 12.5 in.
+(B) V_R = 3.948, C_d = 14 in.
+(C) V_R = 4.2, C_d = 13 in.
+(D) V_R = 3.2, C_d = 12.2 in.
+(E) V_R = 3.948, C_d = 12 in.
+(F) V_R = 3.5, C_d = 11 in.
+(G) V_R = 4.05, C_d = 11.5 in.
+(H) V_R = 3.85, C_d = 13.5 in.
+(I) V_R = 4.8, C_d = 24 in.
+(J) V_R = 2.948, C_d = 10 in.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+106,11985,mmlu-pro-engineering,True,True,6c214deb-96b4-5152-801c-7b296182273e,c1891f8b-2cce-52b7-868c-6c072e79701e,B>A,A>B,"Two identical blocks of aluminum are initially at 1300°K and 400°K respectively. The two blocks are then brought into thermal communication and they attain the same temperature. Assuming that the specific heat of aluminum is 0.9 kJ/kg - °K, calculate the irreversibility of the process if the mass of each of the blocks is 5 kgs.
+(A) 441.1 kJ
+(B) 750 kJ
+(C) 620 kJ
+(D) 399.9 kJ
+(E) 320.5 kJ
+(F) 275 kJ
+(G) 367.5 kJ
+(H) 490 kJ
+(I) 550 kJ
+(J) 505.5 kJ
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+107,12029,mmlu-pro-engineering,True,True,ece3a0f2-2145-5edd-a6bf-7f92dcc4d03b,3be26fc0-ead5-5d0f-8c87-2feb0524e902,B>A,B>A,"(a) A mixture of air and water vapor is passing over a flat plate 2 ft long at a rate of 210 ft/sec at 1atmand 75°F. Determine the mass transfer coefficient of water vapor in air if the flow is turbulent and the concentration of water vapor in air is very low (i.e.,P_bm/ P \approx 1). (b) Find the mass transfer coefficient of water vapor in air when the mixture is passing over a sphere 3 in.indiameter. Assume all other conditions to be same as in part (a).
+(A) 0.600 ft/sec for flat plate, 0.300 ft/sec for sphere
+(B) 0.516 ft/sec for flat plate, 0.25 ft/sec for sphere
+(C) 0.25 ft/sec for flat plate, 0.516 ft/sec for sphere
+(D) 0.400 ft/sec for flat plate, 0.200 ft/sec for sphere
+(E) 0.312 ft/sec for flat plate, 0.156 ft/sec for sphere
+(F) 0.25 ft/sec for both flat plate and sphere
+(G) 0.156 ft/sec for flat plate, 0.312 ft/sec for sphere
+(H) 0.516 ft/sec for both flat plate and sphere
+(I) 0.450 ft/sec for flat plate, 0.225 ft/sec for sphere
+(J) 0.225 ft/sec for flat plate, 0.450 ft/sec for sphere
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+112,12212,mmlu-pro-engineering,True,True,b32d38b3-0ead-582d-b906-1f620006ee98,c7bb7c2b-6fb2-5254-a773-9046ca946006,B>A,A>B,"A 125/250-volt three-wire system has a load on the positive side of 500 amp, on the negative side of 450 amp, the neutral current therefore being 50 amp. If each machine of the balancer set has an efficiency of 86 percent, calculate the current for each of these machines and for the main generator.
+(A) I_g= 25 amp, I_m= 30 amp, I of main generator = 490 amp
+(B) I_g= 15 amp, I_m= 20 amp, I of main generator = 465 amp
+(C) I_g= 24 amp, I_m= 31 amp, I of main generator = 481 amp
+(D) I_g= 20 amp, I_m= 25 amp, I of main generator = 480 amp
+(E) I_g= 18 amp, I_m= 32 amp, I of main generator = 468 amp
+(F) I_g= 19.5 amp, I_m= 30.5 amp, I of main generator = 469.5 amp
+(G) I_g= 22.5 amp, I_m= 27.5 amp, I of main generator = 475 amp
+(H) I_g= 23 amp, I_m= 26 amp, I of main generator = 476 amp
+(I) I_g= 17 amp, I_m= 33 amp, I of main generator = 467 amp
+(J) I_g= 21.26 amp, I_m= 28.74 amp, I of main generator = 478.74 amp
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+122,6311,mmlu-pro-health,True,True,575b2175-e75b-5f1a-ba75-8fa7a1e44f90,d61248f3-8e80-5097-8892-10c086a492d2,B>A,B>A,"A couple comes for preconceptional genetic counseling because they both have a family history of α-thalassemia. The woman has a minimally decreased hemoglobin concentration. Genetic studies show a single gene deletion. The man has microcytic anemia and a two-gene deletion. If the two-gene deletion is in trans (one deletion on the maternal gene and one deletion on the paternal gene), which of the following percentages of their offspring will have a two-gene deletion?
+(A) 75%
+(B) 50%
+(C) 20%
+(D) 80%
+(E) 10%
+(F) 0%
+(G) 66%
+(H) 33%
+(I) 25%
+(J) 100%
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+128,6643,mmlu-pro-health,True,True,cba66923-b65f-566a-a766-03039fe2345c,a1b1ff8a-eae1-5c68-b5b1-4d50cb2afc17,B>A,A>B,"What is the most common way for a virus to kill a cell?
+(A) Directly destroys the cell nucleus
+(B) Fragments cellular DNA
+(C) Depletes the cell's energy resources
+(D) Changes the cell's genetic code
+(E) Dissolves the cellular membrane
+(F) Prevents cell division by blocking mitosis
+(G) Introduces toxic substances into the cell
+(H) Causes the cell to explode through rapid replication
+(I) Induces apoptosis via caspases
+(J) Totally blocks cellular transcription
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+130,6742,mmlu-pro-health,True,True,c42511bf-0b43-5395-8a2b-f8748c6afdbf,ca91b783-54e9-5fb6-9c30-a7ebf3ee7258,A>B,A>B,"Laryngoscopic examination of the vocal folds after suspected recurrent laryngeal nerve damage usually shows that the vocal fold on the injured side is tensed and in an intermediate position between adduction and abduction. This is because
+(A) Both cricothyroid and interarytenoid muscles are fully active.
+(B) Cricothyroid muscle is weak but the interarytenoids are paralyzed.
+(C) cricothyroid muscle is paralyzed but the interarytenoids are fully active.
+(D) cricothyroid muscle is paralyzed but the interarytenoids are weak.
+(E) Cricothyroid muscle is weak but the interarytenoids are fully active.
+(F) cricothyroid muscle is still functional but the interarytenoid muscles are fully active.
+(G) Interarytenoid muscles are still functional but the cricothyroid is weak.
+(H) Both cricothyroid and interarytenoid muscles are paralyzed.
+(I) cricothyroid muscle is still functional but the interarytenoids are weak.
+(J) Interarytenoid muscles are still functional but the cricothyroid is fully active.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+144,4951,mmlu-pro-history,True,True,b25fc0d7-ca58-58c8-9430-0a2943209f95,f7dc91ae-4e50-51e8-aa72-34723a3b4c85,A>B,A>B,"This question refers to the following information.
+Bonesteel's prime consideration was to establish a surrender zone as far north as he thought the Soviets would accept. He knew that the Russian troops could reach the southern tip of Korea before American troops could arrive. He also knew that the Russians were on the verge of moving into Korea, or were already there. The nearest American troops to Korea were on Okinawa, 600 miles away. His problem, therefore, was to compose a surrender arrangement which, while acceptable to the Russians, would at the same time prevent them from seizing all of Korea. If they refused to confine their advance to north Korea, the United States would be unable to stop them. . . . He decided to use the 38th parallel as a hypothetical line dividing the zones within which Japanese forces in Korea would surrender to appointed American and Russian authorities.
+—Adapted from U.S. Army Lt. Paul C. McGrath's account of Colonel Bonesteel's decision in the 1940s
+Which best describes the relationship between the United States and the Soviets as depicted in the passage?
+(A) Distant strangers
+(B) Mutual benefactors
+(C) Strong competitors
+(D) Mortal enemies
+(E) Indifferent neighbors
+(F) Uneasy allies
+(G) Close friends
+(H) Strategic partners
+(I) Comrades-in-arms
+(J) Adversarial opponents
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+145,4967,mmlu-pro-history,True,True,eb39387a-e83c-5cc7-92f7-189a5e71bf26,0f999ea7-10a1-5b85-a175-b86d50338266,A>B,A>B,"From which of the following primates do humans descend?
+(A) bonobos
+(B) orangutans
+(C) gibbons
+(D) chimpanzees
+(E) baboons
+(F) gorillas
+(G) capuchin monkeys
+(H) lemurs
+(I) tarsiers
+(J) none of the above
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+146,4971,mmlu-pro-history,True,True,a4c0202d-9927-5250-b1cf-70ed40a2e992,ff5f3ce7-1423-5df5-922d-644070dfaea0,B>A,A>B,"The Aztec Empire was based on the systematic expansion of:
+(A) a vast network of roads and trade routes.
+(B) the expansion and control of waterways for transportation and irrigation.
+(C) the cultivation and trade of cacao and maize.
+(D) religious beliefs that required extensive and escalating human sacrifice.
+(E) tribute in the form of gold, jade, feathers, cloth, and jewels.
+(F) the establishment of colonies in unexplored territories.
+(G) ceramic production, a distinctive architectural style, and artistic expression.
+(H) farming techniques such as terracing and irrigation.
+(I) a strict caste system that promoted social stratification.
+(J) oppressive social and religious control based on military conquest.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+153,1097,mmlu-pro-law,True,True,97c53ddb-0acc-56a1-9216-bb6727e8f586,138e503c-b09d-5d19-82ff-0b5ddc3e7bf6,A>B,A>B,"A highway patrol officer stopped a driver for speeding and found that her license was suspended. He arrested her for driving while under suspension and secured her in the rear seat of the squad car. He then searched the car where he found several bags of cocaine inside a coat that was setting on the rear seat; he arrested her for possession and possession with intent to deliver cocaine. Prior to trial, the driver moved for suppression of the cocaine. Is it likely that the trial court will grant the suppression motion?
+(A) Yes, it must be suppressed because this was an unreasonable, warrantless search.
+(B) No, the motion will be denied because the initial traffic stop was legal and everything that flowed therefrom was a reasonable step to search for crime.
+(C) No, the motion will be denied because the search was permissible as incident to a proper arrest.
+(D) Yes, the motion will be granted because a search of a vehicle requires a search warrant unless there are exceptional exigent circumstances.
+(E) Yes, the motion will be granted because the officer did not have probable cause to search the car.
+(F) No, the motion will be denied because the officer had the right to search the car for his own safety.
+(G) No, the motion will be denied because the officer had probable cause to search the car due to the driver's suspended license.
+(H) Yes, the motion will be granted because the officer did not see the cocaine in plain view before searching the car.
+(I) Yes, the motion will be granted because the officer did not have the driver's consent to search the car.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+156,1198,mmlu-pro-law,True,True,bbdcd0e8-c9f8-5d3d-bf42-7bd74bd75273,a4eff39a-4f2e-5cee-a6de-b8e74625269f,A>B,A>B,"A man informed the police that he wanted to confess to a murder. After they read him his constitutional rights, he insisted that he was acting voluntarily. He then took them to the scene of the murder where they found the victim's body. By the next day, the man claimed that ""voices"" had ordered him to confess and he didn't act voluntarily. A physician verified that the man suffered from hallucinations that impaired his volitional abilities, preventing a voluntary confession. Will the court suppress the statements?
+(A) Yes, because the man was suffering from hallucinations at the time of his confession.
+(B) No, there was no police misconduct or overreaching, and as a result the confession is voluntary.
+(C) No, a confession is admissible when accompanied by actions by the defendant that prove the truth of the statements.
+(D) No, because the man insisted initially that he was acting voluntarily.
+(E) Yes, because the man later retracted his confession.
+(F) Yes, the police overreached by not having him mentally evaluated before questioning him.
+(G) Yes, he was insane and could not have given a voluntary confession.
+(H) No, because the man led the police to the victim's body which supports his confession.
+(I) No, because the police read the man his constitutional rights before he confessed.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+173,8093,mmlu-pro-math,True,True,506ba1e7-2940-5b59-a072-4f19bb03c469,40c35c1b-4d3a-56ae-a7fa-22307efca211,B>A,A>B," Radium-226 has a half-life of 1620 years. Find the time period during which a given amount of this material is reduced by one-quarter.
+(A) 4860 Years
+(B)  672.4 Year
+(C) 405 Years
+(D) 2430 Years
+(E) 810 Years
+(F) 1080 Years
+(G) 1620 Years
+(H) 1344.8 Years
+(I) 2025 Years
+(J) 3240 Years
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+180,8351,mmlu-pro-math,True,True,d9e6aa65-25b9-5c8c-a50f-cca574f8ad89,af8bbf3a-253a-5a14-8ec9-27d0f093d61d,A>B,B>A,"Two whole numbers have a least common multiple of 60. Each number is less than or equal to 12. The greatest common factor of the two numbersis 2. What are the two numbers?
+(A) 5 and 12
+(B) 12 and 15
+(C) 6 and 12
+(D) 4 and 8
+(E) 3 and 9
+(F) 8 and 10
+(G) 6 and 10
+(H) 2 and 10
+(I) 2 and 6
+(J) 10 and 12
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+188,9019,mmlu-pro-math,True,True,b93bad87-ed35-51a9-a6cd-aa625936a587,e8f304d3-029a-5738-84eb-1268268a44da,A>B,A>B,"A bird is lost in a 3 by 3 by 3 cubical maze. The bird flies from room to room going to adjoining rooms with equal probability through each of the walls. To be specific, the corner rooms have 3 exits. What is the entropy rate of this random walk? Use base 2 logarithm and return the entropy rate in bits.
+(A) 1.95
+(B) 2.03
+(C) 1.85
+(D) 2.25
+(E) 2.10
+(F) 1.75
+(G) 1.50
+(H) 1.65
+(I) 2.15
+(J) 2.50
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+189,5087,mmlu-pro-other,True,True,74581892-e3c1-5ef1-8eca-46a1d4ed710a,585e5a43-454b-56f7-aba3-fb4e22938020,B>A,B>A,"As of 2019, about what percentage of Americans say it is very important to have free media in our country without government/state censorship?
+(A) 50%
+(B) 30%
+(C) 10%
+(D) 90%
+(E) 40%
+(F) 60%
+(G) 20%
+(H) 100%
+(I) 70%
+(J) 80%
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+190,5091,mmlu-pro-other,True,True,fb576312-7ab1-5035-bb6d-14013d4dd65d,c6b860be-9938-5c34-97fc-70dfc51bbfb7,B>A,B>A,"As of 2013, share of people in the India who think political parties are corrupt is
+(A) 86%
+(B) 26%
+(C) 50%
+(D) 66%
+(E) 90%
+(F) 70%
+(G) 46%
+(H) 10%
+(I) 76%
+(J) 30%
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+194,5284,mmlu-pro-other,True,True,26cceffc-1fb6-5c3c-b257-84759fa87fa1,ebe368cb-5783-5f03-8471-e31295bc4438,B>A,B>A,"Which of these qualities is NOT listed as something to consider when choosing an opinion leader for a public relations campaigns?
+(A) Reputation
+(B) Impact
+(C) Familiarity with subject or issue
+(D) Ability to reach people
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+196,5304,mmlu-pro-other,True,True,642827c3-fa04-5743-b9c6-f3eab81b793b,907c3d20-a0dc-5b21-b4ba-1e784d7cfaf6,B>A,B>A,"From 1988 to 1990 among heterosexuals in the US, the number of unmarried adults aged 20 to 45 who report having multiple partners has:
+(A) declined for men, and remained the same for women
+(B) increased for men, but not for women
+(C) declined for both men and women
+(D) increased for men, and remained the same for women
+(E) increased for women, but not for men
+(F) remained the same for men, but declined for women
+(G) declined for men, but not for women
+(H) remained the same for both men and women
+(I) increased for both men and women
+(J) declined for women, but not for men
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+205,5958,mmlu-pro-other,True,True,94e42627-3519-52bb-876d-b00b3c1a19c7,336452fa-776b-5de9-98c8-2a6685d840fa,B>A,B>A,"What was GDP per capita in the United States in 1950 when adjusting for inflation and PPP in 2011 prices?
+(A) About $30k
+(B) About $3k
+(C) About $10k
+(D) About $20k
+(E) About $40k
+(F) About $8k
+(G) About $50k
+(H) About $5k
+(I) About $25k
+(J) About $15k
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+210,11002,mmlu-pro-philosophy,True,True,3ca791e5-75b4-5172-bc59-14c5b21c60a1,aecacdc0-1dfc-5339-b6c7-eea5baa1471d,A>B,B>A," Of the following social problems that could result from a genetic supermarket, which does Singer think is the least serious?
+(A) loss of human diversity
+(B) the effects of engineering children to have positional goods
+(C) loss of equality of opportunity
+(D) increased disparity between the rich and the poor
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+215,11138,mmlu-pro-philosophy,True,True,4f9f8288-4e9e-553d-b444-1b9441c537e1,b958ea91-8f2a-55be-8c8b-d61cf90f5076,A>B,A>B,"According to Jaina traditions, what does the term ajiva mean?
+(A) Sound
+(B) Non-living
+(C) Non-matter
+(D) Non-soul
+(E) Consciousness
+(F) Non-energy
+(G) Energy
+(H) Life
+(I) Matter
+(J) Soul
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+219,11210,mmlu-pro-philosophy,True,True,82b2af9a-722e-55b3-a365-8c861f5b5cde,b57ea8df-78c5-5e71-9545-973d9c2d4bb5,B>A,A>B,"Baier argues that genuine moral rules:
+(A) must take into account the interests of all living beings.
+(B) make take into account the interests of all sentient beings.
+(C) should primarily focus on preserving the natural environment.
+(D) must align with societal norms and expectations.
+(E) are based solely on religious doctrines.
+(F) must be for the good of human beings.
+(G) should be universally applicable regardless of cultural differences.
+(H) must only consider the interests of the individual making the moral decision.
+(I) are primarily directed toward promoting self-interest.
+(J) are only applicable to those who choose to follow them.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+222,11257,mmlu-pro-philosophy,True,True,0a75523a-50d2-5e71-8a08-257afd51fab7,bfd0002d-e137-5a79-a7fd-c2ef9ad12a1f,A>B,B>A," Use the following key to translate the given formula of PL to natural, English sentences.
+A: Marina reads a Percy Jackson book.
+B: Izzy plays Minecraft.
+C: Emily stops working.
+D: Russell makes dinner.
+E: Ashleigh stops by.
+(~B • E) ⊃ D
+(A) If it's not the case that both Izzy plays Minecraft and Ashleigh stops by then Russell makes dinner.
+(B) If it's both not the case that Izzy plays Minecraft and Ashleigh stops by then Russell makes dinner.
+(C) Izzy playing Minecraft and Ashleigh stopping by entails that Russell makes dinner.
+(D) Russell's making dinner is a sufficient condition for Izzy not playing Minecraft and Ashleigh stopping by.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+242,10305,mmlu-pro-physics,True,True,5faba119-90d9-5be4-8d17-09a42c3228dc,e23cdc82-bbf1-5378-9404-d94c1e7ce2ef,B>A,B>A,"When 100 g of water at 0°C are mixed with 50 g of water at 50°C, what is the change of entropy on mixing?
+(A) 0.8 cal/K/deg
+(B) 0.5 cal/K/deg
+(C) 0.3 cal/K/deg
+(D) 0.2 cal/K/deg
+(E) 0.1 cal/K/deg
+(F) 0.7 cal/K/deg
+(G) 0.6 cal/K/deg
+(H) 1.5 cal/K/deg
+(I) 0.9 cal/K/deg
+(J) 1 cal/K/deg
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+256,2453,mmlu-pro-psychology,True,True,851b5544-7fc0-5faa-940e-53e0ff149516,9536d58f-8a88-53be-b97e-45bb2d457c12,A>B,A>B,"Studies into the etiology of Schizophrenia indicated a genetic predisposition to the condition but other factors are involved. From your knowledge of the subject identify which of the following statements is incorrect.
+(A) Excess dopamine or sensitivity to dopamine could be a contributory factor.
+(B) A lower rate of Schizophrenia diagnosed among Africa Americans.
+(C) Schizophrenia is primarily caused by poor lifestyle choices
+(D) Schizophrenia can be completely cured through psychotherapy
+(E) All schizophrenia patients exhibit severe personality splitting
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+262,2714,mmlu-pro-psychology,True,True,663eb019-69ba-570f-bf87-f210f58e8cec,7c22d528-b258-5125-9bcc-877df3431ae1,A>B,B>A,"Research comparing heterogeneous and homogeneous work groups has found that, in general, heterogeneous groups:
+(A) are more creative but worse at decision-making.
+(B) are more creative and better at decision-making.
+(C) make better decisions but are less creative overall.
+(D) are less creative and less productive overall.
+(E) are more productive but worse at decision-making.
+(F) make worse decisions but are more productive overall.
+(G) are less creative and worse at decision-making.
+(H) make better decisions but are less productive overall.
+(I) are less creative but better at decision-making.
+(J) are more creative but less productive overall.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
