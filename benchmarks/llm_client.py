@@ -91,6 +91,7 @@ def _query_hf_model(
     *,
     max_tokens: int,
     temperature: float,
+    system: str = "",
 ) -> str:
     import torch
 
@@ -105,12 +106,15 @@ def _query_hf_model(
 
     if model_type == "image_text_to_text":
         processor = processor_or_tokenizer
-        messages = [
+        messages = []
+        if system:
+            messages.append({"role": "system", "content": [{"type": "text", "text": system}]})
+        messages.append(
             {
                 "role": "user",
                 "content": [{"type": "text", "text": prompt}],
             }
-        ]
+        )
         inputs = processor.apply_chat_template(
             messages,
             add_generation_prompt=True,
@@ -130,7 +134,10 @@ def _query_hf_model(
 
     if model_type == "mistral3":
         tokenizer = processor_or_tokenizer
-        messages = [{"role": "user", "content": prompt}]
+        messages = []
+        if system:
+            messages.append({"role": "system", "content": system})
+        messages.append({"role": "user", "content": prompt})
         inputs = tokenizer.apply_chat_template(
             messages,
             return_tensors="pt",
@@ -154,7 +161,10 @@ def _query_hf_model(
         return tokenizer.decode(new_tokens, skip_special_tokens=True).strip()
 
     tokenizer = processor_or_tokenizer
-    messages = [{"role": "user", "content": prompt}]
+    messages = []
+    if system:
+        messages.append({"role": "system", "content": system})
+    messages.append({"role": "user", "content": prompt})
 
     if getattr(tokenizer, "chat_template", None):
         input_ids = tokenizer.apply_chat_template(
@@ -182,6 +192,7 @@ def query_model(
     model: str,
     prompt: str,
     *,
+    system: str = "",
     max_tokens: int = 1024,
     temperature: float = 0.0,
     max_attempts: int = 6,
@@ -219,6 +230,8 @@ def query_model(
                     "max_tokens": max_tokens,
                     "messages": [{"role": "user", "content": prompt}],
                 }
+                if system:
+                    kwargs["system"] = system
                 if model != "claude-opus-4-7":
                     kwargs["temperature"] = temperature
                 resp = client.messages.create(**kwargs)
@@ -235,9 +248,13 @@ def query_model(
                 from openai import OpenAI
 
                 client = OpenAI()
+                messages = []
+                if system:
+                    messages.append({"role": "system", "content": system})
+                messages.append({"role": "user", "content": prompt})
                 resp = client.chat.completions.create(
                     model=model,
-                    messages=[{"role": "user", "content": prompt}],
+                    messages=messages,
                     max_completion_tokens=max_tokens,
                     temperature=temperature,
                 )
@@ -245,6 +262,7 @@ def query_model(
             return _query_hf_model(
                 model,
                 prompt,
+                system=system,
                 max_tokens=max_tokens,
                 temperature=temperature,
             )
