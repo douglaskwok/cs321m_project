@@ -94,7 +94,7 @@ def _model_slug(model: str) -> str:
 
 def _out_paths(model: str) -> tuple[Path, Path]:
     slug = _model_slug(model)
-    base = Path(__file__).parent / "results"
+    base = Path(__file__).parent / "results" / "kudge_challenge_easy_hard"
     return base / f"kudge_{slug}.npz", base / f"kudge_{slug}_responses.jsonl"
 
 # ---------------------------------------------------------------------------
@@ -238,7 +238,13 @@ def main(model: str = DEFAULT_MODEL) -> None:
 
     resolved = re.sub(r"[^a-z0-9.\-]", "", model.lower())
     is_api = resolved.startswith(("gpt-", "o1", "o2", "o3", "o4", "chatgpt-", "claude-"))
-    scorer = score_item if is_api else score_item_hf
+    is_mistral = resolved.startswith("mistral") or resolved.startswith("ministral")
+    if is_api:
+        scorer = score_item
+    elif is_mistral:
+        scorer = score_item_hf_h100
+    else:
+        scorer = score_item_hf_a10g
 
     results = []
     out_jsonl.parent.mkdir(parents=True, exist_ok=True)
