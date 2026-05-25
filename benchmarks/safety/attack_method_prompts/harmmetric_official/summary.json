@@ -1,0 +1,32 @@
+{
+  "PAP": {
+    "rows": 146,
+    "status": "written",
+    "source": "/Users/dkoffical/Documents/GitHub/cs321m_project/HarmMetric_Eval/data/dataset.jsonl"
+  },
+  "PAIR": {
+    "rows": 131,
+    "status": "written",
+    "source": "/Users/dkoffical/Documents/GitHub/cs321m_project/HarmMetric_Eval/data/dataset.jsonl"
+  },
+  "GPTFuzzer": {
+    "rows": 70,
+    "status": "written",
+    "source": "/Users/dkoffical/Documents/GitHub/cs321m_project/HarmMetric_Eval/data/dataset.jsonl"
+  },
+  "DAN": {
+    "rows": 69,
+    "status": "written",
+    "source": "/Users/dkoffical/Documents/GitHub/cs321m_project/HarmMetric_Eval/data/dataset.jsonl"
+  },
+  "AutoDAN": {
+    "rows": 67,
+    "status": "written",
+    "source": "/Users/dkoffical/Documents/GitHub/cs321m_project/HarmMetric_Eval/data/dataset.jsonl"
+  },
+  "GCG": {
+    "rows": 65,
+    "status": "written",
+    "source": "/Users/dkoffical/Documents/GitHub/cs321m_project/HarmMetric_Eval/data/dataset.jsonl"
+  }
+}

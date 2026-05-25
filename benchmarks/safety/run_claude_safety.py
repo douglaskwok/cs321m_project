@@ -51,6 +51,7 @@ app = modal.App("safety-claude", image=image)
 DEFAULT_INPUT_PATH = Path(__file__).parent / "safety_solver.json"
 DEFAULT_MODEL = "haiku-4.5"
 DEFAULT_LIMIT = -1
+DEFAULT_TARGET_MODEL_NAME = ""
 
 MODEL_ALIASES = {
     "haiku": "claude-haiku-4-5-20251001",
@@ -85,6 +86,35 @@ def _default_output_paths(model_id: str) -> tuple[Path, Path]:
         out_dir / f"safety_solver_{slug}_responses.jsonl",
         out_dir / f"safety_solver_{slug}.json",
     )
+
+
+def _default_target_model_name(model_id: str) -> str:
+    if model_id.lower().startswith("claude-"):
+        return "Claude"
+    return model_id
+
+
+def _retarget_prompt(prompt: str, target_model_name: str) -> str:
+    if not target_model_name:
+        return prompt
+    prompt = re.sub(
+        r"\bvicuna(?:\s*[-_ ]\s*\d+b)?(?:\s*[-_ ]\s*v?\d+(?:[._]\d+)*)?\b",
+        target_model_name,
+        prompt,
+        flags=re.IGNORECASE,
+    )
+    return re.sub(
+        r"\bchat\s*gpt\b|\bchatgpt\b|\bgpt\b(?![-\s]?\d)",
+        target_model_name,
+        prompt,
+        flags=re.IGNORECASE,
+    )
+
+
+def _retarget_items(items: list[dict], target_model_name: str) -> None:
+    for item in items:
+        prompt = str(item.get("harmful_prompt", ""))
+        item["harmful_prompt"] = _retarget_prompt(prompt, target_model_name)
 
 
 def _read_json_list(path: Path) -> list[dict]:
@@ -161,9 +191,11 @@ def main(
     output_json: str = "",
     max_tokens: int = 1024,
     temperature: float = 0.0,
+    target_model_name: str = DEFAULT_TARGET_MODEL_NAME,
 ) -> None:
     model_id = _model_id(model)
     input_file = Path(input_path)
+    resolved_target_model_name = target_model_name.strip() or _default_target_model_name(model_id)
     out_jsonl, out_json = _default_output_paths(model_id)
     if output_jsonl:
         out_jsonl = Path(output_jsonl)
@@ -171,6 +203,7 @@ def main(
         out_json = Path(output_json)
 
     all_items, loaded_from = _load_all_items(input_file, out_json)
+    _retarget_items(all_items, resolved_target_model_name)
     items = _pending_items(all_items, limit=limit)
 
     print(f"Model alias: {model}")
@@ -179,9 +212,9 @@ def main(
     print(f"Loaded from: {loaded_from}")
     print(f"Output JSON: {out_json}")
     print(f"Limit      : {limit}")
+    print(f"Retarget   : Vicuna -> {resolved_target_model_name}")
     if items:
         print(f"First pending index: {items[0]['_input_index']}")
-        print(f"First pending prompt: {items[0]['harmful_prompt'][:160]}")
     for item in items:
         item["model_id"] = model_id
         item["max_tokens"] = max_tokens
