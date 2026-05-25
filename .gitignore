@@ -13,6 +13,11 @@ build/
 venv/
 env/
 
+# Local secrets
+.env
+.env.*
+!.env.example
+
 # Generated version file
 src/torch_measure/_version.py
 

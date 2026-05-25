@@ -1,0 +1,6 @@
+hf_source,hf_config,hf_rows,overlap_with_official_text_all,overlap_with_official_multimodal_all,overlap_with_official_text_plus_multimodal
+walledai/HarmBench,contextual,100,93,0,93
+walledai/HarmBench,copyright,100,100,0,100
+walledai/HarmBench,standard,200,200,0,200
+AlignmentResearch/HarmBench,default,200,200,0,200
+AlignmentResearch/HarmBench,pos,200,200,0,200

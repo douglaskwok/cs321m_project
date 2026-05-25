@@ -1,0 +1,6 @@
+benchmark,harmmetric_rows,harmmetric_unique_prompts,benchmark_rows,benchmark_unique_prompts,exact_overlap_unique,harmmetric_unique_coverage,benchmark_unique_coverage
+HarmBench_text_all,3562,274,400,393,18,0.06569343065693431,0.04580152671755725
+StrongREJECT,3562,274,313,313,53,0.19343065693430658,0.16932907348242812
+MaliciousInstruct,3562,274,100,100,17,0.06204379562043796,0.17
+AdvBench,3562,274,520,520,39,0.14233576642335766,0.075
+JailbreakBench,3562,274,200,200,5,0.01824817518248175,0.025

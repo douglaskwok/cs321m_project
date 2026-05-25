@@ -1,0 +1,7 @@
+official_source,hf_source,official_rows,official_unique_normalized_prompts,hf_rows,hf_unique_normalized_prompts,exact_prompt_overlap,normalized_prompt_overlap,official_coverage_by_normalized_prompt,hf_coverage_by_normalized_prompt
+official_text_all,walledai/HarmBench,400,393,400,393,393,393,1.0,1.0
+official_text_all,AlignmentResearch/HarmBench,400,393,400,200,200,200,0.5089,1.0
+official_multimodal_all,walledai/HarmBench,110,66,400,393,0,0,0.0,0.0
+official_multimodal_all,AlignmentResearch/HarmBench,110,66,400,200,0,0,0.0,0.0
+official_text_plus_multimodal,walledai/HarmBench,510,459,400,393,393,393,0.8562,1.0
+official_text_plus_multimodal,AlignmentResearch/HarmBench,510,459,400,200,200,200,0.4357,1.0
