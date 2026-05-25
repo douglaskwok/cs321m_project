@@ -264,25 +264,11 @@ def main(model: str = DEFAULT_MODEL) -> None:
         print("No items loaded — check DATASET_ID and column names printed above.")
         return
 
-    results = list(score_item.map(items, order_outputs=True))
-
-    responses = np.array([r["correct"] for r in results], dtype=np.int8)
-    response_matrix = responses.reshape(1, -1)  # (1, 2 * n_pairs)
-
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    np.savez(
-        out_path,
-        response_matrix=response_matrix,
-        pair_ids=np.array([r["pair_id"] for r in results]),
-        difficulties=np.array([r["difficulty"] for r in results]),
-        gold=np.array([r["gold"] for r in results]),
-        predicted=np.array([r["predicted"] for r in results]),
-        orderings=np.array([r["ordering"] for r in results]),
-    )
-
+    results = []
     out_jsonl.parent.mkdir(parents=True, exist_ok=True)
     with out_jsonl.open("w", encoding="utf-8") as fh:
-        for r in results:
+        for r in score_item.map(items, order_outputs=False):
+            results.append(r)
             fh.write(
                 json.dumps(
                     {
@@ -298,6 +284,21 @@ def main(model: str = DEFAULT_MODEL) -> None:
                 )
                 + "\n"
             )
+            fh.flush()
+
+    responses = np.array([r["correct"] for r in results], dtype=np.int8)
+    response_matrix = responses.reshape(1, -1)  # (1, 2 * n_pairs)
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    np.savez(
+        out_path,
+        response_matrix=response_matrix,
+        pair_ids=np.array([r["pair_id"] for r in results]),
+        difficulties=np.array([r["difficulty"] for r in results]),
+        gold=np.array([r["gold"] for r in results]),
+        predicted=np.array([r["predicted"] for r in results]),
+        orderings=np.array([r["ordering"] for r in results]),
+    )
 
     # Per-difficulty accuracy (averaging fwd+bwd within each pair).
     for diff in ("easy", "medium", "hard"):

@@ -265,23 +265,11 @@ def main(model: str = DEFAULT_MODEL) -> None:
         print("No items matched the v6 date range — check dataset split/columns.")
         return
 
-    results = list(score_item.map(items, order_outputs=True))
-
-    responses = np.array([r["correct"] for r in results], dtype=np.int8)
-    response_matrix = responses.reshape(1, -1)
-
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    np.savez(
-        out_path,
-        response_matrix=response_matrix,
-        item_ids=np.array([r["id"] for r in results]),
-        difficulties=np.array([r["difficulty"] for r in results]),
-        platforms=np.array([r["platform"] for r in results]),
-    )
-
+    results = []
     out_jsonl.parent.mkdir(parents=True, exist_ok=True)
     with out_jsonl.open("w", encoding="utf-8") as fh:
-        for r in results:
+        for r in score_item.map(items, order_outputs=False):
+            results.append(r)
             fh.write(
                 json.dumps(
                     {
@@ -295,6 +283,19 @@ def main(model: str = DEFAULT_MODEL) -> None:
                 )
                 + "\n"
             )
+            fh.flush()
+
+    responses = np.array([r["correct"] for r in results], dtype=np.int8)
+    response_matrix = responses.reshape(1, -1)
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    np.savez(
+        out_path,
+        response_matrix=response_matrix,
+        item_ids=np.array([r["id"] for r in results]),
+        difficulties=np.array([r["difficulty"] for r in results]),
+        platforms=np.array([r["platform"] for r in results]),
+    )
 
     for diff in ("easy", "medium", "hard"):
         subset = [r for r in results if r["difficulty"].lower() == diff]
