@@ -1,0 +1,11 @@
+model,num_scored,num_success,asr
+Qwen/Qwen3.5-0.8B,117,12,0.10256410256410256
+Qwen/Qwen3.5-27B,117,0,0.0
+Qwen/Qwen3.5-2B,117,4,0.03418803418803419
+Qwen/Qwen3.5-4B,117,1,0.008547008547008548
+Qwen/Qwen3.5-9B,117,0,0.0
+claude-haiku-4-5-20251001,117,0,0.0
+claude-sonnet-4-6,111,7,0.06306306306306306
+mistralai/Ministral-3-14B-Instruct-2512,117,55,0.4700854700854701
+mistralai/Ministral-3-3B-Instruct-2512,117,63,0.5384615384615384
+mistralai/Ministral-3-8B-Instruct-2512,116,59,0.5086206896551724
