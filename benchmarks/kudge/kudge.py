@@ -48,6 +48,7 @@ image = (
     .pip_install(
         "datasets>=2.20",
         "openai>=1.30",
+        "anthropic>=0.40",
         "numpy>=1.24",
     )
     .add_local_file(_llm_client, remote_path="/root/llm_client.py")
@@ -80,7 +81,7 @@ app = modal.App("kudge", image=image)
 
 DATASET_ID = "amphora/kudge-challenge"
 DEFAULT_MODEL = "gpt-5.4-nano"
-KOREAN_SUBSETS = frozenset({"Korean-Hard"})
+KOREAN_SUBSETS = frozenset({"Korean-Easy", "Korean-Hard"})
 TEST_LIMIT: int | None = None  # set to None to run all items
 
 GROUNDTRUTH_PATH = Path(__file__).parent / "kudge_korean_hard_groundtruth_labels.json"
@@ -124,7 +125,7 @@ def _gold_letter(chosen: str) -> str:
 # Modal function: load dataset (runs in cloud; needs `datasets` package)
 # ---------------------------------------------------------------------------
 
-@app.function(image=image)
+@app.function(image=image, secrets=[modal.Secret.from_name("hf-secret")])
 def fetch_items() -> list[dict]:
     """Download KUDGE Challenge and return all Korean-subset rows."""
     from datasets import load_dataset
@@ -178,7 +179,7 @@ def _score_item_impl(item: dict) -> dict:
 
 @app.function(
     image=image,
-    secrets=[modal.Secret.from_name("openai-secret")],
+    secrets=[modal.Secret.from_name("openai-secret"), modal.Secret.from_name("anthropic-secret")],
     retries=2,
     timeout=120,
 )
@@ -188,9 +189,10 @@ def score_item(item: dict) -> dict:
 
 @app.function(
     image=hf_image,
-    gpu="H100",
+    gpu="A10G",
     volumes={"/root/.cache/huggingface": hf_cache},
-    timeout=600,
+    secrets=[modal.Secret.from_name("hf-secret")],
+    timeout=1200,
 )
 def score_item_hf(item: dict) -> dict:
     return _score_item_impl(item)

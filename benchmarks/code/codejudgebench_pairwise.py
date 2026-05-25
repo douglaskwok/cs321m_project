@@ -52,7 +52,7 @@ import numpy as np
 image = (
     modal.Image.debian_slim(python_version="3.11")
     .pip_install(
-        "datasets>=2.20",
+        "datasets>=2.20,<3.0",
         "openai>=1.30",
         "anthropic>=0.25",
         "numpy>=1.24",
