@@ -31,13 +31,23 @@ def query_model(
                 from anthropic import Anthropic
 
                 client = Anthropic()
-                resp = client.messages.create(
-                    model=model,
-                    max_tokens=max_tokens,
-                    temperature=temperature,
-                    messages=[{"role": "user", "content": prompt}],
-                )
-                return resp.content[0].text
+                kwargs = {
+                    "model": model,
+                    "max_tokens": max_tokens,
+                    "messages": [{"role": "user", "content": prompt}],
+                }
+                if model != "claude-opus-4-7":
+                    kwargs["temperature"] = temperature
+                resp = client.messages.create(**kwargs)
+                text_parts = [
+                    block.text
+                    for block in resp.content
+                    if getattr(block, "type", None) == "text" and getattr(block, "text", "")
+                ]
+                if text_parts:
+                    return "\n".join(text_parts)
+                stop_reason = getattr(resp, "stop_reason", None)
+                raise RuntimeError(f"Anthropic returned no text content; stop_reason={stop_reason}")
             else:
                 from openai import OpenAI
 

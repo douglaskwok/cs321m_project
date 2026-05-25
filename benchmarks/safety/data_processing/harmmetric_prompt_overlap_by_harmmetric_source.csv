@@ -1,0 +1,10 @@
+benchmark,source,exact_prompt_overlap_count
+AdvBench,AdvBench,39
+HarmBench_text_all,HarmBench,18
+JailbreakBench,HarmBench,2
+JailbreakBench,JailbreakBench,2
+JailbreakBench,AdvBench,1
+MaliciousInstruct,MaliciousInstruct,13
+MaliciousInstruct,StrongReject,4
+StrongREJECT,StrongReject,45
+StrongREJECT,AdvBench,8
