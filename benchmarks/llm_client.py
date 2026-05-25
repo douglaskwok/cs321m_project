@@ -22,10 +22,16 @@ HF_MODEL_ALIASES = {
     "qwen35-0.8b": "Qwen/Qwen3.5-0.8B",
     "mistral-14b": "mistralai/Ministral-3-14B-Instruct-2512",
     "ministral-14b": "mistralai/Ministral-3-14B-Instruct-2512",
+    "mistral-14b-bf16": "mistralai/Ministral-3-14B-Instruct-2512-BF16",
+    "ministral-14b-bf16": "mistralai/Ministral-3-14B-Instruct-2512-BF16",
     "mistral-8b": "mistralai/Ministral-3-8B-Instruct-2512",
     "ministral-8b": "mistralai/Ministral-3-8B-Instruct-2512",
+    "mistral-8b-bf16": "mistralai/Ministral-3-8B-Instruct-2512-BF16",
+    "ministral-8b-bf16": "mistralai/Ministral-3-8B-Instruct-2512-BF16",
     "mistral-3b": "mistralai/Ministral-3-3B-Instruct-2512",
     "ministral-3b": "mistralai/Ministral-3-3B-Instruct-2512",
+    "mistral-3b-bf16": "mistralai/Ministral-3-3B-Instruct-2512-BF16",
+    "ministral-3b-bf16": "mistralai/Ministral-3-3B-Instruct-2512-BF16",
 }
 
 

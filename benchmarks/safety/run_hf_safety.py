@@ -135,6 +135,16 @@ def run_prompt_h100(item: dict) -> dict:
     return _run_prompt_impl(item)
 
 
+@app.function(
+    image=image,
+    gpu="B200",
+    volumes={"/root/.cache/huggingface": hf_cache},
+    timeout=1200,
+)
+def run_prompt_b200(item: dict) -> dict:
+    return _run_prompt_impl(item)
+
+
 @app.local_entrypoint()
 def main(
     model: str = DEFAULT_MODEL,
@@ -179,7 +189,17 @@ def main(
         return
 
     print(f"Running {len(items)} prompt(s)...")
-    run_function = run_prompt_h100 if gpu.upper() == "H100" else run_prompt_a10g
+    gpu_functions = {
+        "A10G": run_prompt_a10g,
+        "H100": run_prompt_h100,
+        "B200": run_prompt_b200,
+    }
+    try:
+        run_function = gpu_functions[gpu.upper()]
+    except KeyError as exc:
+        supported = ", ".join(sorted(gpu_functions))
+        raise ValueError(f"Unsupported GPU {gpu!r}. Choose one of: {supported}") from exc
+
     results = list(run_function.map(items, order_outputs=True))
 
     out_jsonl.parent.mkdir(parents=True, exist_ok=True)
