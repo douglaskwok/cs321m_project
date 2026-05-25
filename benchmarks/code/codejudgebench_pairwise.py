@@ -63,6 +63,28 @@ image = (
     )
 )
 
+hf_image = (
+    modal.Image.debian_slim(python_version="3.11")
+    .pip_install(
+        "torch>=2.4",
+        "transformers==5.9.0",
+        "accelerate>=1.0",
+        "safetensors>=0.4.3",
+        "sentencepiece>=0.2.0",
+        "torchvision",
+        "pillow",
+        "mistral-common>=1.8.6",
+        "kernels",
+        "numpy>=1.24",
+    )
+    .add_local_file(
+        Path(__file__).parent.parent / "llm_client.py",
+        remote_path="/root/llm_client.py",
+    )
+)
+
+hf_cache = modal.Volume.from_name("hf-cache", create_if_missing=True)
+
 app = modal.App("codejudgebench-pairwise", image=image)
 
 # ---------------------------------------------------------------------------
@@ -213,18 +235,7 @@ def fetch_items() -> list[dict]:
 # ---------------------------------------------------------------------------
 
 
-@app.function(
-    image=image,
-    secrets=[
-        modal.Secret.from_name("openai-secret"),
-        modal.Secret.from_name("anthropic-secret"),
-    ],
-    max_containers=20,
-    retries=2,
-    timeout=300,
-)
-def score_item(item: dict) -> dict:
-    """Send one judge query to the model and score the response."""
+def _score_item_impl(item: dict) -> dict:
     from llm_client import query_model
 
     model = item["model"]
@@ -242,6 +253,60 @@ def score_item(item: dict) -> dict:
         "correct": correct,
         "raw": raw,
     }
+
+
+@app.function(
+    image=image,
+    secrets=[
+        modal.Secret.from_name("openai-secret"),
+        modal.Secret.from_name("anthropic-secret"),
+    ],
+    max_containers=20,
+    retries=2,
+    timeout=300,
+)
+def score_item(item: dict) -> dict:
+    """Send one judge query to the model and score the response."""
+    return _score_item_impl(item)
+
+
+@app.function(
+    image=hf_image,
+    gpu="A10G",
+    volumes={"/root/.cache/huggingface": hf_cache},
+    secrets=[modal.Secret.from_name("hf-secret")],
+    retries=2,
+    timeout=1200,
+)
+def score_item_hf_a10g(item: dict) -> dict:
+    """Send one judge query to a local HF model on A10G and score the response."""
+    return _score_item_impl(item)
+
+
+@app.function(
+    image=hf_image,
+    gpu="H100",
+    volumes={"/root/.cache/huggingface": hf_cache},
+    secrets=[modal.Secret.from_name("hf-secret")],
+    retries=2,
+    timeout=1200,
+)
+def score_item_hf_h100(item: dict) -> dict:
+    """Send one judge query to a local HF model on H100 and score the response."""
+    return _score_item_impl(item)
+
+
+@app.function(
+    image=hf_image,
+    gpu="B200",
+    volumes={"/root/.cache/huggingface": hf_cache},
+    secrets=[modal.Secret.from_name("hf-secret")],
+    retries=2,
+    timeout=1200,
+)
+def score_item_hf_b200(item: dict) -> dict:
+    """Send one judge query to a local HF model on B200 and score the response."""
+    return _score_item_impl(item)
 
 
 # ---------------------------------------------------------------------------
@@ -264,10 +329,25 @@ def main(model: str = DEFAULT_MODEL) -> None:
         print("No items loaded — check DATASET_ID and column names printed above.")
         return
 
+    resolved = re.sub(r"[^a-z0-9.\-]", "", model.lower())
+    is_api = resolved.startswith(("gpt-", "o1", "o2", "o3", "o4", "chatgpt-", "claude-"))
+    is_qwen = resolved.startswith("qwen")
+    is_mistral = resolved.startswith("mistral") or resolved.startswith("ministral")
+    _param_m = re.search(r"(\d+(?:\.\d+)?)b", resolved)
+    is_large_hf = _param_m is not None and float(_param_m.group(1)) >= 20
+    if is_api:
+        scorer = score_item
+    elif is_qwen:
+        scorer = score_item_hf_b200
+    elif is_mistral or is_large_hf:
+        scorer = score_item_hf_h100
+    else:
+        scorer = score_item_hf_a10g
+
     results = []
     out_jsonl.parent.mkdir(parents=True, exist_ok=True)
     with out_jsonl.open("w", encoding="utf-8") as fh:
-        for r in score_item.map(items, order_outputs=False):
+        for r in scorer.map(items, order_outputs=False):
             results.append(r)
             fh.write(
                 json.dumps(

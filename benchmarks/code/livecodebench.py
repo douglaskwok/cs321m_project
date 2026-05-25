@@ -62,6 +62,28 @@ image = (
     )
 )
 
+hf_image = (
+    modal.Image.debian_slim(python_version="3.11")
+    .pip_install(
+        "torch>=2.4",
+        "transformers==5.9.0",
+        "accelerate>=1.0",
+        "safetensors>=0.4.3",
+        "sentencepiece>=0.2.0",
+        "torchvision",
+        "pillow",
+        "mistral-common>=1.8.6",
+        "kernels",
+        "numpy>=1.24",
+    )
+    .add_local_file(
+        Path(__file__).parent.parent / "llm_client.py",
+        remote_path="/root/llm_client.py",
+    )
+)
+
+hf_cache = modal.Volume.from_name("hf-cache", create_if_missing=True)
+
 app = modal.App("livecodebench", image=image)
 
 # ---------------------------------------------------------------------------
@@ -71,7 +93,7 @@ app = modal.App("livecodebench", image=image)
 DATASET_ID = "livecodebench/code_generation_lite"
 VERSION_TAG = "release_v6"
 DEFAULT_MODEL = "gpt-5.4-nano"
-TEST_LIMIT: int | None = 2  # set to None to run all 1,055 problems
+TEST_LIMIT: int | None = None  # set to None to run all 1,055 problems
 EXEC_TIMEOUT = 10.0  # seconds per test case
 
 
@@ -93,17 +115,38 @@ def _out_paths(model: str) -> tuple[Path, Path]:
 # ---------------------------------------------------------------------------
 
 _SOLVER_SYSTEM = (
-    "You are an expert competitive programmer. "
-    "Write a complete Python 3 solution that reads from stdin and writes to stdout. "
-    "Output only the code — no explanation, no markdown fences."
+    "You are an expert Python programmer. You will be given a question (problem specification) "
+    "and will generate a correct Python program that matches the specification and passes all tests."
+)
+
+_FORMAT_WITH_STARTER = (
+    "### Format: You will use the following starter code to write the solution to the problem "
+    "and enclose your code within delimiters.\n"
+    "```python\n"
+    "{starter_code}\n"
+    "```\n\n"
+    "### Answer: (use the provided format with backticks)\n"
+)
+
+_FORMAT_STDIN = (
+    "### Format: Read the inputs from stdin solve the problem and write the answer to stdout "
+    "(do not directly test on the sample inputs). Enclose your code within delimiters as follows. "
+    "Ensure that when the python program runs, it reads the inputs, runs the algorithm and writes "
+    "output to STDOUT.\n"
+    "```python\n"
+    "# YOUR CODE HERE\n"
+    "```\n\n"
+    "### Answer: (use the provided format with backticks)\n"
 )
 
 
 def _build_solver_prompt(problem_content: str, starter_code: str) -> str:
-    prompt = problem_content.strip()
+    body = f"### Question:\n{problem_content.strip()}\n\n"
     if starter_code and starter_code.strip():
-        prompt += f"\n\nStarter code:\n{starter_code.strip()}"
-    return prompt
+        body += _FORMAT_WITH_STARTER.format(starter_code=starter_code.strip())
+    else:
+        body += _FORMAT_STDIN
+    return body
 
 
 # ---------------------------------------------------------------------------
@@ -194,6 +237,7 @@ def fetch_items() -> list[dict]:
                 "id": str(row["question_id"]),
                 "difficulty": str(row.get("difficulty", "unknown")),
                 "platform": str(row.get("platform", "unknown")),
+                "system": _SOLVER_SYSTEM,
                 "prompt": _build_solver_prompt(
                     row["question_content"], row.get("starter_code", "")
                 ),
@@ -213,6 +257,23 @@ def fetch_items() -> list[dict]:
 # ---------------------------------------------------------------------------
 
 
+def _score_item_impl(item: dict) -> dict:
+    from llm_client import query_model
+
+    model = item["model"]
+    raw = query_model(model, item["prompt"], system=item["system"], max_tokens=4096, max_attempts=3)
+    code = _extract_code(raw)
+    correct = int(_passes_all_tests(code, item["test_cases"]))
+
+    return {
+        "id": item["id"],
+        "difficulty": item["difficulty"],
+        "platform": item["platform"],
+        "correct": correct,
+        "raw": raw,
+    }
+
+
 @app.function(
     image=image,
     secrets=[
@@ -225,25 +286,46 @@ def fetch_items() -> list[dict]:
 )
 def score_item(item: dict) -> dict:
     """Generate a solution and test it against public test cases."""
-    from llm_client import query_model
+    return _score_item_impl(item)
 
-    model = item["model"]
-    raw = query_model(
-        model,
-        item["prompt"],
-        max_tokens=2048,
-        max_attempts=3,
-    )
-    code = _extract_code(raw)
-    correct = int(_passes_all_tests(code, item["test_cases"]))
 
-    return {
-        "id": item["id"],
-        "difficulty": item["difficulty"],
-        "platform": item["platform"],
-        "correct": correct,
-        "raw": raw,
-    }
+@app.function(
+    image=hf_image,
+    gpu="A10G",
+    volumes={"/root/.cache/huggingface": hf_cache},
+    secrets=[modal.Secret.from_name("hf-secret")],
+    retries=2,
+    timeout=1200,
+)
+def score_item_hf_a10g(item: dict) -> dict:
+    """Generate a solution using a local HF model on A10G."""
+    return _score_item_impl(item)
+
+
+@app.function(
+    image=hf_image,
+    gpu="H100",
+    volumes={"/root/.cache/huggingface": hf_cache},
+    secrets=[modal.Secret.from_name("hf-secret")],
+    retries=2,
+    timeout=1200,
+)
+def score_item_hf_h100(item: dict) -> dict:
+    """Generate a solution using a local HF model on H100."""
+    return _score_item_impl(item)
+
+
+@app.function(
+    image=hf_image,
+    gpu="B200",
+    volumes={"/root/.cache/huggingface": hf_cache},
+    secrets=[modal.Secret.from_name("hf-secret")],
+    retries=2,
+    timeout=1200,
+)
+def score_item_hf_b200(item: dict) -> dict:
+    """Generate a solution using a local HF model on B200."""
+    return _score_item_impl(item)
 
 
 # ---------------------------------------------------------------------------
@@ -265,10 +347,25 @@ def main(model: str = DEFAULT_MODEL) -> None:
         print("No items matched the v6 date range — check dataset split/columns.")
         return
 
+    resolved = re.sub(r"[^a-z0-9.\-]", "", model.lower())
+    is_api = resolved.startswith(("gpt-", "o1", "o2", "o3", "o4", "chatgpt-", "claude-"))
+    is_qwen = resolved.startswith("qwen")
+    is_mistral = resolved.startswith("mistral") or resolved.startswith("ministral")
+    _param_m = re.search(r"(\d+(?:\.\d+)?)b", resolved)
+    is_large_hf = _param_m is not None and float(_param_m.group(1)) >= 20
+    if is_api:
+        scorer = score_item
+    elif is_qwen:
+        scorer = score_item_hf_b200
+    elif is_mistral or is_large_hf:
+        scorer = score_item_hf_h100
+    else:
+        scorer = score_item_hf_a10g
+
     results = []
     out_jsonl.parent.mkdir(parents=True, exist_ok=True)
     with out_jsonl.open("w", encoding="utf-8") as fh:
-        for r in score_item.map(items, order_outputs=False):
+        for r in scorer.map(items, order_outputs=False):
             results.append(r)
             fh.write(
                 json.dumps(
