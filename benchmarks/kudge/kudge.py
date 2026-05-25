@@ -239,9 +239,11 @@ def main(model: str = DEFAULT_MODEL) -> None:
     resolved = re.sub(r"[^a-z0-9.\-]", "", model.lower())
     is_api = resolved.startswith(("gpt-", "o1", "o2", "o3", "o4", "chatgpt-", "claude-"))
     is_mistral = resolved.startswith("mistral") or resolved.startswith("ministral")
+    _param_m = re.search(r"(\d+(?:\.\d+)?)b", resolved)
+    is_large_hf = _param_m is not None and float(_param_m.group(1)) >= 20
     if is_api:
         scorer = score_item
-    elif is_mistral:
+    elif is_mistral or is_large_hf:
         scorer = score_item_hf_h100
     else:
         scorer = score_item_hf_a10g
@@ -249,7 +251,7 @@ def main(model: str = DEFAULT_MODEL) -> None:
     results = []
     out_jsonl.parent.mkdir(parents=True, exist_ok=True)
     with out_jsonl.open("w", encoding="utf-8") as fh:
-        for r in scorer.map(items, order_outputs=True):
+        for r in scorer.map(items, order_outputs=False):
             results.append(r)
             fh.write(json.dumps({
                 "id": r["id"],
