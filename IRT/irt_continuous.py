@@ -29,6 +29,14 @@ RESPONSE_MATRICES = {
         "item_content_field": "source",
         "value": "overall_effectiveness_score: soft/fractional score in [0, 1]",
     },
+    "harmmetric_eval": {
+        "prefix": "harmmetric_eval",
+        "matrix_dir": PROJECT_ROOT / "benchmarks/HarmMetric_Eval/response_matrices",
+        "benchmark_id": "harmmetric_eval",
+        "item_id_field": "prompt_id",
+        "item_content_field": "source",
+        "value": "overall_effectiveness_score: soft/fractional score in [0, 1]",
+    },
 }
 BETA_EPS = 1e-4
 BETA_PHI = 10.0

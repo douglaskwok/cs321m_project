@@ -40,6 +40,10 @@ image = (
         REPO_ROOT / "benchmarks" / "safety" / "final_judge_results" / "response_matrices",
         remote_path="/root/benchmarks/safety/final_judge_results/response_matrices",
     )
+    .add_local_dir(
+        REPO_ROOT / "benchmarks" / "HarmMetric_Eval" / "response_matrices",
+        remote_path="/root/benchmarks/HarmMetric_Eval/response_matrices",
+    )
 )
 
 app = modal.App("irt-continuous", image=image)
@@ -176,7 +180,7 @@ def main(
     run_item_bootstrap: bool = False,
     n_boot: int = 50,
 ) -> None:
-    allowed_matrices = {"harmjudge_safety_judge"}
+    allowed_matrices = {"harmjudge_safety_judge", "harmmetric_eval"}
     if matrix not in allowed_matrices:
         choices = ", ".join(sorted(allowed_matrices))
         raise ValueError(f"matrix must be one of: {choices}")

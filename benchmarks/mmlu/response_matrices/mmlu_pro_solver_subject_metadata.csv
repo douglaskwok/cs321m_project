@@ -1,11 +1,11 @@
 subject_id,model_id,result_file,n_rows,n_scored
-mistralai_ministral_3_14b_instruct_2512_bf16,mistralai/Ministral-3-14B-Instruct-2512-BF16,qwen35_solving_outputs/ministral_3_14b_instruct_2512_bf16_solving_gpt_mmlu_pro.jsonl,154,133
-mistralai_ministral_3_3b_instruct_2512_bf16,mistralai/Ministral-3-3B-Instruct-2512-BF16,qwen35_solving_outputs/ministral_3_3b_instruct_2512_bf16_solving_gpt_mmlu_pro.jsonl,154,142
-mistralai_ministral_3_8b_instruct_2512_bf16,mistralai/Ministral-3-8B-Instruct-2512-BF16,qwen35_solving_outputs/ministral_3_8b_instruct_2512_bf16_solving_gpt_mmlu_pro.jsonl,154,148
-qwen_qwen3_5_0_8b,Qwen/Qwen3.5-0.8B,qwen35_solving_outputs/qwen35_08b_solving_gpt_mmlu_pro.jsonl,154,96
-qwen_qwen3_5_27b,Qwen/Qwen3.5-27B,qwen35_solving_outputs/qwen3_5_27b_solving_gpt_mmlu_pro.jsonl,154,100
-qwen_qwen3_5_2b,Qwen/Qwen3.5-2B,qwen35_solving_outputs/qwen3_5_2b_solving_gpt_mmlu_pro.jsonl,154,113
-qwen_qwen3_5_4b,Qwen/Qwen3.5-4B,qwen35_solving_outputs/qwen3_5_4b_solving_gpt_mmlu_pro.jsonl,154,101
-qwen_qwen3_5_9b,Qwen/Qwen3.5-9B,qwen35_solving_outputs/qwen3_5_9b_solving_gpt_mmlu_pro.jsonl,154,101
-claude_haiku_4_5_20251001,claude-haiku-4-5-20251001,anthropic_solving_outputs/claude_haiku_4_5_20251001_solving_gpt_mmlu_pro.jsonl,154,92
-claude_sonnet_4_6,claude-sonnet-4-6,anthropic_solving_outputs/claude_sonnet_4_6_solving_gpt_mmlu_pro.jsonl,154,107
+claude_haiku_4_5_20251001,claude-haiku-4-5-20251001,final files to use/claude_haiku_4_5_20251001_solving_gpt_mmlu_pro_1024tok.jsonl,154,145
+claude_sonnet_4_6,claude-sonnet-4-6,final files to use/claude_sonnet_4_6_solving_gpt_mmlu_pro_1024tok.jsonl,154,146
+mistralai_ministral_3_14b_instruct_2512_bf16,mistralai/Ministral-3-14B-Instruct-2512-BF16,final files to use/ministral_3_14b_instruct_2512_bf16_solving_gpt_mmlu_pro_1024tok_rescored.jsonl,154,150
+mistralai_ministral_3_3b_instruct_2512_bf16,mistralai/Ministral-3-3B-Instruct-2512-BF16,final files to use/ministral_3_3b_instruct_2512_bf16_solving_gpt_mmlu_pro_1024tok_rescored.jsonl,154,149
+mistralai_ministral_3_8b_instruct_2512_bf16,mistralai/Ministral-3-8B-Instruct-2512-BF16,final files to use/ministral_3_8b_instruct_2512_bf16_solving_gpt_mmlu_pro_1024tok_rescored.jsonl,154,153
+qwen_qwen3_5_0_8b,Qwen/Qwen3.5-0.8B,final files to use/qwen3_5_0_8b_solving_gpt_mmlu_pro_1024tok_rescored.jsonl,154,129
+qwen_qwen3_5_27b,Qwen/Qwen3.5-27B,final files to use/qwen3_5_27b_solving_gpt_mmlu_pro_1024tok_rescored.jsonl,154,122
+qwen_qwen3_5_2b,Qwen/Qwen3.5-2B,final files to use/qwen3_5_2b_solving_gpt_mmlu_pro_1024tok_rescored.jsonl,154,136
+qwen_qwen3_5_4b,Qwen/Qwen3.5-4B,final files to use/qwen3_5_4b_solving_gpt_mmlu_pro_1024tok_rescored.jsonl,154,113
+qwen_qwen3_5_9b,Qwen/Qwen3.5-9B,final files to use/qwen3_5_9b_solving_gpt_mmlu_pro_1024tok_rescored.jsonl,154,115

@@ -52,7 +52,7 @@ def read_jsonl(path: Path) -> list[dict[str, Any]]:
 def discover_solver_files(input_dirs: list[Path]) -> list[Path]:
     files: list[Path] = []
     for input_dir in input_dirs:
-        files.extend(sorted(input_dir.glob("*_solving_gpt_mmlu_pro.jsonl")))
+        files.extend(sorted(input_dir.resolve().glob("*_solving_gpt_mmlu_pro*.jsonl")))
     return [
         path
         for path in files
@@ -103,7 +103,7 @@ def build_matrix(files: list[Path]) -> tuple[pd.DataFrame, pd.DataFrame, pd.Data
             {
                 "subject_id": subject_id,
                 "model_id": str(first_model_id),
-                "result_file": str(path.relative_to(MMLU_DIR)),
+                "result_file": str(path.resolve().relative_to(MMLU_DIR)),
                 "n_rows": str(len(rows)),
                 "n_scored": str(sum(row.get("correct") is not None for row in rows)),
             }
