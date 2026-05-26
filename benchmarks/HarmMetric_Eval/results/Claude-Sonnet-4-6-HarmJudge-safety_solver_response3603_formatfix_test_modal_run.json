@@ -1,0 +1,6 @@
+{
+  "metric_stem": "Claude-Sonnet-4-6-HarmJudge-safety_solver_response3603_formatfix_test",
+  "model_id": "claude-sonnet-4-6",
+  "stdout_tail": "Claude-Sonnet-4-6-HarmJudge-safety_solver_response3603_formatfix_test - response_id=3603\nProcessed new responses: 1\nFailures: 1\nFinished Claude-Sonnet-4-6-HarmJudge-safety_solver_response3603_formatfix_test\n",
+  "stderr_tail": ""
+}
