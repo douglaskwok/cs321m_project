@@ -1,0 +1,4058 @@
+[
+  {
+    "question_id": "1873_A",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "1873_D",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "1883_B",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "1883_C",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "1899_A",
+    "split": "qwen3_235b",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "1899_C",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "1899_D",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2730",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2754",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2757",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2777",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2784",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2786",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2800",
+    "split": "qwen3_235b",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2802",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2808",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2810",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2811",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2817",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2824",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2827",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2828",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2832",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2833",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2837",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2839",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2845",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2848",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2849",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2850",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2854",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2857",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2866",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2868",
+    "split": "claude_4_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2870",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2876",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2877",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2878",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2879",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2882",
+    "split": "qwen3_235b",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2884",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2891",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2915",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2916",
+    "split": "claude_4_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2919",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2920",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2921",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2952",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2953",
+    "split": "claude_4_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2954",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "2979",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3000",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3017",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3018",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3024",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3025",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3026",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3031",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3032",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3033",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3045",
+    "split": "qwen3_235b",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3046",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3047",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3080",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3081",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3091",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3104",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3106",
+    "split": "qwen3_235b",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3114",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3141",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3150",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3153",
+    "split": "claude_4_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3154",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3166",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3174",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3184",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3190",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3192",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3193",
+    "split": "claude_4_opus",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3195",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3196",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3199",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3200",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3203",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3209",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3211",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3213",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3219",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3223",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3224",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3227",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3229",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3230",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3231",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3233",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3239",
+    "split": "claude_4_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3240",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3243",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3244",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3252",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3261",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3263",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3264",
+    "split": "qwen3_235b",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3265",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3267",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3279",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3291",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3292",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3297",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3298",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3299",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3306",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3308",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3313",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3316",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3317",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3327",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3328",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3329",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3345",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3349",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3354",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3355",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3356",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3360",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3361",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3362",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3363",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3364",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3374",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3375",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3376",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3381",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3382",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3383",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3387",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3388",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3394",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3395",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3397",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3402",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3403",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3406",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3411",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3413",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3414",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3416",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3423",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3426",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3428",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3430",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3437",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3438",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3439",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3442",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3446",
+    "split": "qwen3_235b",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3451",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3453",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3454",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3455",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3456",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3460",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3462",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3464",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3466",
+    "split": "claude_4_opus",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3471",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3479",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3482",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3485",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3487",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3490",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3493",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3494",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3495",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3496",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3498",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3502",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3507",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3510",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3511",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3518",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3522",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3526",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3527",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3528",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3531",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3532",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3534",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3535",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3541",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3548",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3550",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3551",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3552",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3555",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3558",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3559",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3560",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3562",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3563",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3566",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3571",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3573",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3575",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3580",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3583",
+    "split": "claude_4_opus",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3584",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3587",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3588",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3591",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3594",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3600",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3603",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3604",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3605",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3607",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3608",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3616",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3617",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3620",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3621",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3622",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3625",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3627",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3629",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3631",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3634",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3637",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3639",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3646",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3647",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3649",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3653",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3654",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3655",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3657",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3658",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3674",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3675",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3677",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3680",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3681",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3682",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3683",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3684",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3686",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3687",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3690",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3692",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3696",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3697",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3699",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3700",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3701",
+    "split": "claude_4_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3702",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3714",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3715",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3716",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3717",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3720",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3721",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3722",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3725",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3733",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3737",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3739",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3743",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3744",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3750",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3751",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3754",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3759",
+    "split": "qwen3_235b",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3760",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3764",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3765",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3770",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3771",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3776",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3777",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3779",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3781",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3783",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3784",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3786",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3788",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3789",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3791",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3793",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3794",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3795",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3799",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3801",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3805",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "3832",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc301_b",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc301_c",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc301_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc301_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc302_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc302_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc302_f",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc303_b",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc303_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc303_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc304_a",
+    "split": "qwen3_235b",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc304_b",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc304_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc304_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc305_c",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc305_d",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc305_e",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc306_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc306_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc307_c",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc307_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc307_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc308_b",
+    "split": "qwen3_235b",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc308_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc308_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc308_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc308_f",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc309_b",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc309_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc309_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc309_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc310_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc310_e",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc310_f",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc311_a",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc311_b",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc311_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc311_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc312_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc312_d",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc312_e",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc312_f",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc313_a",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc313_b",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc314_b",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc314_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc314_d",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc314_f",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc315_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc315_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc318_b",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc318_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc318_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc318_e",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc319_b",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc319_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc320_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc320_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc320_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc321_b",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc321_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc321_d",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc321_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc322_c",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc322_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc322_e",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc323_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc323_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc323_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc324_a",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc324_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc324_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc324_e",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc325_b",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc325_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc325_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc325_e",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc325_f",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc326_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc326_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc326_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc327_b",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc327_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc328_b",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc328_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc328_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc328_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc329_b",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc329_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc329_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc329_e",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc330_c",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc330_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc330_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc331_b",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc331_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc331_d",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc331_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc332_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc333_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc333_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc334_b",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc334_c",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc334_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc334_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc335_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc335_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc336_c",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc336_d",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc337_d",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc338_a",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc338_b",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc338_c",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc338_d",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc338_e",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc339_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc340_c",
+    "split": "claude_4_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc340_d",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc340_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc341_b",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc341_c",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc341_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc341_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc341_f",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc342_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc342_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc342_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc343_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc343_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc344_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc344_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc344_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc345_b",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc345_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc346_b",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc346_d",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc346_e",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc347_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc347_e",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc348_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc348_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc349_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc349_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc350_b",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc350_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc351_a",
+    "split": "qwen3_235b",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc351_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc351_d",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc351_e",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc351_f",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc352_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc352_d",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc352_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc353_c",
+    "split": "claude_4_opus",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc353_d",
+    "split": "claude_4_opus",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc353_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc354_a",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc354_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc354_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc354_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc355_b",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc355_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc355_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc356_d",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc356_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc357_c",
+    "split": "qwen3_235b",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc357_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc357_e",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc358_c",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc358_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc358_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc359_c",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc359_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc359_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc360_b",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc360_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc360_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc360_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc361_b",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc361_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc361_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc361_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc361_f",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc362_d",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc362_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc363_b",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc363_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc363_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc363_e",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc364_a",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc364_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc364_d",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc364_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc364_f",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc365_a",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc365_c",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc365_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc365_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc366_b",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc366_c",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc366_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc366_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc366_f",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc367_b",
+    "split": "claude_4_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc367_c",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc367_d",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc367_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc367_f",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc368_a",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc368_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc368_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc368_e",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc368_f",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc369_b",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc369_c",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc369_d",
+    "split": "claude_4_opus",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc369_e",
+    "split": "claude_4_opus",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc370_a",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc370_c",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc370_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc370_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc371_a",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc371_c",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc371_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc371_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc371_g",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc372_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc372_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc372_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc372_f",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc373_c",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc373_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc373_f",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc374_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc374_e",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc374_f",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc374_g",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc375_a",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc375_c",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc375_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc375_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc375_f",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc375_g",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc376_a",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc376_b",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc376_c",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc376_d",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc376_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc377_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc377_e",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc377_f",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc377_g",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc378_b",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc378_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc378_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc378_f",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc379_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc379_d",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc379_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc379_f",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc379_g",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc380_b",
+    "split": "claude_4_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc380_c",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc380_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc380_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc380_f",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc380_g",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc381_c",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc381_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc381_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc382_b",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc382_c",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc382_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc382_f",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc383_b",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc383_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc383_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc383_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc384_c",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc384_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc384_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc384_f",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc384_g",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc385_a",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc385_b",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc385_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc385_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc385_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc386_b",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc386_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc386_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc386_e",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc386_f",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc387_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc387_f",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc388_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc388_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc388_e",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc388_f",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc388_g",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc389_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc389_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc389_f",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc390_a",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc390_c",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc390_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc390_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc390_f",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc390_g",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc391_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc391_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc391_f",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc391_g",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc392_c",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc392_f",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc392_g",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc393_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc393_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc393_f",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc394_c",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc394_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc394_e",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc394_f",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc394_g",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc395_b",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc395_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc395_f",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc396_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc396_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc396_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc396_f",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc396_g",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc397_b",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc397_c",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc397_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc397_f",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc397_g",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc398_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc398_f",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc399_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc399_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc399_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc399_f",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc400_b",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc400_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc400_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "abc400_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc181_b",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc182_a",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc182_c",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc182_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc182_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc183_a",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc183_c",
+    "split": "gemini_2.5_flash_lite",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc184_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc185_b",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc185_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc185_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc186_a",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc186_b",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc186_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc187_b",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc188_a",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc188_b",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc189_b",
+    "split": "gemini_2.5_flash",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc189_c",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc189_d",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc190_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc191_d",
+    "split": "claude_4_opus",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc192_a",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc192_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc193_a",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc193_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc194_a",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc194_b",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc194_e",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc195_a",
+    "split": "claude_3.7_sonnet",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc195_b",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc195_e",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc196_b",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc196_c",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  },
+  {
+    "question_id": "arc196_d",
+    "split": "gemini_2.5_pro",
+    "model": "",
+    "model_family": null
+  }
+]

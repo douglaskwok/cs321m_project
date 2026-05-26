@@ -93,8 +93,9 @@ app = modal.App("livecodebench", image=image)
 DATASET_ID = "livecodebench/code_generation_lite"
 VERSION_TAG = "release_v6"
 DEFAULT_MODEL = "gpt-5.4-nano"
-TEST_LIMIT: int | None = None  # set to None to run all 1,055 problems
+TEST_LIMIT: int | None = None  # set to None to run all selected problems
 EXEC_TIMEOUT = 10.0  # seconds per test case
+SELECTED_PAIRS_FILE = Path(__file__).parent / "codegen_selected_pairs.json"
 
 
 def _model_slug(model: str) -> str:
@@ -218,13 +219,22 @@ def _passes_all_tests(code: str, test_cases: list[dict]) -> bool:
 
 
 @app.function(image=image)
-def fetch_items() -> list[dict]:
-    """Download LiveCodeBench and return v6 problems with public test cases."""
+def fetch_items(allowed_ids: list[str] | None = None) -> list[dict]:
+    """Download LiveCodeBench and return v6 problems with public test cases.
+
+    allowed_ids: if provided, only return problems whose question_id is in
+    this set (derived from the codegen_selected_pairs.json subset).
+    """
     from datasets import load_dataset
+
+    allowed = set(allowed_ids) if allowed_ids is not None else None
 
     ds = load_dataset(DATASET_ID, version_tag=VERSION_TAG, split="test", trust_remote_code=True)
     items = []
     for row in ds:
+        qid = str(row["question_id"])
+        if allowed is not None and qid not in allowed:
+            continue
         raw_tests = row.get("public_test_cases", "[]")
         try:
             test_cases = json.loads(raw_tests) if isinstance(raw_tests, str) else raw_tests
@@ -234,7 +244,7 @@ def fetch_items() -> list[dict]:
             continue
         items.append(
             {
-                "id": str(row["question_id"]),
+                "id": qid,
                 "difficulty": str(row.get("difficulty", "unknown")),
                 "platform": str(row.get("platform", "unknown")),
                 "system": _SOLVER_SYSTEM,
@@ -338,13 +348,22 @@ def main(model: str = DEFAULT_MODEL) -> None:
     out_path, out_jsonl = _out_paths(model)
     print(f"Model: {model}  (slug: {_model_slug(model)})")
 
-    items = fetch_items.remote()
+    if not SELECTED_PAIRS_FILE.exists():
+        raise FileNotFoundError(
+            f"{SELECTED_PAIRS_FILE} not found — run select_codegen_subset.py first."
+        )
+    with open(SELECTED_PAIRS_FILE, encoding="utf-8") as f:
+        selected_pairs = json.load(f)
+    allowed_ids = [p["question_id"] for p in selected_pairs]
+    print(f"Filtering to {len(allowed_ids)} question_ids from {SELECTED_PAIRS_FILE.name}")
+
+    items = fetch_items.remote(allowed_ids)
     for item in items:
         item["model"] = model
     n = len(items)
     print(f"Scoring {n} problems")
     if n == 0:
-        print("No items matched the v6 date range — check dataset split/columns.")
+        print("No items matched — check dataset split/columns and selected_pairs file.")
         return
 
     resolved = re.sub(r"[^a-z0-9.\-]", "", model.lower())
