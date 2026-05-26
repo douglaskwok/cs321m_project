@@ -92,6 +92,7 @@ def _query_hf_model(
     max_tokens: int,
     temperature: float,
     system: str = "",
+    messages: list[dict] | None = None,
 ) -> str:
     import torch
 
@@ -104,23 +105,35 @@ def _query_hf_model(
     if do_sample:
         generation_kwargs["temperature"] = temperature
 
+    has_prefill = (
+        messages is not None
+        and len(messages) > 0
+        and messages[-1]["role"] == "assistant"
+    )
+
     if model_type == "image_text_to_text":
         processor = processor_or_tokenizer
-        messages = []
-        if system:
-            messages.append({"role": "system", "content": [{"type": "text", "text": system}]})
-        messages.append(
-            {
-                "role": "user",
-                "content": [{"type": "text", "text": prompt}],
-            }
+        if messages is not None:
+            chat_messages = []
+            for m in messages:
+                content = m["content"]
+                if isinstance(content, str):
+                    content = [{"type": "text", "text": content}]
+                chat_messages.append({"role": m["role"], "content": content})
+        else:
+            chat_messages = []
+            if system:
+                chat_messages.append({"role": "system", "content": [{"type": "text", "text": system}]})
+            chat_messages.append({"role": "user", "content": [{"type": "text", "text": prompt}]})
+        template_kwargs = (
+            {"continue_final_message": True} if has_prefill else {"add_generation_prompt": True}
         )
         inputs = processor.apply_chat_template(
-            messages,
-            add_generation_prompt=True,
+            chat_messages,
             tokenize=True,
             return_dict=True,
             return_tensors="pt",
+            **template_kwargs,
         )
         device = next(hf_model.parameters()).device
         inputs = {key: value.to(device) for key, value in inputs.items()}
@@ -134,14 +147,21 @@ def _query_hf_model(
 
     if model_type == "mistral3":
         tokenizer = processor_or_tokenizer
-        messages = []
-        if system:
-            messages.append({"role": "system", "content": system})
-        messages.append({"role": "user", "content": prompt})
+        if messages is not None:
+            chat_messages = messages
+        else:
+            chat_messages = []
+            if system:
+                chat_messages.append({"role": "system", "content": system})
+            chat_messages.append({"role": "user", "content": prompt})
+        template_kwargs = (
+            {"continue_final_message": True} if has_prefill else {}
+        )
         inputs = tokenizer.apply_chat_template(
-            messages,
+            chat_messages,
             return_tensors="pt",
             return_dict=True,
+            **template_kwargs,
         )
         device = next(hf_model.parameters()).device
         inputs = {
@@ -161,16 +181,22 @@ def _query_hf_model(
         return tokenizer.decode(new_tokens, skip_special_tokens=True).strip()
 
     tokenizer = processor_or_tokenizer
-    messages = []
-    if system:
-        messages.append({"role": "system", "content": system})
-    messages.append({"role": "user", "content": prompt})
+    if messages is not None:
+        chat_messages = messages
+    else:
+        chat_messages = []
+        if system:
+            chat_messages.append({"role": "system", "content": system})
+        chat_messages.append({"role": "user", "content": prompt})
 
     if getattr(tokenizer, "chat_template", None):
+        template_kwargs = (
+            {"continue_final_message": True} if has_prefill else {"add_generation_prompt": True}
+        )
         input_ids = tokenizer.apply_chat_template(
-            messages,
-            add_generation_prompt=True,
+            chat_messages,
             return_tensors="pt",
+            **template_kwargs,
         )
         inputs = {"input_ids": input_ids}
     else:
@@ -190,8 +216,9 @@ def _query_hf_model(
 
 def query_model(
     model: str,
-    prompt: str,
+    prompt: str = "",
     *,
+    messages: list[dict] | None = None,
     system: str = "",
     max_tokens: int = 1024,
     temperature: float = 0.0,
@@ -202,6 +229,11 @@ def query_model(
     Routes to Anthropic for ``claude-*``, OpenAI for known OpenAI prefixes,
     and Hugging Face Transformers otherwise. Raises the last exception if all
     attempts fail.
+
+    Pass ``messages`` (a list of role/content dicts, optionally ending with an
+    assistant prefill turn) to use the chat-messages interface instead of the
+    plain ``prompt`` string.  Anthropic and HF support assistant prefill
+    natively; OpenAI receives the same list minus the trailing assistant turn.
     """
     import random
     import time
@@ -225,13 +257,22 @@ def query_model(
                 from anthropic import Anthropic
 
                 client = Anthropic()
-                kwargs = {
+                if messages is not None:
+                    msg_system = next(
+                        (m["content"] for m in messages if m["role"] == "system"),
+                        system,
+                    )
+                    api_messages = [m for m in messages if m["role"] != "system"]
+                else:
+                    msg_system = system
+                    api_messages = [{"role": "user", "content": prompt}]
+                kwargs: dict = {
                     "model": model,
                     "max_tokens": max_tokens,
-                    "messages": [{"role": "user", "content": prompt}],
+                    "messages": api_messages,
                 }
-                if system:
-                    kwargs["system"] = system
+                if msg_system:
+                    kwargs["system"] = msg_system
                 if model != "claude-opus-4-7":
                     kwargs["temperature"] = temperature
                 resp = client.messages.create(**kwargs)
@@ -248,13 +289,21 @@ def query_model(
                 from openai import OpenAI
 
                 client = OpenAI()
-                messages = []
-                if system:
-                    messages.append({"role": "system", "content": system})
-                messages.append({"role": "user", "content": prompt})
+                if messages is not None:
+                    # OpenAI does not support assistant prefill; strip trailing assistant turn.
+                    api_messages = (
+                        messages[:-1]
+                        if messages and messages[-1]["role"] == "assistant"
+                        else list(messages)
+                    )
+                else:
+                    api_messages = []
+                    if system:
+                        api_messages.append({"role": "system", "content": system})
+                    api_messages.append({"role": "user", "content": prompt})
                 resp = client.chat.completions.create(
                     model=model,
-                    messages=messages,
+                    messages=api_messages,
                     max_completion_tokens=max_tokens,
                     temperature=temperature,
                 )
@@ -263,6 +312,7 @@ def query_model(
                 model,
                 prompt,
                 system=system,
+                messages=messages,
                 max_tokens=max_tokens,
                 temperature=temperature,
             )

@@ -1,13 +1,18 @@
 """CodeJudgeBench pairwise code judgment benchmark (Zhang et al., 2025).
 
-Runs an OpenAI or Anthropic model as a pairwise judge on the code generation
-subset of CodeJudgeBench, which contains 2,103 pairwise comparisons built
-from LiveCodeBench v6.  Each pair is evaluated twice (with candidate positions
-swapped) to mitigate position bias; accuracy is the average correctness across
-both orderings.
+Runs an OpenAI or Anthropic model as a pairwise judge on the codegen subset
+of CodeJudgeBench (mattymchen/codejudgebench).  Uses the 676-pair curated
+subset selected by select_codegen_subset.py — one pair per unique question_id,
+stratified evenly across the claude, qwen, and gemini model families.  Each
+pair is evaluated twice (with candidate positions swapped) to mitigate
+position bias; accuracy is the average correctness across both orderings.
 
-Usage
------
+Prerequisites
+-------------
+Run select_codegen_subset.py once to generate the subset file::
+
+    python benchmarks/code/select_codegen_subset.py
+
 One-time secret setup in Modal::
 
     modal secret create openai-secret OPENAI_API_KEY=sk-...
@@ -91,10 +96,20 @@ app = modal.App("codejudgebench-pairwise", image=image)
 # Constants
 # ---------------------------------------------------------------------------
 
-# Dataset: CodeJudgeBench code-generation subset (Zhang et al., 2025).
-DATASET_ID = "livecodebench/code_judge_bench"
+DATASET_ID = "mattymchen/codejudgebench"
+CODEGEN_CONFIG = "codegen"
 DEFAULT_MODEL = "gpt-5.4-nano"
-TEST_LIMIT: int | None = 2  # set to None to run all 2,103 pairs
+TEST_LIMIT: int | None = None  # set to None to run all 676 pairs
+SELECTED_PAIRS_FILE = Path(__file__).parent / "codegen_selected_pairs.json"
+_TARGET_FAMILIES = ["claude", "qwen", "gemini"]
+
+
+def _detect_family(model_str: str) -> str | None:
+    s = model_str.lower()
+    for f in _TARGET_FAMILIES:
+        if f in s:
+            return f
+    return None
 
 
 def _model_slug(model: str) -> str:
@@ -132,23 +147,47 @@ def _build_judge_query(problem: str, solution_a: str, solution_b: str) -> str:
     )
 
 
+def _build_judge_messages(problem: str, solution_a: str, solution_b: str) -> list:
+    return [
+        {
+            "role": "system",
+            "content": (
+                "You are an expert competitive programming judge. "
+                "Your entire response must be exactly two lines — no more, no less:\n"
+                "Line 1: One sentence identifying the key difference between the solutions.\n"
+                "Line 2: Verdict: [[A]] or Verdict: [[B]]\n"
+                "Do not add any other text, headers, or explanation."
+            )
+        },
+        {
+            "role": "user",
+            "content": (
+                f"### Problem:\n{problem}\n\n"
+                f"### Solution A:\n```python\n{solution_a}\n```\n\n"
+                f"### Solution B:\n```python\n{solution_b}\n```"
+            )
+        },
+    ]
+
+
 # ---------------------------------------------------------------------------
 # Parsing helpers
 # ---------------------------------------------------------------------------
 
 _BRACKET2_RE = re.compile(r"\[\[([AB])\]\]", re.IGNORECASE)
 _BRACKET1_RE = re.compile(r"\[([AB])\]", re.IGNORECASE)
-_BARE_AB_RE = re.compile(r"(?<![A-Za-z])([AB])(?![A-Za-z])")
 
 
 def _parse_winner(text: str) -> str | None:
-    """Extract [[A]] or [[B]] verdict from model response."""
-    for pattern in (_BRACKET2_RE, _BRACKET1_RE):
-        m = pattern.search(text)
-        if m:
-            return m.group(1).upper()
-    matches = _BARE_AB_RE.findall(text)
-    return matches[-1].upper() if matches else None
+    # Use rfind so the final verdict wins when both preliminary and final are present;
+    # falls back to the preliminary verdict if the response was truncated mid-reasoning.
+    pred_a = max(text.rfind(p) for p in ("[[A]]", "[A]"))
+    pred_b = max(text.rfind(p) for p in ("[[B]]", "[B]"))
+    if pred_a > pred_b:
+        return "A"
+    if pred_b > pred_a:
+        return "B"
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -157,8 +196,11 @@ def _parse_winner(text: str) -> str | None:
 
 
 @app.function(image=image)
-def fetch_items() -> list[dict]:
-    """Download CodeJudgeBench and build forward + backward judgment items.
+def fetch_items(selected_pairs: list[dict]) -> list[dict]:
+    """Download the codegen subset and build forward + backward judgment items.
+
+    selected_pairs: output of select_codegen_subset.py — one entry per
+    question_id with keys question_id, split, model, model_family.
 
     Returns a flat list where every original pair produces two items:
     ordering="fwd"  → solution_correct placed as A, solution_incorrect as B
@@ -166,65 +208,82 @@ def fetch_items() -> list[dict]:
     """
     from datasets import load_dataset
 
-    ds = load_dataset(DATASET_ID, split="test", trust_remote_code=True)
-    all_columns = ds.column_names
-    print(f"Dataset columns: {all_columns}")
+    # Build lookup: question_id -> required model_family.
+    selection_map: dict[str, str] = {
+        p["question_id"]: p["model_family"] for p in selected_pairs
+    }
+
+    ds = load_dataset(DATASET_ID, CODEGEN_CONFIG, trust_remote_code=True)
+    print(f"Splits: {list(ds.keys())}")
+    first_split = next(iter(ds.values()))
+    print(f"Dataset columns: {first_split.column_names}")
 
     pairs: list[dict] = []
-    for row in ds:
-        # Adapt field names to whatever the dataset actually uses.
-        pair_id = str(row.get("id", row.get("pair_id", row.get("question_id", len(pairs)))))
-        problem = row.get("question_content", row.get("problem", row.get("prompt", "")))
-        # Prefer fields named solution_{correct,incorrect}; fall back to generic 1/2 or A/B.
-        sol_correct = row.get(
-            "solution_correct",
-            row.get("solution_1", row.get("solution_a", row.get("chosen", ""))),
-        )
-        sol_incorrect = row.get(
-            "solution_incorrect",
-            row.get("solution_2", row.get("solution_b", row.get("rejected", ""))),
-        )
-        difficulty = str(row.get("difficulty", "unknown"))
-        pairs.append(
-            {
-                "pair_id": pair_id,
-                "difficulty": difficulty,
-                "problem": problem,
-                "sol_correct": sol_correct,
-                "sol_incorrect": sol_incorrect,
-            }
-        )
+    seen: set[str] = set()
+
+    for split_ds in ds.values():
+        for row in split_ds:
+            qid = str(row.get("question_id", row.get("id", "")))
+            if qid not in selection_map or qid in seen:
+                continue
+            model_str = str(row.get("model", row.get("generator", "")))
+            if _detect_family(model_str) != selection_map[qid]:
+                continue
+            seen.add(qid)
+            problem = row.get("question_content", row.get("problem", row.get("prompt", "")))
+            sol_correct = row.get(
+                "pos_response",
+                row.get("solution_correct",
+                row.get("solution_1", row.get("solution_a", row.get("chosen", "")))),
+            )
+            sol_incorrect = row.get(
+                "neg_response",
+                row.get("solution_incorrect",
+                row.get("solution_2", row.get("solution_b", row.get("rejected", "")))),
+            )
+            difficulty = str(row.get("difficulty", "unknown"))
+            pairs.append(
+                {
+                    "pair_id": qid,
+                    "difficulty": difficulty,
+                    "problem": problem,
+                    "sol_correct": sol_correct,
+                    "sol_incorrect": sol_incorrect,
+                }
+            )
 
     pairs.sort(key=lambda x: x["pair_id"])
     if TEST_LIMIT is not None:
         pairs = pairs[:TEST_LIMIT]
 
     items: list[dict] = []
-    for pair in pairs:
-        # Forward: correct=A, incorrect=B → gold=A
-        items.append(
-            {
-                "pair_id": pair["pair_id"],
-                "ordering": "fwd",
-                "difficulty": pair["difficulty"],
-                "judge_query": _build_judge_query(
-                    pair["problem"], pair["sol_correct"], pair["sol_incorrect"]
-                ),
-                "gold": "A",
-            }
-        )
-        # Backward: correct=B, incorrect=A → gold=B
-        items.append(
-            {
-                "pair_id": pair["pair_id"],
-                "ordering": "bwd",
-                "difficulty": pair["difficulty"],
-                "judge_query": _build_judge_query(
-                    pair["problem"], pair["sol_incorrect"], pair["sol_correct"]
-                ),
-                "gold": "B",
-            }
-        )
+    for i, pair in enumerate(pairs):
+        if i % 2 == 0:
+            # Forward: correct=A, incorrect=B → gold=A
+            items.append(
+                {
+                    "pair_id": pair["pair_id"],
+                    "ordering": "fwd",
+                    "difficulty": pair["difficulty"],
+                    "judge_messages": _build_judge_messages(
+                        pair["problem"], pair["sol_correct"], pair["sol_incorrect"]
+                    ),
+                    "gold": "A",
+                }
+            )
+        else:
+            # Backward: correct=B, incorrect=A → gold=B
+            items.append(
+                {
+                    "pair_id": pair["pair_id"],
+                    "ordering": "bwd",
+                    "difficulty": pair["difficulty"],
+                    "judge_messages": _build_judge_messages(
+                        pair["problem"], pair["sol_incorrect"], pair["sol_correct"]
+                    ),
+                    "gold": "B",
+                }
+            )
 
     print(f"Built {len(pairs)} pairs → {len(items)} judgment items")
     return items
@@ -240,9 +299,18 @@ def _score_item_impl(item: dict) -> dict:
 
     model = item["model"]
     gold = item["gold"]
-    raw = query_model(model, item["judge_query"])
-    predicted = _parse_winner(raw)
-    correct = int(predicted == gold) if predicted is not None else 0
+    judge_messages = item["judge_messages"]
+
+    # Extract assistant prefill text (if any) so we can reconstruct the full
+    # response — Anthropic and HF return only the continuation, not the prefix.
+    prefill = ""
+    if judge_messages and judge_messages[-1]["role"] == "assistant":
+        prefill = judge_messages[-1]["content"]
+
+    raw = query_model(model, messages=judge_messages)
+    full_text = prefill + raw
+    predicted = _parse_winner(full_text)
+    correct = int(predicted == gold) if predicted is not None else -1
 
     return {
         "pair_id": item["pair_id"],
@@ -251,7 +319,7 @@ def _score_item_impl(item: dict) -> dict:
         "gold": gold,
         "predicted": predicted or "",
         "correct": correct,
-        "raw": raw,
+        "raw": full_text,
     }
 
 
@@ -319,7 +387,15 @@ def main(model: str = DEFAULT_MODEL) -> None:
     out_path, out_jsonl = _out_paths(model)
     print(f"Model: {model}  (slug: {_model_slug(model)})")
 
-    items = fetch_items.remote()
+    if not SELECTED_PAIRS_FILE.exists():
+        raise FileNotFoundError(
+            f"{SELECTED_PAIRS_FILE} not found — run select_codegen_subset.py first."
+        )
+    with open(SELECTED_PAIRS_FILE, encoding="utf-8") as f:
+        selected_pairs = json.load(f)
+    print(f"Loaded {len(selected_pairs)} selected pairs from {SELECTED_PAIRS_FILE.name}")
+
+    items = fetch_items.remote(selected_pairs)
     for item in items:
         item["model"] = model
     n = len(items)
