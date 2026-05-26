@@ -219,21 +219,26 @@ def _passes_all_tests(code: str, test_cases: list[dict]) -> bool:
 
 
 @app.function(image=image)
-def fetch_items(allowed_ids: list[str] | None = None) -> list[dict]:
+def fetch_items(allowed_ids: list[str] | None = None, exclude_ids: list[str] | None = None) -> list[dict]:
     """Download LiveCodeBench and return v6 problems with public test cases.
 
     allowed_ids: if provided, only return problems whose question_id is in
     this set (derived from the codegen_selected_pairs.json subset).
+    exclude_ids: if provided, skip problems whose question_id is in this set
+    (used to resume a partial run without re-scoring already-completed items).
     """
     from datasets import load_dataset
 
     allowed = set(allowed_ids) if allowed_ids is not None else None
+    exclude = set(exclude_ids) if exclude_ids is not None else set()
 
     ds = load_dataset(DATASET_ID, version_tag=VERSION_TAG, split="test", trust_remote_code=True)
     items = []
     for row in ds:
         qid = str(row["question_id"])
         if allowed is not None and qid not in allowed:
+            continue
+        if qid in exclude:
             continue
         raw_tests = row.get("public_test_cases", "[]")
         try:
@@ -357,7 +362,20 @@ def main(model: str = DEFAULT_MODEL) -> None:
     allowed_ids = [p["question_id"] for p in selected_pairs]
     print(f"Filtering to {len(allowed_ids)} question_ids from {SELECTED_PAIRS_FILE.name}")
 
-    items = fetch_items.remote(allowed_ids)
+    done_ids: list[str] = []
+    if out_jsonl.exists():
+        with out_jsonl.open(encoding="utf-8") as fh:
+            for line in fh:
+                line = line.strip()
+                if line:
+                    try:
+                        done_ids.append(json.loads(line)["id"])
+                    except (json.JSONDecodeError, KeyError):
+                        pass
+        if done_ids:
+            print(f"Resuming — skipping {len(done_ids)} already-scored items")
+
+    items = fetch_items.remote(allowed_ids, done_ids or None)
     for item in items:
         item["model"] = model
     n = len(items)
@@ -383,7 +401,7 @@ def main(model: str = DEFAULT_MODEL) -> None:
 
     results = []
     out_jsonl.parent.mkdir(parents=True, exist_ok=True)
-    with out_jsonl.open("w", encoding="utf-8") as fh:
+    with out_jsonl.open("a", encoding="utf-8") as fh:
         for r in scorer.map(items, order_outputs=False):
             results.append(r)
             fh.write(

@@ -147,23 +147,47 @@ def _build_judge_query(problem: str, solution_a: str, solution_b: str) -> str:
     )
 
 
+def _build_judge_messages(problem: str, solution_a: str, solution_b: str) -> list:
+    return [
+        {
+            "role": "system",
+            "content": (
+                "You are an expert competitive programming judge. "
+                "Your entire response must be exactly two lines — no more, no less:\n"
+                "Line 1: One sentence identifying the key difference between the solutions.\n"
+                "Line 2: Verdict: [[A]] or Verdict: [[B]]\n"
+                "Do not add any other text, headers, or explanation."
+            )
+        },
+        {
+            "role": "user",
+            "content": (
+                f"### Problem:\n{problem}\n\n"
+                f"### Solution A:\n```python\n{solution_a}\n```\n\n"
+                f"### Solution B:\n```python\n{solution_b}\n```"
+            )
+        },
+    ]
+
+
 # ---------------------------------------------------------------------------
 # Parsing helpers
 # ---------------------------------------------------------------------------
 
 _BRACKET2_RE = re.compile(r"\[\[([AB])\]\]", re.IGNORECASE)
 _BRACKET1_RE = re.compile(r"\[([AB])\]", re.IGNORECASE)
-_BARE_AB_RE = re.compile(r"(?<![A-Za-z])([AB])(?![A-Za-z])")
 
 
 def _parse_winner(text: str) -> str | None:
-    """Extract [[A]] or [[B]] verdict from model response."""
-    for pattern in (_BRACKET2_RE, _BRACKET1_RE):
-        m = pattern.search(text)
-        if m:
-            return m.group(1).upper()
-    matches = _BARE_AB_RE.findall(text)
-    return matches[-1].upper() if matches else None
+    # Use rfind so the final verdict wins when both preliminary and final are present;
+    # falls back to the preliminary verdict if the response was truncated mid-reasoning.
+    pred_a = max(text.rfind(p) for p in ("[[A]]", "[A]"))
+    pred_b = max(text.rfind(p) for p in ("[[B]]", "[B]"))
+    if pred_a > pred_b:
+        return "A"
+    if pred_b > pred_a:
+        return "B"
+    return None
 
 
 # ---------------------------------------------------------------------------
@@ -241,7 +265,7 @@ def fetch_items(selected_pairs: list[dict]) -> list[dict]:
                     "pair_id": pair["pair_id"],
                     "ordering": "fwd",
                     "difficulty": pair["difficulty"],
-                    "judge_query": _build_judge_query(
+                    "judge_messages": _build_judge_messages(
                         pair["problem"], pair["sol_correct"], pair["sol_incorrect"]
                     ),
                     "gold": "A",
@@ -254,7 +278,7 @@ def fetch_items(selected_pairs: list[dict]) -> list[dict]:
                     "pair_id": pair["pair_id"],
                     "ordering": "bwd",
                     "difficulty": pair["difficulty"],
-                    "judge_query": _build_judge_query(
+                    "judge_messages": _build_judge_messages(
                         pair["problem"], pair["sol_incorrect"], pair["sol_correct"]
                     ),
                     "gold": "B",
@@ -275,9 +299,18 @@ def _score_item_impl(item: dict) -> dict:
 
     model = item["model"]
     gold = item["gold"]
-    raw = query_model(model, item["judge_query"])
-    predicted = _parse_winner(raw)
-    correct = int(predicted == gold) if predicted is not None else 0
+    judge_messages = item["judge_messages"]
+
+    # Extract assistant prefill text (if any) so we can reconstruct the full
+    # response — Anthropic and HF return only the continuation, not the prefix.
+    prefill = ""
+    if judge_messages and judge_messages[-1]["role"] == "assistant":
+        prefill = judge_messages[-1]["content"]
+
+    raw = query_model(model, messages=judge_messages)
+    full_text = prefill + raw
+    predicted = _parse_winner(full_text)
+    correct = int(predicted == gold) if predicted is not None else -1
 
     return {
         "pair_id": item["pair_id"],
@@ -286,7 +319,7 @@ def _score_item_impl(item: dict) -> dict:
         "gold": gold,
         "predicted": predicted or "",
         "correct": correct,
-        "raw": raw,
+        "raw": full_text,
     }
 
 
