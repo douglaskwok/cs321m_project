@@ -128,6 +128,8 @@ def _query_hf_model(
         template_kwargs = (
             {"continue_final_message": True} if has_prefill else {"add_generation_prompt": True}
         )
+        if model.startswith("Qwen/Qwen3.5-") and not has_prefill:
+            template_kwargs["enable_thinking"] = False
         inputs = processor.apply_chat_template(
             chat_messages,
             tokenize=True,

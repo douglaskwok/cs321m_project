@@ -123,6 +123,12 @@ _SOLVER_SYSTEM = (
     "and will generate a correct Python program that matches the specification and passes all tests."
 )
 
+_QWEN_CODE_ONLY_INSTRUCTION = (
+    "You will be given a question (problem specification) and will generate a correct Python "
+    "program that matches the specification and passes all tests.\n"
+    "You will NOT return anything except for the program.\n\n"
+)
+
 _FORMAT_WITH_STARTER = (
     "### Format: You will use the following starter code to write the solution to the problem "
     "and enclose your code within delimiters.\n"
@@ -150,6 +156,31 @@ def _build_solver_prompt(problem_content: str, starter_code: str) -> str:
         body += _FORMAT_WITH_STARTER.format(starter_code=starter_code.strip())
     else:
         body += _FORMAT_STDIN
+    return body
+
+
+def _build_qwen_solver_prompt(problem_content: str, starter_code: str) -> str:
+    body = _QWEN_CODE_ONLY_INSTRUCTION
+    body += f"Question:\n{problem_content.strip()}\n\n"
+    if starter_code and starter_code.strip():
+        body += (
+            "You will use the following starter code to write the solution to the problem "
+            "and enclose your code within delimiters.\n"
+            "```python\n"
+            f"{starter_code.strip()}\n"
+            "```\n\n"
+        )
+    else:
+        body += (
+            "Read the inputs from stdin solve the problem and write the answer to stdout "
+            "(do not directly test on the sample inputs). Enclose your code within delimiters "
+            "as follows. Ensure that when the python program runs, it reads the inputs, runs "
+            "the algorithm and writes output to STDOUT.\n"
+            "```python\n"
+            "# YOUR CODE HERE\n"
+            "```\n\n"
+        )
+    body += "### Answer: (use the provided format with backticks)\n"
     return body
 
 
@@ -221,7 +252,7 @@ def _passes_all_tests(code: str, test_cases: list[dict]) -> bool:
 # ---------------------------------------------------------------------------
 
 
-@app.function(image=image)
+@app.function(image=image, gpu="B200", max_containers=1, timeout=1200)
 def fetch_items(
     allowed_ids: list[str] | None = None,
     exclude_ids: list[str] | None = None,
@@ -260,6 +291,8 @@ def fetch_items(
                 "difficulty": str(row.get("difficulty", "unknown")),
                 "platform": str(row.get("platform", "unknown")),
                 "system": _SOLVER_SYSTEM,
+                "question_content": row["question_content"],
+                "starter_code": row.get("starter_code", ""),
                 "prompt": _build_solver_prompt(
                     row["question_content"], row.get("starter_code", "")
                 ),
@@ -284,7 +317,13 @@ def _score_item_impl(item: dict) -> dict:
     from llm_client import query_model
 
     model = item["model"]
-    raw = query_model(model, item["prompt"], system=item["system"], max_tokens=4096, max_attempts=3)
+    raw = query_model(
+        model,
+        item["prompt"],
+        system=item["system"],
+        max_tokens=int(item.get("max_tokens", 2000)),
+        max_attempts=3,
+    )
     code = _extract_code(raw)
     correct = int(_passes_all_tests(code, item["test_cases"]))
 
@@ -295,6 +334,15 @@ def _score_item_impl(item: dict) -> dict:
         "correct": correct,
         "raw": raw,
     }
+
+
+def _score_batch_impl(items: list[dict]) -> list[dict]:
+    return [_score_item_impl(item) for item in items]
+
+
+def _chunked(items: list[dict], batch_size: int) -> list[list[dict]]:
+    batch_size = max(1, batch_size)
+    return [items[i : i + batch_size] for i in range(0, len(items), batch_size)]
 
 
 @app.function(
@@ -317,6 +365,7 @@ def score_item(item: dict) -> dict:
     gpu="A10G",
     volumes={"/root/.cache/huggingface": hf_cache},
     # secrets=[modal.Secret.from_name("hf-secret")],
+    max_containers=1,
     retries=2,
     timeout=1200,
 )
@@ -327,9 +376,24 @@ def score_item_hf_a10g(item: dict) -> dict:
 
 @app.function(
     image=hf_image,
+    gpu="A10G",
+    volumes={"/root/.cache/huggingface": hf_cache},
+    # secrets=[modal.Secret.from_name("hf-secret")],
+    max_containers=1,
+    retries=2,
+    timeout=7200,
+)
+def score_batch_hf_a10g(items: list[dict]) -> list[dict]:
+    """Generate solutions for a batch using one local HF model on A10G."""
+    return _score_batch_impl(items)
+
+
+@app.function(
+    image=hf_image,
     gpu="H100",
     volumes={"/root/.cache/huggingface": hf_cache},
     # secrets=[modal.Secret.from_name("hf-secret")],
+    max_containers=1,
     retries=2,
     timeout=1200,
 )
@@ -340,9 +404,24 @@ def score_item_hf_h100(item: dict) -> dict:
 
 @app.function(
     image=hf_image,
+    gpu="H100",
+    volumes={"/root/.cache/huggingface": hf_cache},
+    # secrets=[modal.Secret.from_name("hf-secret")],
+    max_containers=1,
+    retries=2,
+    timeout=7200,
+)
+def score_batch_hf_h100(items: list[dict]) -> list[dict]:
+    """Generate solutions for a batch using one local HF model on H100."""
+    return _score_batch_impl(items)
+
+
+@app.function(
+    image=hf_image,
     gpu="B200",
     volumes={"/root/.cache/huggingface": hf_cache},
     # secrets=[modal.Secret.from_name("hf-secret")],
+    max_containers=1,
     retries=2,
     timeout=1200,
 )
@@ -351,37 +430,74 @@ def score_item_hf_b200(item: dict) -> dict:
     return _score_item_impl(item)
 
 
+@app.function(
+    image=hf_image,
+    gpu="B200",
+    volumes={"/root/.cache/huggingface": hf_cache},
+    # secrets=[modal.Secret.from_name("hf-secret")],
+    max_containers=10,
+    retries=2,
+    timeout=7200,
+)
+def score_batch_hf_b200(items: list[dict]) -> list[dict]:
+    """Generate solutions for a batch using one local HF model on B200."""
+    return _score_batch_impl(items)
+
+
 # ---------------------------------------------------------------------------
 # Local entrypoint
 # ---------------------------------------------------------------------------
 
 
 @app.local_entrypoint()
-def main(model: str = DEFAULT_MODEL, limit: int = -1) -> None:
+def main(
+    model: str = DEFAULT_MODEL,
+    limit: int = -1,
+    ids: str = "",
+    ids_file: str = "",
+    max_tokens: int = 2000,
+    batch_size: int = 32,
+    resume: bool = True,
+    output_suffix: str = "",
+) -> None:
     out_path, out_jsonl = _out_paths(model)
+    if output_suffix.strip():
+        suffix = re.sub(r"[^a-z0-9_\\-]", "", output_suffix.lower())
+        out_path = out_path.with_name(f"{out_path.stem}_{suffix}{out_path.suffix}")
+        out_jsonl = out_jsonl.with_name(f"{out_jsonl.stem}_{suffix}{out_jsonl.suffix}")
     print(f"Model: {model}  (slug: {_model_slug(model)})")
 
-    if not SELECTED_PAIRS_FILE.exists():
-        raise FileNotFoundError(
-            f"{SELECTED_PAIRS_FILE} not found — run select_codegen_subset.py first."
-        )
-    with open(SELECTED_PAIRS_FILE, encoding="utf-8") as f:
-        selected_pairs = json.load(f)
-    allowed_ids = [p["question_id"] for p in selected_pairs]
-    print(f"Filtering to {len(allowed_ids)} question_ids from {SELECTED_PAIRS_FILE.name}")
+    resolved = re.sub(r"[^a-z0-9.\-]", "", model.lower())
+    is_qwen = resolved.startswith("qwen")
 
+    selected_pairs_file = Path(ids_file) if ids_file.strip() else SELECTED_PAIRS_FILE
+    if not selected_pairs_file.exists():
+        raise FileNotFoundError(
+            f"{selected_pairs_file} not found - run select_codegen_subset.py first."
+        )
+    with open(selected_pairs_file, encoding="utf-8") as f:
+        selected_pairs = json.load(f)
+    allowed_ids = [str(p["question_id"]) for p in selected_pairs]
+    if ids.strip():
+        allowed_ids.extend(item_id.strip() for item_id in ids.split(",") if item_id.strip())
+    allowed_ids = sorted(set(allowed_ids))
+    print(f"Filtering to {len(allowed_ids)} question_ids from {selected_pairs_file.name}")
+
+    existing_results: list[dict] = []
     done_ids: list[str] = []
-    if out_jsonl.exists():
+    if resume and out_jsonl.exists():
         with out_jsonl.open(encoding="utf-8") as fh:
             for line in fh:
                 line = line.strip()
                 if line:
                     try:
-                        done_ids.append(json.loads(line)["id"])
+                        row = json.loads(line)
+                        existing_results.append(row)
+                        done_ids.append(str(row["id"]))
                     except (json.JSONDecodeError, KeyError):
                         pass
         if done_ids:
-            print(f"Resuming — skipping {len(done_ids)} already-scored items")
+            print(f"Resuming - skipping {len(done_ids)} already-scored items")
 
     items = fetch_items.remote(
         allowed_ids,
@@ -390,46 +506,56 @@ def main(model: str = DEFAULT_MODEL, limit: int = -1) -> None:
     )
     for item in items:
         item["model"] = model
+        item["max_tokens"] = max_tokens
+        if is_qwen:
+            item["system"] = "You are a helpful assistant."
+            item["prompt"] = _build_qwen_solver_prompt(
+                item["question_content"], item.get("starter_code", "")
+            )
     n = len(items)
+    item_order = {item_id: i for i, item_id in enumerate(allowed_ids)}
     print(f"Scoring {n} problems")
-    if n == 0:
+    if n == 0 and not existing_results:
         print("No items matched — check dataset split/columns and selected_pairs file.")
         return
 
-    resolved = re.sub(r"[^a-z0-9.\-]", "", model.lower())
+
     is_api = resolved.startswith(("gpt-", "o1", "o2", "o3", "o4", "chatgpt-", "claude-"))
-    is_qwen = resolved.startswith("qwen")
     is_mistral = resolved.startswith("mistral") or resolved.startswith("ministral")
     _param_m = re.search(r"(\d+(?:\.\d+)?)b", resolved)
     is_large_hf = _param_m is not None and float(_param_m.group(1)) >= 20
     if is_api:
         scorer = score_item
+        batch_scorer = None
     elif is_qwen:
         scorer = score_item_hf_b200
+        batch_scorer = score_batch_hf_b200
     elif is_mistral or is_large_hf:
         scorer = score_item_hf_h100
+        batch_scorer = score_batch_hf_h100
     else:
         scorer = score_item_hf_a10g
+        batch_scorer = score_batch_hf_a10g
 
-    results = []
+    results = list(existing_results)
     out_jsonl.parent.mkdir(parents=True, exist_ok=True)
-    with out_jsonl.open("a", encoding="utf-8") as fh:
-        for r in scorer.map(items, order_outputs=False):
-            results.append(r)
-            fh.write(
-                json.dumps(
-                    {
-                        "id": r["id"],
-                        "difficulty": r["difficulty"],
-                        "platform": r["platform"],
-                        "correct": r["correct"],
-                        "raw": r["raw"],
-                    },
-                    ensure_ascii=False,
-                )
-                + "\n"
-            )
-            fh.flush()
+    mode = "a" if resume and existing_results else "w"
+    with out_jsonl.open(mode, encoding="utf-8") as fh:
+        if batch_scorer is None:
+            for r in scorer.map(items, order_outputs=False):
+                results.append(r)
+                fh.write(json.dumps(r, ensure_ascii=False) + "\n")
+                fh.flush()
+        else:
+            batches = _chunked(items, batch_size)
+            print(f"Scoring {len(items)} remaining problems as {len(batches)} batches (batch_size={batch_size})")
+            for batch_results in batch_scorer.map(batches, order_outputs=False):
+                for r in batch_results:
+                    results.append(r)
+                    fh.write(json.dumps(r, ensure_ascii=False) + "\n")
+                fh.flush()
+
+    results.sort(key=lambda r: item_order.get(str(r["id"]), len(item_order)))
 
     responses = np.array([r["correct"] for r in results], dtype=np.int8)
     response_matrix = responses.reshape(1, -1)
@@ -449,6 +575,6 @@ def main(model: str = DEFAULT_MODEL, limit: int = -1) -> None:
             acc = np.mean([r["correct"] for r in subset])
             print(f"{diff:<8}: {acc:.3f}  (n={len(subset)})")
 
-    print(f"\nOverall  : {responses.mean():.3f}  ({int(responses.sum())}/{n})")
+    print(f"\nOverall  : {responses.mean():.3f}  ({int(responses.sum())}/{len(results)})")
     print(f"\nSaved → {out_path}")
     print(f"Saved → {out_jsonl}")
