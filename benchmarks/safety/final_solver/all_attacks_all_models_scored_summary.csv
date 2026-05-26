@@ -1,0 +1,8 @@
+attack_family,scored_source_file,n_rows,n_scored,n_errors
+direct,direct_all_models_scored.json,1170,1170,6
+humanjailbreaks,humanjailbreaks_all_models_scored.json,1170,1170,7
+dan,dan_all_models_scored.json,1170,1170,3
+pap,pap_all_models_scored.json,1170,1170,6
+pair,pair_all_models_scored.json,1170,1170,11
+gcg,gcg_all_models_scored.json,1170,1170,6
+autodan,autodan_all_models_scored.json,1170,1170,4

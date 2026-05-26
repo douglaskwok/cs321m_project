@@ -1,0 +1,14 @@
+{
+  "seed": 123,
+  "device": "cuda",
+  "matrix": "judging",
+  "output_dir": "/root/IRT/results/judging",
+  "heldout_repeats": 5,
+  "train_frac": 0.8,
+  "run_item_bootstrap": false,
+  "n_boot": 50,
+  "benchmark_id": "mmlu_pro_judging",
+  "n_subjects": 10,
+  "n_items": 308,
+  "density": 0.9970779418945312
+}

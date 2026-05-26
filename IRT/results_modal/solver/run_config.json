@@ -1,0 +1,12 @@
+{
+  "seed": 123,
+  "device": "cuda",
+  "output_dir": "/root/IRT/results",
+  "heldout_repeats": 5,
+  "train_frac": 0.8,
+  "run_item_bootstrap": false,
+  "n_boot": 50,
+  "n_subjects": 10,
+  "n_items": 154,
+  "density": 0.7357142567634583
+}
