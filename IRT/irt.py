@@ -243,6 +243,203 @@ def fit_abilities_item_marginalized_pl(
     return ability.detach(), losses
 
 
+def _observed_mask(data: torch.Tensor) -> torch.Tensor:
+    return ~torch.isnan(data) & (data != -1)
+
+
+def _bernoulli_log_prob(probs: torch.Tensor, observed: torch.Tensor) -> torch.Tensor:
+    probs = probs.clamp(1e-7, 1 - 1e-7)
+    return observed * torch.log(probs) + (1 - observed) * torch.log1p(-probs)
+
+
+def count_trainable_parameters(model) -> int:
+    return int(sum(p.numel() for p in model.parameters() if p.requires_grad))
+
+
+def information_criterion_row(fit_name, log_likelihood, n_parameters, n_observed, bic_n, likelihood_type):
+    aic = -2 * log_likelihood + 2 * n_parameters
+    bic = -2 * log_likelihood + math.log(max(bic_n, 1)) * n_parameters
+    return {
+        "fit": fit_name,
+        "likelihood_type": likelihood_type,
+        "log_likelihood": float(log_likelihood),
+        "n_parameters": int(n_parameters),
+        "n_observed": int(n_observed),
+        "bic_n": int(bic_n),
+        "aic": float(aic),
+        "bic": float(bic),
+    }
+
+
+def conditional_bernoulli_log_likelihood(model, data: torch.Tensor) -> float:
+    data = data.to(model.device).float()
+    mask = _observed_mask(data)
+    with torch.no_grad():
+        probs = predict_dense(model)
+        logp = _bernoulli_log_prob(probs[mask], data[mask])
+    return float(logp.sum().item())
+
+
+def flipped_1pl_item_marginal_log_likelihood(data: torch.Tensor, flipped_model, n_quadrature=31) -> float:
+    y_matrix = data.T.to(flipped_model.device).float()
+    mask = _observed_mask(y_matrix)
+
+    theta_nodes, weights = np.polynomial.hermite_e.hermegauss(n_quadrature)
+    theta_nodes = torch.tensor(theta_nodes, dtype=torch.float32, device=flipped_model.device)
+    weights = torch.tensor(weights, dtype=torch.float32, device=flipped_model.device)
+    weights = weights / weights.sum()
+    log_weights = torch.log(weights)
+
+    with torch.no_grad():
+        original_ability = flipped_model.ability.detach().clone()
+        item_terms = []
+        for subject_idx in range(y_matrix.shape[0]):
+            obs = mask[subject_idx]
+            if not obs.any():
+                continue
+
+            y = y_matrix[subject_idx, obs]
+            log_terms = []
+            for q, theta in enumerate(theta_nodes):
+                flipped_model.ability.fill_(theta.item())
+                subject = torch.full((int(obs.sum().item()),), subject_idx, dtype=torch.long, device=flipped_model.device)
+                item = torch.arange(y_matrix.shape[1], device=flipped_model.device)[obs]
+                probs = flipped_model.predict({"subject_idx": subject, "item_idx": item})
+                log_terms.append(log_weights[q] + _bernoulli_log_prob(probs, y).sum())
+            item_terms.append(torch.logsumexp(torch.stack(log_terms), dim=0))
+
+        flipped_model.ability.copy_(original_ability)
+
+    if not item_terms:
+        return float("nan")
+    return float(torch.stack(item_terms).sum().item())
+
+
+def prior_item_marginal_log_likelihood(
+    data: torch.Tensor,
+    theta: torch.Tensor,
+    pl: int,
+    device: str,
+    n_samples=8192,
+    b_sd=1.5,
+    log_a_mean=0.0,
+    log_a_sd=0.5,
+    c_alpha=1.0,
+    c_beta=9.0,
+    seed=0,
+) -> float:
+    assert pl in {2, 3}
+    y_matrix = data.to(device).float()
+    mask = _observed_mask(y_matrix)
+    theta = theta.to(device).float()
+
+    gen = torch.Generator(device=device)
+    gen.manual_seed(seed)
+    b_samples = torch.randn(n_samples, generator=gen, device=device) * b_sd
+    log_a_samples = torch.randn(n_samples, generator=gen, device=device) * log_a_sd + log_a_mean
+    a_samples = torch.exp(log_a_samples)
+
+    if pl == 3:
+        beta = torch.distributions.Beta(
+            torch.tensor(c_alpha, device=device),
+            torch.tensor(c_beta, device=device),
+        )
+        c_samples = beta.sample((n_samples,))
+    else:
+        c_samples = torch.zeros(n_samples, device=device)
+
+    log_weight = -math.log(n_samples)
+    item_terms = []
+    with torch.no_grad():
+        for item_idx in range(y_matrix.shape[1]):
+            obs = mask[:, item_idx]
+            if not obs.any():
+                continue
+
+            y = y_matrix[obs, item_idx]
+            logits = a_samples[None, :] * (theta[obs, None] - b_samples[None, :])
+            if pl == 2:
+                logp = y[:, None] * F.logsigmoid(logits) + (1 - y[:, None]) * F.logsigmoid(-logits)
+            else:
+                probs = c_samples[None, :] + (1 - c_samples[None, :]) * torch.sigmoid(logits)
+                logp = _bernoulli_log_prob(probs, y[:, None])
+            item_terms.append(torch.logsumexp(log_weight + logp.sum(dim=0), dim=0))
+
+    if not item_terms:
+        return float("nan")
+    return float(torch.stack(item_terms).sum().item())
+
+
+def build_information_criteria_table(
+    rm: ResponseMatrix,
+    regular_fits: dict,
+    item_marginal_fits: dict,
+    device: str,
+    seed: int,
+):
+    n_observed = int(_observed_mask(rm.data).sum().item())
+    rows = []
+
+    for fit_name in ["1pl_regular", "2pl_regular", "3pl_regular"]:
+        model = regular_fits[fit_name]["model"]
+        log_likelihood = conditional_bernoulli_log_likelihood(model, rm.data)
+        rows.append(
+            information_criterion_row(
+                fit_name,
+                log_likelihood,
+                count_trainable_parameters(model),
+                n_observed,
+                bic_n=n_observed,
+                likelihood_type="conditional_bernoulli",
+            )
+        )
+
+    log_likelihood = flipped_1pl_item_marginal_log_likelihood(
+        rm.data,
+        item_marginal_fits["1pl_item_marginal_mmle"]["model"],
+        n_quadrature=31,
+    )
+    rows.append(
+        information_criterion_row(
+            "1pl_item_marginal_mmle",
+            log_likelihood,
+            rm.n_subjects,
+            n_observed,
+            bic_n=rm.n_items,
+            likelihood_type="item_marginal_bernoulli",
+        )
+    )
+
+    for fit_name, pl, n_samples in [
+        ("2pl_item_marginal_mmle", 2, 8192),
+        ("3pl_item_marginal_mmle", 3, 8192),
+    ]:
+        kwargs = {"pl": pl, "n_samples": n_samples, "b_sd": 1.5}
+        if pl == 3:
+            kwargs.update({"c_alpha": 1.0, "c_beta": 9.0})
+        log_likelihood = prior_item_marginal_log_likelihood(
+            rm.data,
+            item_marginal_fits[fit_name]["theta"],
+            device=device,
+            seed=seed + 200_000 + pl,
+            **kwargs,
+        )
+        rows.append(
+            information_criterion_row(
+                fit_name,
+                log_likelihood,
+                rm.n_subjects,
+                n_observed,
+                bic_n=rm.n_items,
+                likelihood_type=f"{pl}pl_item_marginal_bernoulli_mc",
+            )
+        )
+
+    criteria_df = pd.DataFrame(rows)
+    criteria_df["fit"] = pd.Categorical(criteria_df["fit"], categories=ABILITY_COLS, ordered=True)
+    return criteria_df.sort_values("fit").assign(fit=lambda x: x["fit"].astype(str)).reset_index(drop=True)
+
+
 def build_capability_table(
     df: pd.DataFrame,
     rm: ResponseMatrix,
@@ -585,6 +782,11 @@ def summarize_heldout_eval(heldout_eval_raw: pd.DataFrame, fit_order: list[str])
     return summary.sort_values("fit").assign(fit=lambda x: x["fit"].astype(str)).reset_index(drop=True)
 
 
+def add_aic_bic_to_summary(summary: pd.DataFrame, information_criteria: pd.DataFrame) -> pd.DataFrame:
+    ic = information_criteria[["fit", "aic", "bic"]]
+    return summary.merge(ic, on="fit", how="left")
+
+
 def parse_args():
     parser = argparse.ArgumentParser(description="Fit IRT models for benchmark response matrices.")
     parser.add_argument("--seed", type=int, default=123)
@@ -630,9 +832,12 @@ def main():
 
     regular_fits = fit_regular_models(rm, regular_specs, args.device)
 
-    theta_1pl_item_marginal, _, _ = fit_1pl_item_marginal(rm, args.device)
+    theta_1pl_item_marginal, model_1pl_item_marginal, history_1pl_item_marginal = fit_1pl_item_marginal(
+        rm,
+        args.device,
+    )
 
-    theta_2pl_item_marginal, _ = fit_abilities_item_marginalized_pl(
+    theta_2pl_item_marginal, history_2pl_item_marginal = fit_abilities_item_marginalized_pl(
         rm.data,
         pl=2,
         n_samples=2048,
@@ -644,7 +849,7 @@ def main():
     )
     theta_2pl_item_marginal = theta_2pl_item_marginal - theta_2pl_item_marginal.mean()
 
-    theta_3pl_item_marginal, _ = fit_abilities_item_marginalized_pl(
+    theta_3pl_item_marginal, history_3pl_item_marginal = fit_abilities_item_marginalized_pl(
         rm.data,
         pl=3,
         n_samples=4096,
@@ -678,6 +883,29 @@ def main():
         seed=args.seed,
     )
     save_table(capability_with_se_df, args.output_dir / "capability_scores_with_uncertainty")
+
+    item_marginal_fits = {
+        "1pl_item_marginal_mmle": {
+            "theta": theta_1pl_item_marginal,
+            "model": model_1pl_item_marginal,
+            "history": history_1pl_item_marginal,
+        },
+        "2pl_item_marginal_mmle": {
+            "theta": theta_2pl_item_marginal,
+            "history": history_2pl_item_marginal,
+        },
+        "3pl_item_marginal_mmle": {
+            "theta": theta_3pl_item_marginal,
+            "history": history_3pl_item_marginal,
+        },
+    }
+    information_criteria_df = build_information_criteria_table(
+        rm,
+        regular_fits,
+        item_marginal_fits,
+        device=args.device,
+        seed=args.seed,
+    )
 
     item_marginal_specs = {
         "1pl_item_marginal_mmle": {
@@ -730,6 +958,7 @@ def main():
         .reset_index(drop=True)
     )
     heldout_eval_summary = summarize_heldout_eval(heldout_eval_raw, ABILITY_COLS)
+    heldout_eval_summary = add_aic_bic_to_summary(heldout_eval_summary, information_criteria_df)
     save_table(heldout_eval_summary, args.output_dir / "heldout_eval_summary")
 
     config = vars(args).copy()

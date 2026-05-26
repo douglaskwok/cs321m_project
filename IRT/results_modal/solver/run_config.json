@@ -1,12 +1,14 @@
 {
   "seed": 123,
   "device": "cuda",
-  "output_dir": "/root/IRT/results",
+  "matrix": "solver",
+  "output_dir": "/root/IRT/results/solver",
   "heldout_repeats": 5,
   "train_frac": 0.8,
   "run_item_bootstrap": false,
   "n_boot": 50,
+  "benchmark_id": "mmlu_pro_solver",
   "n_subjects": 10,
   "n_items": 154,
-  "density": 0.7357142567634583
+  "density": 0.8818181753158569
 }
