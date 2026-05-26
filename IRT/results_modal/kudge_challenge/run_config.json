@@ -1,0 +1,14 @@
+{
+  "seed": 123,
+  "device": "cuda",
+  "matrix": "kudge_challenge",
+  "output_dir": "/root/IRT/results/kudge_challenge",
+  "heldout_repeats": 5,
+  "train_frac": 0.8,
+  "run_item_bootstrap": false,
+  "n_boot": 50,
+  "benchmark_id": "kudge_challenge_easy_hard",
+  "n_subjects": 11,
+  "n_items": 381,
+  "density": 1.0
+}

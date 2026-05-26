@@ -1,0 +1,14 @@
+{
+  "seed": 123,
+  "device": "cuda",
+  "matrix": "harmjudge_safety_judge",
+  "output_dir": "/root/IRT/results_continuous/harmjudge_safety_judge",
+  "heldout_repeats": 5,
+  "train_frac": 0.8,
+  "run_item_bootstrap": false,
+  "n_boot": 50,
+  "benchmark_id": "harmjudge_safety_judge",
+  "n_subjects": 8,
+  "n_items": 117,
+  "density": 0.992521345615387
+}

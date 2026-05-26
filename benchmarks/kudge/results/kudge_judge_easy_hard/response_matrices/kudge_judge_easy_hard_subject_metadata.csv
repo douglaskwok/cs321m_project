@@ -1,0 +1,12 @@
+subject_id,source_file,n_items,accuracy,subsets
+claudehaiku4520251001,kudge_pairwise_claudehaiku4520251001_responses.jsonl,381,0.8188976377952756,Korean-Easy|Korean-Hard
+claudeopus47,kudge_pairwise_claudeopus47_responses.jsonl,381,0.968503937007874,Korean-Easy|Korean-Hard
+claudesonnet46,kudge_pairwise_claudesonnet46_responses.jsonl,381,0.8661417322834646,Korean-Easy|Korean-Hard
+ministral14b,kudge_pairwise_ministral14b_responses.jsonl,381,0.7270341207349081,Korean-Easy|Korean-Hard
+ministral3b,kudge_pairwise_ministral3b_responses.jsonl,381,0.6745406824146981,Korean-Easy|Korean-Hard
+ministral8b,kudge_pairwise_ministral8b_responses.jsonl,381,0.6902887139107612,Korean-Easy|Korean-Hard
+qwen3508b,kudge_pairwise_qwen3508b_responses.jsonl,381,0.45931758530183725,Korean-Easy|Korean-Hard
+qwen3527b,kudge_pairwise_qwen3527b_responses.jsonl,381,0.5223097112860893,Korean-Easy|Korean-Hard
+qwen352b,kudge_pairwise_qwen352b_responses.jsonl,381,0.6587926509186351,Korean-Easy|Korean-Hard
+qwen354b,kudge_pairwise_qwen354b_responses.jsonl,381,0.5538057742782152,Korean-Easy|Korean-Hard
+qwen359b,kudge_pairwise_qwen359b_responses.jsonl,381,0.5590551181102362,Korean-Easy|Korean-Hard

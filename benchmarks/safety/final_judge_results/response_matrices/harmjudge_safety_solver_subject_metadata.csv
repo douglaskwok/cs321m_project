@@ -1,0 +1,9 @@
+subject_id,model_name,source_file,n_prompts_observed
+claude_sonnet_4_6,Claude-Sonnet-4-6,Claude-Sonnet-4-6-HarmJudge-safety_solver_prompt_scores.csv,110
+ministral_3_14b_instruct_2512_bf16,Ministral-3-14B-Instruct-2512-BF16,Ministral-3-14B-Instruct-2512-BF16-HarmJudge-safety_solver_prompt_scores.csv,117
+ministral_3_3b_instruct_2512_bf16,Ministral-3-3B-Instruct-2512-BF16,Ministral-3-3B-Instruct-2512-BF16-HarmJudge-safety_solver_prompt_scores.csv,117
+ministral_3_8b_instruct_2512_bf16,Ministral-3-8B-Instruct-2512-BF16,Ministral-3-8B-Instruct-2512-BF16-HarmJudge-safety_solver_prompt_scores.csv,117
+qwen3_5_27b,Qwen3.5-27B,Qwen3.5-27B-HarmJudge-safety_solver_prompt_scores.csv,117
+qwen3_5_2b,Qwen3.5-2B,Qwen3.5-2B-HarmJudge-safety_solver_prompt_scores.csv,117
+qwen3_5_4b,Qwen3.5-4B,Qwen3.5-4B-HarmJudge-safety_solver_prompt_scores.csv,117
+qwen3_5_9b,Qwen3.5-9B,Qwen3.5-9B-HarmJudge-safety_solver_prompt_scores.csv,117
