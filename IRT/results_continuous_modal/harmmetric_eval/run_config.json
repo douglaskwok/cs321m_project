@@ -5,10 +5,10 @@
   "output_dir": "/root/IRT/results_continuous/harmmetric_eval",
   "heldout_repeats": 5,
   "train_frac": 0.8,
-  "run_item_bootstrap": false,
+  "run_item_bootstrap": true,
   "n_boot": 50,
   "benchmark_id": "harmmetric_eval",
-  "n_subjects": 9,
+  "n_subjects": 10,
   "n_items": 117,
   "density": 1.0
 }

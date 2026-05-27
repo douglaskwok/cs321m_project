@@ -1,0 +1,11 @@
+model,factor_1
+mistralai_ministral_3_14b_instruct_2512_bf16,4.4774203
+mistralai_ministral_3_3b_instruct_2512_bf16,1.4574665
+mistralai_ministral_3_8b_instruct_2512_bf16,8.795469
+qwen_qwen3_5_0_8b,-0.44972125
+qwen_qwen3_5_27b,2.2647347
+qwen_qwen3_5_2b,-1.1447049
+qwen_qwen3_5_4b,1.1955038
+qwen_qwen3_5_9b,0.98759687
+claude_haiku_4_5_20251001,6.036607
+claude_sonnet_4_6,2.1489727

@@ -1,0 +1,14 @@
+{
+  "seed": 123,
+  "device": "cuda",
+  "matrix": "safety",
+  "output_dir": "/root/IRT/results/safety",
+  "heldout_repeats": 5,
+  "train_frac": 0.8,
+  "run_item_bootstrap": false,
+  "n_boot": 50,
+  "benchmark_id": "safety_all_attacks",
+  "n_subjects": 10,
+  "n_items": 819,
+  "density": 0.9998778700828552
+}

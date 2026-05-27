@@ -1,0 +1,364 @@
+solver_item_id,solver_difficulty,solver_difficulty_centered,solver_easiness_z,solver_loading_factor_1,solver_loading_factor_2,solver_dominant_factor,solver_item_id_meta,solver_pair_id,solver_source,solver_split,solver_gold_letter,solver_difficulty_laplace_se,solver_difficulty_centered_laplace_se,solver_difficulty_centered_laplace_lo,solver_difficulty_centered_laplace_hi,solver_scores,solver_question_index,solver_original_ids,solver_question_source,solver_question_split,solver_gold_label,solver_prompt,judge_pair_id,judge_item_ids,judge_orders,judge_source,judge_split,judge_response_model,judge_gold_labels,judge_difficulty,judge_difficulty_centered,judge_difficulty_laplace_se,judge_difficulty_centered_laplace_se,judge_dominant_factors,judge_scores,judge_prompt,solver_difficulty_percentile,judge_difficulty_percentile,solver_score_mean,judge_score_mean,solver_score_sd,judge_score_sd,difficulty_bin
+10479,0.1580745577812194,0.5650411248207092,-0.1580745577812194,-5.814250946044922,-4.483924865722656,factor_1,10479,10c0a6e7-a697-5d79-ac6b-47ed30c4cba5,mmlu-pro-computer science,gpt,D,1.8417069911956787,1.947564721107483,-3.252185821533203,4.382267951965332,"{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}",61,10479,mmlu-pro-computer science,gpt,A>B,"Which of the following statements about floating-point arithmetic is NOT true?
+(A) It is inherently nonassociative because some numbers have no exact representation.
+(B) All operations in floating-point arithmetic are commutative.
+(C) It is inherently nonassociative because there have to be upper and lower bounds on the size of numbers.
+(D) Associativity can be achieved with appropriate roundoff conventions.
+(E) Some rational numbers have no exact representation.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",10c0a6e7-a697-5d79-ac6b-47ed30c4cba5,"['10479:original', '10479:swapped']","['original', 'swapped']",mmlu-pro-computer science,gpt,gpt-4o-2024-05-13,"{'original': 'A>B', 'swapped': 'B>A'}",-2.1252828240394592,-1.90158012509346,1.0178550731217275,1.0296345032641798,"{'original': 'factor_2', 'swapped': 'factor_1'}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 0.5, 'qwen_qwen3_5_9b': 0.0}","Which of the following statements about floating-point arithmetic is NOT true?
+(A) It is inherently nonassociative because some numbers have no exact representation.
+(B) All operations in floating-point arithmetic are commutative.
+(C) It is inherently nonassociative because there have to be upper and lower bounds on the size of numbers.
+(D) Associativity can be achieved with appropriate roundoff conventions.
+(E) Some rational numbers have no exact representation.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",50.0,36.36363636363637,0.4,0.7,0.5163977794943222,0.34960294939005054,5
+4238,0.1468614488840103,0.5538280010223389,-0.1468614488840103,-0.6906700730323792,-0.3153063654899597,factor_1,4238,d50b6560-bbb7-5118-b329-8ed50c155365,mmlu-pro-chemistry,gpt,G,0.8230490684509277,1.0553609132766724,-1.5146794319152832,2.622335433959961,"{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 0.0}",46,4238,mmlu-pro-chemistry,gpt,B>A,"If the hydrolysis constant of Al^3+ is 1.4 × 10^-5, what is the concentration of H_3O^+ in 0.1 M AlCl_3?
+(A) 1.4 × 10^-5 M
+(B) 2.8 × 10^-6 M
+(C) 5.6 × 10^-5 M
+(D) 3.0 × 10^-4 M
+(E) 7.0 × 10^-3 M
+(F) 8.4 × 10^-6 M
+(G) 1.2 × 10^-3 M
+(H) 0.1 M
+(I) 4.2 × 10^-4 M
+(J) 1.0 × 10^-3 M
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",d50b6560-bbb7-5118-b329-8ed50c155365,"['4238:original', '4238:swapped']","['original', 'swapped']",mmlu-pro-chemistry,gpt,gpt-4o-2024-05-13,"{'original': 'B>A', 'swapped': 'A>B'}",-2.3895537853240967,-2.16585111618042,4.537581794456171,4.526234172903529,"{'original': 'factor_2', 'swapped': 'factor_2'}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}","If the hydrolysis constant of Al^3+ is 1.4 × 10^-5, what is the concentration of H_3O^+ in 0.1 M AlCl_3?
+(A) 1.4 × 10^-5 M
+(B) 2.8 × 10^-6 M
+(C) 5.6 × 10^-5 M
+(D) 3.0 × 10^-4 M
+(E) 7.0 × 10^-3 M
+(F) 8.4 × 10^-6 M
+(G) 1.2 × 10^-3 M
+(H) 0.1 M
+(I) 4.2 × 10^-4 M
+(J) 1.0 × 10^-3 M
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",49.35064935064935,32.467532467532465,0.4,1.0,0.5163977794943223,0.0,5
+5130,0.1098288893699646,0.5167954564094543,-0.1098288893699646,-0.4575311541557312,-0.0746152698993682,factor_1,5130,122e221d-9581-5240-889a-1106c2d167c0,mmlu-pro-other,gpt,A,0.7554171681404114,1.004200458526611,-1.4514374732971191,2.4850285053253174,"{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}",192,5130,mmlu-pro-other,gpt,A>B,"Which pair of religions are both universalizing religions?
+(A) Christianity and Buddhism
+(B) Taoism and Shinto
+(C) Judaism and Buddhism
+(D) Hinduism and Buddhism
+(E) Islam and Sikhism
+(F) Taoism and Islam
+(G) Shinto and Hinduism
+(H) Sikhism and Judaism
+(I) Islam and Judaism
+(J) Zoroastrianism and Judaism
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",122e221d-9581-5240-889a-1106c2d167c0,"['5130:original', '5130:swapped']","['original', 'swapped']",mmlu-pro-other,gpt,gpt-4o-2024-05-13,"{'original': 'A>B', 'swapped': 'B>A'}",4.376016139984131,4.599718928337097,0.9428599293959192,0.9560638226070172,"{'original': 'factor_2', 'swapped': 'factor_1'}","{'claude_haiku_4_5_20251001': 0.5, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.5, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 0.5}","Which pair of religions are both universalizing religions?
+(A) Christianity and Buddhism
+(B) Taoism and Shinto
+(C) Judaism and Buddhism
+(D) Hinduism and Buddhism
+(E) Islam and Sikhism
+(F) Taoism and Islam
+(G) Shinto and Hinduism
+(H) Sikhism and Judaism
+(I) Islam and Judaism
+(J) Zoroastrianism and Judaism
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",48.701298701298704,90.25974025974024,0.4,0.5,0.5163977794943222,0.3333333333333333,5
+6105,0.10167146474123,0.5086380243301392,-0.10167146474123,-7.322007179260254,-5.676800727844238,factor_1,6105,0cdc4e4b-d2a3-5218-b01a-c60f2e407d5e,mmlu-pro-health,gpt,J,2.262585401535034,2.344777822494507,-4.087126731872559,5.104402542114258,"{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}",118,6105,mmlu-pro-health,gpt,A>B,"A 67-year-old man with Parkinson disease is admitted to the hospital for treatment of pneumonia. The patient's daughter, who is visiting the patient, says he has had increased lethargy for the past day and decreased ambulation during the past 6 months. She also says that there are times during the day when his tremors increase in severity, although he continues to care for himself at home. Medical history is also remarkable for hypertension. Medications include hydrochlorothiazide, atenolol, levodopa, and carbidopa. He is 168 cm (5 ft 6 in) tall and weighs 78 kg (172 lb); BMI is 28 kg/m2 . Vital signs are temperature 38.9°C (102.0°F), pulse 60/min supine and 68/min standing, respirations 22/min, and blood pressure 100/60 mm Hg supine and 80/50 mm Hg standing. The patient appears ill and older than his stated age. He is fully oriented but lethargic. Auscultation of the chest discloses rhonchi in the right mid lung field. Abdominal examination discloses no abnormalities. Neurologic examination discloses masked facies, bradykinesia, and cogwheel rigidity; gait was not assessed on admission. Chest x-ray shows a right lower lobe infiltrate. ECG shows no abnormalities. Appropriate intravenous antibiotic therapy is initiated. Prior to discharge, which of the following is the most appropriate step?
+(A) Begin corticosteroid treatment
+(B) Place a percutaneous endoscopic gastrostomy (PEG) tube
+(C) Administer influenza vaccine
+(D) Prescribe fludrocortisone
+(E) Discontinue levodopa and carbidopa
+(F) Arrange for home oxygen therapy
+(G) Initiate physical therapy
+(H) Obtain CT scan of the chest
+(I) Obtain a swallowing evaluation
+(J) Start patient on anticoagulant therapy
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",0cdc4e4b-d2a3-5218-b01a-c60f2e407d5e,"['6105:swapped', '6105:original']","['swapped', 'original']",mmlu-pro-health,gpt,gpt-4o-2024-05-13,"{'swapped': 'B>A', 'original': 'A>B'}",-1.6432907581329346,-1.4195879697799685,2.751035551227406,2.7477078327303524,"{'swapped': 'factor_1', 'original': 'factor_1'}","{'claude_haiku_4_5_20251001': 0.5, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 0.5, 'qwen_qwen3_5_9b': 0.5}","A 67-year-old man with Parkinson disease is admitted to the hospital for treatment of pneumonia. The patient's daughter, who is visiting the patient, says he has had increased lethargy for the past day and decreased ambulation during the past 6 months. She also says that there are times during the day when his tremors increase in severity, although he continues to care for himself at home. Medical history is also remarkable for hypertension. Medications include hydrochlorothiazide, atenolol, levodopa, and carbidopa. He is 168 cm (5 ft 6 in) tall and weighs 78 kg (172 lb); BMI is 28 kg/m2 . Vital signs are temperature 38.9°C (102.0°F), pulse 60/min supine and 68/min standing, respirations 22/min, and blood pressure 100/60 mm Hg supine and 80/50 mm Hg standing. The patient appears ill and older than his stated age. He is fully oriented but lethargic. Auscultation of the chest discloses rhonchi in the right mid lung field. Abdominal examination discloses no abnormalities. Neurologic examination discloses masked facies, bradykinesia, and cogwheel rigidity; gait was not assessed on admission. Chest x-ray shows a right lower lobe infiltrate. ECG shows no abnormalities. Appropriate intravenous antibiotic therapy is initiated. Prior to discharge, which of the following is the most appropriate step?
+(A) Begin corticosteroid treatment
+(B) Place a percutaneous endoscopic gastrostomy (PEG) tube
+(C) Administer influenza vaccine
+(D) Prescribe fludrocortisone
+(E) Discontinue levodopa and carbidopa
+(F) Arrange for home oxygen therapy
+(G) Initiate physical therapy
+(H) Obtain CT scan of the chest
+(I) Obtain a swallowing evaluation
+(J) Start patient on anticoagulant therapy
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",48.05194805194805,44.15584415584416,0.4,0.7,0.5163977794943222,0.25819888974716115,5
+11712,0.0474010817706584,0.4543676376342773,-0.0474010817706584,0.8608908653259277,0.4445469379425049,factor_1,11712,3239d81d-8220-5b81-99e0-1b7a470df3be,mmlu-pro-engineering,gpt,E,1.0714133977890017,1.2562615871429443,-2.0079050064086914,2.916640281677246,"{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 0.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': None, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': None}",104,11712,mmlu-pro-engineering,gpt,A>B,"A pair of mating spur gears increases the speed of the shaft approximately by 4 times. Thediametralpitch for the gear is 8 in. and it is desired that the center distance be approximately 12 in. Determine the actual velocity ratio and the center distance for the gears.
+(A) V_R = 4.5, C_d = 12.5 in.
+(B) V_R = 3.948, C_d = 14 in.
+(C) V_R = 4.2, C_d = 13 in.
+(D) V_R = 3.2, C_d = 12.2 in.
+(E) V_R = 3.948, C_d = 12 in.
+(F) V_R = 3.5, C_d = 11 in.
+(G) V_R = 4.05, C_d = 11.5 in.
+(H) V_R = 3.85, C_d = 13.5 in.
+(I) V_R = 4.8, C_d = 24 in.
+(J) V_R = 2.948, C_d = 10 in.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",3239d81d-8220-5b81-99e0-1b7a470df3be,"['11712:original', '11712:swapped']","['original', 'swapped']",mmlu-pro-engineering,gpt,gpt-4o-2024-05-13,"{'original': 'A>B', 'swapped': 'B>A'}",-5.959712743759155,-5.736009836196899,8.31375293441815,8.288577163952864,"{'original': 'factor_2', 'swapped': 'factor_1'}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}","A pair of mating spur gears increases the speed of the shaft approximately by 4 times. Thediametralpitch for the gear is 8 in. and it is desired that the center distance be approximately 12 in. Determine the actual velocity ratio and the center distance for the gears.
+(A) V_R = 4.5, C_d = 12.5 in.
+(B) V_R = 3.948, C_d = 14 in.
+(C) V_R = 4.2, C_d = 13 in.
+(D) V_R = 3.2, C_d = 12.2 in.
+(E) V_R = 3.948, C_d = 12 in.
+(F) V_R = 3.5, C_d = 11 in.
+(G) V_R = 4.05, C_d = 11.5 in.
+(H) V_R = 3.85, C_d = 13.5 in.
+(I) V_R = 4.8, C_d = 24 in.
+(J) V_R = 2.948, C_d = 10 in.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",47.4025974025974,1.2987012987012987,0.625,0.95,0.5175491695067657,0.15811388300841897,5
+931,-0.0431634075939655,0.3638031482696533,0.0431634075939655,-0.1743921339511871,0.2250882983207702,factor_2,931,a32ef549-a356-5507-8743-1e07d4e61423,mmlu-pro-law,gpt,B,0.6857125759124756,0.9535564184188844,-1.5051674842834473,2.232773780822754,"{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 0.0}",151,931,mmlu-pro-law,gpt,A>B,"A 15-year-old boy was killed during a gang fight. Two days after his funeral, the boy's mother saw a television program about gang violence and was shocked to see video of herself weeping over the boy's body. The video had been shot by the television reporting team while the boy's body was still lying on a public street. The mother suffered severe emotional distress as a result of seeing the video. If the mother sues the television station for invasion of her privacy and that of her son, will the mother be likely to prevail?
+(A) No, because the television station has the right to broadcast any footage shot in public.
+(B) No, because the street was open to the public and the subject was newsworthy.
+(C) No, because the broadcast of the video falls under freedom of the press.
+(D) Yes, because the video footage was used without any prior notice to the mother.
+(E) No, because a person has no right to privacy after his or her death.
+(F) Yes, because the television station capitalized on the mother's grief for their program.
+(G) Yes, because the video footage intruded on the mother's private grief.
+(H) Yes, because the mother did not give permission to have the video used in the program.
+(I) Yes, because the mother suffered severe emotional distress as a result of viewing the video.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",a32ef549-a356-5507-8743-1e07d4e61423,"['931:original', '931:swapped']","['original', 'swapped']",mmlu-pro-law,gpt,gpt-4o-2024-05-13,"{'original': 'A>B', 'swapped': 'B>A'}",2.1823126077651978,2.4060152769088745,0.6171659492676632,0.6397392001582743,"{'original': 'factor_2', 'swapped': 'factor_2'}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 0.5}","A 15-year-old boy was killed during a gang fight. Two days after his funeral, the boy's mother saw a television program about gang violence and was shocked to see video of herself weeping over the boy's body. The video had been shot by the television reporting team while the boy's body was still lying on a public street. The mother suffered severe emotional distress as a result of seeing the video. If the mother sues the television station for invasion of her privacy and that of her son, will the mother be likely to prevail?
+(A) No, because the television station has the right to broadcast any footage shot in public.
+(B) No, because the street was open to the public and the subject was newsworthy.
+(C) No, because the broadcast of the video falls under freedom of the press.
+(D) Yes, because the video footage was used without any prior notice to the mother.
+(E) No, because a person has no right to privacy after his or her death.
+(F) Yes, because the television station capitalized on the mother's grief for their program.
+(G) Yes, because the video footage intruded on the mother's private grief.
+(H) Yes, because the mother did not give permission to have the video used in the program.
+(I) Yes, because the mother suffered severe emotional distress as a result of viewing the video.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",46.75324675324675,77.27272727272727,0.5,0.45,0.5270462766947299,0.43779751788545657,5
+12029,-0.0571133643388748,0.3498532176017761,0.0571133643388748,4.017335891723633,5.815849304199219,factor_2,12029,3be26fc0-ead5-5d0f-8c87-2feb0524e902,mmlu-pro-engineering,gpt,B,3.4362130165100098,3.4784176349639893,-6.467845439910889,7.167551517486572,"{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 0.0}",107,12029,mmlu-pro-engineering,gpt,B>A,"(a) A mixture of air and water vapor is passing over a flat plate 2 ft long at a rate of 210 ft/sec at 1atmand 75°F. Determine the mass transfer coefficient of water vapor in air if the flow is turbulent and the concentration of water vapor in air is very low (i.e.,P_bm/ P \approx 1). (b) Find the mass transfer coefficient of water vapor in air when the mixture is passing over a sphere 3 in.indiameter. Assume all other conditions to be same as in part (a).
+(A) 0.600 ft/sec for flat plate, 0.300 ft/sec for sphere
+(B) 0.516 ft/sec for flat plate, 0.25 ft/sec for sphere
+(C) 0.25 ft/sec for flat plate, 0.516 ft/sec for sphere
+(D) 0.400 ft/sec for flat plate, 0.200 ft/sec for sphere
+(E) 0.312 ft/sec for flat plate, 0.156 ft/sec for sphere
+(F) 0.25 ft/sec for both flat plate and sphere
+(G) 0.156 ft/sec for flat plate, 0.312 ft/sec for sphere
+(H) 0.516 ft/sec for both flat plate and sphere
+(I) 0.450 ft/sec for flat plate, 0.225 ft/sec for sphere
+(J) 0.225 ft/sec for flat plate, 0.450 ft/sec for sphere
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",3be26fc0-ead5-5d0f-8c87-2feb0524e902,"['12029:swapped', '12029:original']","['swapped', 'original']",mmlu-pro-engineering,gpt,gpt-4o-2024-05-13,"{'swapped': 'A>B', 'original': 'B>A'}",-3.2140451669692998,-2.990342378616333,1.817744989818861,1.8203259868760735,"{'swapped': 'factor_2', 'original': 'factor_1'}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}","(a) A mixture of air and water vapor is passing over a flat plate 2 ft long at a rate of 210 ft/sec at 1atmand 75°F. Determine the mass transfer coefficient of water vapor in air if the flow is turbulent and the concentration of water vapor in air is very low (i.e.,P_bm/ P \approx 1). (b) Find the mass transfer coefficient of water vapor in air when the mixture is passing over a sphere 3 in.indiameter. Assume all other conditions to be same as in part (a).
+(A) 0.600 ft/sec for flat plate, 0.300 ft/sec for sphere
+(B) 0.516 ft/sec for flat plate, 0.25 ft/sec for sphere
+(C) 0.25 ft/sec for flat plate, 0.516 ft/sec for sphere
+(D) 0.400 ft/sec for flat plate, 0.200 ft/sec for sphere
+(E) 0.312 ft/sec for flat plate, 0.156 ft/sec for sphere
+(F) 0.25 ft/sec for both flat plate and sphere
+(G) 0.156 ft/sec for flat plate, 0.312 ft/sec for sphere
+(H) 0.516 ft/sec for both flat plate and sphere
+(I) 0.450 ft/sec for flat plate, 0.225 ft/sec for sphere
+(J) 0.225 ft/sec for flat plate, 0.450 ft/sec for sphere
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",46.103896103896105,15.584415584415584,0.6,0.95,0.5163977794943222,0.15811388300841897,5
+5091,-0.1171552687883377,0.2898113131523132,0.1171552687883377,-13.197864532470703,-0.4026715755462646,factor_1,5091,c6b860be-9938-5c34-97fc-70dfc51bbfb7,mmlu-pro-other,gpt,A,2.73531436920166,2.7982048988342285,-5.194670677185059,5.774292945861816,"{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': None, 'qwen_qwen3_5_9b': 0.0}",190,5091,mmlu-pro-other,gpt,B>A,"As of 2013, share of people in the India who think political parties are corrupt is
+(A) 86%
+(B) 26%
+(C) 50%
+(D) 66%
+(E) 90%
+(F) 70%
+(G) 46%
+(H) 10%
+(I) 76%
+(J) 30%
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",c6b860be-9938-5c34-97fc-70dfc51bbfb7,"['5091:swapped', '5091:original']","['swapped', 'original']",mmlu-pro-other,gpt,gpt-4o-2024-05-13,"{'swapped': 'A>B', 'original': 'B>A'}",-3.393135666847229,-3.169432997703552,6.502891616291155,6.484123021066479,"{'swapped': 'factor_2', 'original': 'factor_1'}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}","As of 2013, share of people in the India who think political parties are corrupt is
+(A) 86%
+(B) 26%
+(C) 50%
+(D) 66%
+(E) 90%
+(F) 70%
+(G) 46%
+(H) 10%
+(I) 76%
+(J) 30%
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",45.45454545454545,12.987012987012983,0.3333333333333333,0.9,0.5,0.21081851067789198,5
+2714,-0.2124475240707397,0.19451904296875,0.2124475240707397,0.3420979976654053,0.6210471987724304,factor_2,2714,7c22d528-b258-5125-9bcc-877df3431ae1,mmlu-pro-psychology,gpt,B,0.7958165407180786,1.0345402956008911,-1.8331799507141116,2.2222180366516118,"{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 0.0}",262,2714,mmlu-pro-psychology,gpt,B>A,"Research comparing heterogeneous and homogeneous work groups has found that, in general, heterogeneous groups:
+(A) are more creative but worse at decision-making.
+(B) are more creative and better at decision-making.
+(C) make better decisions but are less creative overall.
+(D) are less creative and less productive overall.
+(E) are more productive but worse at decision-making.
+(F) make worse decisions but are more productive overall.
+(G) are less creative and worse at decision-making.
+(H) make better decisions but are less productive overall.
+(I) are less creative but better at decision-making.
+(J) are more creative but less productive overall.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",7c22d528-b258-5125-9bcc-877df3431ae1,"['2714:original', '2714:swapped']","['original', 'swapped']",mmlu-pro-psychology,gpt,gpt-4o-2024-05-13,"{'original': 'B>A', 'swapped': 'A>B'}",-3.022160291671753,-2.798457622528076,4.386429395277787,4.375690741471815,"{'original': 'factor_2', 'swapped': 'factor_2'}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}","Research comparing heterogeneous and homogeneous work groups has found that, in general, heterogeneous groups:
+(A) are more creative but worse at decision-making.
+(B) are more creative and better at decision-making.
+(C) make better decisions but are less creative overall.
+(D) are less creative and less productive overall.
+(E) are more productive but worse at decision-making.
+(F) make worse decisions but are more productive overall.
+(G) are less creative and worse at decision-making.
+(H) make better decisions but are less productive overall.
+(I) are less creative but better at decision-making.
+(J) are more creative but less productive overall.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",44.8051948051948,21.428571428571427,0.6,1.0,0.5163977794943222,0.0,5
+12194,-0.3555484116077423,0.0514181554317474,0.3555484116077423,0.0097184441983699,0.3611983954906463,factor_2,12194,82f31019-2814-5ac8-a269-2c247e9a0833,mmlu-pro-engineering,gpt,D,0.7257080674171448,0.9823375940322876,-1.8739635944366453,1.9767999649047847,"{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 1.0}",111,12194,mmlu-pro-engineering,gpt,A>B,"Speed of data transmission in 4-G network of telecom is
+(A) 10 gbps - 100 gbps.
+(B) 50 mbps - 500 mbps.
+(C) 2 mbps – 1 gbps.
+(D) 100 mbps - 1 gbps.
+(E) 386 kbps - 2 mbps.
+(F) 2 mbps.
+(G) 1 mbps - 10 mbps.
+(H) 1 gbps - 10 gbps.
+(I) 10 mbps - 100 mbps.
+(J) 500 kbps - 1.5 mbps.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",82f31019-2814-5ac8-a269-2c247e9a0833,"['12194:original', '12194:swapped']","['original', 'swapped']",mmlu-pro-engineering,gpt,gpt-4o-2024-05-13,"{'original': 'A>B', 'swapped': 'B>A'}",-3.973596811294556,-3.749894022941589,3.277389466999012,3.2714490314185287,"{'original': 'factor_2', 'swapped': 'factor_1'}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}","Speed of data transmission in 4-G network of telecom is
+(A) 10 gbps - 100 gbps.
+(B) 50 mbps - 500 mbps.
+(C) 2 mbps – 1 gbps.
+(D) 100 mbps - 1 gbps.
+(E) 386 kbps - 2 mbps.
+(F) 2 mbps.
+(G) 1 mbps - 10 mbps.
+(H) 1 gbps - 10 gbps.
+(I) 10 mbps - 100 mbps.
+(J) 500 kbps - 1.5 mbps.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",44.15584415584416,7.142857142857142,0.6,0.95,0.5163977794943223,0.15811388300841897,5
+3714,-0.3569693565368652,0.0499972105026245,0.3569693565368652,-0.3296019732952118,-0.0058325976133346,factor_1,3714,7437394e-a300-5428-b321-e3ce7dd9b694,mmlu-pro-chemistry,gpt,G,0.7064327597618103,0.9683701395988464,-1.8480082750320437,1.9480026960372925,"{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 0.0}",39,3714,mmlu-pro-chemistry,gpt,B>A,"Consider the reaction 2SO_2(g) + O_2(g) \rightleftarrows 2SO_3(g) : Initially 0.100 moles of SO_2 and 0.100 moles of SO_3 are present in a 2.00 liter flask at a temperature of 27°C. Equilibrium is attained at a pressure of 2.78 atm. Calculate a) the mole fraction of O_2 at equilibrium; b)K_p; c) the percent dissociation of SO_3 if 0.100 mole of SO_3 and no (zero) O_2 and no (zero) SO_2 were present initially in the flask.
+(A) a) 0.130, b) 0.25, c) 70%
+(B) a) 0.107, b) 0.37, c) 68%
+(C) a) 0.120, b) 0.27, c) 71%
+(D) a) 0.105, b) 0.35, c) 65%
+(E) a) 0.122, b) 0.29, c) 74%
+(F) a) 0.113, b) 0.32, c) 75%
+(G) a) 0.115, b) 0.31, c) 73%
+(H) a) 0.110, b) 0.34, c) 78%
+(I) a) 0.118, b) 0.33, c) 80%
+(J) a) 0.125, b) 0.28, c) 77%
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",7437394e-a300-5428-b321-e3ce7dd9b694,"['3714:swapped', '3714:original']","['swapped', 'original']",mmlu-pro-chemistry,gpt,gpt-4o-2024-05-13,"{'swapped': 'A>B', 'original': 'B>A'}",-0.1106952130794525,0.113007515668869,0.7024724586987026,0.7218788227538468,"{'swapped': 'factor_2', 'original': 'factor_1'}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.5, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 0.5}","Consider the reaction 2SO_2(g) + O_2(g) \rightleftarrows 2SO_3(g) : Initially 0.100 moles of SO_2 and 0.100 moles of SO_3 are present in a 2.00 liter flask at a temperature of 27°C. Equilibrium is attained at a pressure of 2.78 atm. Calculate a) the mole fraction of O_2 at equilibrium; b)K_p; c) the percent dissociation of SO_3 if 0.100 mole of SO_3 and no (zero) O_2 and no (zero) SO_2 were present initially in the flask.
+(A) a) 0.130, b) 0.25, c) 70%
+(B) a) 0.107, b) 0.37, c) 68%
+(C) a) 0.120, b) 0.27, c) 71%
+(D) a) 0.105, b) 0.35, c) 65%
+(E) a) 0.122, b) 0.29, c) 74%
+(F) a) 0.113, b) 0.32, c) 75%
+(G) a) 0.115, b) 0.31, c) 73%
+(H) a) 0.110, b) 0.34, c) 78%
+(I) a) 0.118, b) 0.33, c) 80%
+(J) a) 0.125, b) 0.28, c) 77%
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",43.50649350649351,58.44155844155844,0.5,0.65,0.5270462766947299,0.3374742788552764,5
+9019,-0.414261132478714,-0.0072945654392242,0.414261132478714,2.317138671875,3.739727020263672,factor_2,9019,e8f304d3-029a-5738-84eb-1268268a44da,mmlu-pro-math,gpt,B,34.82207489013672,34.60165023803711,-67.82653045654297,67.81194305419922,"{'claude_haiku_4_5_20251001': None, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': None, 'qwen_qwen3_5_27b': None, 'qwen_qwen3_5_2b': None, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': None}",188,9019,mmlu-pro-math,gpt,A>B,"A bird is lost in a 3 by 3 by 3 cubical maze. The bird flies from room to room going to adjoining rooms with equal probability through each of the walls. To be specific, the corner rooms have 3 exits. What is the entropy rate of this random walk? Use base 2 logarithm and return the entropy rate in bits.
+(A) 1.95
+(B) 2.03
+(C) 1.85
+(D) 2.25
+(E) 2.10
+(F) 1.75
+(G) 1.50
+(H) 1.65
+(I) 2.15
+(J) 2.50
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",e8f304d3-029a-5738-84eb-1268268a44da,"['9019:swapped', '9019:original']","['swapped', 'original']",mmlu-pro-math,gpt,gpt-4o-2024-05-13,"{'swapped': 'B>A', 'original': 'A>B'}",-3.632621049880981,-3.4089183807373047,5.970446547470655,5.953621487123674,"{'swapped': 'factor_2', 'original': 'factor_2'}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}","A bird is lost in a 3 by 3 by 3 cubical maze. The bird flies from room to room going to adjoining rooms with equal probability through each of the walls. To be specific, the corner rooms have 3 exits. What is the entropy rate of this random walk? Use base 2 logarithm and return the entropy rate in bits.
+(A) 1.95
+(B) 2.03
+(C) 1.85
+(D) 2.25
+(E) 2.10
+(F) 1.75
+(G) 1.50
+(H) 1.65
+(I) 2.15
+(J) 2.50
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",42.85714285714285,11.688311688311687,0.8,1.0,0.4472135954999579,0.0,5
+10716,-0.5125665664672852,-0.1055999994277954,0.5125665664672852,-0.4803509414196014,0.3907400667667389,factor_1,10716,754b1cf8-067c-513f-a0d3-c8bd401e8afb,mmlu-pro-computer science,gpt,F,0.7174266576766968,0.9763150811195374,-2.0191774368286133,1.807977557182312,"{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}",75,10716,mmlu-pro-computer science,gpt,B>A,"A sorted list of 120 integers is to be searched to determine whether the value 100 is in the list. Assuming that the most efficient searching algorithm is used, what is the maximum number of elements that must be examined?
+(A) 100
+(B) 30
+(C) 120
+(D) 10
+(E) 8
+(F) 7
+(G) 15
+(H) 12
+(I) 20
+(J) 60
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",754b1cf8-067c-513f-a0d3-c8bd401e8afb,"['10716:swapped', '10716:original']","['swapped', 'original']",mmlu-pro-computer science,gpt,gpt-4o-2024-05-13,"{'swapped': 'A>B', 'original': 'B>A'}",-3.122605800628662,-2.898903012275696,5.684119127750153,5.668355363305783,"{'swapped': 'factor_2', 'original': 'factor_1'}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}","A sorted list of 120 integers is to be searched to determine whether the value 100 is in the list. Assuming that the most efficient searching algorithm is used, what is the maximum number of elements that must be examined?
+(A) 100
+(B) 30
+(C) 120
+(D) 10
+(E) 8
+(F) 7
+(G) 15
+(H) 12
+(I) 20
+(J) 60
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",42.2077922077922,18.181818181818183,0.5,0.9,0.5270462766947299,0.21081851067789198,5
+2443,-0.5203332304954529,-0.1133666634559631,0.5203332304954529,-0.4831230342388153,0.3923953771591186,factor_1,2443,5b13ebd9-3880-5331-bfcf-ac5ab4bed92a,mmlu-pro-psychology,gpt,H,0.7176476120948792,0.9764753580093384,-2.0272583961486816,1.800525188446045,"{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}",254,2443,mmlu-pro-psychology,gpt,A>B,"Studies show that the effect of the presence of others on an individual's performance is to
+(A) Have no significant effect on the performance of tasks
+(B) Facilitate the performance of both easy and difficult tasks
+(C) hinder the performance of all tasks
+(D) Hinder the performance of difficult tasks
+(E) hinder the performance of easy tasks
+(F) Increase the performance of difficult tasks but decrease the performance of easy tasks
+(G) Increase the performance of novel tasks but decrease the performance of difficult tasks
+(H) facilitate the performance of easy tasks
+(I) Increase the performance of all tasks regardless of difficulty.
+(J) facilitate the performance of novel and difficult tasks
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",5b13ebd9-3880-5331-bfcf-ac5ab4bed92a,"['2443:swapped', '2443:original']","['swapped', 'original']",mmlu-pro-psychology,gpt,gpt-4o-2024-05-13,"{'swapped': 'B>A', 'original': 'A>B'}",0.1941545009613037,0.4178571999073028,0.547225222515466,0.573024171627937,"{'swapped': 'factor_1', 'original': 'factor_1'}","{'claude_haiku_4_5_20251001': 0.5, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 0.5, 'qwen_qwen3_5_9b': 0.0}","Studies show that the effect of the presence of others on an individual's performance is to
+(A) Have no significant effect on the performance of tasks
+(B) Facilitate the performance of both easy and difficult tasks
+(C) hinder the performance of all tasks
+(D) Hinder the performance of difficult tasks
+(E) hinder the performance of easy tasks
+(F) Increase the performance of difficult tasks but decrease the performance of easy tasks
+(G) Increase the performance of novel tasks but decrease the performance of difficult tasks
+(H) facilitate the performance of easy tasks
+(I) Increase the performance of all tasks regardless of difficulty.
+(J) facilitate the performance of novel and difficult tasks
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",41.55844155844156,61.03896103896104,0.5,0.5,0.5270462766947299,0.408248290463863,5
+11633,-0.5588130950927734,-0.1518465280532837,0.5588130950927734,-0.2097244262695312,-0.0207068361341953,factor_1,11633,c89566b4-5831-5242-8ae9-45c2f0ae955c,mmlu-pro-engineering,gpt,C,0.7173031568527222,0.97622549533844,-2.065248489379883,1.7615554332733154,"{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': None, 'qwen_qwen3_5_9b': 0.0}",103,11633,mmlu-pro-engineering,gpt,A>B,"An AM signal is transmitted through an antenna. The magnitudeof the antenna current is 15A when an unmodulatedsignal is transmitted and, it increases to 17A fora modulated signal. Determine the percentage modulation .
+(A) 100%
+(B) 60%
+(C) 75%
+(D) 25%
+(E) 50%
+(F) 30%
+(G) 20%
+(H) 40%
+(I) 80%
+(J) 90%
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",c89566b4-5831-5242-8ae9-45c2f0ae955c,"['11633:swapped', '11633:original']","['swapped', 'original']",mmlu-pro-engineering,gpt,gpt-4o-2024-05-13,"{'swapped': 'B>A', 'original': 'A>B'}",-1.328962326049805,-1.1052596271038055,3.60946894489318,3.602015187824219,"{'swapped': 'factor_2', 'original': 'factor_2'}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}","An AM signal is transmitted through an antenna. The magnitudeof the antenna current is 15A when an unmodulatedsignal is transmitted and, it increases to 17A fora modulated signal. Determine the percentage modulation .
+(A) 100%
+(B) 60%
+(C) 75%
+(D) 25%
+(E) 50%
+(F) 30%
+(G) 20%
+(H) 40%
+(I) 80%
+(J) 90%
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.",40.909090909090914,48.05194805194805,0.5555555555555556,0.9,0.5270462766947299,0.21081851067789198,5

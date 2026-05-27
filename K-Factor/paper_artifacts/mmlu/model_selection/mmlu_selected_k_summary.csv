@@ -1,0 +1,3 @@
+fit_summary,selected_k,selected_auc,selected_ece,selected_loss
+mmlu_solver_kfactor_fit_summary.csv,2,0.9715924657534246,0.0249318960760562,0.2160449475049972
+mmlu_judge_kfactor_fit_summary.csv,2,0.9876202039825158,0.016925986463799,0.1152046546339988

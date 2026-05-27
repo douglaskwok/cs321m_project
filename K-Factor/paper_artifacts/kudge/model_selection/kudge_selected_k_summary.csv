@@ -1,0 +1,3 @@
+fit_summary,selected_k,selected_auc,selected_ece,selected_loss
+kudge_solver_kfactor_fit_summary.csv,2,0.9510990990990992,0.0220231373841709,0.2168739736080169
+kudge_judge_kfactor_fit_summary.csv,2,0.8878158907945397,0.0283793877384466,0.2666735649108886

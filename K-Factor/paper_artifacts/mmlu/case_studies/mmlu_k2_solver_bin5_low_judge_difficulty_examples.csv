@@ -1,0 +1,126 @@
+solver_item_id,solver_pair_id,solver_source,solver_gold_letter,difficulty_bin,solver_difficulty_centered,solver_difficulty_centered_laplace_se,solver_difficulty_percentile,judge_difficulty_centered,judge_difficulty_centered_laplace_se,judge_difficulty_percentile,solver_score_mean,judge_score_mean,solver_score_sd,judge_score_sd,solver_prompt,solver_scores,judge_scores
+11712,3239d81d-8220-5b81-99e0-1b7a470df3be,mmlu-pro-engineering,E,5,0.4543676376342773,1.2562615871429443,47.4025974025974,-5.736009836196899,8.288577163952864,1.2987012987012987,0.625,0.95,0.5175491695067657,0.15811388300841897,"A pair of mating spur gears increases the speed of the shaft approximately by 4 times. Thediametralpitch for the gear is 8 in. and it is desired that the center distance be approximately 12 in. Determine the actual velocity ratio and the center distance for the gears.
+(A) V_R = 4.5, C_d = 12.5 in.
+(B) V_R = 3.948, C_d = 14 in.
+(C) V_R = 4.2, C_d = 13 in.
+(D) V_R = 3.2, C_d = 12.2 in.
+(E) V_R = 3.948, C_d = 12 in.
+(F) V_R = 3.5, C_d = 11 in.
+(G) V_R = 4.05, C_d = 11.5 in.
+(H) V_R = 3.85, C_d = 13.5 in.
+(I) V_R = 4.8, C_d = 24 in.
+(J) V_R = 2.948, C_d = 10 in.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 0.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': None, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': None}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}"
+12194,82f31019-2814-5ac8-a269-2c247e9a0833,mmlu-pro-engineering,D,5,0.0514181554317474,0.9823375940322876,44.15584415584416,-3.749894022941589,3.2714490314185287,7.142857142857142,0.6,0.95,0.5163977794943223,0.15811388300841897,"Speed of data transmission in 4-G network of telecom is
+(A) 10 gbps - 100 gbps.
+(B) 50 mbps - 500 mbps.
+(C) 2 mbps – 1 gbps.
+(D) 100 mbps - 1 gbps.
+(E) 386 kbps - 2 mbps.
+(F) 2 mbps.
+(G) 1 mbps - 10 mbps.
+(H) 1 gbps - 10 gbps.
+(I) 10 mbps - 100 mbps.
+(J) 500 kbps - 1.5 mbps.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 1.0}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}"
+9019,e8f304d3-029a-5738-84eb-1268268a44da,mmlu-pro-math,B,5,-0.0072945654392242,34.60165023803711,42.85714285714285,-3.4089183807373047,5.953621487123674,11.688311688311687,0.8,1.0,0.4472135954999579,0.0,"A bird is lost in a 3 by 3 by 3 cubical maze. The bird flies from room to room going to adjoining rooms with equal probability through each of the walls. To be specific, the corner rooms have 3 exits. What is the entropy rate of this random walk? Use base 2 logarithm and return the entropy rate in bits.
+(A) 1.95
+(B) 2.03
+(C) 1.85
+(D) 2.25
+(E) 2.10
+(F) 1.75
+(G) 1.50
+(H) 1.65
+(I) 2.15
+(J) 2.50
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': None, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': None, 'qwen_qwen3_5_27b': None, 'qwen_qwen3_5_2b': None, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': None}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}"
+5091,c6b860be-9938-5c34-97fc-70dfc51bbfb7,mmlu-pro-other,A,5,0.2898113131523132,2.7982048988342285,45.45454545454545,-3.169432997703552,6.484123021066479,12.987012987012983,0.3333333333333333,0.9,0.5,0.21081851067789198,"As of 2013, share of people in the India who think political parties are corrupt is
+(A) 86%
+(B) 26%
+(C) 50%
+(D) 66%
+(E) 90%
+(F) 70%
+(G) 46%
+(H) 10%
+(I) 76%
+(J) 30%
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': None, 'qwen_qwen3_5_9b': 0.0}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}"
+12029,3be26fc0-ead5-5d0f-8c87-2feb0524e902,mmlu-pro-engineering,B,5,0.3498532176017761,3.4784176349639893,46.103896103896105,-2.990342378616333,1.8203259868760735,15.584415584415584,0.6,0.95,0.5163977794943222,0.15811388300841897,"(a) A mixture of air and water vapor is passing over a flat plate 2 ft long at a rate of 210 ft/sec at 1atmand 75°F. Determine the mass transfer coefficient of water vapor in air if the flow is turbulent and the concentration of water vapor in air is very low (i.e.,P_bm/ P \approx 1). (b) Find the mass transfer coefficient of water vapor in air when the mixture is passing over a sphere 3 in.indiameter. Assume all other conditions to be same as in part (a).
+(A) 0.600 ft/sec for flat plate, 0.300 ft/sec for sphere
+(B) 0.516 ft/sec for flat plate, 0.25 ft/sec for sphere
+(C) 0.25 ft/sec for flat plate, 0.516 ft/sec for sphere
+(D) 0.400 ft/sec for flat plate, 0.200 ft/sec for sphere
+(E) 0.312 ft/sec for flat plate, 0.156 ft/sec for sphere
+(F) 0.25 ft/sec for both flat plate and sphere
+(G) 0.156 ft/sec for flat plate, 0.312 ft/sec for sphere
+(H) 0.516 ft/sec for both flat plate and sphere
+(I) 0.450 ft/sec for flat plate, 0.225 ft/sec for sphere
+(J) 0.225 ft/sec for flat plate, 0.450 ft/sec for sphere
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 0.0}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}"
+10716,754b1cf8-067c-513f-a0d3-c8bd401e8afb,mmlu-pro-computer science,F,5,-0.1055999994277954,0.9763150811195374,42.2077922077922,-2.898903012275696,5.668355363305783,18.181818181818183,0.5,0.9,0.5270462766947299,0.21081851067789198,"A sorted list of 120 integers is to be searched to determine whether the value 100 is in the list. Assuming that the most efficient searching algorithm is used, what is the maximum number of elements that must be examined?
+(A) 100
+(B) 30
+(C) 120
+(D) 10
+(E) 8
+(F) 7
+(G) 15
+(H) 12
+(I) 20
+(J) 60
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}"
+2714,7c22d528-b258-5125-9bcc-877df3431ae1,mmlu-pro-psychology,B,5,0.19451904296875,1.0345402956008911,44.8051948051948,-2.798457622528076,4.375690741471815,21.428571428571427,0.6,1.0,0.5163977794943222,0.0,"Research comparing heterogeneous and homogeneous work groups has found that, in general, heterogeneous groups:
+(A) are more creative but worse at decision-making.
+(B) are more creative and better at decision-making.
+(C) make better decisions but are less creative overall.
+(D) are less creative and less productive overall.
+(E) are more productive but worse at decision-making.
+(F) make worse decisions but are more productive overall.
+(G) are less creative and worse at decision-making.
+(H) make better decisions but are less productive overall.
+(I) are less creative but better at decision-making.
+(J) are more creative but less productive overall.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 0.0}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}"
+4238,d50b6560-bbb7-5118-b329-8ed50c155365,mmlu-pro-chemistry,G,5,0.5538280010223389,1.0553609132766724,49.35064935064935,-2.16585111618042,4.526234172903529,32.467532467532465,0.4,1.0,0.5163977794943223,0.0,"If the hydrolysis constant of Al^3+ is 1.4 × 10^-5, what is the concentration of H_3O^+ in 0.1 M AlCl_3?
+(A) 1.4 × 10^-5 M
+(B) 2.8 × 10^-6 M
+(C) 5.6 × 10^-5 M
+(D) 3.0 × 10^-4 M
+(E) 7.0 × 10^-3 M
+(F) 8.4 × 10^-6 M
+(G) 1.2 × 10^-3 M
+(H) 0.1 M
+(I) 4.2 × 10^-4 M
+(J) 1.0 × 10^-3 M
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 0.0}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}"
+10479,10c0a6e7-a697-5d79-ac6b-47ed30c4cba5,mmlu-pro-computer science,D,5,0.5650411248207092,1.947564721107483,50.0,-1.90158012509346,1.0296345032641798,36.36363636363637,0.4,0.7,0.5163977794943222,0.34960294939005054,"Which of the following statements about floating-point arithmetic is NOT true?
+(A) It is inherently nonassociative because some numbers have no exact representation.
+(B) All operations in floating-point arithmetic are commutative.
+(C) It is inherently nonassociative because there have to be upper and lower bounds on the size of numbers.
+(D) Associativity can be achieved with appropriate roundoff conventions.
+(E) Some rational numbers have no exact representation.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 0.5, 'qwen_qwen3_5_9b': 0.0}"
+6105,0cdc4e4b-d2a3-5218-b01a-c60f2e407d5e,mmlu-pro-health,J,5,0.5086380243301392,2.344777822494507,48.05194805194805,-1.4195879697799685,2.7477078327303524,44.15584415584416,0.4,0.7,0.5163977794943222,0.25819888974716115,"A 67-year-old man with Parkinson disease is admitted to the hospital for treatment of pneumonia. The patient's daughter, who is visiting the patient, says he has had increased lethargy for the past day and decreased ambulation during the past 6 months. She also says that there are times during the day when his tremors increase in severity, although he continues to care for himself at home. Medical history is also remarkable for hypertension. Medications include hydrochlorothiazide, atenolol, levodopa, and carbidopa. He is 168 cm (5 ft 6 in) tall and weighs 78 kg (172 lb); BMI is 28 kg/m2 . Vital signs are temperature 38.9°C (102.0°F), pulse 60/min supine and 68/min standing, respirations 22/min, and blood pressure 100/60 mm Hg supine and 80/50 mm Hg standing. The patient appears ill and older than his stated age. He is fully oriented but lethargic. Auscultation of the chest discloses rhonchi in the right mid lung field. Abdominal examination discloses no abnormalities. Neurologic examination discloses masked facies, bradykinesia, and cogwheel rigidity; gait was not assessed on admission. Chest x-ray shows a right lower lobe infiltrate. ECG shows no abnormalities. Appropriate intravenous antibiotic therapy is initiated. Prior to discharge, which of the following is the most appropriate step?
+(A) Begin corticosteroid treatment
+(B) Place a percutaneous endoscopic gastrostomy (PEG) tube
+(C) Administer influenza vaccine
+(D) Prescribe fludrocortisone
+(E) Discontinue levodopa and carbidopa
+(F) Arrange for home oxygen therapy
+(G) Initiate physical therapy
+(H) Obtain CT scan of the chest
+(I) Obtain a swallowing evaluation
+(J) Start patient on anticoagulant therapy
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}","{'claude_haiku_4_5_20251001': 0.5, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 0.5, 'qwen_qwen3_5_9b': 0.5}"

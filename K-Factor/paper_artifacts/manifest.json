@@ -1,0 +1,88 @@
+{
+  "created_at": "2026-05-27T00:37:46",
+  "note": "Compact K-factor artifacts for paper writing. Raw prompt-heavy paired tables are intentionally omitted.",
+  "domains": {
+    "kudge": {
+      "figures": [
+        "kudge/figures/kudge_k2_difficulty_bin_summary.png",
+        "kudge/figures/kudge_k2_difficulty_bin_summary.pdf",
+        "kudge/figures/kudge_k2_judge_model_bin_summary.png",
+        "kudge/figures/kudge_k2_judge_model_bin_summary.pdf",
+        "kudge/figures/kudge_k2_solver_judge_difficulty_scatter.png",
+        "kudge/figures/kudge_k2_solver_judge_difficulty_scatter.pdf",
+        "kudge/figures/kudge_k2_solver_judge_difficulty_percentiles.png",
+        "kudge/figures/kudge_k2_solver_judge_difficulty_percentiles.pdf"
+      ],
+      "chart_data": [
+        "kudge/chart_data/kudge_k2_difficulty_bin_summary.csv",
+        "kudge/chart_data/kudge_k2_difficulty_bin_summary.json",
+        "kudge/chart_data/kudge_k2_judge_model_bin_summary_mean.csv",
+        "kudge/chart_data/kudge_k2_judge_model_bin_summary_mean.json",
+        "kudge/chart_data/kudge_k2_solver_judge_difficulty_scatter.csv",
+        "kudge/chart_data/kudge_k2_solver_judge_difficulty_percentiles.csv",
+        "kudge/chart_data/kudge_k2_judge_model_bin_summary.csv",
+        "kudge/chart_data/kudge_k2_judge_model_bin_summary.json"
+      ],
+      "model_selection": [
+        "kudge/model_selection/kudge_solver_kfactor_fit_summary.csv",
+        "kudge/model_selection/kudge_judge_kfactor_fit_summary.csv",
+        "kudge/model_selection/kudge_selected_k_summary.csv"
+      ]
+    },
+    "mmlu": {
+      "figures": [
+        "mmlu/figures/mmlu_k2_difficulty_bin_summary.png",
+        "mmlu/figures/mmlu_k2_difficulty_bin_summary.pdf",
+        "mmlu/figures/mmlu_k2_judge_model_bin_summary.png",
+        "mmlu/figures/mmlu_k2_judge_model_bin_summary.pdf",
+        "mmlu/figures/mmlu_k2_solver_judge_difficulty_scatter.png",
+        "mmlu/figures/mmlu_k2_solver_judge_difficulty_scatter.pdf",
+        "mmlu/figures/mmlu_k2_solver_judge_difficulty_percentiles.png",
+        "mmlu/figures/mmlu_k2_solver_judge_difficulty_percentiles.pdf"
+      ],
+      "chart_data": [
+        "mmlu/chart_data/mmlu_k2_difficulty_bin_summary.csv",
+        "mmlu/chart_data/mmlu_k2_difficulty_bin_summary.json",
+        "mmlu/chart_data/mmlu_k2_judge_model_bin_summary_mean.csv",
+        "mmlu/chart_data/mmlu_k2_judge_model_bin_summary_mean.json",
+        "mmlu/chart_data/mmlu_k2_solver_judge_difficulty_scatter.csv",
+        "mmlu/chart_data/mmlu_k2_solver_judge_difficulty_percentiles.csv",
+        "mmlu/chart_data/mmlu_k2_judge_model_bin_summary.csv",
+        "mmlu/chart_data/mmlu_k2_judge_model_bin_summary.json"
+      ],
+      "model_selection": [
+        "mmlu/model_selection/mmlu_solver_kfactor_fit_summary.csv",
+        "mmlu/model_selection/mmlu_judge_kfactor_fit_summary.csv",
+        "mmlu/model_selection/mmlu_selected_k_summary.csv"
+      ]
+    },
+    "safety": {
+      "figures": [
+        "safety/figures/safety_k2_difficulty_bin_summary.png",
+        "safety/figures/safety_k2_difficulty_bin_summary.pdf",
+        "safety/figures/safety_k2_judge_model_bin_summary.png",
+        "safety/figures/safety_k2_judge_model_bin_summary.pdf",
+        "safety/figures/safety_k2_solver_judge_difficulty_scatter.png",
+        "safety/figures/safety_k2_solver_judge_difficulty_scatter.pdf",
+        "safety/figures/safety_k2_solver_judge_difficulty_percentiles.png",
+        "safety/figures/safety_k2_solver_judge_difficulty_percentiles.pdf"
+      ],
+      "chart_data": [
+        "safety/chart_data/safety_k2_difficulty_bin_summary.csv",
+        "safety/chart_data/safety_k2_difficulty_bin_summary.json",
+        "safety/chart_data/safety_k2_judge_model_bin_summary_mean.csv",
+        "safety/chart_data/safety_k2_judge_model_bin_summary_mean.json",
+        "safety/chart_data/safety_k2_solver_judge_difficulty_scatter.csv",
+        "safety/chart_data/safety_k2_solver_judge_difficulty_percentiles.csv",
+        "safety/chart_data/safety_k2_judge_model_bin_summary.csv",
+        "safety/chart_data/safety_k2_judge_model_bin_summary.json"
+      ],
+      "model_selection": [
+        "safety/model_selection/safety_solver_kfactor_fit_summary.csv",
+        "safety/model_selection/harmmetric_eval_continuous_kfactor_fit_summary.csv",
+        "safety/model_selection/safety_selected_k_summary.csv"
+      ]
+    }
+  },
+  "combined_part1_summary": "part1_judge_model_bin_means_and_sd_all_domains.csv"
+}

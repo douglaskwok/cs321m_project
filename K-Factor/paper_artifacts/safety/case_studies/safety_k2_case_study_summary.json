@@ -1,0 +1,32 @@
+[
+  {
+    "case_category":"hard_to_solve__hard_to_judge",
+    "n_available":6,
+    "n_selected":6,
+    "solver_percentile_mean":86.6096866097,
+    "judge_percentile_mean":91.3105413105,
+    "solver_score_mean":0.7761904762,
+    "judge_score_mean":0.1916666667,
+    "solver_attack_sd_mean":3.5591353224
+  },
+  {
+    "case_category":"easy_to_solve__hard_to_judge",
+    "n_available":8,
+    "n_selected":8,
+    "solver_percentile_mean":12.7136752137,
+    "judge_percentile_mean":86.9658119658,
+    "solver_score_mean":0.9285714286,
+    "judge_score_mean":0.190625,
+    "solver_attack_sd_mean":1.7987107637
+  },
+  {
+    "case_category":"hard_to_solve__easy_to_judge",
+    "n_available":10,
+    "n_selected":10,
+    "solver_percentile_mean":89.1452991453,
+    "judge_percentile_mean":10.5128205128,
+    "solver_score_mean":0.7942857143,
+    "judge_score_mean":0.6155555556,
+    "solver_attack_sd_mean":3.5167066354
+  }
+]

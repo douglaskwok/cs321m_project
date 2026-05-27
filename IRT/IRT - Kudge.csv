@@ -1,0 +1,14 @@
+,Kudge,,,,,
+,Solver (1PL JMLE),,,Judge (1PL JMLE),,
+,Model Name,Model Ability,Std Error,Model Name,Model Ability,Std Error
+,claudeopus47,3.787,0.157,claudeopus47,4.129,0.145
+,claudesonnet46,3.29,0.233,claudesonnet46,2.371,0.312
+,claudehaiku45,2.268,0.201,claudehaiku45,1.967,0.161
+,qwen3527b,1.532,0.127,ministral14b,1.33,0.127
+,mistral14b,1.4,0.131,ministral8b,1.11,0.122
+,ministral8b,0.97,0.137,ministral3b,1.018,0.123
+,qwen359b,0.668,0.137,qwen352b,0.931,0.118
+,qwen354b,0.651,0.139,qwen359b,0.395,0.117
+,ministral3b,0.472,0.127,qwen354b,0.368,0.121
+,qwen352b,-0.059,0.128,qwen3527b,0.203,0.117
+,qwen3508b,-1.181,0.12,qwen3508b,-0.131,0.117

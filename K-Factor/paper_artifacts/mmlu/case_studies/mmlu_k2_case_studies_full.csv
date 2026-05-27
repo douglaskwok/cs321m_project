@@ -1,0 +1,367 @@
+case_category,case_rank_score,solver_item_id,solver_pair_id,solver_source,solver_gold_letter,difficulty_bin,solver_difficulty_centered,solver_difficulty_centered_laplace_se,solver_difficulty_percentile,judge_difficulty_centered,judge_difficulty_centered_laplace_se,judge_difficulty_percentile,solver_score_mean,judge_score_mean,solver_score_sd,judge_score_sd,solver_prompt,solver_scores,judge_scores
+hard_to_solve__hard_to_judge,88.96103896103897,7568,a5c0fd0a-7440-5461-9a32-c6c5ff574ae0,mmlu-pro-economics,D,10,5.174225330352783,2.308973550796509,94.15584415584416,4.520340800285339,1.8328292190906468,88.96103896103897,0.1,0.25,0.31622776601683794,0.26352313834736496,"A production possibility frontier will be a straight line when
+(A) efficiency is achieved
+(B) there is no opportunity cost
+(C) utility is maximized
+(D) resources are not specialized
+(E) there is economic growth
+(F) the goods on the axes are complements in consumption
+(G) the law of diminishing returns is not in effect
+(H) there is perfect competition in the market
+(I) all resources are equally productive
+(J) the goods on the axes are perfect substitutes in consumption
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 0.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 0.0}","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 0.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.5, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 0.5}"
+hard_to_solve__hard_to_judge,88.31168831168831,3250,49c0f568-1ac2-53dc-be78-f3eea93820fd,mmlu-pro-biology,J,10,4.760629653930664,4.132511615753174,90.25974025974024,4.452705383300781,2.719825467529828,88.31168831168831,0.1,0.05,0.31622776601683794,0.15811388300841897,"Arthropods have an exoskeleton. How is movement accomplished?
+(A) They use their wings to move
+(B) They move by changing the shape of their exoskeleton
+(C) They use cilia on the surface of their exoskeleton to move
+(D) They move due to their muscular system
+(E) They have a soft, pliable inner layer that bends to facilitate movement
+(F) Movement is achieved through hydraulic pressure changes within each segment
+(G) They release a special fluid that lubricates the joints of the exoskeleton for movement
+(H) The exoskeleton contracts and expands allowing for movement
+(I) Movement is achieved by the exoskeleton splitting and reforming in new positions
+(J) The body is segmented and the segments are joined by a thin layer of flexible chitin
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 0.0}","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 0.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 0.0}"
+hard_to_solve__hard_to_judge,86.36363636363636,8286,57ee26c0-cc5d-5c32-b782-c7b5e5da5730,mmlu-pro-math,F,9,3.751030445098877,6.605535984039307,86.36363636363636,4.294901251792908,0.97226795752534,87.66233766233766,0.0,0.65,0.0,0.41163630117428235,"The $n^{\text{th}}$ term of a certain geometric series is given by $a\cdot r^{n-1}$, where $a$ and $r$ are positive integers and $r$ is greater than 1. Bill picks out $k$ different numbers in this sequence, all of which have the same number of digits. What is the largest possible value of $k$?
+(A) 12
+(B) 8
+(C) 5
+(D) 16
+(E) 15
+(F) 4
+(G) 10
+(H) 9
+(I) 6
+(J) 7
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': None, 'mistralai_ministral_3_14b_instruct_2512_bf16': None, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': None, 'qwen_qwen3_5_2b': None, 'qwen_qwen3_5_4b': None, 'qwen_qwen3_5_9b': None}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}"
+hard_to_solve__hard_to_judge,85.71428571428571,6728,0a347026-2ec5-5879-9635-e6fc818d021b,mmlu-pro-health,D,10,5.773183345794678,4.855305671691895,96.1038961038961,4.213905990123749,2.293291332948175,85.71428571428571,0.0,0.3,0.0,0.25819888974716115,"Which of the following is true in a sensory assessment of the arm?
+(A) It is acceptable to test pain with a venepuncture needle
+(B) Impulses for pain travel principally up the anterior columns
+(C) It is acceptable to test pain with a surgical scalpel
+(D) Proprioception is appreciated via the same tracts as light touch
+(E) The assessment should begin with the patient's dominant arm
+(F) Impulses for pain travel principally up the dorsal columns
+(G) Vibration sense is appreciated via the same tracts as light touch
+(H) It is best to test vibration sense with a 256 Hz tuning fork
+(I) It is best to test vibration sense with a 128 Hz tuning fork
+(J) Proprioception and pain travel up the same tracts
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 0.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 0.0}","{'claude_haiku_4_5_20251001': 0.5, 'claude_sonnet_4_6': 0.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.5, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 0.5}"
+hard_to_solve__hard_to_judge,85.06493506493507,2416,c20860f9-7468-546b-ae86-4ae6a6493de9,mmlu-pro-psychology,J,10,4.7854766845703125,2.549623727798462,90.9090909090909,4.124056398868561,3.030290599839712,85.06493506493507,0.2,0.4,0.42163702135578396,0.21081851067789198,"How do men and women differ in their scores on the need for achievement? Why might this be?
+(A) Men and women have the same focus in their need to achieve
+(B) Women's need for achievement is higher in younger ages but equalizes with men as they enter the workforce.
+(C) Men score higher than women in need for achievement due to biological differences that are innate and unchanging over time.
+(D) As men and women grow older, their need for achievement decreases
+(E) Both men and women show an increase in the need for achievement after retirement due to having more free time to pursue personal goals.
+(F) Men's need for achievement is more influenced by peer pressure and societal expectations, while women's need is more self-motivated.
+(G) Men's need for achievement is directed more towards competitive sports and physical challenges, while women's need is directed towards academic and professional success.
+(H) The need for achievement is entirely culturally constructed, with no real differences between men and women, but perceived differences arise from measurement bias.
+(I) Women score higher than men in need for achievement
+(J) Women's need to achieve is directed differently than that of men, focusing more on homemaking or social success due to societal programming. The difference in scores increases as they grow older, with men's need for achievement increasing and women's decreasing.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 0.0}","{'claude_haiku_4_5_20251001': 0.5, 'claude_sonnet_4_6': 0.5, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.5, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 0.5, 'qwen_qwen3_5_9b': 0.5}"
+hard_to_solve__hard_to_judge,83.11688311688312,2453,9536d58f-8a88-53be-b97e-45bb2d457c12,mmlu-pro-psychology,B,9,2.5265660285949707,1.253059983253479,83.11688311688312,9.530106544494627,1.6151098669991013,99.35064935064936,0.1,0.35,0.31622776601683794,0.3374742788552764,"Studies into the etiology of Schizophrenia indicated a genetic predisposition to the condition but other factors are involved. From your knowledge of the subject identify which of the following statements is incorrect.
+(A) Excess dopamine or sensitivity to dopamine could be a contributory factor.
+(B) A lower rate of Schizophrenia diagnosed among Africa Americans.
+(C) Schizophrenia is primarily caused by poor lifestyle choices
+(D) Schizophrenia can be completely cured through psychotherapy
+(E) All schizophrenia patients exhibit severe personality splitting
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 0.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 1.0}","{'claude_haiku_4_5_20251001': 0.5, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 0.5, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 0.5, 'qwen_qwen3_5_9b': 0.5}"
+hard_to_solve__hard_to_judge,81.16883116883116,7978,bd6f87f2-cb60-58b3-8b27-4eceab2bfc79,mmlu-pro-math,B,9,2.4568734169006348,23.17033195495605,81.16883116883116,3.3438837826251984,3.766070810167914,83.11688311688312,0.4,0.7,0.5477225575051662,0.25819888974716115,"Let $X_1, X_2, \ldots$ be a sequence of independent indetically distributed random variables drawn according to the probability mass function $p(x) = N(0,1)$. Let $q(x)=N(1,1)$ be another probability mass function. Use natural logarithm to evaluate $\lim -\frac{1}{n}\log{q(X_1,X_2,\ldots,X_n)}$ as $n \to \infty$.
+(A) 2.1
+(B) 1.4
+(C) 0.5
+(D) 3.5
+(E) 2.8
+(F) 1.8
+(G) 0.7
+(H) 3.1
+(I) 2.5
+(J) 1.1
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 0.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': None, 'qwen_qwen3_5_27b': None, 'qwen_qwen3_5_2b': None, 'qwen_qwen3_5_4b': None, 'qwen_qwen3_5_9b': None}","{'claude_haiku_4_5_20251001': 0.5, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.5, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}"
+hard_to_solve__hard_to_judge,79.22077922077922,5111,b6ade862-109b-5788-8c0c-eabe1f7e205a,mmlu-pro-other,B,9,2.714429378509521,1.2722573280334473,84.4155844155844,2.579512596130371,2.9734829875892763,79.22077922077922,0.125,0.7,0.3535533905932738,0.25819888974716115,"How much angular momentum did Hurricane Florence have when it hit land?
+(A) L = 10^23 kg * m^2 / s
+(B) L = 10^19 kg * m^2 / s
+(C) L = 10^17 kg * m^2 / s
+(D) L = 10^25 kg * m^2 / s
+(E) L = 10^18 kg * m^2 / s
+(F) L = 10^22 kg * m^2 / s
+(G) L = 10^16 kg * m^2 / s
+(H) L = 10^21 kg * m^2 / s
+(I) L = 10^24 kg * m^2 / s
+(J) L = 10^20 kg * m^2 / s
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': None, 'claude_sonnet_4_6': 0.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': None, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 0.0}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 0.5, 'qwen_qwen3_5_9b': 0.5}"
+hard_to_solve__hard_to_judge,79.22077922077922,4789,14ead85f-e4c6-5ae2-a586-6388d9b9b4f1,mmlu-pro-history,B,8,2.031120777130127,1.042698621749878,79.22077922077922,7.917872190475464,0.9337407637562896,98.05194805194806,0.4,0.35,0.5163977794943223,0.4743416490252569,"This question refers to the following information.
+On Being Brought from Africa to America
+'Twas mercy brought me from my Pagan land,
+Taught my benighted soul to understand
+That there's a God, that there's a Saviour too;
+Once I redemption neither sought nor knew.
+Some view our sable race with scornful eye,
+""Their colour is a diabolic die.""
+Remember, Christians, Negroes, black as Cain,
+May be refin'd, and join th' angelic train.
+—Phillis Wheatley, Poems on Various Subjects, Religious and Moral, 1773
+The point of Wheatley's poem can best be compared to which of the following?
+(A) Malcolm X's ""The Ballot or the Bullet"" speech
+(B) Martin Luther King, Jr.'s ""I Have a Dream” speech
+(C) Abraham Lincoln's ""Emancipation Proclamation""
+(D) The Seneca Falls Declaration of Rights and Sentiments
+(E) Thomas Paine's ""Common Sense""
+(F) Nelson Mandela's ""I Am Prepared to Die"" speech
+(G) Frederick Douglass's ""What to the Slave is the Fourth of July?""
+(H) Jonathan Edwards's sermon ""Sinners in the Hands of an Angry God""
+(I) John F. Kennedy's ""Ich bin ein Berliner"" speech
+(J) The Declaration of Independence
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 0.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 0.0}","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 1.0}"
+hard_to_solve__hard_to_judge,75.97402597402598,1420,e302b0a0-28d5-5a3c-b1af-fedcf5543e72,mmlu-pro-law,H,8,2.007905960083008,1.298419952392578,77.92207792207793,2.2709645330905914,1.0831311232372685,75.97402597402598,0.2,0.7,0.42163702135578396,0.25819888974716115,"A college student initiated a criminal case against his former roommate, claiming the former roommate snuck in and removed his state-of-the-art home theater equipment from his house. The college student took the complaint papers that were approved by the prosecution and filed them with a magistrate court. An ongoing police investigation later determined, however, that the college student was a vengeful person not averse to creating stories, and that he and the former roommate had been arguing over several related issues. They also determined that he never had any quality sound or video equipment. The police dropped the prosecution, and the criminal case was dismissed at the preliminary hearing. When the former roommate filed a civil case against the college student alleging the tort of malicious prosecution, will evidence of the student's reputation for dishonesty be admissible and why?
+(A) Yes, because the student's reputation for dishonesty directly relates to the tort of malicious prosecution.
+(B) No, because reputation evidence is considered too prejudicial to be admissible.
+(C) Yes, because dishonesty at any time in the past is always relevant to a malicious prosecution complaint.
+(D) Yes, because the student's dishonesty directly affects the credibility of his initial criminal complaint.
+(E) Yes, because reputation evidence, just like most character evidence, is virtually always admissible.
+(F) Yes, because even though character evidence is too collateral to be admitted for circumstantial evidence, it is admissible if it is directly at issue in the case.
+(G) No, because character evidence is only admissible if it is directly related to the act in question.
+(H) No, because the past reputation of a person is not considered as evidence in court.
+(I) Yes, because while most character evidence is not admissible, some is, and reputation evidence is always admissible.
+(J) No, because character evidence is never admissible in any case.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 0.0}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.5, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 0.5}"
+easy_to_solve__hard_to_judge,91.55844155844156,3036,3cbbae47-8be1-5e31-868b-3b61d51a777d,mmlu-pro-biology,C,1,-5.256762981414795,2.795727491378784,8.441558441558442,7.740664005279541,2.6736599330909745,96.75324675324676,0.9,0.55,0.31622776601683794,0.3689323936863109,"Why would one call a flock of birds a \textquotedblleftsociety\textquotedblright?
+(A) Birds are called a society because each bird takes a turn leading the flock.
+(B) Birds in a flock are unrelated
+(C) A flock of birds can be considered an elementary form of society called a motion group.
+(D) The collective intelligence of a flock is referred to as a society.
+(E) Birds form a society to perform individual activities
+(F) Flocks are called societies because they form long-term partnerships for breeding purposes.
+(G) A flock of birds is called a society because they share a common habitat and resources.
+(H) The term ""society"" is used because birds in a flock follow a strict pecking order.
+(I) A society of birds implies that they hold regular meetings to make decisions.
+(J) Flock of birds cannot communicate with each other
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 1.0}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.5, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 0.5, 'qwen_qwen3_5_9b': 0.5}"
+easy_to_solve__hard_to_judge,91.55844155844156,7623,3c6f3a85-c058-543a-8226-852972410970,mmlu-pro-economics,D,1,-9.349905967712402,3.89599084854126,2.5974025974025974,4.995169878005981,3.046512095392886,91.55844155844156,0.8,0.65,0.4216370213557839,0.3374742788552764,"Households demand more money as an asset when
+(A) the demand for goods and services decreases.
+(B) the stock market crashes.
+(C) bond prices fall.
+(D) the nominal interest rate falls.
+(E) the unemployment rate rises.
+(F) the supply of bonds increases.
+(G) nominal GDP falls.
+(H) the inflation rate rises.
+(I) the supply of money falls.
+(J) real GDP falls.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 1.0}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.5, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 0.5, 'qwen_qwen3_5_9b': 0.5}"
+easy_to_solve__hard_to_judge,87.01298701298701,4773,d1dd83a6-7ccb-5f83-983e-f6fc38783836,mmlu-pro-history,D,2,-4.560671329498291,4.005589485168457,12.987012987012983,8.241336822509766,1.555587878420555,98.7012987012987,1.0,0.5,0.0,0.4714045207910317,"This question refers to the following information.
+Woman, wake up; the bell of reason is being heard throughout the whole universe; discover your rights. Enslaved man has multiplied his strength, [but] having become free, he has become unjust to his companion. Oh, women, women! When will you cease to be blind? What advantage have you received from the Revolution? A more pronounced scorn, a more marked disdain. If our leaders persist, courageously oppose the force of reason to their empty pretentions of superiority. Regardless of what barriers confront you, it is in your power to free yourselves!
+Olympe de Gouges, ""Declaration of the Rights of Woman and the Female Citizen,"" 1791
+The independence? Nothing of what I hoped for was achieved. I had expected that my children would be able to have an education, but they did not get it. We were poor peasants then, we are poor peasants now. Nothing has changed. Everything is the same. The only thing is that we are free, the war is over, we work without fear—but apart from that, nothing has changed.
+Halima Ghomri, interviewed in the 1970s, after Algeria's war of independence
+Which of the following factors is likeliest to have prevented the sort of progress hoped for by the speaker in the second passage?
+(A) Hostility to women's rights on the part of new elites
+(B) Inadequate healthcare facilities
+(C) Corruption within the new government
+(D) Prioritization of national liberation over social reform
+(E) Resistance from foreign powers
+(F) Lack of industrial assets or infrastructure
+(G) Lack of support from the general population
+(H) Failure to eradicate Islamic traditionalism
+(I) Economic instability
+(J) Lack of educational resources
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}","{'claude_haiku_4_5_20251001': 0.5, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}"
+easy_to_solve__hard_to_judge,83.76623376623377,7024,aaf21925-4fcc-5841-b6e5-9afdf75a3b2e,mmlu-pro-economics,J,1,-5.8867058753967285,1.654435634613037,5.194805194805195,3.5892285481095314,0.96085430723874,83.76623376623377,0.4,0.4,0.5163977794943222,0.39440531887330776,"When the capital/output ratio for the annual output is 2, what isit for quarterly output?
+(A) 10
+(B) 5
+(C) 0.5
+(D) 3
+(E) 2
+(F) 4
+(G) 7
+(H) 1
+(I) 6
+(J) 8
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 1.0}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 0.0}"
+easy_to_solve__hard_to_judge,80.51948051948051,889,2545077a-25bd-5b66-a42b-e0efb838ecee,mmlu-pro-law,C,2,-2.421258449554444,1.1399580240249634,19.480519480519483,2.702012062072754,0.7536339175704179,80.51948051948052,0.5,0.65,0.5270462766947299,0.3374742788552765,"What is the major difference between naturalism and positivism?
+(A) Naturalism concerns the underpinning values of the international society, while positivism the international rules as such
+(B) Naturalism is a contemporary theory, while positivism is a traditional theory
+(C) On the one hand, naturalism is based on a set of rules that are of universal and objective scope and on the other hand, positivism is based on a structured and coherent legal system that is created by States in light of their interests and desires
+(D) Naturalism argues that laws are inherently subjective and influenced by personal beliefs, while positivism argues that laws are objective and universally applicable
+(E) Naturalism focuses on the interpretation of law, while positivism focuses on the enforcement of law
+(F) Naturalism is a theory of law that is subjective and varies from person to person, while positivism is a theory of law that is objective and the same for everyone.
+(G) Naturalism is a school of thought advocated outside of Europe, while positivism is Euro-centric theory
+(H) Naturalism is a theory of law that relies on the inherent morality of a society, while positivism relies on the codification of laws by a governing body
+(I) While naturalism serves only the theory human rights law, positivism has a wider and more general scope
+(J) Naturalism is concerned with the moral aspects of law, while positivism is concerned with the legal aspects of law
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 1.0}","{'claude_haiku_4_5_20251001': 0.5, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.5, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 0.5, 'qwen_qwen3_5_9b': 1.0}"
+easy_to_solve__hard_to_judge,79.22077922077922,4951,f7dc91ae-4e50-51e8-aa72-34723a3b4c85,mmlu-pro-history,F,3,-1.9742082357406616,1.045562505722046,20.77922077922078,4.2305126786232,1.2320599039301652,86.36363636363636,0.7,0.7,0.4830458915396479,0.34960294939005054,"This question refers to the following information.
+Bonesteel's prime consideration was to establish a surrender zone as far north as he thought the Soviets would accept. He knew that the Russian troops could reach the southern tip of Korea before American troops could arrive. He also knew that the Russians were on the verge of moving into Korea, or were already there. The nearest American troops to Korea were on Okinawa, 600 miles away. His problem, therefore, was to compose a surrender arrangement which, while acceptable to the Russians, would at the same time prevent them from seizing all of Korea. If they refused to confine their advance to north Korea, the United States would be unable to stop them. . . . He decided to use the 38th parallel as a hypothetical line dividing the zones within which Japanese forces in Korea would surrender to appointed American and Russian authorities.
+—Adapted from U.S. Army Lt. Paul C. McGrath's account of Colonel Bonesteel's decision in the 1940s
+Which best describes the relationship between the United States and the Soviets as depicted in the passage?
+(A) Distant strangers
+(B) Mutual benefactors
+(C) Strong competitors
+(D) Mortal enemies
+(E) Indifferent neighbors
+(F) Uneasy allies
+(G) Close friends
+(H) Strategic partners
+(I) Comrades-in-arms
+(J) Adversarial opponents
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 1.0}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.5, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}"
+easy_to_solve__hard_to_judge,78.57142857142857,4771,2b51f48f-90d7-57f7-8888-30fd13c0d5ff,mmlu-pro-history,A,3,-1.838849663734436,1.0574716329574585,21.428571428571427,5.643418967723846,1.2983803114150425,93.5064935064935,0.7,0.3,0.48304589153964794,0.3496029493900505,"This question refers to the following information.
+Read the the following quotation to answer questions.
+1848 was the decisive year of German, and so of European, history: it recapitulated Germany's past and inspired Germany's future. … Never has there been a revolution so inspired by a limitless faith in the power of ideas; never has a revolution so discredited the power of ideas in its result. The success of the revolution discredited conservative ideas; the failure of the revolution discredited liberal ideas. After it, nothing remained but the idea of Force, and this idea stood at the helm of German history from then on. For the first time since 1521, the German people stepped on to the centre of the German stage only to miss their cue once more. German history reached its turning-point and failed to turn. This was the fateful essence of 1848.
+A. J. P. Taylor, The Course of German History, 1945
+The subject of Taylor's analysis in this quotation is
+(A) the importance of the revolutions of 1848 in modern German history
+(B) the shift from conservative to liberal ideas in German history
+(C) the relationship between Germany and Europe in the 19th century
+(D) the industrial revolution in the context of German history
+(E) the influence of the revolutions of 1848 on European history
+(F) the role of force in shaping German history
+(G) the role of the German people in the revolutions of 1848
+(H) the failure of the revolutions of 1848
+(I) the impact of the revolutions of 1521 on German history
+(J) the rise of the Nazi Party in Germany
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 0.0}","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 0.5, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.5, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 1.0}"
+easy_to_solve__hard_to_judge,75.97402597402598,10565,07c3dda8-0f84-5624-9b4a-19ed31d85a2b,mmlu-pro-computer science,A,3,-1.6572850942611694,29.15195083618164,24.025974025974023,5.41735178232193,1.5828189953540603,92.85714285714286,0.2857142857142857,0.4,0.48795003647426666,0.31622776601683794,"Suppose Unix did not provide a way of passing file descriptors between processes, but still allowed inheriting file descriptors from a parent on fork and exec. What aspects of the OKWS design would break without file descriptor passing?
+1. It would be impossible for services to get a TCP connection to the client web browser.
+2. It would be impossible for okd to run as a non-root user.
+(A) True, False
+(B) Partially false, True
+(C) Partially false, False
+(D) True, True
+(E) Partially true, True
+(F) True, Partially true
+(G) Partially true, False
+(H) False, True
+(I) False, Partially true
+(J) False, False
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': None, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': None, 'qwen_qwen3_5_9b': None}","{'claude_haiku_4_5_20251001': 0.5, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.5, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 0.5, 'qwen_qwen3_5_9b': 0.5}"
+hard_to_solve__easy_to_judge,92.85714285714286,8762,730909ae-6903-517a-ad99-9991d2cfc217,mmlu-pro-math,B,10,5.005324840545654,6.630117893218994,92.85714285714286,-7.292554140090942,2.0382041916382283,0.6493506493506493,0.0,0.7222222222222222,0.0,0.26352313834736496,"A hawk flying at $15 \mathrm{~m} / \mathrm{s}$ at an altitude of $180 \mathrm{~m}$ accidentally drops its prey. The parabolic trajectory of the falling prey is described by the equation
+$$
+y=180-\frac{x^2}{45}
+$$
+until it hits the ground, where $y$ is its height above the ground and $x$ is the horizontal distance traveled in meters. Calculate the distance traveled by the prey from the time it is dropped until the time it hits the ground. Express your answer correct to the nearest tenth of a meter.
+(A) 225.0 m
+(B) 198.7 $\mathrm{m}$
+(C) 235.3 $\mathrm{m}$
+(D) 215.9 m
+(E) 202.7 m
+(F)  209.1 $\mathrm{m}$
+(G) 245.6 m
+(H) 190.4 m
+(I) 220.5 $\mathrm{m}$
+(J) 180.0 m
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 0.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': None, 'mistralai_ministral_3_3b_instruct_2512_bf16': None, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': None, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': None, 'qwen_qwen3_5_9b': None}","{'claude_haiku_4_5_20251001': 0.5, 'claude_sonnet_4_6': None, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 0.5, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 0.5}"
+hard_to_solve__easy_to_judge,90.25974025974025,5087,585e5a43-454b-56f7-aba3-fb4e22938020,mmlu-pro-other,J,10,4.964190006256104,6.169854640960693,91.55844155844156,-3.5342390537261963,2.262119062032132,9.740259740259742,0.2222222222222222,0.85,0.44095855184409843,0.24152294576982397,"As of 2019, about what percentage of Americans say it is very important to have free media in our country without government/state censorship?
+(A) 50%
+(B) 30%
+(C) 10%
+(D) 90%
+(E) 40%
+(F) 60%
+(G) 20%
+(H) 100%
+(I) 70%
+(J) 80%
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': None, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 0.0}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 0.5}"
+hard_to_solve__easy_to_judge,89.6103896103896,9158,e3de7dfc-4b9e-5476-b7af-92d7d00bf2d3,mmlu-pro-physics,E,10,5.7739129066467285,7.233677864074707,96.75324675324676,-3.51856541633606,5.40263691076788,10.38961038961039,0.125,0.85,0.3535533905932738,0.24152294576982397,"Find the value of (I / I_0) for the first diagonal maximum of the Fraunhoferdiffraction pattern of a circular aperture.
+(A) 0.145
+(B) 0.215
+(C) 0.155
+(D) 0.125
+(E) 0.175
+(F) 0.165
+(G) 0.185
+(H) 0.235
+(I) 0.205
+(J) 0.195
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': None, 'qwen_qwen3_5_9b': None}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 0.5, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 0.5}"
+hard_to_solve__easy_to_judge,79.87012987012987,3306,ad732066-b195-5f46-a39f-6f1184aa594b,mmlu-pro-biology,E,10,4.979928970336914,1.6475831270217896,92.2077922077922,-2.851278781890869,4.531684233778773,20.12987012987013,0.625,1.0,0.5175491695067657,0.0,"In a heavily polluted industrialized area in England about 87 percent of the moths of the speciesBistonbetulariaare melanic(dark colored). If the frequency of recessives is 0.13, what is the frequency of the dominant allele leading to melanism? What proportion of the dark colored moths are heterozygous?
+(A) 0.80, 0.48 or 48%
+(B) 0.55, 0.75 or 75%
+(C) 0.50, 0.50 or 50%
+(D) 0.60, 0.70 or 70%
+(E) 0.64, 0.53 or 53%
+(F) 0.77, 0.30 or 30%
+(G) 0.70, 0.40 or 40%
+(H) 0.87, 0.25 or 25%
+(I) 0.75, 0.60 or 60%
+(J) 0.47, 0.65 or 65%
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': None, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': None}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}"
+hard_to_solve__easy_to_judge,79.87012987012987,9337,df1964d5-629f-5b4a-bcd5-79137e8f3bc5,mmlu-pro-physics,H,8,2.1307015419006348,52.907325744628906,79.87012987012987,-4.719371169805527,1.0646366049729523,3.2467532467532463,0.0,0.55,0.0,0.3689323936863109,"Assume that a honeybee is a sphere of diameter 1.000 $\mathrm{cm}$ with a charge of $+45.0 \mathrm{pC}$ uniformly spread over its surface. Assume also that a spherical pollen grain of diameter $40.0 \mu \mathrm{m}$ is electrically held on the surface of the bee because the bee's charge induces a charge of $-1.00 \mathrm{pC}$ on the near side of the grain and a charge of $+1.00 \mathrm{pC}$ on the far side. What is the magnitude of the net electrostatic force on the grain due to the bee? 
+(A) $5.2$$10^{-10} \mathrm{~N}$
+(B) $7.2 \times 10^{-10} \mathrm{~N}$
+(C) $4.5 \times 10^{-11} \mathrm{~N}$
+(D) $6.5 \times 10^{-10} \mathrm{~N}$
+(E) $8.1 \times 10^{-10} \mathrm{~N}$
+(F) $3.9$$10^{-10} \mathrm{~N}$
+(G) $9.8 \times 10^{-11} \mathrm{~N}$
+(H)  $2.6$$10^{-10} \mathrm{~N}$ 
+(I) $1.3$$10^{-10} \mathrm{~N}$
+(J) $1.1 \times 10^{-9} \mathrm{~N}$
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': None, 'claude_sonnet_4_6': None, 'mistralai_ministral_3_14b_instruct_2512_bf16': None, 'mistralai_ministral_3_3b_instruct_2512_bf16': None, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': None, 'qwen_qwen3_5_2b': None, 'qwen_qwen3_5_4b': None, 'qwen_qwen3_5_9b': None}","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 0.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.5, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 0.5, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 0.5, 'qwen_qwen3_5_9b': 1.0}"
+hard_to_solve__easy_to_judge,77.27272727272727,5284,ebe368cb-5783-5f03-8471-e31295bc4438,mmlu-pro-other,C,8,2.0034279823303223,1.1628061532974243,77.27272727272727,-5.0537025928497314,2.6172093104953653,1.948051948051948,0.2,0.95,0.42163702135578396,0.15811388300841897,"Which of these qualities is NOT listed as something to consider when choosing an opinion leader for a public relations campaigns?
+(A) Reputation
+(B) Impact
+(C) Familiarity with subject or issue
+(D) Ability to reach people
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 0.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 0.0}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 0.5, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}"
+hard_to_solve__easy_to_judge,76.62337662337663,1330,50e6565c-07f5-57d6-80d8-028498a1251b,mmlu-pro-law,H,10,5.273778438568115,5.818595886230469,94.8051948051948,-2.710275650024414,1.772365941919479,23.37662337662337,0.125,0.9,0.3535533905932738,0.21081851067789195,"A debtor owed a creditor $12,000 under a promissory note. Under the applicable statute of limitations, a suit to collect on the promissory note had to have been filed by September 30 of last year. On June 1 of this year, the creditor received a letter from the debtor stating, ""I shall pay you $5,000 on July 1 in full satisfaction of what I owe you. "" However, the debtor failed to make the payment on July 1. If, on August 1, the creditor brings suit against the debtor and the debtor asserts the statute of limitations as an affirmative defense and refuses to pay the creditor anything, which of the following accurately states the creditor's legal rights against the debtor?
+(A) On July 1, not June 1, the creditor will be entitled to a judgment against the debtor for$12,000.
+(B) On June 1, the creditor became entitled to a judgment against the debtor for $12,000.
+(C) The creditor is entitled to a judgment against the debtor for $5,000, regardless of the date.
+(D) On August 1, the creditor became entitled to a judgment against the debtor for $12,000.
+(E) The creditor is entitled to a judgment against the debtor for $7,000, the remaining amount after the promised $5,000 payment.
+(F) On July 1, the creditor became entitled to a judgment against the debtor for the full $12,000, due to the debtor's failure to pay.
+(G) The creditor is not entitled to anything, due to the statute of limitations expiring.
+(H) On July 1, not June 1, the creditor became entitled to a judgment against the debtor for $5,000 only.
+(I) The creditor is not entitled to anything, on either June 1 or on July 1.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': None, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': None}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 0.5}"
+hard_to_solve__easy_to_judge,75.97402597402598,2389,4d2085b1-24e4-5bcd-959a-13d3a83e39cd,mmlu-pro-psychology,B,8,1.994639754295349,1.295546293258667,76.62337662337663,-2.6982251405715942,5.642395245698241,24.025974025974023,0.2,0.85,0.42163702135578396,0.24152294576982394,"As a child, Fara’s responsibilities were to help her mother in the kitchen while her brother and father mowed the lawn. She was expected to do the housework like her mother while her brother did yard work like their father. What part of Feminist Therapy addresses these issues?
+(A) Self-Concept Therapy
+(B) Feminist Object Relations
+(C) Household Responsibilities
+(D) Maternal Role Therapy
+(E) Empowerment Therapy
+(F) Family Dynamics Therapy
+(G) Child Responsibility Therapy
+(H) Women's Rights Therapy
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 0.0}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.5, 'qwen_qwen3_5_0_8b': 0.5, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}"
+hard_to_solve__easy_to_judge,75.97402597402598,4382,ed01d44a-e1bc-5833-9a59-ea5f5a9ebd60,mmlu-pro-chemistry,D,8,1.9803555011749268,1.2120953798294067,75.97402597402598,-3.720909595489502,2.7731722878061573,7.792207792207792,0.3,0.95,0.4830458915396479,0.15811388300841897,"The protein human plasma, albumin, has a molecular weight of 69,000. Calculate the osmotic pressure of a solution of this protein containing 2 g per 100 cm^3 at 25°C in (a) Torr and (b) millimeters of water. The ex-periment is carried out using a salt solution for solvent and a membrane permeable to salt.
+(A) (a) 2.79 Torr, (b) 38.0 mm H2O
+(B) (a) 9.01 Torr, (b) 122.3 mm H2O
+(C) (a) 7.08 Torr, (b) 69.0 mm H_2O
+(D) (a) 5.38 Torr, (b) 73.0 mm H_2O
+(E) (a) 8.45 Torr, (b) 115.0 mm H2O
+(F) (a) 6.82 Torr, (b) 92.4 mm H2O
+(G) (a) 3.5 Torr, (b) 50.0 mm H_2O
+(H) (a) 7.55 Torr, (b) 102.6 mm H2O
+(I) (a) 4.96 Torr, (b) 67.5 mm H2O
+(J) (a) 5.38 Torr, (b) 80.0 mm H_2O
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step.","{'claude_haiku_4_5_20251001': 0.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 0.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 0.0, 'qwen_qwen3_5_0_8b': 0.0, 'qwen_qwen3_5_27b': 0.0, 'qwen_qwen3_5_2b': 1.0, 'qwen_qwen3_5_4b': 0.0, 'qwen_qwen3_5_9b': 0.0}","{'claude_haiku_4_5_20251001': 1.0, 'claude_sonnet_4_6': 1.0, 'mistralai_ministral_3_14b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_3b_instruct_2512_bf16': 1.0, 'mistralai_ministral_3_8b_instruct_2512_bf16': 1.0, 'qwen_qwen3_5_0_8b': 1.0, 'qwen_qwen3_5_27b': 1.0, 'qwen_qwen3_5_2b': 0.5, 'qwen_qwen3_5_4b': 1.0, 'qwen_qwen3_5_9b': 1.0}"

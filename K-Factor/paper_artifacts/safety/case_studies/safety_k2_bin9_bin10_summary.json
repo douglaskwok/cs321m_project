@@ -1,0 +1,24 @@
+[
+  {
+    "difficulty_bin":9,
+    "n_prompts":12,
+    "solver_difficulty_mean":1.3465114988,
+    "solver_score_mean":0.7976190476,
+    "judge_score_mean":0.3902777778,
+    "judge_score_sd_across_prompts":0.1155034605,
+    "solver_attack_sd_mean":3.691419278,
+    "high_judge_count":0,
+    "low_judge_count":10
+  },
+  {
+    "difficulty_bin":10,
+    "n_prompts":12,
+    "solver_difficulty_mean":2.7150084433,
+    "solver_score_mean":0.7464285714,
+    "judge_score_mean":0.4895833333,
+    "judge_score_sd_across_prompts":0.1753108711,
+    "solver_attack_sd_mean":3.529657807,
+    "high_judge_count":0,
+    "low_judge_count":5
+  }
+]

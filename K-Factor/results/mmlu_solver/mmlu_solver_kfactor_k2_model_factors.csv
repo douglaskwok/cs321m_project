@@ -1,0 +1,11 @@
+model,factor_1,factor_2
+claude_haiku_4_5_20251001,-0.48112923,1.0655859
+claude_sonnet_4_6,-6.621765,7.062296
+mistralai_ministral_3_14b_instruct_2512_bf16,9.210978,11.492164
+mistralai_ministral_3_3b_instruct_2512_bf16,2.8053274,0.058480024
+mistralai_ministral_3_8b_instruct_2512_bf16,2.8585722,1.0509496
+qwen_qwen3_5_0_8b,2.6782494,-2.8990755
+qwen_qwen3_5_27b,-0.18091917,-1.6975834
+qwen_qwen3_5_2b,1.8115135,-0.58499014
+qwen_qwen3_5_4b,-1.1317651,-3.8181875
+qwen_qwen3_5_9b,0.19140798,-0.63653165

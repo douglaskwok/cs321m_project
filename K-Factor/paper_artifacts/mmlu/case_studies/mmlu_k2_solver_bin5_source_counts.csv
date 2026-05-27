@@ -1,0 +1,9 @@
+difficulty_bin,solver_source,n_items
+5,mmlu-pro-engineering,4
+5,mmlu-pro-chemistry,2
+5,mmlu-pro-computer science,2
+5,mmlu-pro-other,2
+5,mmlu-pro-psychology,2
+5,mmlu-pro-health,1
+5,mmlu-pro-law,1
+5,mmlu-pro-math,1

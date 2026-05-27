@@ -1,0 +1,3 @@
+fit_summary,selected_k,selected_auc,selected_ece,selected_loss,selected_beta_nll,selected_mse,selected_rmse,selected_mae,selected_pearson
+safety_solver_kfactor_fit_summary.csv,2,0.9939081443446012,0.0141564721782031,0.0387068279087543,,,,,
+harmmetric_eval_continuous_kfactor_fit_summary.csv,2,,,-0.5233648419380188,-0.7245043516159058,0.0498792678117752,0.2233366668224334,0.1067660897970199,0.8737163543701172

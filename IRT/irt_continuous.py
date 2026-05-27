@@ -28,6 +28,8 @@ RESPONSE_MATRICES = {
         "item_id_field": "prompt_id",
         "item_content_field": "source",
         "value": "overall_effectiveness_score: soft/fractional score in [0, 1]",
+        "deprecated": True,
+        "replacement": "harmmetric_eval",
     },
     "harmmetric_eval": {
         "prefix": "harmmetric_eval",
@@ -95,6 +97,12 @@ def load_response_matrix(matrix_kind: str):
         raise ValueError(f"Unknown matrix kind {matrix_kind!r}. Choose one of: {choices}")
 
     matrix_config = RESPONSE_MATRICES[matrix_kind]
+    if matrix_config.get("deprecated"):
+        warnings.warn(
+            f"Matrix {matrix_kind!r} is deprecated; use {matrix_config.get('replacement', 'a newer matrix')!r} instead.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
     prefix = matrix_config["prefix"]
     matrix_dir = matrix_config["matrix_dir"]
     matrix_path = matrix_dir / f"{prefix}_response_matrix.csv"
@@ -567,6 +575,8 @@ def bootstrap_item_capabilities(data, fit_fn, fit_kwargs, n_boot=50, seed=0):
         cols = rng.integers(0, n_items, size=n_items)
         data_b = data[:, cols]
         theta_b = fit_fn(data_b, **fit_kwargs, seed=seed + boot_idx)
+        if isinstance(theta_b, tuple):
+            theta_b = theta_b[0]
         theta_b = theta_b.detach().cpu()
         theta_b = theta_b - theta_b.mean()
         boot.append(theta_b.numpy())
@@ -832,7 +842,7 @@ def parse_args():
     parser.add_argument(
         "--matrix",
         choices=sorted(RESPONSE_MATRICES),
-        default="harmjudge_safety_judge",
+        default="harmmetric_eval",
         help="Which continuous response matrix to load.",
     )
     parser.add_argument(

@@ -1,0 +1,17 @@
+[
+  {
+    "case_category":"hard_to_solve__hard_to_judge",
+    "n_available":10,
+    "n_selected":10
+  },
+  {
+    "case_category":"easy_to_solve__hard_to_judge",
+    "n_available":8,
+    "n_selected":8
+  },
+  {
+    "case_category":"hard_to_solve__easy_to_judge",
+    "n_available":9,
+    "n_selected":9
+  }
+]

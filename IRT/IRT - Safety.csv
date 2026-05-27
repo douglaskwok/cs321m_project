@@ -1,0 +1,12 @@
+,Safety,,,,,
+,Solver (1PL MMLE),,,Judge (2PL MMLE),,
+,Model Name,Model Ability,Std Error,Model Name,Model Ability,Std Error
+,Qwen 4B,1.544,TBD,Qwen 27B,1.298,TBD
+,Qwen 27B,1.076,TBD,Sonnet 4.6,0.958,TBD
+,Sonnet 4.6,0.923,TBD,Mistral 8B,0.633,TBD
+,Qwen 2B,0.856,TBD,Mistral 14B,0.607,TBD
+,Qwen 9B,0.844,TBD,Qwen 4B,0.346,TBD
+,Qwen 0.8B,-0.904,TBD,Qwen 9B,-0.586,TBD
+,Mistral 14B,-1.879,TBD,Mistral 3B,-0.871,TBD
+,Mistral 3B,-1.976,TBD,Qwen 2B,-1.138,TBD
+,Mistral 8B,-2.065,TBD,Qwen 0.8B,-1.247,TBD

@@ -10,7 +10,9 @@
     "heldout_brier_mean":0.169915545,
     "heldout_brier_sd":0.0083834468,
     "heldout_ece_mean":0.0804958105,
-    "heldout_ece_sd":0.0091199033
+    "heldout_ece_sd":0.0091199033,
+    "aic":3024.6198730469,
+    "bic":4942.0830825471
   },
   {
     "fit":"1pl_item_marginal_mmle",
@@ -23,7 +25,9 @@
     "heldout_brier_mean":0.168514365,
     "heldout_brier_sd":0.0082003253,
     "heldout_ece_mean":0.0589107193,
-    "heldout_ece_sd":0.0135168661
+    "heldout_ece_sd":0.0135168661,
+    "aic":3991.8725585938,
+    "bic":4029.1735564235
   },
   {
     "fit":"2pl_regular",
@@ -36,7 +40,9 @@
     "heldout_brier_mean":0.1683793306,
     "heldout_brier_sd":0.0183802478,
     "heldout_ece_mean":0.1034115072,
-    "heldout_ece_sd":0.0163185221
+    "heldout_ece_sd":0.0163185221,
+    "aic":2959.9304199219,
+    "bic":6734.5592537178
   },
   {
     "fit":"2pl_item_marginal_mmle",
@@ -49,7 +55,9 @@
     "heldout_brier_mean":0.2459377319,
     "heldout_brier_sd":0.0022895794,
     "heldout_ece_mean":0.1713042982,
-    "heldout_ece_sd":0.0134225762
+    "heldout_ece_sd":0.0134225762,
+    "aic":3341.4819335938,
+    "bic":3378.7829314235
   },
   {
     "fit":"3pl_regular",
@@ -62,7 +70,9 @@
     "heldout_brier_mean":0.1634761989,
     "heldout_brier_sd":0.0175663296,
     "heldout_ece_mean":0.1053512958,
-    "heldout_ece_sd":0.0210582871
+    "heldout_ece_sd":0.0210582871,
+    "aic":3494.4482421875,
+    "bic":9126.2427002792
   },
   {
     "fit":"3pl_item_marginal_mmle",
@@ -75,6 +85,8 @@
     "heldout_brier_mean":0.2314191461,
     "heldout_brier_sd":0.0025904887,
     "heldout_ece_mean":0.1208904842,
-    "heldout_ece_sd":0.0135350987
+    "heldout_ece_sd":0.0135350987,
+    "aic":3300.12109375,
+    "bic":3337.4220915797
   }
 ]

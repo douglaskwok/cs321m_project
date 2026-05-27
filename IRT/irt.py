@@ -542,6 +542,8 @@ def bootstrap_item_capabilities(data, fit_fn, fit_kwargs, n_boot=50, seed=0):
         cols = rng.integers(0, n_items, size=n_items)
         data_b = data[:, cols]
         theta_b = fit_fn(data_b, **fit_kwargs, seed=seed + boot_idx)
+        if isinstance(theta_b, tuple):
+            theta_b = theta_b[0]
         theta_b = theta_b.detach().cpu()
         theta_b = theta_b - theta_b.mean()
         boot.append(theta_b.numpy())

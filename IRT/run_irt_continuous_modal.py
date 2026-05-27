@@ -2,6 +2,7 @@
 
 Example:
     modal run IRT/run_irt_continuous_modal.py --seed 123 --heldout-repeats 5 --gpu H100
+    modal run IRT/run_irt_continuous_modal.py --matrix harmmetric_eval --seed 123 --heldout-repeats 5 --gpu H100
 """
 
 from __future__ import annotations
@@ -171,7 +172,7 @@ def run_irt_b200(
 
 @app.local_entrypoint()
 def main(
-    matrix: str = "harmjudge_safety_judge",
+    matrix: str = "harmmetric_eval",
     seed: int = 123,
     heldout_repeats: int = 5,
     train_frac: float = 0.8,
@@ -184,6 +185,8 @@ def main(
     if matrix not in allowed_matrices:
         choices = ", ".join(sorted(allowed_matrices))
         raise ValueError(f"matrix must be one of: {choices}")
+    if matrix == "harmjudge_safety_judge":
+        print("WARNING: 'harmjudge_safety_judge' is deprecated; use 'harmmetric_eval' for new runs.")
 
     gpu_normalized = gpu.strip().lower()
     if gpu_normalized in {"none", "cpu"}:

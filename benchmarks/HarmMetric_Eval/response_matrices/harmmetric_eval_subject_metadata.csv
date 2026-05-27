@@ -1,4 +1,5 @@
 subject_id,model_name,source_file,n_prompts_observed
+claude_haiku_4_5,Claude-Haiku-4-5,Claude-Haiku-4-5-HarmJudge-safety_solver_prompt_scores.csv,117
 claude_sonnet_4_6,Claude-Sonnet-4-6,Claude-Sonnet-4-6-HarmJudge-safety_solver_prompt_scores_with_missing.csv,117
 ministral_3_14b_instruct_2512_bf16,Ministral-3-14B-Instruct-2512-BF16,Ministral-3-14B-Instruct-2512-BF16-HarmJudge-safety_solver_prompt_scores.csv,117
 ministral_3_3b_instruct_2512_bf16,Ministral-3-3B-Instruct-2512-BF16,Ministral-3-3B-Instruct-2512-BF16-HarmJudge-safety_solver_prompt_scores.csv,117
