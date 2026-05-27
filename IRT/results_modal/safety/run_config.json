@@ -5,7 +5,7 @@
   "output_dir": "/root/IRT/results/safety",
   "heldout_repeats": 5,
   "train_frac": 0.8,
-  "run_item_bootstrap": false,
+  "run_item_bootstrap": true,
   "n_boot": 50,
   "benchmark_id": "safety_all_attacks",
   "n_subjects": 10,

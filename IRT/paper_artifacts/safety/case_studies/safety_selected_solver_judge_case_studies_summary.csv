@@ -1,0 +1,3 @@
+case_type,n_available,n_selected
+mistral14_judge_success_solver_failure,164,8
+qwen2_solver_success_judge_failure,760,8

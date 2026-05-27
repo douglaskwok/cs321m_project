@@ -1,0 +1,41 @@
+{
+  "description": "Paper-facing IRT artifacts: model-selection tables, solver-vs-judge charts, and plotted data.",
+  "generated_from": [
+    "IRT/results_modal/solver/heldout_eval_summary.csv",
+    "IRT/results_modal/judging/heldout_eval_summary.csv",
+    "IRT/results_modal/kudge_challenge/heldout_eval_summary.csv",
+    "IRT/results_modal/kudge_judge/heldout_eval_summary.csv",
+    "IRT/results_modal/safety/heldout_eval_summary.csv",
+    "IRT/results_continuous_modal/harmmetric_eval/heldout_eval_summary.csv"
+  ],
+  "artifacts": {
+    "mmlu_solver_model_selection_compact": "IRT/paper_artifacts/model_selection/mmlu_solver_model_selection_compact.csv",
+    "mmlu_solver_heldout_eval_summary_full": "IRT/paper_artifacts/model_selection/full/mmlu_solver_heldout_eval_summary_full.csv",
+    "mmlu_judge_model_selection_compact": "IRT/paper_artifacts/model_selection/mmlu_judge_model_selection_compact.csv",
+    "mmlu_judge_heldout_eval_summary_full": "IRT/paper_artifacts/model_selection/full/mmlu_judge_heldout_eval_summary_full.csv",
+    "kudge_solver_model_selection_compact": "IRT/paper_artifacts/model_selection/kudge_solver_model_selection_compact.csv",
+    "kudge_solver_heldout_eval_summary_full": "IRT/paper_artifacts/model_selection/full/kudge_solver_heldout_eval_summary_full.csv",
+    "kudge_judge_model_selection_compact": "IRT/paper_artifacts/model_selection/kudge_judge_model_selection_compact.csv",
+    "kudge_judge_heldout_eval_summary_full": "IRT/paper_artifacts/model_selection/full/kudge_judge_heldout_eval_summary_full.csv",
+    "safety_solver_model_selection_compact": "IRT/paper_artifacts/model_selection/safety_solver_model_selection_compact.csv",
+    "safety_solver_heldout_eval_summary_full": "IRT/paper_artifacts/model_selection/full/safety_solver_heldout_eval_summary_full.csv",
+    "safety_judge_model_selection_compact": "IRT/paper_artifacts/model_selection/safety_judge_model_selection_compact.csv",
+    "safety_judge_heldout_eval_summary_full": "IRT/paper_artifacts/model_selection/full/safety_judge_heldout_eval_summary_full.csv",
+    "all_irt_model_selection_compact": "IRT/paper_artifacts/model_selection/all_irt_model_selection_compact.csv",
+    "selected_fit_by_auc_and_aic": "IRT/paper_artifacts/model_selection/selected_fit_by_auc_and_aic.csv",
+    "chart_irt_all_solver_judge_scatter_se_pdf": "IRT/paper_artifacts/charts/irt_all_solver_judge_scatter_se.pdf",
+    "chart_irt_all_solver_judge_scatter_se_png": "IRT/paper_artifacts/charts/irt_all_solver_judge_scatter_se.png",
+    "chart_irt_kudge_solver_judge_scatter_se_pdf": "IRT/paper_artifacts/charts/irt_kudge_solver_judge_scatter_se.pdf",
+    "chart_irt_kudge_solver_judge_scatter_se_png": "IRT/paper_artifacts/charts/irt_kudge_solver_judge_scatter_se.png",
+    "chart_irt_mmlu_solver_judge_scatter_se_pdf": "IRT/paper_artifacts/charts/irt_mmlu_solver_judge_scatter_se.pdf",
+    "chart_irt_mmlu_solver_judge_scatter_se_png": "IRT/paper_artifacts/charts/irt_mmlu_solver_judge_scatter_se.png",
+    "chart_irt_safety_solver_judge_scatter_se_pdf": "IRT/paper_artifacts/charts/irt_safety_solver_judge_scatter_se.pdf",
+    "chart_irt_safety_solver_judge_scatter_se_png": "IRT/paper_artifacts/charts/irt_safety_solver_judge_scatter_se.png",
+    "data_irt_kudge_solver_judge_scatter_data": "IRT/paper_artifacts/data/irt_kudge_solver_judge_scatter_data.csv",
+    "data_irt_mmlu_solver_judge_scatter_data": "IRT/paper_artifacts/data/irt_mmlu_solver_judge_scatter_data.csv",
+    "data_irt_safety_solver_judge_scatter_data": "IRT/paper_artifacts/data/irt_safety_solver_judge_scatter_data.csv",
+    "mmlu_solver_judge_capability_table": "IRT/paper_artifacts/data/mmlu_solver_judge_capability_table.csv",
+    "kudge_solver_judge_capability_table": "IRT/paper_artifacts/data/kudge_solver_judge_capability_table.csv",
+    "safety_solver_judge_capability_table": "IRT/paper_artifacts/data/safety_solver_judge_capability_table.csv"
+  }
+}

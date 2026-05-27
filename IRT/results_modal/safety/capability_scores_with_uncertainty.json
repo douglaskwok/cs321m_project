@@ -23,7 +23,19 @@
     "2pl_regular_hi":7.2000541687,
     "3pl_regular_se":0.3561503589,
     "3pl_regular_lo":2.0046916008,
-    "3pl_regular_hi":3.4008011818
+    "3pl_regular_hi":3.4008011818,
+    "1pl_item_marginal_mmle_boot_mean":1.0748721361,
+    "1pl_item_marginal_mmle_boot_se":0.826361835,
+    "1pl_item_marginal_mmle_boot_lo":-0.7881513834,
+    "1pl_item_marginal_mmle_boot_hi":2.1851296425,
+    "2pl_item_marginal_mmle_boot_mean":0.5530797243,
+    "2pl_item_marginal_mmle_boot_se":0.019167738,
+    "2pl_item_marginal_mmle_boot_lo":0.5200350881,
+    "2pl_item_marginal_mmle_boot_hi":0.5766829252,
+    "3pl_item_marginal_mmle_boot_mean":0.5582598448,
+    "3pl_item_marginal_mmle_boot_se":0.0169337019,
+    "3pl_item_marginal_mmle_boot_lo":0.5270590782,
+    "3pl_item_marginal_mmle_boot_hi":0.5864161253
   },
   {
     "model":"qwen_qwen3_5_4b",
@@ -49,7 +61,19 @@
     "2pl_regular_hi":3.1167700291,
     "3pl_regular_se":0.0483536161,
     "3pl_regular_lo":3.1235806942,
-    "3pl_regular_hi":3.3131268024
+    "3pl_regular_hi":3.3131268024,
+    "1pl_item_marginal_mmle_boot_mean":0.8036035299,
+    "1pl_item_marginal_mmle_boot_se":0.9602940083,
+    "1pl_item_marginal_mmle_boot_lo":-0.8478561044,
+    "1pl_item_marginal_mmle_boot_hi":2.4770274162,
+    "2pl_item_marginal_mmle_boot_mean":0.5550504327,
+    "2pl_item_marginal_mmle_boot_se":0.0204624664,
+    "2pl_item_marginal_mmle_boot_lo":0.5016623139,
+    "2pl_item_marginal_mmle_boot_hi":0.5936287045,
+    "3pl_item_marginal_mmle_boot_mean":0.5578827858,
+    "3pl_item_marginal_mmle_boot_se":0.018499326,
+    "3pl_item_marginal_mmle_boot_lo":0.5249926448,
+    "3pl_item_marginal_mmle_boot_hi":0.5920247436
   },
   {
     "model":"qwen_qwen3_5_27b",
@@ -75,7 +99,19 @@
     "2pl_regular_hi":4.1034507751,
     "3pl_regular_se":0.003861387,
     "3pl_regular_lo":2.9472317696,
-    "3pl_regular_hi":2.9623684883
+    "3pl_regular_hi":2.9623684883,
+    "1pl_item_marginal_mmle_boot_mean":1.3361084461,
+    "1pl_item_marginal_mmle_boot_se":0.8133573532,
+    "1pl_item_marginal_mmle_boot_lo":-0.4760962129,
+    "1pl_item_marginal_mmle_boot_hi":2.7557461262,
+    "2pl_item_marginal_mmle_boot_mean":0.5398101211,
+    "2pl_item_marginal_mmle_boot_se":0.0211322028,
+    "2pl_item_marginal_mmle_boot_lo":0.4971458912,
+    "2pl_item_marginal_mmle_boot_hi":0.5727488995,
+    "3pl_item_marginal_mmle_boot_mean":0.5442910194,
+    "3pl_item_marginal_mmle_boot_se":0.0196509995,
+    "3pl_item_marginal_mmle_boot_lo":0.5123475194,
+    "3pl_item_marginal_mmle_boot_hi":0.5818027258
   },
   {
     "model":"qwen_qwen3_5_9b",
@@ -101,7 +137,19 @@
     "2pl_regular_hi":2.6070787907,
     "3pl_regular_se":0.0045089857,
     "3pl_regular_lo":3.6349868774,
-    "3pl_regular_hi":3.6526622772
+    "3pl_regular_hi":3.6526622772,
+    "1pl_item_marginal_mmle_boot_mean":0.9744799733,
+    "1pl_item_marginal_mmle_boot_se":0.6765021086,
+    "1pl_item_marginal_mmle_boot_lo":-0.3147376776,
+    "1pl_item_marginal_mmle_boot_hi":2.3131120205,
+    "2pl_item_marginal_mmle_boot_mean":0.54601717,
+    "2pl_item_marginal_mmle_boot_se":0.0189731475,
+    "2pl_item_marginal_mmle_boot_lo":0.5023166537,
+    "2pl_item_marginal_mmle_boot_hi":0.5722611547,
+    "3pl_item_marginal_mmle_boot_mean":0.5505386591,
+    "3pl_item_marginal_mmle_boot_se":0.0198038016,
+    "3pl_item_marginal_mmle_boot_lo":0.5134925246,
+    "3pl_item_marginal_mmle_boot_hi":0.5864413977
   },
   {
     "model":"claude_sonnet_4_6",
@@ -127,7 +175,19 @@
     "2pl_regular_hi":2.2938520908,
     "3pl_regular_se":0.1545314938,
     "3pl_regular_lo":1.592322588,
-    "3pl_regular_hi":2.1980860233
+    "3pl_regular_hi":2.1980860233,
+    "1pl_item_marginal_mmle_boot_mean":0.5995172858,
+    "1pl_item_marginal_mmle_boot_se":0.6193799973,
+    "1pl_item_marginal_mmle_boot_lo":-1.0700007677,
+    "1pl_item_marginal_mmle_boot_hi":1.1977213621,
+    "2pl_item_marginal_mmle_boot_mean":0.4358109236,
+    "2pl_item_marginal_mmle_boot_se":0.0267653316,
+    "2pl_item_marginal_mmle_boot_lo":0.3861611784,
+    "2pl_item_marginal_mmle_boot_hi":0.4778630733,
+    "3pl_item_marginal_mmle_boot_mean":0.4392104745,
+    "3pl_item_marginal_mmle_boot_se":0.0311241187,
+    "3pl_item_marginal_mmle_boot_lo":0.390162468,
+    "3pl_item_marginal_mmle_boot_hi":0.4986715615
   },
   {
     "model":"qwen_qwen3_5_2b",
@@ -153,7 +213,19 @@
     "2pl_regular_hi":2.0824923515,
     "3pl_regular_se":0.0697174594,
     "3pl_regular_lo":1.6782829762,
-    "3pl_regular_hi":1.9515755177
+    "3pl_regular_hi":1.9515755177,
+    "1pl_item_marginal_mmle_boot_mean":0.6665011048,
+    "1pl_item_marginal_mmle_boot_se":0.458807528,
+    "1pl_item_marginal_mmle_boot_lo":-0.3117519021,
+    "1pl_item_marginal_mmle_boot_hi":1.3468049765,
+    "2pl_item_marginal_mmle_boot_mean":0.414201647,
+    "2pl_item_marginal_mmle_boot_se":0.0293499567,
+    "2pl_item_marginal_mmle_boot_lo":0.357740581,
+    "2pl_item_marginal_mmle_boot_hi":0.4647297263,
+    "3pl_item_marginal_mmle_boot_mean":0.4178919196,
+    "3pl_item_marginal_mmle_boot_se":0.0301406775,
+    "3pl_item_marginal_mmle_boot_lo":0.3583153784,
+    "3pl_item_marginal_mmle_boot_hi":0.4602387547
   },
   {
     "model":"qwen_qwen3_5_0_8b",
@@ -179,7 +251,19 @@
     "2pl_regular_hi":2.4599666595,
     "3pl_regular_se":0.2203187048,
     "3pl_regular_lo":1.0720202923,
-    "3pl_regular_hi":1.9356696606
+    "3pl_regular_hi":1.9356696606,
+    "1pl_item_marginal_mmle_boot_mean":-0.7697136402,
+    "1pl_item_marginal_mmle_boot_se":0.1732297987,
+    "1pl_item_marginal_mmle_boot_lo":-1.1292886734,
+    "1pl_item_marginal_mmle_boot_hi":-0.4468321204,
+    "2pl_item_marginal_mmle_boot_mean":-0.1955423504,
+    "2pl_item_marginal_mmle_boot_se":0.0421427451,
+    "2pl_item_marginal_mmle_boot_lo":-0.2853553593,
+    "2pl_item_marginal_mmle_boot_hi":-0.1407425255,
+    "3pl_item_marginal_mmle_boot_mean":-0.2064868957,
+    "3pl_item_marginal_mmle_boot_se":0.0461179391,
+    "3pl_item_marginal_mmle_boot_lo":-0.3032301962,
+    "3pl_item_marginal_mmle_boot_hi":-0.1194309145
   },
   {
     "model":"mistralai_ministral_3_14b_instruct_2512",
@@ -205,7 +289,19 @@
     "2pl_regular_hi":0.7243905663,
     "3pl_regular_se":0.0430436209,
     "3pl_regular_lo":0.2414676994,
-    "3pl_regular_hi":0.4101986885
+    "3pl_regular_hi":0.4101986885,
+    "1pl_item_marginal_mmle_boot_mean":-1.5609595776,
+    "1pl_item_marginal_mmle_boot_se":0.3560020626,
+    "1pl_item_marginal_mmle_boot_lo":-2.0476446152,
+    "1pl_item_marginal_mmle_boot_hi":-0.6903576851,
+    "2pl_item_marginal_mmle_boot_mean":-0.8729447722,
+    "2pl_item_marginal_mmle_boot_se":0.0375353433,
+    "2pl_item_marginal_mmle_boot_lo":-0.9272059798,
+    "2pl_item_marginal_mmle_boot_hi":-0.7946249843,
+    "3pl_item_marginal_mmle_boot_mean":-0.8772624135,
+    "3pl_item_marginal_mmle_boot_se":0.0416366644,
+    "3pl_item_marginal_mmle_boot_lo":-0.9582043886,
+    "3pl_item_marginal_mmle_boot_hi":-0.8145065308
   },
   {
     "model":"mistralai_ministral_3_3b_instruct_2512",
@@ -231,7 +327,19 @@
     "2pl_regular_hi":1.0835282803,
     "3pl_regular_se":0.6331263185,
     "3pl_regular_lo":-0.9008117318,
-    "3pl_regular_hi":1.5810434818
+    "3pl_regular_hi":1.5810434818,
+    "1pl_item_marginal_mmle_boot_mean":-1.5366610289,
+    "1pl_item_marginal_mmle_boot_se":0.5001084208,
+    "1pl_item_marginal_mmle_boot_lo":-2.1015734673,
+    "1pl_item_marginal_mmle_boot_hi":-0.6593291759,
+    "2pl_item_marginal_mmle_boot_mean":-0.9523404837,
+    "2pl_item_marginal_mmle_boot_se":0.0458132215,
+    "2pl_item_marginal_mmle_boot_lo":-1.0171495676,
+    "2pl_item_marginal_mmle_boot_hi":-0.8680830002,
+    "3pl_item_marginal_mmle_boot_mean":-0.9532797933,
+    "3pl_item_marginal_mmle_boot_se":0.0402211621,
+    "3pl_item_marginal_mmle_boot_lo":-1.0187270641,
+    "3pl_item_marginal_mmle_boot_hi":-0.8794897795
   },
   {
     "model":"mistralai_ministral_3_8b_instruct_2512",
@@ -257,6 +365,18 @@
     "2pl_regular_hi":0.9180953503,
     "3pl_regular_se":0.9237056375,
     "3pl_regular_lo":-2.2736825943,
-    "3pl_regular_hi":1.3472436666
+    "3pl_regular_hi":1.3472436666,
+    "1pl_item_marginal_mmle_boot_mean":-1.5877482891,
+    "1pl_item_marginal_mmle_boot_se":0.412107408,
+    "1pl_item_marginal_mmle_boot_lo":-2.1729393005,
+    "1pl_item_marginal_mmle_boot_hi":-0.5969518423,
+    "2pl_item_marginal_mmle_boot_mean":-1.0231425762,
+    "2pl_item_marginal_mmle_boot_se":0.0358003899,
+    "2pl_item_marginal_mmle_boot_lo":-1.0895941257,
+    "2pl_item_marginal_mmle_boot_hi":-0.9648327231,
+    "3pl_item_marginal_mmle_boot_mean":-1.0310454369,
+    "3pl_item_marginal_mmle_boot_se":0.0423641168,
+    "3pl_item_marginal_mmle_boot_lo":-1.1018587351,
+    "3pl_item_marginal_mmle_boot_hi":-0.9479598999
   }
 ]

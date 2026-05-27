@@ -1,0 +1,7 @@
+domain,role,label,best_auc_fit,best_auc,best_auc_sd,best_aic_fit,best_aic
+mmlu,solver,MMLU solver,1pl_regular,0.7282132029533386,0.0186409199309286,1pl_regular,1616.8486328125
+mmlu,judge,MMLU judge,3pl_regular,0.8218842625617981,0.0303833444118454,2pl_regular,2959.930419921875
+kudge,solver,Kudge solver,1pl_item_marginal_mmle,0.8085002303123474,0.0105419067587709,1pl_regular,4116.5205078125
+kudge,judge,Kudge judge,1pl_item_marginal_mmle,0.7193072080612183,0.0180132467153882,1pl_regular,4656.828369140625
+safety,solver,Safety solver,1pl_item_marginal_mmle,0.911335802078247,0.0083475929602737,1pl_regular,4024.498046875
+safety,judge,Safety judge / HarmMetricEval,1pl_regular,0.8352963328361511,0.0418137113560236,2pl_item_marginal_mmle,1264.320068359375

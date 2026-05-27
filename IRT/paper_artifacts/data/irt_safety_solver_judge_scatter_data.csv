@@ -1,0 +1,11 @@
+solver_ability,solver_se,solver_model_raw,model_key,judge_ability,judge_se,judge_model_raw,model,solver_rank,judge_rank
+1.58,0.826,Haiku 4.5,claude_haiku_4_5,-0.184,0.005,Haiku 4.5,Claude Haiku 4.5,1.0,6.0
+1.544,0.96,Qwen 4B,qwen35_4b,-0.085,0.868,Qwen 4B,Qwen3.5 4B,2.0,5.0
+1.076,0.813,Qwen 27B,qwen35_27b,0.401,0.04,Qwen 27B,Qwen3.5 27B,3.0,1.0
+0.923,0.619,Sonnet 4.6,claude_sonnet_4_6,0.12,0.046,Sonnet 4.6,Claude Sonnet 4.6,4.0,2.0
+0.856,0.459,Qwen 2B,qwen35_2b,-3.478,0.012,Qwen 2B,Qwen3.5 2B,5.0,10.0
+0.844,0.677,Qwen 9B,qwen35_9b,-0.841,0.105,Qwen 9B,Qwen3.5 9B,6.0,7.0
+-0.904,0.173,Qwen 0.8B,qwen35_08b,-2.988,0.137,Qwen 0.8B,Qwen3.5 0.8B,7.0,9.0
+-1.879,0.356,Mistral 14B,mistral_14b,-0.038,0.011,Mistral 14B,Mistral 14B,8.0,3.0
+-1.976,0.5,Mistral 3B,mistral_3b,-1.33,1.269,Mistral 3B,Mistral 3B,9.0,8.0
+-2.065,0.412,Mistral 8B,mistral_8b,-0.056,0.231,Mistral 8B,Mistral 8B,10.0,4.0

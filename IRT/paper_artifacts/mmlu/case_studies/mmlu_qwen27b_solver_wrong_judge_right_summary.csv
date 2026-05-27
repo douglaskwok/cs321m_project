@@ -1,0 +1,4 @@
+metric,value
+qwen27b_solver_wrong_judge_correct_both_orders,45
+selected_cases_for_discussion,5
+explicit_winner_loser_final_letter_contrast,44

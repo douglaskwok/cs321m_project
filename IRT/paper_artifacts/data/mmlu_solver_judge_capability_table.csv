@@ -1,0 +1,13 @@
+,MMLU,,,,,
+,Solver (1PL JMLE),,,Judge (2PL JMLE),,
+,Model Name,Model Ability,Std Error,Model Name,Model Ability,Std Error
+,Sonnet 4.6,2.171,0.202,Sonnet 4.6,1.509,0.023
+,Haiku 4.5,0.647,0.269,Qwen3.5 27B,1.52,0.004
+,Qwen3.5 27B,-0.432,0.193,Haiku 4.5,1.093,0.03
+,Qwen3.5 9B,-0.576,0.21,Qwen3.5 9B,0.528,0.024
+,Qwen3.5 4B,-0.621,0.2,Mistral 14B,0.633,0.021
+,Mistral 14B,-0.652,0.248,Qwen3.5 4B,0.525,0.025
+,Mistral 8B,-1.092,0.208,Mistral 8B,0.694,0.002
+,Qwen3.5 2B,-1.36,0.218,Mistral 3B,0.513,0.003
+,Mistral 3B,-1.428,0.22,Qwen3.5 0.8B,0.155,0.109
+,Qwen3.5 0.8B,-1.886,0.217,Qwen3.5 2B,0.105,0.004

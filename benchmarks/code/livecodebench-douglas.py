@@ -351,7 +351,7 @@ def _chunked(items: list[dict], batch_size: int) -> list[list[dict]]:
         # modal.Secret.from_name("openai-secret"),
         modal.Secret.from_name("anthropic-secret"),
     ],
-    max_containers=20,
+    max_containers=9,
     retries=2,
     timeout=300,
 )
@@ -435,7 +435,7 @@ def score_item_hf_b200(item: dict) -> dict:
     gpu="B200",
     volumes={"/root/.cache/huggingface": hf_cache},
     # secrets=[modal.Secret.from_name("hf-secret")],
-    max_containers=10,
+    max_containers=9,
     retries=2,
     timeout=7200,
 )
