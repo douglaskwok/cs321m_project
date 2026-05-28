@@ -1,88 +1,109 @@
 {
-  "created_at": "2026-05-27T00:37:46",
-  "note": "Compact K-factor artifacts for paper writing. Raw prompt-heavy paired tables are intentionally omitted.",
+  "selection_metric": "held-out loss",
   "domains": {
     "kudge": {
-      "figures": [
-        "kudge/figures/kudge_k2_difficulty_bin_summary.png",
-        "kudge/figures/kudge_k2_difficulty_bin_summary.pdf",
-        "kudge/figures/kudge_k2_judge_model_bin_summary.png",
-        "kudge/figures/kudge_k2_judge_model_bin_summary.pdf",
-        "kudge/figures/kudge_k2_solver_judge_difficulty_scatter.png",
-        "kudge/figures/kudge_k2_solver_judge_difficulty_scatter.pdf",
-        "kudge/figures/kudge_k2_solver_judge_difficulty_percentiles.png",
-        "kudge/figures/kudge_k2_solver_judge_difficulty_percentiles.pdf"
-      ],
-      "chart_data": [
-        "kudge/chart_data/kudge_k2_difficulty_bin_summary.csv",
-        "kudge/chart_data/kudge_k2_difficulty_bin_summary.json",
-        "kudge/chart_data/kudge_k2_judge_model_bin_summary_mean.csv",
-        "kudge/chart_data/kudge_k2_judge_model_bin_summary_mean.json",
-        "kudge/chart_data/kudge_k2_solver_judge_difficulty_scatter.csv",
-        "kudge/chart_data/kudge_k2_solver_judge_difficulty_percentiles.csv",
-        "kudge/chart_data/kudge_k2_judge_model_bin_summary.csv",
-        "kudge/chart_data/kudge_k2_judge_model_bin_summary.json"
-      ],
-      "model_selection": [
-        "kudge/model_selection/kudge_solver_kfactor_fit_summary.csv",
-        "kudge/model_selection/kudge_judge_kfactor_fit_summary.csv",
-        "kudge/model_selection/kudge_selected_k_summary.csv"
+      "selected_solver_k": 1,
+      "selected_judge_k": 1,
+      "prefix": "kudge_k1",
+      "files_copied_count": 18,
+      "files": [
+        "kudge/figures/kudge_k1_difficulty_bin_summary.png",
+        "kudge/figures/kudge_k1_difficulty_bin_summary.pdf",
+        "kudge/figures/kudge_k1_judge_model_bin_summary.png",
+        "kudge/figures/kudge_k1_judge_model_bin_summary.pdf",
+        "kudge/figures/kudge_k1_solver_judge_difficulty_scatter.png",
+        "kudge/figures/kudge_k1_solver_judge_difficulty_scatter.pdf",
+        "kudge/figures/kudge_k1_solver_judge_difficulty_percentiles.png",
+        "kudge/figures/kudge_k1_solver_judge_difficulty_percentiles.pdf",
+        "kudge/chart_data/kudge_k1_difficulty_bin_summary.csv",
+        "kudge/chart_data/kudge_k1_difficulty_bin_summary.json",
+        "kudge/chart_data/kudge_k1_judge_model_bin_summary.csv",
+        "kudge/chart_data/kudge_k1_judge_model_bin_summary.json",
+        "kudge/chart_data/kudge_k1_judge_model_bin_summary_mean.csv",
+        "kudge/chart_data/kudge_k1_judge_model_bin_summary_mean.json",
+        "kudge/chart_data/kudge_k1_solver_judge_difficulty_scatter.csv",
+        "kudge/chart_data/kudge_k1_solver_judge_difficulty_scatter.json",
+        "kudge/chart_data/kudge_k1_solver_judge_difficulty_percentiles.csv",
+        "kudge/chart_data/kudge_k1_solver_judge_difficulty_percentiles.json"
       ]
     },
     "mmlu": {
-      "figures": [
-        "mmlu/figures/mmlu_k2_difficulty_bin_summary.png",
-        "mmlu/figures/mmlu_k2_difficulty_bin_summary.pdf",
-        "mmlu/figures/mmlu_k2_judge_model_bin_summary.png",
-        "mmlu/figures/mmlu_k2_judge_model_bin_summary.pdf",
-        "mmlu/figures/mmlu_k2_solver_judge_difficulty_scatter.png",
-        "mmlu/figures/mmlu_k2_solver_judge_difficulty_scatter.pdf",
-        "mmlu/figures/mmlu_k2_solver_judge_difficulty_percentiles.png",
-        "mmlu/figures/mmlu_k2_solver_judge_difficulty_percentiles.pdf"
-      ],
-      "chart_data": [
-        "mmlu/chart_data/mmlu_k2_difficulty_bin_summary.csv",
-        "mmlu/chart_data/mmlu_k2_difficulty_bin_summary.json",
-        "mmlu/chart_data/mmlu_k2_judge_model_bin_summary_mean.csv",
-        "mmlu/chart_data/mmlu_k2_judge_model_bin_summary_mean.json",
-        "mmlu/chart_data/mmlu_k2_solver_judge_difficulty_scatter.csv",
-        "mmlu/chart_data/mmlu_k2_solver_judge_difficulty_percentiles.csv",
-        "mmlu/chart_data/mmlu_k2_judge_model_bin_summary.csv",
-        "mmlu/chart_data/mmlu_k2_judge_model_bin_summary.json"
-      ],
-      "model_selection": [
-        "mmlu/model_selection/mmlu_solver_kfactor_fit_summary.csv",
-        "mmlu/model_selection/mmlu_judge_kfactor_fit_summary.csv",
-        "mmlu/model_selection/mmlu_selected_k_summary.csv"
+      "selected_solver_k": 1,
+      "selected_judge_k": 1,
+      "prefix": "mmlu_k1",
+      "files_copied_count": 18,
+      "files": [
+        "mmlu/figures/mmlu_k1_difficulty_bin_summary.png",
+        "mmlu/figures/mmlu_k1_difficulty_bin_summary.pdf",
+        "mmlu/figures/mmlu_k1_judge_model_bin_summary.png",
+        "mmlu/figures/mmlu_k1_judge_model_bin_summary.pdf",
+        "mmlu/figures/mmlu_k1_solver_judge_difficulty_scatter.png",
+        "mmlu/figures/mmlu_k1_solver_judge_difficulty_scatter.pdf",
+        "mmlu/figures/mmlu_k1_solver_judge_difficulty_percentiles.png",
+        "mmlu/figures/mmlu_k1_solver_judge_difficulty_percentiles.pdf",
+        "mmlu/chart_data/mmlu_k1_difficulty_bin_summary.csv",
+        "mmlu/chart_data/mmlu_k1_difficulty_bin_summary.json",
+        "mmlu/chart_data/mmlu_k1_judge_model_bin_summary.csv",
+        "mmlu/chart_data/mmlu_k1_judge_model_bin_summary.json",
+        "mmlu/chart_data/mmlu_k1_judge_model_bin_summary_mean.csv",
+        "mmlu/chart_data/mmlu_k1_judge_model_bin_summary_mean.json",
+        "mmlu/chart_data/mmlu_k1_solver_judge_difficulty_scatter.csv",
+        "mmlu/chart_data/mmlu_k1_solver_judge_difficulty_scatter.json",
+        "mmlu/chart_data/mmlu_k1_solver_judge_difficulty_percentiles.csv",
+        "mmlu/chart_data/mmlu_k1_solver_judge_difficulty_percentiles.json"
       ]
     },
     "safety": {
-      "figures": [
-        "safety/figures/safety_k2_difficulty_bin_summary.png",
-        "safety/figures/safety_k2_difficulty_bin_summary.pdf",
-        "safety/figures/safety_k2_judge_model_bin_summary.png",
-        "safety/figures/safety_k2_judge_model_bin_summary.pdf",
-        "safety/figures/safety_k2_solver_judge_difficulty_scatter.png",
-        "safety/figures/safety_k2_solver_judge_difficulty_scatter.pdf",
-        "safety/figures/safety_k2_solver_judge_difficulty_percentiles.png",
-        "safety/figures/safety_k2_solver_judge_difficulty_percentiles.pdf"
-      ],
-      "chart_data": [
-        "safety/chart_data/safety_k2_difficulty_bin_summary.csv",
-        "safety/chart_data/safety_k2_difficulty_bin_summary.json",
-        "safety/chart_data/safety_k2_judge_model_bin_summary_mean.csv",
-        "safety/chart_data/safety_k2_judge_model_bin_summary_mean.json",
-        "safety/chart_data/safety_k2_solver_judge_difficulty_scatter.csv",
-        "safety/chart_data/safety_k2_solver_judge_difficulty_percentiles.csv",
-        "safety/chart_data/safety_k2_judge_model_bin_summary.csv",
-        "safety/chart_data/safety_k2_judge_model_bin_summary.json"
-      ],
-      "model_selection": [
-        "safety/model_selection/safety_solver_kfactor_fit_summary.csv",
-        "safety/model_selection/harmmetric_eval_continuous_kfactor_fit_summary.csv",
-        "safety/model_selection/safety_selected_k_summary.csv"
+      "selected_solver_k": 1,
+      "selected_judge_k": 2,
+      "prefix": "safety_k1",
+      "files_copied_count": 18,
+      "files": [
+        "safety/figures/safety_k1_difficulty_bin_summary.png",
+        "safety/figures/safety_k1_difficulty_bin_summary.pdf",
+        "safety/figures/safety_k1_judge_model_bin_summary.png",
+        "safety/figures/safety_k1_judge_model_bin_summary.pdf",
+        "safety/figures/safety_k1_solver_judge_difficulty_scatter.png",
+        "safety/figures/safety_k1_solver_judge_difficulty_scatter.pdf",
+        "safety/figures/safety_k1_solver_judge_difficulty_percentiles.png",
+        "safety/figures/safety_k1_solver_judge_difficulty_percentiles.pdf",
+        "safety/chart_data/safety_k1_difficulty_bin_summary.csv",
+        "safety/chart_data/safety_k1_difficulty_bin_summary.json",
+        "safety/chart_data/safety_k1_judge_model_bin_summary.csv",
+        "safety/chart_data/safety_k1_judge_model_bin_summary.json",
+        "safety/chart_data/safety_k1_judge_model_bin_summary_mean.csv",
+        "safety/chart_data/safety_k1_judge_model_bin_summary_mean.json",
+        "safety/chart_data/safety_k1_solver_judge_difficulty_scatter.csv",
+        "safety/chart_data/safety_k1_solver_judge_difficulty_scatter.json",
+        "safety/chart_data/safety_k1_solver_judge_difficulty_percentiles.csv",
+        "safety/chart_data/safety_k1_solver_judge_difficulty_percentiles.json"
+      ]
+    },
+    "code": {
+      "selected_solver_k": 1,
+      "selected_judge_k": 1,
+      "prefix": "code_solverk1_judgek1",
+      "files_copied_count": 18,
+      "files": [
+        "code/figures/code_solverk1_judgek1_difficulty_bin_summary.png",
+        "code/figures/code_solverk1_judgek1_difficulty_bin_summary.pdf",
+        "code/figures/code_solverk1_judgek1_judge_model_bin_summary.png",
+        "code/figures/code_solverk1_judgek1_judge_model_bin_summary.pdf",
+        "code/figures/code_solverk1_judgek1_solver_judge_difficulty_scatter.png",
+        "code/figures/code_solverk1_judgek1_solver_judge_difficulty_scatter.pdf",
+        "code/figures/code_solverk1_judgek1_solver_judge_difficulty_percentiles.png",
+        "code/figures/code_solverk1_judgek1_solver_judge_difficulty_percentiles.pdf",
+        "code/chart_data/code_solverk1_judgek1_difficulty_bin_summary.csv",
+        "code/chart_data/code_solverk1_judgek1_difficulty_bin_summary.json",
+        "code/chart_data/code_solverk1_judgek1_judge_model_bin_summary.csv",
+        "code/chart_data/code_solverk1_judgek1_judge_model_bin_summary.json",
+        "code/chart_data/code_solverk1_judgek1_judge_model_bin_summary_mean.csv",
+        "code/chart_data/code_solverk1_judgek1_judge_model_bin_summary_mean.json",
+        "code/chart_data/code_solverk1_judgek1_solver_judge_difficulty_scatter.csv",
+        "code/chart_data/code_solverk1_judgek1_solver_judge_difficulty_scatter.json",
+        "code/chart_data/code_solverk1_judgek1_solver_judge_difficulty_percentiles.csv",
+        "code/chart_data/code_solverk1_judgek1_solver_judge_difficulty_percentiles.json"
       ]
     }
-  },
-  "combined_part1_summary": "part1_judge_model_bin_means_and_sd_all_domains.csv"
+  }
 }

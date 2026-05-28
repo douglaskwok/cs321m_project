@@ -60,6 +60,22 @@ RESPONSE_MATRICES = {
         "item_content_field": "subset",
         "value": "correct: 1.0=true, 0.0=false",
     },
+    "code_solver": {
+        "prefix": "livecodebench",
+        "matrix_dir": PROJECT_ROOT / "benchmarks/code/response_matrices",
+        "benchmark_id": "livecodebench",
+        "item_id_field": "question_id",
+        "item_content_field": "difficulty",
+        "value": "correct: 1.0=passes public tests, 0.0=fails public tests, NaN=missing",
+    },
+    "code_judge": {
+        "prefix": "codejudgebench_pairwise",
+        "matrix_dir": PROJECT_ROOT / "benchmarks/code/response_matrices",
+        "benchmark_id": "codejudgebench_pairwise",
+        "item_id_field": "split:question_id:pair_index:ordering",
+        "item_content_field": "difficulty",
+        "value": "correct: 1.0=selected correct solution, 0.0=selected incorrect solution, NaN=unparsed",
+    },
 }
 ABILITY_COLS = [
     "1pl_regular",

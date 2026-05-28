@@ -1,0 +1,10 @@
+subject_id,model_id,model,response_file,n_selected_scored,mean_correct
+claude_haiku_4_5,claude_haiku_4_5,Claude Haiku 4.5,benchmarks/code/results/livecodebench_claudehaiku4520251001_responses.jsonl,676,0.4171597633136095
+mistral_3b,mistral_3b,Mistral 3B,benchmarks/code/results/livecodebench_mistral3b_responses.jsonl,676,0.16715976331360946
+mistral_8b,mistral_8b,Mistral 8B,benchmarks/code/results/livecodebench_mistral8b_responses.jsonl,676,0.23224852071005916
+mistral_14b,mistral_14b,Mistral 14B,benchmarks/code/results/livecodebench_mistral14b_responses.jsonl,676,0.2529585798816568
+qwen3_5_0_8b,qwen3_5_0_8b,Qwen3.5 0.8B,benchmarks/code/results/livecodebench_qwen3508b_responses.jsonl,676,0.013313609467455622
+qwen3_5_2b,qwen3_5_2b,Qwen3.5 2B,benchmarks/code/results/livecodebench_qwen352b_responses.jsonl,676,0.04437869822485207
+qwen3_5_4b,qwen3_5_4b,Qwen3.5 4B,benchmarks/code/results/livecodebench_qwen354b_responses.jsonl,676,0.060650887573964495
+qwen3_5_9b,qwen3_5_9b,Qwen3.5 9B,benchmarks/code/results/livecodebench_qwen359b_responses.jsonl,676,0.08431952662721894
+qwen3_5_27b,qwen3_5_27b,Qwen3.5 27B,benchmarks/code/results/livecodebench_qwen3527b_responses_codegen_nothink.jsonl,676,0.2943786982248521

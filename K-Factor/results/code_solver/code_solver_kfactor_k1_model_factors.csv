@@ -1,0 +1,10 @@
+model,factor_1
+claude_haiku_4_5,0.020346409
+mistral_3b,1.8705223
+mistral_8b,1.2266871
+mistral_14b,1.2145944
+qwen3_5_0_8b,9.347583
+qwen3_5_2b,6.141601
+qwen3_5_4b,4.42263
+qwen3_5_9b,3.5024931
+qwen3_5_27b,0.791689

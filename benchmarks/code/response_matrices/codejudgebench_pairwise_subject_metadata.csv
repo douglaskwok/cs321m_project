@@ -1,0 +1,10 @@
+subject_id,model_id,model,response_file,n_rows,n_scored,n_missing,mean_correct
+claude_haiku_4_5,claude_haiku_4_5,Claude Haiku 4.5,benchmarks/code/results/final files to use/codejudgebench_pairwise_claudehaiku4520251001_oneorder_seed123_verdict_tok16_responses.jsonl,2103,2103,0,0.6457441749881122
+mistral_3b,mistral_3b,Mistral 3B,benchmarks/code/results/final files to use/codejudgebench_pairwise_ministral3b_oneorder_seed123_verdict_tok64_noprefill_responses.jsonl,2103,2039,64,0.5541932319764591
+mistral_8b,mistral_8b,Mistral 8B,benchmarks/code/results/final files to use/codejudgebench_pairwise_ministral8b_oneorder_seed123_verdict_tok64_noprefill_responses.jsonl,2103,2098,5,0.5915157292659676
+mistral_14b,mistral_14b,Mistral 14B,benchmarks/code/results/final files to use/codejudgebench_pairwise_ministral14b_oneorder_seed123_verdict_tok64_noprefill_responses.jsonl,2103,2083,20,0.5885741718674988
+qwen3_5_0_8b,qwen3_5_0_8b,Qwen3.5 0.8B,benchmarks/code/results/final files to use/codejudgebench_pairwise_qwen3508b_oneorder_seed123_verdict_tok16_responses.jsonl,2103,2103,0,0.5178316690442225
+qwen3_5_2b,qwen3_5_2b,Qwen3.5 2B,benchmarks/code/results/final files to use/codejudgebench_pairwise_qwen352b_oneorder_seed123_verdict_tok16_responses.jsonl,2103,2100,3,0.52
+qwen3_5_4b,qwen3_5_4b,Qwen3.5 4B,benchmarks/code/results/final files to use/codejudgebench_pairwise_qwen354b_oneorder_seed123_verdict_tok16_responses.jsonl,2103,2103,0,0.5240133143128863
+qwen3_5_9b,qwen3_5_9b,Qwen3.5 9B,benchmarks/code/results/final files to use/codejudgebench_pairwise_qwen359b_oneorder_seed123_verdict_tok16_responses.jsonl,2103,2103,0,0.6153114598193058
+qwen3_5_27b,qwen3_5_27b,Qwen3.5 27B,benchmarks/code/results/final files to use/codejudgebench_pairwise_qwen3527b_oneorder_seed123_verdict_tok16_responses.jsonl,2103,2103,0,0.6490727532097005

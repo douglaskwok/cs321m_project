@@ -7,6 +7,8 @@ Example:
     modal run IRT/run_irt_modal.py --matrix safety --seed 123 --heldout-repeats 5 --gpu H100
     modal run IRT/run_irt_modal.py --matrix kudge_challenge --seed 123 --heldout-repeats 5 --gpu H100
     modal run IRT/run_irt_modal.py --matrix kudge_judge --seed 123 --heldout-repeats 5 --gpu H100
+    modal run IRT/run_irt_modal.py --matrix code_solver --seed 123 --heldout-repeats 5 --gpu H100
+    modal run IRT/run_irt_modal.py --matrix code_judge --seed 123 --heldout-repeats 5 --gpu H100
 """
 
 from __future__ import annotations
@@ -56,6 +58,10 @@ image = (
     .add_local_dir(
         REPO_ROOT / "benchmarks" / "kudge" / "results" / "kudge_judge_easy_hard" / "response_matrices",
         remote_path="/root/benchmarks/kudge/results/kudge_judge_easy_hard/response_matrices",
+    )
+    .add_local_dir(
+        REPO_ROOT / "benchmarks" / "code" / "response_matrices",
+        remote_path="/root/benchmarks/code/response_matrices",
     )
 )
 
@@ -193,7 +199,15 @@ def main(
     run_item_bootstrap: bool = False,
     n_boot: int = 50,
 ) -> None:
-    allowed_matrices = {"solver", "judging", "safety", "kudge_challenge", "kudge_judge"}
+    allowed_matrices = {
+        "solver",
+        "judging",
+        "safety",
+        "kudge_challenge",
+        "kudge_judge",
+        "code_solver",
+        "code_judge",
+    }
     if matrix not in allowed_matrices:
         choices = ", ".join(sorted(allowed_matrices))
         raise ValueError(f"matrix must be one of: {choices}")

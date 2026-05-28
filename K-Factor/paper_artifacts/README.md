@@ -2,7 +2,7 @@
 
 Compact bundle for paper writing.
 
-Included for each domain (`kudge`, `mmlu`, `safety`):
+Included for each domain (`kudge`, `mmlu`, `safety`, `code`):
 
 - `figures/`: paper-facing K-factor comparison charts (`.png` and `.pdf`).
 - `model_selection/`: K-factor fit summaries and selected-k summaries.
@@ -25,4 +25,10 @@ Part 2 numbers:
 - `*_solver_judge_difficulty_scatter.csv`: values used in raw solver-vs-judge difficulty scatter plots.
 - `*_solver_judge_difficulty_percentiles.csv`: values used in percentile-vs-percentile plots.
 
-Note: safety artifacts reflect the currently saved `K-Factor/results/safety_solver_judge_comparison` outputs. If HarmMetric Eval K-factor was rerun after adding a model, rerun `compare_safety_solver_judge_difficulty.ipynb` and recreate this bundle.
+Model selection:
+
+- Current paper-facing artifacts use lower held-out loss for K selection.
+- Selected K values are summarized in `selected_k_summary_all_domains.csv`.
+- Current selections: KUDGE solver/judge K=1, MMLU solver/judge K=1, safety solver K=1 and HarmMetric judge K=2, code solver/judge K=1.
+
+Note: older K=2 artifacts and case-study files may still be present for traceability, but the current paper-facing figures and chart data use the selected lower-loss prefixes (`kudge_k1`, `mmlu_k1`, `safety_k1`, `code_solverk1_judgek1`).
