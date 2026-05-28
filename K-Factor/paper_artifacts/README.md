@@ -7,6 +7,7 @@ Included for each domain (`kudge`, `mmlu`, `safety`, `code`):
 - `figures/`: paper-facing K-factor comparison charts (`.png` and `.pdf`).
 - `model_selection/`: K-factor fit summaries and selected-k summaries.
 - `chart_data/`: compact CSV/JSON files used directly in charts.
+- `combined_figures/`: 2x2 all-domain composite charts for the paper.
 
 Intentionally omitted:
 
@@ -25,10 +26,19 @@ Part 2 numbers:
 - `*_solver_judge_difficulty_scatter.csv`: values used in raw solver-vs-judge difficulty scatter plots.
 - `*_solver_judge_difficulty_percentiles.csv`: values used in percentile-vs-percentile plots.
 
+Combined figures:
+
+- `combined_figures/all_domains_judge_model_bin_summary.{png,pdf}`: all-domain version of the judge-performance-by-bin chart.
+- `combined_figures/all_domains_solver_judge_difficulty_scatter.{png,pdf}`: all-domain version of the raw solver-vs-judge difficulty scatter chart.
+- `combined_figures/all_domains_k2_judge_model_bin_summary.{png,pdf}`: descriptive K=2 all-domain version.
+- `combined_figures/all_domains_k2_solver_judge_difficulty_scatter.{png,pdf}`: descriptive K=2 raw solver-vs-judge difficulty scatter.
+
 Model selection:
 
 - Current paper-facing artifacts use lower held-out loss for K selection.
 - Selected K values are summarized in `selected_k_summary_all_domains.csv`.
 - Current selections: KUDGE solver/judge K=1, MMLU solver/judge K=1, safety solver K=1 and HarmMetric judge K=2, code solver/judge K=1.
+- In-sample reconstruction summaries are also provided as `*_kfactor_fit_summary_insample.csv` under each domain's `model_selection/` folder, plus `kfactor_fit_summary_insample_all_domains.csv` and `selected_k_by_insample_loss_all_domains.csv` at the artifact root.
+- Descriptive K=2 chart/data artifacts are included for all four domains for exploratory item-structure analysis.
 
 Note: older K=2 artifacts and case-study files may still be present for traceability, but the current paper-facing figures and chart data use the selected lower-loss prefixes (`kudge_k1`, `mmlu_k1`, `safety_k1`, `code_solverk1_judgek1`).

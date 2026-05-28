@@ -56,17 +56,17 @@ The source mix helps explain why this is not just noise. Bin 5 contains many tec
 Several high-scoring bin 5 examples have objective answer structures:
 
 - **Chemistry, item 4238**: hydrolysis constant of Al3+ and H3O+ concentration. Solver score is 0.40, but judge score is 1.00.
-- **Psychology, item 2714**: heterogeneous versus homogeneous work groups. Solver score is 0.60, but judge score is 1.00.
-- **Math, item 9019**: entropy rate of a random walk in a 3 by 3 by 3 cubical maze. Solver score is 0.80, but judge score is 1.00.
+- **Computer science, item 10716**: maximum number of elements examined by binary search in a sorted list of 120 integers. Solver score is 0.50, but judge score is 0.90.
 - **Engineering, item 11712**: mating spur gears, velocity ratio, and center distance. Solver score is 0.625, but judge score is 0.95.
 - **Engineering, item 12029**: mass transfer coefficient over a flat plate and sphere. Solver score is 0.60, but judge score is 0.95.
-- **Computer science, item 10716**: maximum number of elements examined by binary search in a sorted list of 120 integers. Solver score is 0.50, but judge score is 0.90.
 
 These examples suggest a plausible mechanism:
 
 > Bin 5 items are not trivial to solve from scratch, but many contain clear correctness cues once candidate responses are available. Formula choice, final numeric option, algorithmic step count, or definitional match can make the pairwise judgment easier than the original solving task.
 
-In other words, bin 5 may contain items where direct answering requires domain knowledge or computation, but judging is helped by response-pair contrast. If one response uses the right formula, lands on the correct option, or avoids a visible conceptual error, the judge can identify it without fully solving the problem independently.
+In other words, bin 5 appears to contain a **verification-advantage** cluster. These are items where direct answering requires domain knowledge or computation, but judging is helped by response-pair contrast. If one response uses the right formula, lands on the correct option, or avoids a visible conceptual error, the judge can identify it without fully solving the problem independently. The item-level retrieval artifact `mmlu_k2_bin5_verification_advantage_retrievable_examples.csv` records the exact `solver_item_id`, `pair_id`, source line, prompt excerpt, and scores for these examples.
+
+This interpretation also explains why these items appear specifically in a moderate solver-difficulty bin. They are not easy retrieval questions: solving hydrolysis concentration, binary-search worst-case comparisons, or spur-gear ratios requires applying a rule or computation that many models miss. But they are also not so hard that all candidate responses become speculative or indistinguishable. The middle difficulty range creates useful response contrast: some models produce the correct procedure, while others make visible local mistakes. The judge can then compare the two responses by checking a concrete rule, magnitude, option, or calculation trace.
 
 There are exceptions. For example, bin 5 includes a law/privacy question and a religion/social-science question where judge scores are lower. So the bin is not uniformly easy to judge. But the high-judge-score technical examples are numerous enough to pull the bin mean upward.
 
@@ -111,13 +111,29 @@ This suggests that bin 6 has enough difficulty that response-pair contrast is le
 
 This suggests a "contrast plus checkability" mechanism:
 
-1. **Lower bins may be too easy.** When many solvers answer correctly, response pairs may be similar or both mostly correct. That can reduce the visible separation between candidate responses.
-2. **Higher bins may be too hard.** When few solvers answer correctly, both candidate responses may be flawed, speculative, or superficially plausible. That makes pairwise judging harder even if the question has a correct answer.
+1. **Lower bins are often easier to solve directly.** Items such as item 4971 on Aztec expansion, item 2826 on mutation frequency, or item 6311 on alpha-thalassemia counseling are more strongly cued or more directly retrievable. Judging is still often successful, but the gap between solving and judging is less conceptually surprising because many models can already produce the answer.
+2. **Higher bins may be too hard to verify.** Items such as item 3250 on arthropod movement, item 7568 on production possibility frontiers, item 6728 on sensory assessment, or item 4789 on poetry/history interpretation have low judge scores as well as low solver scores. In these cases, both candidate responses may be flawed, domain-specific, or superficially plausible, so the judge may need the same missing knowledge as the solver.
 3. **Bin 5 may be a sweet spot.** Items are nontrivial enough that responses differ, but structured enough that judges can use final options, formulas, calculations, or standard definitions as cues.
 
 So the bin 5 anomaly should not be framed as "only bin 5 has cues." It is better framed as:
 
 > Bin 5 has more items where response contrast and answer checkability line up. Other bins may have one of these ingredients, but less often both at once.
+
+The retrievable contrast set is:
+
+| Group | Item | Source | Bin | Solver score | Judge score | Retrieval note |
+|---|---:|---|---:|---:|---:|---|
+| Bin 5 verification advantage | 4238 | Chemistry | 5 | 0.40 | 1.00 | Hydrolysis concentration calculation |
+| Bin 5 verification advantage | 10716 | Computer science | 5 | 0.50 | 0.90 | Binary-search worst-case comparisons |
+| Bin 5 verification advantage | 11712 | Engineering | 5 | 0.625 | 0.95 | Spur-gear velocity ratio and center distance |
+| Bin 5 verification advantage | 12029 | Engineering | 5 | 0.60 | 0.95 | Flat-plate/sphere mass-transfer calculation |
+| Lower-bin contrast | 4971 | History | 2 | 0.60 | 0.85 | Aztec expansion, more retrieval/cued |
+| Lower-bin contrast | 2826 | Biology | 2 | 0.429 | 0.90 | Mutation-frequency calculation, strongly cued |
+| Lower-bin contrast | 6311 | Health | 1 | 0.571 | 0.75 | Alpha-thalassemia counseling pattern |
+| Higher-bin hard-to-judge contrast | 3250 | Biology | 10 | 0.10 | 0.05 | Arthropod movement with exoskeleton |
+| Higher-bin hard-to-judge contrast | 7568 | Economics | 10 | 0.10 | 0.25 | Production possibility frontier condition |
+| Higher-bin hard-to-judge contrast | 6728 | Health | 10 | 0.00 | 0.30 | Sensory assessment clinical knowledge |
+| Higher-bin hard-to-judge contrast | 4789 | History | 8 | 0.40 | 0.35 | Poetry/history interpretation |
 
 ## Category 1: Hard to Solve + Hard to Judge
 
@@ -126,7 +142,7 @@ These items are difficult on both axes. They tend to involve subtle conceptual d
 Representative examples:
 
 - **Item 7568, economics**: asks when a production possibility frontier will be a straight line. Solver score is 0.10 and judge score is 0.25. The item depends on a precise economic condition: resources not being specialized. Many distractors are plausible if the model loosely associates PPFs with efficiency, competition, or opportunity cost.
-- **Item 3250, biology**: asks how arthropods move despite having an exoskeleton. Solver score is 0.10 and judge score is 0.05. The item requires distinguishing exoskeleton mechanics from tempting but incorrect surface-level explanations.
+- **Item 3250, biology**: asks how arthropods move despite having an exoskeleton. Solver score is 0.10 and judge score is 0.05. This is not mainly a multi-step verification case. The response pair contrasts two plausible biological mechanisms: one answer emphasizes segmented joints joined by flexible chitin, while the other emphasizes muscles attached to the exoskeleton. Both explanations contain relevant facts, so judging requires knowing which option the benchmark treats as the best answer rather than simply spotting an arithmetic or formula error.
 - **Item 8286, math**: asks about the largest possible number of same-digit-length terms in a geometric sequence. Solver score is 0.00 and judge score is 0.65. This is mathematically abstract and likely produces response pairs with plausible but hard-to-check reasoning.
 
 Interpretation:
@@ -194,6 +210,7 @@ For a short paper table, inspect one or two examples per category from:
 - `hard_to_solve__hard_to_judge`: items 7568, 3250, 8286
 - `easy_to_solve__hard_to_judge`: items 3036, 7623, 4773
 - `hard_to_solve__easy_to_judge`: items 8762, 5087, 9158
-- solver bin 5 anomaly: items 4238, 2714, 9019, 11712, 12029, 10716
+- solver bin 5 verification advantage: items 4238, 10716, 11712, 12029
+- lower-bin and higher-bin contrasts for the bin 5 explanation: items 4971, 2826, 6311, 3250, 7568, 6728, 4789
 
-Use `mmlu_k2_case_studies_full.csv` for prompt text and score dictionaries, `mmlu_k2_case_studies_compact.csv` for difficulty/score numbers, and `mmlu_k2_solver_bin5_items.csv` for all solver-bin-5 items.
+Use `mmlu_k2_bin5_verification_advantage_retrievable_examples.csv` for the item IDs, prompt excerpts, source-line references, and retrieval commands used in the bin 5 discussion. Use `mmlu_k2_case_studies_full.csv` for prompt text and score dictionaries, `mmlu_k2_case_studies_compact.csv` for difficulty/score numbers, and `mmlu_k2_solver_bin5_items.csv` for all solver-bin-5 items.

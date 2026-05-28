@@ -1,0 +1,48 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lllrrr}
+\toprule
+Domain & Role & Specification & AUC (mean) & AUC (sd) & AIC \\
+\midrule
+MMLU & Solver & \textbf{1PL JMLE} & \textbf{0.728} & \textbf{0.019} & \textbf{1616.8} \\
+MMLU & Solver & 1PL MMLE & 0.725 & 0.024 & 1640.1 \\
+MMLU & Solver & 2PL JMLE & 0.706 & 0.043 & 1700.4 \\
+MMLU & Solver & 2PL MMLE & 0.700 & 0.018 & 1675.8 \\
+MMLU & Solver & 3PL JMLE & 0.690 & 0.015 & 1959.2 \\
+MMLU & Solver & 3PL MMLE & 0.700 & 0.018 & 1699.2 \\
+MMLU & Judge & 1PL JMLE & 0.807 & 0.018 & 3024.6 \\
+MMLU & Judge & 1PL MMLE & 0.805 & 0.020 & 3991.9 \\
+MMLU & Judge & 2PL JMLE & 0.815 & 0.039 & 2959.9 \\
+MMLU & Judge & 2PL MMLE & 0.588 & 0.029 & 3341.5 \\
+MMLU & Judge & \textbf{3PL JMLE} & \textbf{0.822} & \textbf{0.030} & \textbf{3494.4} \\
+MMLU & Judge & 3PL MMLE & 0.587 & 0.026 & 3300.1 \\
+KUDGE & Solver & 1PL JMLE & 0.804 & 0.013 & 4116.5 \\
+KUDGE & Solver & \textbf{1PL MMLE} & \textbf{0.809} & \textbf{0.011} & \textbf{5128.6} \\
+KUDGE & Solver & 2PL JMLE & 0.787 & 0.023 & 4138.8 \\
+KUDGE & Solver & 2PL MMLE & 0.721 & 0.012 & 4549.6 \\
+KUDGE & Solver & 3PL JMLE & 0.787 & 0.022 & 4655.0 \\
+KUDGE & Solver & 3PL MMLE & 0.721 & 0.012 & 4511.4 \\
+KUDGE & Judge & 1PL JMLE & 0.717 & 0.020 & 4656.8 \\
+KUDGE & Judge & \textbf{1PL MMLE} & \textbf{0.719} & \textbf{0.018} & \textbf{5461.2} \\
+KUDGE & Judge & 2PL JMLE & 0.709 & 0.017 & 4771.3 \\
+KUDGE & Judge & 2PL MMLE & 0.686 & 0.028 & 4971.1 \\
+KUDGE & Judge & 3PL JMLE & 0.697 & 0.022 & 5448.6 \\
+KUDGE & Judge & 3PL MMLE & 0.687 & 0.028 & 4904.2 \\
+Safety & Solver & 1PL JMLE & 0.898 & 0.005 & 4024.5 \\
+Safety & Solver & \textbf{1PL MMLE} & \textbf{0.911} & \textbf{0.008} & \textbf{7108.4} \\
+Safety & Solver & 2PL JMLE & 0.890 & 0.008 & 4666.2 \\
+Safety & Solver & 2PL MMLE & 0.850 & 0.013 & 6429.9 \\
+Safety & Solver & 3PL JMLE & 0.885 & 0.011 & 6089.3 \\
+Safety & Solver & 3PL MMLE & 0.850 & 0.013 & 6285.8 \\
+Safety & Judge & \textbf{1PL JMLE} & \textbf{0.835} & \textbf{0.042} & \textbf{9460.1} \\
+Safety & Judge & 1PL MMLE & 0.825 & 0.038 & 13227.6 \\
+Safety & Judge & 2PL JMLE & 0.831 & 0.028 & 7143.9 \\
+Safety & Judge & 2PL MMLE & 0.817 & 0.032 & 1264.3 \\
+Safety & Judge & 3PL JMLE & 0.830 & 0.027 & 1403.1 \\
+Safety & Judge & 3PL MMLE & 0.822 & 0.035 & 1322.0 \\
+\bottomrule
+\end{tabular}
+\caption{Full IRT model selection results. Bold rows denote the selected specification under held-out AUC, our primary selection criterion.}
+\label{tab:irt_model_selection}
+\end{table}

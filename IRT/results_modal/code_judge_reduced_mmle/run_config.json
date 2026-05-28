@@ -1,0 +1,22 @@
+{
+  "seed": 123,
+  "device": "cuda",
+  "matrix": "code_judge",
+  "output_dir": "/root/IRT/results/code_judge_reduced_mmle",
+  "heldout_repeats": 5,
+  "train_frac": 0.8,
+  "fit_order": [
+    "1pl_regular",
+    "1pl_item_marginal_mmle",
+    "2pl_regular",
+    "3pl_regular"
+  ],
+  "skipped_fits": [
+    "2pl_item_marginal_mmle",
+    "3pl_item_marginal_mmle"
+  ],
+  "benchmark_id": "codejudgebench_pairwise",
+  "n_subjects": 9,
+  "n_items": 2103,
+  "density": 0.9951392412185669
+}

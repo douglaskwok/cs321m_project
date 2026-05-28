@@ -32,6 +32,13 @@ CASES = [
         "solver_label": "Solver ability (1PL MMLE)",
         "judge_label": "Judge ability (3PL JMLE)",
     },
+    {
+        "name": "coding",
+        "title": "Coding",
+        "csv": Path("IRT/IRT - Coding.csv"),
+        "solver_label": "Solver ability (1PL JMLE)",
+        "judge_label": "Judge ability (2PL JMLE)",
+    },
 ]
 
 HIGH_CONTRAST_COLORS = [
@@ -238,8 +245,9 @@ def plot_case(case: dict, df: pd.DataFrame, out_dir: Path, model_colors: dict[st
 
 
 def plot_combined(all_data: dict[str, pd.DataFrame], out_dir: Path, model_colors: dict[str, tuple]) -> None:
-    fig, axes = plt.subplots(1, 3, figsize=(20.4, 5.1), dpi=180)
-    for ax, case in zip(axes, CASES):
+    fig, axes = plt.subplots(2, 2, figsize=(14.6, 10.2), dpi=180)
+    axes_flat = axes.ravel()
+    for ax, case in zip(axes_flat, CASES):
         df = all_data[case["name"]]
         x_offset, y_offset = _label_offsets(df)
         for _, row in df.iterrows():
@@ -275,7 +283,7 @@ def plot_combined(all_data: dict[str, pd.DataFrame], out_dir: Path, model_colors
         ax.grid(True, linewidth=0.5, alpha=0.25)
 
     legend_models = sorted(model_colors)
-    axes[-1].legend(
+    axes_flat[-1].legend(
         handles=model_legend(model_colors, legend_models),
         title="Model",
         loc="center left",

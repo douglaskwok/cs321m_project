@@ -1,0 +1,155 @@
+case_group,solver_item_id,pair_id,source,difficulty_bin,solver_score_mean,judge_score_mean,solver_difficulty_centered,judge_difficulty_centered,question_index,question_source_file,question_source_line,case_note,question_excerpt,retrieval_hint,question
+bin5_verification_advantage,4238,d50b6560-bbb7-5118-b329-8ed50c155365,mmlu-pro-chemistry,5,0.4,1.0,0.5538280010223389,-2.16585111618042,46,benchmarks/mmlu/judgebench_mmlu_pro_questions_unique.jsonl,46,"Hydrolysis calculation: requires applying a formula from scratch, but the candidate answer can be checked by magnitude/procedure.","If the hydrolysis constant of Al^3+ is 1.4 × 10^-5, what is the concentration of H_3O^+ in 0.1 M AlCl_3? (A) 1.4 × 10^-5 M (B) 2.8 × 10^-6 M (C) 5.6 × 10^-5 M (D) 3.0 × 10^-4 M (E) 7.0 × 10^-3 M (F) 8.4 × 10^-6 M (G) 1.2 × 10^-3 M (H) 0.1 M (I) 4.2 × 10^-4 M (J) 1.0 × 10^-3 M If you cannot determine","rg -n '""original_ids"": ""4238""|""original_id"": 4238' benchmarks/mmlu K-Factor/paper_artifacts/mmlu/case_studies","If the hydrolysis constant of Al^3+ is 1.4 × 10^-5, what is the concentration of H_3O^+ in 0.1 M AlCl_3?
+(A) 1.4 × 10^-5 M
+(B) 2.8 × 10^-6 M
+(C) 5.6 × 10^-5 M
+(D) 3.0 × 10^-4 M
+(E) 7.0 × 10^-3 M
+(F) 8.4 × 10^-6 M
+(G) 1.2 × 10^-3 M
+(H) 0.1 M
+(I) 4.2 × 10^-4 M
+(J) 1.0 × 10^-3 M
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+bin5_verification_advantage,10716,754b1cf8-067c-513f-a0d3-c8bd401e8afb,mmlu-pro-computer science,5,0.5,0.9,-0.1055999994277954,-2.898903012275696,75,benchmarks/mmlu/judgebench_mmlu_pro_questions_unique.jsonl,75,"Binary search: solving requires knowing the exact ceiling/log rule, but the judge can compare two explicit calculations.","A sorted list of 120 integers is to be searched to determine whether the value 100 is in the list. Assuming that the most efficient searching algorithm is used, what is the maximum number of elements that must be examined? (A) 100 (B) 30 (C) 120 (D) 10 (E) 8 (F) 7 (G) 15 (H) 12 (I) 20 (J) 60 If you ","rg -n '""original_ids"": ""10716""|""original_id"": 10716' benchmarks/mmlu K-Factor/paper_artifacts/mmlu/case_studies","A sorted list of 120 integers is to be searched to determine whether the value 100 is in the list. Assuming that the most efficient searching algorithm is used, what is the maximum number of elements that must be examined?
+(A) 100
+(B) 30
+(C) 120
+(D) 10
+(E) 8
+(F) 7
+(G) 15
+(H) 12
+(I) 20
+(J) 60
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+bin5_verification_advantage,11712,3239d81d-8220-5b81-99e0-1b7a470df3be,mmlu-pro-engineering,5,0.625,0.95,0.4543676376342773,-5.736009836196899,104,benchmarks/mmlu/judgebench_mmlu_pro_questions_unique.jsonl,104,Spur gear ratio: technical calculation with units/ratio cues that are easier to verify once shown.,"A pair of mating spur gears increases the speed of the shaft approximately by 4 times. Thediametralpitch for the gear is 8 in. and it is desired that the center distance be approximately 12 in. Determine the actual velocity ratio and the center distance for the gears. (A) V_R = 4.5, C_d = 12.5 in. (","rg -n '""original_ids"": ""11712""|""original_id"": 11712' benchmarks/mmlu K-Factor/paper_artifacts/mmlu/case_studies","A pair of mating spur gears increases the speed of the shaft approximately by 4 times. Thediametralpitch for the gear is 8 in. and it is desired that the center distance be approximately 12 in. Determine the actual velocity ratio and the center distance for the gears.
+(A) V_R = 4.5, C_d = 12.5 in.
+(B) V_R = 3.948, C_d = 14 in.
+(C) V_R = 4.2, C_d = 13 in.
+(D) V_R = 3.2, C_d = 12.2 in.
+(E) V_R = 3.948, C_d = 12 in.
+(F) V_R = 3.5, C_d = 11 in.
+(G) V_R = 4.05, C_d = 11.5 in.
+(H) V_R = 3.85, C_d = 13.5 in.
+(I) V_R = 4.8, C_d = 24 in.
+(J) V_R = 2.948, C_d = 10 in.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+bin5_verification_advantage,12029,3be26fc0-ead5-5d0f-8c87-2feb0524e902,mmlu-pro-engineering,5,0.6,0.95,0.3498532176017761,-2.990342378616333,107,benchmarks/mmlu/judgebench_mmlu_pro_questions_unique.jsonl,107,"Engineering mass-transfer/flat-plate item: formulaic technical reasoning, easier to check when the response exposes the calculation path.","(a) A mixture of air and water vapor is passing over a flat plate 2 ft long at a rate of 210 ft/sec at 1atmand 75°F. Determine the mass transfer coefficient of water vapor in air if the flow is turbulent and the concentration of water vapor in air is very low (i.e.,P_bm/ P \approx 1). (b) Find the m","rg -n '""original_ids"": ""12029""|""original_id"": 12029' benchmarks/mmlu K-Factor/paper_artifacts/mmlu/case_studies","(a) A mixture of air and water vapor is passing over a flat plate 2 ft long at a rate of 210 ft/sec at 1atmand 75°F. Determine the mass transfer coefficient of water vapor in air if the flow is turbulent and the concentration of water vapor in air is very low (i.e.,P_bm/ P \approx 1). (b) Find the mass transfer coefficient of water vapor in air when the mixture is passing over a sphere 3 in.indiameter. Assume all other conditions to be same as in part (a).
+(A) 0.600 ft/sec for flat plate, 0.300 ft/sec for sphere
+(B) 0.516 ft/sec for flat plate, 0.25 ft/sec for sphere
+(C) 0.25 ft/sec for flat plate, 0.516 ft/sec for sphere
+(D) 0.400 ft/sec for flat plate, 0.200 ft/sec for sphere
+(E) 0.312 ft/sec for flat plate, 0.156 ft/sec for sphere
+(F) 0.25 ft/sec for both flat plate and sphere
+(G) 0.156 ft/sec for flat plate, 0.312 ft/sec for sphere
+(H) 0.516 ft/sec for both flat plate and sphere
+(I) 0.450 ft/sec for flat plate, 0.225 ft/sec for sphere
+(J) 0.225 ft/sec for flat plate, 0.450 ft/sec for sphere
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+lower_bin_contrast,4971,ff5f3ce7-1423-5df5-922d-644070dfaea0,mmlu-pro-history,2,0.6,0.85,-4.685329914093018,-0.8229661881923676,146,benchmarks/mmlu/judgebench_mmlu_pro_questions_unique.jsonl,146,Aztec expansion: more retrieval/cued historical knowledge; easier solving and judging move together.,The Aztec Empire was based on the systematic expansion of: (A) a vast network of roads and trade routes. (B) the expansion and control of waterways for transportation and irrigation. (C) the cultivation and trade of cacao and maize. (D) religious beliefs that required extensive and escalating human ,"rg -n '""original_ids"": ""4971""|""original_id"": 4971' benchmarks/mmlu K-Factor/paper_artifacts/mmlu/case_studies","The Aztec Empire was based on the systematic expansion of:
+(A) a vast network of roads and trade routes.
+(B) the expansion and control of waterways for transportation and irrigation.
+(C) the cultivation and trade of cacao and maize.
+(D) religious beliefs that required extensive and escalating human sacrifice.
+(E) tribute in the form of gold, jade, feathers, cloth, and jewels.
+(F) the establishment of colonies in unexplored territories.
+(G) ceramic production, a distinctive architectural style, and artistic expression.
+(H) farming techniques such as terracing and irrigation.
+(I) a strict caste system that promoted social stratification.
+(J) oppressive social and religious control based on military conquest.
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+lower_bin_contrast,2826,a3f45559-827d-53c5-9f1b-200ea1876ac8,mmlu-pro-biology,2,0.42857142857142855,0.9,-4.695367813110352,-2.0906355381011963,1,benchmarks/mmlu/judgebench_mmlu_pro_questions_unique.jsonl,1,Gene mutation frequency: structured but strongly cued; many solvers can answer directly.,"A gene C mutates to c with a frequency of 2 × 10^-6 per generation. There are no other forces acting on these alleles and mating is random. How many generations are needed to increase the frequency of gene c from 2 percent to 3 percent? (A) 2,500 generations (B) 6,200 generations (C) 15,000 generati","rg -n '""original_ids"": ""2826""|""original_id"": 2826' benchmarks/mmlu K-Factor/paper_artifacts/mmlu/case_studies","A gene C mutates to c with a frequency of 2 × 10^-6 per generation. There are no other forces acting on these alleles and mating is random. How many generations are needed to increase the frequency of gene c from 2 percent to 3 percent?
+(A) 2,500 generations
+(B) 6,200 generations
+(C) 15,000 generations
+(D) 8,764 generations
+(E) 10,000 generations
+(F) 20,000 generations
+(G) 3,000 generations
+(H) 1,000 generations
+(I) 7,500 generations
+(J) 5,128 generations
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+lower_bin_contrast,6311,d61248f3-8e80-5097-8892-10c086a492d2,mmlu-pro-health,1,0.5714285714285714,0.75,-12.030109405517578,-4.839080810546875,122,benchmarks/mmlu/judgebench_mmlu_pro_questions_unique.jsonl,122,Alpha-thalassemia counseling: familiar clinical genetics pattern; answer is more directly retrievable/cued.,A couple comes for preconceptional genetic counseling because they both have a family history of α-thalassemia. The woman has a minimally decreased hemoglobin concentration. Genetic studies show a single gene deletion. The man has microcytic anemia and a two-gene deletion. If the two-gene deletion i,"rg -n '""original_ids"": ""6311""|""original_id"": 6311' benchmarks/mmlu K-Factor/paper_artifacts/mmlu/case_studies","A couple comes for preconceptional genetic counseling because they both have a family history of α-thalassemia. The woman has a minimally decreased hemoglobin concentration. Genetic studies show a single gene deletion. The man has microcytic anemia and a two-gene deletion. If the two-gene deletion is in trans (one deletion on the maternal gene and one deletion on the paternal gene), which of the following percentages of their offspring will have a two-gene deletion?
+(A) 75%
+(B) 50%
+(C) 20%
+(D) 80%
+(E) 10%
+(F) 0%
+(G) 66%
+(H) 33%
+(I) 25%
+(J) 100%
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+higher_bin_hard_to_judge_contrast,3250,49c0f568-1ac2-53dc-be78-f3eea93820fd,mmlu-pro-biology,10,0.1,0.05,4.760629653930664,4.452705383300781,9,benchmarks/mmlu/judgebench_mmlu_pro_questions_unique.jsonl,9,Biology hard-bin item with very low solver and judge scores; verification also appears difficult.,"Arthropods have an exoskeleton. How is movement accomplished? (A) They use their wings to move (B) They move by changing the shape of their exoskeleton (C) They use cilia on the surface of their exoskeleton to move (D) They move due to their muscular system (E) They have a soft, pliable inner layer ","rg -n '""original_ids"": ""3250""|""original_id"": 3250' benchmarks/mmlu K-Factor/paper_artifacts/mmlu/case_studies","Arthropods have an exoskeleton. How is movement accomplished?
+(A) They use their wings to move
+(B) They move by changing the shape of their exoskeleton
+(C) They use cilia on the surface of their exoskeleton to move
+(D) They move due to their muscular system
+(E) They have a soft, pliable inner layer that bends to facilitate movement
+(F) Movement is achieved through hydraulic pressure changes within each segment
+(G) They release a special fluid that lubricates the joints of the exoskeleton for movement
+(H) The exoskeleton contracts and expands allowing for movement
+(I) Movement is achieved by the exoskeleton splitting and reforming in new positions
+(J) The body is segmented and the segments are joined by a thin layer of flexible chitin
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+higher_bin_hard_to_judge_contrast,7568,a5c0fd0a-7440-5461-9a32-c6c5ff574ae0,mmlu-pro-economics,10,0.1,0.25,5.174225330352783,4.520340800285339,90,benchmarks/mmlu/judgebench_mmlu_pro_questions_unique.jsonl,90,Economics PPF item: deceptively conceptual; candidate responses can plausibly differ in abstract wording.,A production possibility frontier will be a straight line when (A) efficiency is achieved (B) there is no opportunity cost (C) utility is maximized (D) resources are not specialized (E) there is economic growth (F) the goods on the axes are complements in consumption (G) the law of diminishing retur,"rg -n '""original_ids"": ""7568""|""original_id"": 7568' benchmarks/mmlu K-Factor/paper_artifacts/mmlu/case_studies","A production possibility frontier will be a straight line when
+(A) efficiency is achieved
+(B) there is no opportunity cost
+(C) utility is maximized
+(D) resources are not specialized
+(E) there is economic growth
+(F) the goods on the axes are complements in consumption
+(G) the law of diminishing returns is not in effect
+(H) there is perfect competition in the market
+(I) all resources are equally productive
+(J) the goods on the axes are perfect substitutes in consumption
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+higher_bin_hard_to_judge_contrast,6728,0a347026-2ec5-5879-9635-e6fc818d021b,mmlu-pro-health,10,0.0,0.3,5.773183345794678,4.213905990123749,129,benchmarks/mmlu/judgebench_mmlu_pro_questions_unique.jsonl,129,Health hard-bin item with low solver and judge scores; checking likely requires domain-specific clinical knowledge.,Which of the following is true in a sensory assessment of the arm? (A) It is acceptable to test pain with a venepuncture needle (B) Impulses for pain travel principally up the anterior columns (C) It is acceptable to test pain with a surgical scalpel (D) Proprioception is appreciated via the same tr,"rg -n '""original_ids"": ""6728""|""original_id"": 6728' benchmarks/mmlu K-Factor/paper_artifacts/mmlu/case_studies","Which of the following is true in a sensory assessment of the arm?
+(A) It is acceptable to test pain with a venepuncture needle
+(B) Impulses for pain travel principally up the anterior columns
+(C) It is acceptable to test pain with a surgical scalpel
+(D) Proprioception is appreciated via the same tracts as light touch
+(E) The assessment should begin with the patient's dominant arm
+(F) Impulses for pain travel principally up the dorsal columns
+(G) Vibration sense is appreciated via the same tracts as light touch
+(H) It is best to test vibration sense with a 256 Hz tuning fork
+(I) It is best to test vibration sense with a 128 Hz tuning fork
+(J) Proprioception and pain travel up the same tracts
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."
+higher_bin_hard_to_judge_contrast,4789,14ead85f-e4c6-5ae2-a586-6388d9b9b4f1,mmlu-pro-history,8,0.4,0.35,2.031120777130127,7.917872190475464,135,benchmarks/mmlu/judgebench_mmlu_pro_questions_unique.jsonl,135,"Poetry/history interpretation: candidate responses can sound plausible, so pairwise checking gives weaker cues.","This question refers to the following information. On Being Brought from Africa to America 'Twas mercy brought me from my Pagan land, Taught my benighted soul to understand That there's a God, that there's a Saviour too; Once I redemption neither sought nor knew. Some view our sable race with scornf","rg -n '""original_ids"": ""4789""|""original_id"": 4789' benchmarks/mmlu K-Factor/paper_artifacts/mmlu/case_studies","This question refers to the following information.
+On Being Brought from Africa to America
+'Twas mercy brought me from my Pagan land,
+Taught my benighted soul to understand
+That there's a God, that there's a Saviour too;
+Once I redemption neither sought nor knew.
+Some view our sable race with scornful eye,
+""Their colour is a diabolic die.""
+Remember, Christians, Negroes, black as Cain,
+May be refin'd, and join th' angelic train.
+—Phillis Wheatley, Poems on Various Subjects, Religious and Moral, 1773
+The point of Wheatley's poem can best be compared to which of the following?
+(A) Malcolm X's ""The Ballot or the Bullet"" speech
+(B) Martin Luther King, Jr.'s ""I Have a Dream” speech
+(C) Abraham Lincoln's ""Emancipation Proclamation""
+(D) The Seneca Falls Declaration of Rights and Sentiments
+(E) Thomas Paine's ""Common Sense""
+(F) Nelson Mandela's ""I Am Prepared to Die"" speech
+(G) Frederick Douglass's ""What to the Slave is the Fourth of July?""
+(H) Jonathan Edwards's sermon ""Sinners in the Hands of an Angry God""
+(I) John F. Kennedy's ""Ich bin ein Berliner"" speech
+(J) The Declaration of Independence
+If you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.
+Let's think step by step."

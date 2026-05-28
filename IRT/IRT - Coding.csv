@@ -1,0 +1,12 @@
+,Coding,,,,,
+,Solver (1PL JMLE),,,Judge (2PL JMLE),,
+,Model Name,Model Ability,Std Error,Model Name,Model Ability,Std Error
+,Haiku 4.5,-1.012,0.173,Qwen 27B,0.738,0.001
+,Qwen 27B,-2.936,0.152,Haiku 4.5,0.597,0.014
+,Mistral 14B,-3.492,0.142,Qwen 9B,0.596,0.006
+,Mistral 8B,-3.775,0.141,Mistral 8B,0.298,0.006
+,Mistral 3B,-4.705,0.382,Mistral 14B,0.247,0.02
+,Qwen 9B,-6.279,0.243,Mistral 3B,0.033,0.003
+,Qwen 4B,-6.903,0.215,Qwen 4B,0.818,0.017
+,Qwen 2B,-7.497,0.191,Qwen 2B,0.567,0.002
+,Qwen 0.8B,-9.352,0.141,Qwen 0.8B,-0.164,0.013

@@ -1,0 +1,74 @@
+[
+  {
+    "difficulty_bin": 1,
+    "solver_difficulty_mean": -5.419110188117394,
+    "judge_score_mean": 0.6692307692307692,
+    "n_items": 13
+  },
+  {
+    "difficulty_bin": 2,
+    "solver_difficulty_mean": -2.0920250415802,
+    "judge_score_mean": 0.8038461538461538,
+    "n_items": 13
+  },
+  {
+    "difficulty_bin": 3,
+    "solver_difficulty_mean": -1.5728840644542987,
+    "judge_score_mean": 0.7230769230769231,
+    "n_items": 13
+  },
+  {
+    "difficulty_bin": 4,
+    "solver_difficulty_mean": -1.0376160144805908,
+    "judge_score_mean": 0.8423076923076922,
+    "n_items": 13
+  },
+  {
+    "difficulty_bin": 5,
+    "solver_difficulty_mean": -0.6438605040311813,
+    "judge_score_mean": 0.6208333333333332,
+    "n_items": 12
+  },
+  {
+    "difficulty_bin": 6,
+    "solver_difficulty_mean": -0.3852942150372725,
+    "judge_score_mean": 0.5961538461538461,
+    "n_items": 13
+  },
+  {
+    "difficulty_bin": 7,
+    "solver_difficulty_mean": -0.0812244369433476,
+    "judge_score_mean": 0.6217948717948718,
+    "n_items": 13
+  },
+  {
+    "difficulty_bin": 8,
+    "solver_difficulty_mean": 0.19965750475724534,
+    "judge_score_mean": 0.65,
+    "n_items": 12
+  },
+  {
+    "difficulty_bin": 9,
+    "solver_difficulty_mean": 0.5569200699145977,
+    "judge_score_mean": 0.6192307692307693,
+    "n_items": 13
+  },
+  {
+    "difficulty_bin": 10,
+    "solver_difficulty_mean": 1.3307946645296538,
+    "judge_score_mean": 0.5653846153846154,
+    "n_items": 13
+  },
+  {
+    "difficulty_bin": 11,
+    "solver_difficulty_mean": 3.289786907342764,
+    "judge_score_mean": 0.7055555555555556,
+    "n_items": 13
+  },
+  {
+    "difficulty_bin": 12,
+    "solver_difficulty_mean": 5.820685313298152,
+    "judge_score_mean": 0.6230769230769231,
+    "n_items": 13
+  }
+]

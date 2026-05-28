@@ -1,0 +1,9 @@
+domain,role,selected_k_by_in_sample_loss,in_sample_loss,source_file
+code,code_judge,2,0.1017708480358123,code/model_selection/code_judge_kfactor_fit_summary_insample.csv
+code,code_solver,2,0.0594878606498241,code/model_selection/code_solver_kfactor_fit_summary_insample.csv
+kudge,kudge_judge,2,0.2666735649108886,kudge/model_selection/kudge_judge_kfactor_fit_summary_insample.csv
+kudge,kudge_solver,2,0.2168739736080169,kudge/model_selection/kudge_solver_kfactor_fit_summary_insample.csv
+mmlu,mmlu_judge,2,0.1152046546339988,mmlu/model_selection/mmlu_judge_kfactor_fit_summary_insample.csv
+mmlu,mmlu_solver,2,0.2160449475049972,mmlu/model_selection/mmlu_solver_kfactor_fit_summary_insample.csv
+safety,harmmetric_eval_continuous,2,-0.5233648419380188,safety/model_selection/harmmetric_eval_continuous_kfactor_fit_summary_insample.csv
+safety,safety_solver,2,0.0387068279087543,safety/model_selection/safety_solver_kfactor_fit_summary_insample.csv

@@ -1,0 +1,14 @@
+{
+  "seed": 123,
+  "device": "cuda",
+  "matrix": "code_solver",
+  "output_dir": "/root/IRT/results/code_solver",
+  "heldout_repeats": 5,
+  "train_frac": 0.8,
+  "run_item_bootstrap": true,
+  "n_boot": 20,
+  "benchmark_id": "livecodebench",
+  "n_subjects": 9,
+  "n_items": 676,
+  "density": 1.0
+}

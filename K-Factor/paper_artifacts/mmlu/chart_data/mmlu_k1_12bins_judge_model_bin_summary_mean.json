@@ -1,0 +1,74 @@
+[
+  {
+    "difficulty_bin": 1,
+    "judge_score_mean": 0.6692307692307693,
+    "judge_score_sd": 0.12323707528920938,
+    "n_judge_models": 10
+  },
+  {
+    "difficulty_bin": 2,
+    "judge_score_mean": 0.8038461538461539,
+    "judge_score_sd": 0.12088050837254535,
+    "n_judge_models": 10
+  },
+  {
+    "difficulty_bin": 3,
+    "judge_score_mean": 0.7230769230769231,
+    "judge_score_sd": 0.10540925533894599,
+    "n_judge_models": 10
+  },
+  {
+    "difficulty_bin": 4,
+    "judge_score_mean": 0.8423076923076923,
+    "judge_score_sd": 0.1124264680430449,
+    "n_judge_models": 10
+  },
+  {
+    "difficulty_bin": 5,
+    "judge_score_mean": 0.6208333333333333,
+    "judge_score_sd": 0.11015211143832418,
+    "n_judge_models": 10
+  },
+  {
+    "difficulty_bin": 6,
+    "judge_score_mean": 0.5961538461538461,
+    "judge_score_sd": 0.11923766178037355,
+    "n_judge_models": 10
+  },
+  {
+    "difficulty_bin": 7,
+    "judge_score_mean": 0.621474358974359,
+    "judge_score_sd": 0.09399827414589229,
+    "n_judge_models": 10
+  },
+  {
+    "difficulty_bin": 8,
+    "judge_score_mean": 0.65,
+    "judge_score_sd": 0.1320540480444968,
+    "n_judge_models": 10
+  },
+  {
+    "difficulty_bin": 9,
+    "judge_score_mean": 0.6192307692307693,
+    "judge_score_sd": 0.07353656615230764,
+    "n_judge_models": 10
+  },
+  {
+    "difficulty_bin": 10,
+    "judge_score_mean": 0.5653846153846154,
+    "judge_score_sd": 0.06293814209555681,
+    "n_judge_models": 10
+  },
+  {
+    "difficulty_bin": 11,
+    "judge_score_mean": 0.7064102564102563,
+    "judge_score_sd": 0.10886117802745528,
+    "n_judge_models": 10
+  },
+  {
+    "difficulty_bin": 12,
+    "judge_score_mean": 0.6230769230769231,
+    "judge_score_sd": 0.07649453277013488,
+    "n_judge_models": 10
+  }
+]
