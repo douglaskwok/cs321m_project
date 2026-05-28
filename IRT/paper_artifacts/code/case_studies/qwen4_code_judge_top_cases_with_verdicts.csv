@@ -1,0 +1,118 @@
+item_id,question_id,split,ordering,difficulty,gold,n_correct,n_observed,qwen4_alone_correct,strong_wrong_count,claude_haiku_4_5,mistral_3b,mistral_8b,mistral_14b,qwen3_5_0_8b,qwen3_5_2b,qwen3_5_4b,qwen3_5_9b,qwen3_5_27b,pred_claude_haiku_4_5,pred_mistral_14b,pred_mistral_3b,pred_mistral_8b,pred_qwen3_5_0_8b,pred_qwen3_5_27b,pred_qwen3_5_2b,pred_qwen3_5_4b,pred_qwen3_5_9b,raw_claude_haiku_4_5,raw_qwen3_5_27b,raw_qwen3_5_4b,raw_qwen3_5_9b
+gemini_2.5_pro:3658:48:bwd,3658,gemini_2.5_pro,bwd,hard,B,1,9,True,3,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,A,A,A,A,A,A,A,B,A,"[[A>B]]
+
+Let me analyze both solutions:
+
+**Assistant A's",[[A>B]],[[B>A]],[[A>B]]
+gemini_2.5_pro:abc306_e:77:bwd,abc306_e,gemini_2.5_pro,bwd,hard,B,1,9,True,3,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,A,A,A,A,A,A,A,B,A,"[[A>B]]
+
+Let me analyze both solutions:
+
+**Assistant A's",[[A>B]],[[B>A]],[[A>B]]
+gemini_2.5_pro:abc345_d:100:bwd,abc345_d,gemini_2.5_pro,bwd,hard,B,1,9,True,3,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,A,A,A,A,A,A,A,B,A,"[[A>B]]
+
+Let me analyze both solutions:
+
+**Assistant A's",[[A>B]],[[B>A]],[[A>B]]
+gemini_2.5_pro:abc380_d:144:bwd,abc380_d,gemini_2.5_pro,bwd,hard,B,1,9,True,3,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,A,A,A,A,A,A,A,B,A,"[[A>B]]
+
+Let me analyze both solutions:
+
+**Assistant A's",[[A>B]],[[B>A]],[[A>B]]
+qwen3_235b:3308:27:bwd,3308,qwen3_235b,bwd,hard,B,1,9,True,3,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,A,A,A,A,A,A,A,B,A,"[[A>B]]
+
+Both solutions are functionally equivalent and correct, but let",[[A>B]],[[B>A]],[[A>B]]
+qwen3_235b:3406:33:bwd,3406,qwen3_235b,bwd,hard,B,1,9,True,3,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,A,A,A,A,A,A,A,B,A,"[[A>B]]
+
+Let me analyze both solutions:
+
+**Assistant A's",[[A>B]],[[B>A]],[[A>B]]
+qwen3_235b:3464:41:bwd,3464,qwen3_235b,bwd,hard,B,1,9,True,3,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,A,A,A,A,A,A,A,B,A,"[[A>B]]
+
+Let me analyze both solutions:
+
+**Solution A's",[[A>B]],[[B>A]],[[A>B]]
+qwen3_235b:3482:44:bwd,3482,qwen3_235b,bwd,hard,B,1,9,True,3,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,A,A,A,A,A,A,A,B,A,"[[A>B]]
+
+Let me analyze both solutions:
+
+**Assistant A's",[[A>B]],[[B>A]],[[A>B]]
+qwen3_235b:3587:60:bwd,3587,qwen3_235b,bwd,hard,B,1,9,True,3,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,A,A,A,A,A,A,A,B,A,"[[A>B]]
+
+Let me analyze both solutions carefully.
+
+**Key",[[A>B]],[[B>A]],[[A>B]]
+qwen3_235b:3604:63:bwd,3604,qwen3_235b,bwd,hard,B,1,9,True,3,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,A,A,A,A,A,A,A,B,A,"[[A>B]]
+
+Let me analyze both solutions:
+
+**Assistant A's",[[A>B]],[[B>A]],[[A>B]]
+qwen3_235b:abc398_f:207:bwd,abc398_f,qwen3_235b,bwd,hard,B,1,9,True,3,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,A,A,A,A,A,A,A,B,A,"[[A>B]]
+
+Let me analyze both solutions:
+
+**Assistant A's",[[A>B]],[[B>A]],[[A>B]]
+claude_4_opus:3229:20:bwd,3229,claude_4_opus,bwd,hard,B,1,9,True,3,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,A,A,A,A,A,A,A,B,A,"[[A>B]]
+
+Let me analyze both solutions:
+
+**Assistant A's",[[A>B]],[[B>A]],[[A>B]]
+claude_4_opus:abc339_d:128:bwd,abc339_d,claude_4_opus,bwd,hard,B,1,9,True,3,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,A,A,A,A,A,A,A,B,A,"[[A>B]]
+
+Both solutions implement BFS to solve this problem, which",[[A>B]],[[B>A]],[[A>B]]
+claude_4_sonnet:abc377_e:230:bwd,abc377_e,claude_4_sonnet,bwd,medium,B,1,9,True,3,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,A,A,A,A,A,A,A,B,A,"[[A>B]]
+
+Let me analyze both solutions by tracing through the first",[[A>B]],[[B>A]],[[A>B]]
+gemini_2.5_pro:abc353_e:106:bwd,abc353_e,gemini_2.5_pro,bwd,easy,B,1,9,True,3,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,A,A,A,A,A,A,A,B,A,"[[A>B]]
+
+Let me analyze both solutions:
+
+Both solutions use the",[[A>B]],[[B>A]],[[A>B]]
+claude_3.7_sonnet:3453:48:bwd,3453,claude_3.7_sonnet,bwd,hard,B,2,9,False,3,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,A,A,A,A,A,A,B,B,A,"[[A>B]]
+
+Let me analyze both solutions:
+
+**Assistant A's",[[A>B]],[[B>A]],[[A>B]]
+claude_3.7_sonnet:abc310_d:97:bwd,abc310_d,claude_3.7_sonnet,bwd,hard,B,2,9,False,3,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,A,A,A,A,A,A,B,B,A,"[[A>B]]
+
+Let me analyze both solutions:
+
+**Assistant A's",[[A>B]],[[B>A]],[[A>B]]
+gemini_2.5_pro:3770:67:bwd,3770,gemini_2.5_pro,bwd,hard,B,2,9,False,3,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,A,A,A,A,A,A,B,B,A,"[[A>B]]
+
+Let me analyze both solutions:
+
+**Assistant A's",[[A>B]],[[B>A]],[[A>B]]
+gemini_2.5_pro:abc384_g:242:bwd,abc384_g,gemini_2.5_pro,bwd,hard,B,2,9,False,3,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,A,A,A,A,A,A,B,B,A,"[[A>B]]
+
+Let me analyze both solutions:
+
+**Assistant A's",[[A>B]],[[B>A]],[[A>B]]
+gemini_2.5_flash:3394:44:bwd,3394,gemini_2.5_flash,bwd,hard,B,2,9,False,3,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,A,A,A,A,A,A,B,B,A,"[[A>B]]
+
+Let me analyze both solutions:
+
+**Problem Understanding:**",[[A>B]],[[B>A]],[[A>B]]
+gemini_2.5_flash:abc361_f:207:bwd,abc361_f,gemini_2.5_flash,bwd,hard,B,2,9,False,3,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,A,A,A,A,A,A,B,B,A,"[[A>B]]
+
+Let me analyze both solutions:
+
+**Assistant A's",[[A>B]],[[B>A]],[[A>B]]
+gemini_2.5_flash:abc382_f:248:bwd,abc382_f,gemini_2.5_flash,bwd,hard,B,2,9,False,3,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,A,A,A,A,A,A,B,B,A,"[[A>B]]
+
+Let me analyze both solutions:
+
+**Assistant A's",[[A>B]],[[B>A]],[[A>B]]
+gemini_2.5_flash:abc374_f:404:bwd,abc374_f,gemini_2.5_flash,bwd,hard,B,2,9,False,3,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,A,A,A,A,A,A,B,B,A,"[[A>B]]
+
+Let me analyze both solutions:
+
+**Assistant A's",[[A>B]],[[B>A]],[[A>B]]
+gemini_2.5_flash_lite:abc322_d:212:bwd,abc322_d,gemini_2.5_flash_lite,bwd,hard,B,2,9,False,3,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,A,A,A,A,A,A,B,B,A,"[[A>B]]
+
+Let me analyze the key differences between these two solutions:",[[A>B]],[[B>A]],[[A>B]]
+gemini_2.5_flash_lite:abc330_e:224:bwd,abc330_e,gemini_2.5_flash_lite,bwd,hard,B,2,9,False,3,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,A,A,A,A,A,A,B,B,A,"[[A>B]]
+
+Let me analyze both solutions:
+
+**Assistant A's",[[A>B]],[[B>A]],[[A>B]]

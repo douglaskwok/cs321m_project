@@ -1,0 +1,12 @@
+{
+  "qwen4_overall_accuracy": 0.5240133143128863,
+  "qwen4_predict_B_rate": 0.9286733238231099,
+  "qwen4_acc_fwd": 0.10270774976657329,
+  "qwen4_acc_bwd": 0.9612403100775194,
+  "qwen4_correct_top3_wrong_count": 39,
+  "qwen4_alone_correct_count": 15,
+  "gold_counts": {
+    "A": 1071,
+    "B": 1032
+  }
+}
