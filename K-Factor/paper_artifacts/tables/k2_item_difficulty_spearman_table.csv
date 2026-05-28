@@ -1,0 +1,5 @@
+domain,n_items,spearman_rho,p_value,solver_difficulty_column,judge_difficulty_column,source_file
+MMLU,154,0.069,0.398,solver_difficulty_centered,judge_difficulty_centered,K-Factor/paper_artifacts/mmlu/chart_data/mmlu_k2_solver_judge_difficulty_scatter.csv
+KUDGE,381,0.341,7.42e-12,solver_difficulty_centered,judge_difficulty_centered,K-Factor/paper_artifacts/kudge/chart_data/kudge_k2_solver_judge_difficulty_scatter.csv
+Safety,117,-0.105,0.261,solver_difficulty_mean,judge_difficulty_centered,K-Factor/paper_artifacts/safety/chart_data/safety_k2_solver_judge_difficulty_scatter.csv
+Coding,676,-0.023,0.548,solver_difficulty_centered,judge_difficulty_centered,K-Factor/paper_artifacts/code/chart_data/code_solverk2_judgek2_solver_judge_difficulty_scatter.csv

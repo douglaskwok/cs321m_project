@@ -1,0 +1,18 @@
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+\textbf{Domain} & \textbf{$n$ Items} & \textbf{Spearman $\rho$} & \textbf{$p$-value} \\
+\midrule
+MMLU & 154 & 0.069 & 0.398 \\
+KUDGE & 381 & 0.341 & 7.42e-12 \\
+Safety & 117 & -0.105 & 0.261 \\
+Coding & 676 & -0.023 & 0.548 \\
+\bottomrule
+\end{tabular}
+\caption{
+Item-level rank correlation between solver-side and judge-side difficulty estimates under the $K=2$ factor models. Spearman's $\rho$ measures whether items that are relatively difficult to solve are also relatively difficult to judge. For safety, solver difficulty is averaged across attack variants for the same prompt; for coding, judge difficulty is averaged across pairwise judgment items for the same programming problem.
+}
+\label{tab:k2_item_difficulty_spearman}
+\end{table}

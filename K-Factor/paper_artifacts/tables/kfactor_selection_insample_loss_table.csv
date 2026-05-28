@@ -1,0 +1,9 @@
+domain,role,k1_loss,k2_loss,selected_k,loss_type,source_file
+MMLU,Solver,0.358,0.216,2,binary log loss,K-Factor/paper_artifacts/mmlu/model_selection/mmlu_solver_kfactor_fit_summary_insample.csv
+MMLU,Judge,0.231,0.115,2,binary log loss,K-Factor/paper_artifacts/mmlu/model_selection/mmlu_judge_kfactor_fit_summary_insample.csv
+KUDGE,Solver,0.302,0.217,2,binary log loss,K-Factor/paper_artifacts/kudge/model_selection/kudge_solver_kfactor_fit_summary_insample.csv
+KUDGE,Judge,0.369,0.267,2,binary log loss,K-Factor/paper_artifacts/kudge/model_selection/kudge_judge_kfactor_fit_summary_insample.csv
+Safety,Solver,0.090,0.039,2,binary log loss,K-Factor/paper_artifacts/safety/model_selection/safety_solver_kfactor_fit_summary_insample.csv
+Safety,Judge,2.827,-0.523,2,beta negative log-likelihood,K-Factor/paper_artifacts/safety/model_selection/harmmetric_eval_continuous_kfactor_fit_summary_insample.csv
+Coding,Solver,0.110,0.059,2,binary log loss,K-Factor/paper_artifacts/code/model_selection/code_solver_kfactor_fit_summary_insample.csv
+Coding,Judge,0.188,0.102,2,binary log loss,K-Factor/paper_artifacts/code/model_selection/code_judge_kfactor_fit_summary_insample.csv

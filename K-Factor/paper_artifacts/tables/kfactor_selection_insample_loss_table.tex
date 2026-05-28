@@ -1,0 +1,24 @@
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{llrrr}
+\toprule
+\textbf{Domain} & \textbf{Role} & \textbf{$K=1$ Loss} & \textbf{$K=2$ Loss} & \textbf{Selected $K$} \\
+\midrule
+MMLU & Solver & 0.358 & \textbf{0.216} & 2 \\
+MMLU & Judge & 0.231 & \textbf{0.115} & 2 \\
+KUDGE & Solver & 0.302 & \textbf{0.217} & 2 \\
+KUDGE & Judge & 0.369 & \textbf{0.267} & 2 \\
+Safety & Solver & 0.090 & \textbf{0.039} & 2 \\
+Safety & Judge$^{*}$ & 2.827 & \textbf{-0.523} & 2 \\
+Coding & Solver & 0.110 & \textbf{0.059} & 2 \\
+Coding & Judge & 0.188 & \textbf{0.102} & 2 \\
+\bottomrule
+\end{tabular}
+\caption{
+K-factor model selection results using in-sample loss. Lower values indicate better fit. For binary response matrices, loss is binary log loss. For the continuous safety judge benchmark, loss is beta negative log-likelihood.
+}
+\label{tab:kfactor_selection}
+\end{table}
+
+$^{*}$ HarmMetric Eval uses continuous scores, so loss is beta negative log-likelihood rather than binary log loss.
