@@ -1,7 +1,8 @@
 """Create a response matrix from KUDGE pairwise judge outputs.
 
 Rows are judge models, derived from ``kudge_pairwise_*_responses.jsonl`` file
-names. Columns are KUDGE item ids. Values are the binary ``correct`` field.
+names in ``judging_outputs``. Columns are KUDGE item ids. Values are the binary
+``correct`` field.
 
 The converter intentionally ignores the raw model response text and only keeps
 small item metadata needed for analysis.
@@ -18,7 +19,7 @@ from typing import Any
 import pandas as pd
 
 
-DEFAULT_INPUT_DIR = Path(__file__).parent / "results" / "kudge_judge_easy_hard"
+DEFAULT_INPUT_DIR = Path(__file__).parent / "judging_outputs"
 DEFAULT_OUTPUT_DIR = DEFAULT_INPUT_DIR / "response_matrices"
 FILE_PREFIX = "kudge_pairwise_"
 FILE_SUFFIX = "_responses.jsonl"

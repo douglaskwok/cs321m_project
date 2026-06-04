@@ -46,7 +46,7 @@ from tqdm.auto import tqdm
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "IRT" / "solver_outputs" / "attack_results" / "direct"
+DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "IRT" / "results"
 RESPONSE_MATRICES = {
     "solver": {
         "prefix": "mmlu_pro_solver",

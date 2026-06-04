@@ -17,22 +17,22 @@ One-time secret setup in Modal::
 
 Then run::
 
-    modal run benchmarks/kudge_pairwise.py [--model MODEL]
+    modal run benchmarks/kudge/kudge_pairwise.py [--model MODEL]
 
 ``MODEL`` defaults to ``gpt-5.4-nano``.  Pass any OpenAI or Anthropic model
 name — models whose name starts with ``claude-`` are routed to Anthropic
 automatically, e.g.::
 
-    modal run benchmarks/kudge_pairwise.py --model claude-haiku-4-5-20251001
-    modal run benchmarks/kudge_pairwise.py --model claude-sonnet-4-6
-    modal run benchmarks/kudge_pairwise.py --model gpt-4o-mini
+    modal run benchmarks/kudge/kudge_pairwise.py --model claude-haiku-4-5-20251001
+    modal run benchmarks/kudge/kudge_pairwise.py --model claude-sonnet-4-6
+    modal run benchmarks/kudge/kudge_pairwise.py --model gpt-4o-mini
 
 Results are written to two files (slug derived from the model name):
 
-* ``benchmarks/results/kudge_pairwise_<slug>.npz`` — response matrix and
+* ``benchmarks/kudge/judging_outputs/kudge_pairwise_<slug>.npz`` — response matrix and
   metadata arrays (``response_matrix``, ``item_ids``, ``subsets``, ``gold``,
   ``predicted``).  ``response_matrix`` has shape ``(1, n_items)``, dtype int8.
-* ``benchmarks/results/kudge_pairwise_<slug>_responses.jsonl`` — one JSON
+* ``benchmarks/kudge/judging_outputs/kudge_pairwise_<slug>_responses.jsonl`` — one JSON
   record per item with ``id``, ``subset``, ``gold``, ``predicted``, ``correct``,
   and the full ``raw`` model response.
 """
@@ -99,7 +99,7 @@ def _model_slug(model: str) -> str:
 
 def _out_paths(model: str) -> tuple[Path, Path]:
     slug = _model_slug(model)
-    base = Path(__file__).parent / "results" / "kudge_judge_easy_hard"
+    base = Path(__file__).parent / "judging_outputs"
     return (
         base / f"kudge_pairwise_{slug}.npz",
         base / f"kudge_pairwise_{slug}_responses.jsonl",

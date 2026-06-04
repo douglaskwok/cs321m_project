@@ -11,7 +11,7 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 SOLVER_MATRIX = ROOT / "benchmarks" / "safety" / "solver_outputs" / "final" / "response_matrices" / "safety_all_attacks_response_matrix.csv"
 SOLVER_META = ROOT / "benchmarks" / "safety" / "solver_outputs" / "final" / "response_matrices" / "safety_all_attacks_item_metadata.csv"
 JUDGE_MATRIX = ROOT / "benchmarks" / "HarmMetric_Eval" / "response_matrices" / "harmmetric_eval_response_matrix.csv"
-PROMPT_LOOKUP = ROOT / "K-Factor" / "solver_outputs" / "attack_results" / "direct" / "safety_solver_judge_comparison" / "safety_input_index_to_harmmetric_prompt_id.csv"
+PROMPT_LOOKUP = ROOT / "K-Factor" / "results" / "safety_solver_judge_comparison" / "safety_input_index_to_harmmetric_prompt_id.csv"
 
 TARGETS = [
     {

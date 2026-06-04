@@ -18,11 +18,26 @@ Response data collection and response matrix construction for four benchmark dom
 
 ## Pre-computed response matrices
 
-Each subdirectory contains a `response_matrices/` folder with pre-built CSV files (rows = models, columns = benchmark items, values = binary correctness). You can skip data collection and proceed directly to IRT or K-Factor analysis using these files.
+Pre-built response matrix CSVs are checked in for each domain (rows = models,
+columns = benchmark items). Most live in a direct `response_matrices/` folder,
+while KUDGE and safety keep matrices under their output directories:
+
+- `code/response_matrices/`
+- `mmlu/response_matrices/`
+- `kudge/solver_outputs/response_matrices/`
+- `kudge/judging_outputs/response_matrices/`
+- `safety/solver_outputs/final/response_matrices/`
+- `safety/judge_outputs/response_matrices/`
+- `HarmMetric_Eval/response_matrices/`
+
+You can skip data collection and proceed directly to IRT or K-Factor analysis
+using these files.
 
 ## Running data collection
 
-All collection scripts dispatch work to Modal cloud containers. One-time secret setup:
+All collection scripts dispatch work to Modal cloud containers. These jobs read
+API credentials from Modal secrets rather than from the local `.env` file. Run
+this one-time secret setup before launching Modal benchmark collection:
 
 ```bash
 modal secret create openai-secret    OPENAI_API_KEY=sk-...

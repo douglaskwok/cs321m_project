@@ -1,8 +1,8 @@
 """Create a response matrix from KUDGE challenge outputs.
 
 Rows are solver models, derived from ``kudge_*_responses.jsonl`` file names in
-``results/kudge_challenge_easy_hard``. Columns are KUDGE item ids. Values are
-the binary ``correct`` field.
+``solver_outputs``. Columns are KUDGE item ids. Values are the binary
+``correct`` field.
 
 The converter intentionally ignores raw model response text and keeps only
 small item metadata needed for analysis.
@@ -19,7 +19,7 @@ from typing import Any
 import pandas as pd
 
 
-DEFAULT_INPUT_DIR = Path(__file__).parent / "results" / "kudge_challenge_easy_hard"
+DEFAULT_INPUT_DIR = Path(__file__).parent / "solver_outputs"
 DEFAULT_OUTPUT_DIR = DEFAULT_INPUT_DIR / "response_matrices"
 FILE_PREFIX = "kudge_"
 FILE_SUFFIX = "_responses.jsonl"

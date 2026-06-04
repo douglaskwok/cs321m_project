@@ -7,14 +7,13 @@ KUDGE Korean pairwise preference benchmark (Son et al., 2024), covering both cha
 
 ## Scripts
 
-| Script | Purpose |
-|---|---|
-| `kudge.py` | Runs models on the KUDGE challenge (solver) via Modal |
-| `kudge_pairwise.py` | Runs models as pairwise judges on KUDGE preference pairs via Modal |
-| `create_challenge_response_matrix.py` | Aggregates per-model challenge results into a response matrix CSV |
-| `create_judge_response_matrix.py` | Aggregates per-model judge results into a response matrix CSV |
-| `run_overnight.py` | Convenience script to run multiple models sequentially overnight |
-| `explore_kudge_data.ipynb` | Exploratory notebook for KUDGE dataset inspection |
+| Script                                | Purpose                                                            |
+| ------------------------------------- | ------------------------------------------------------------------ |
+| `kudge.py`                            | Runs models on the KUDGE challenge (solver) via Modal              |
+| `kudge_pairwise.py`                   | Runs models as pairwise judges on KUDGE preference pairs via Modal |
+| `create_challenge_response_matrix.py` | Aggregates per-model challenge results into a response matrix CSV  |
+| `create_judge_response_matrix.py`     | Aggregates per-model judge results into a response matrix CSV      |
+| `explore_kudge_data.ipynb`            | Exploratory notebook for KUDGE dataset inspection                  |
 
 ## Data files
 
@@ -32,7 +31,10 @@ python benchmarks/kudge/create_judge_response_matrix.py
 
 ## Outputs
 
-Per-model results are saved as `.npz` files under `results/kudge_challenge_easy_hard/` and `results/kudge_pairwise/`. The `create_*_response_matrix.py` scripts aggregate these into combined CSVs.
+Per-model solver results are saved under `solver_outputs/`, and per-model judge results are saved under `judging_outputs/`. The `create_*_response_matrix.py` scripts aggregate those JSONL files into:
+
+- `solver_outputs/response_matrices/kudge_challenge_easy_hard_response_matrix.csv`
+- `judging_outputs/response_matrices/kudge_judge_easy_hard_response_matrix.csv`
 
 ## Data source
 

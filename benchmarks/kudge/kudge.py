@@ -12,18 +12,18 @@ First, create the OpenAI secret in Modal (one-time setup)::
 
 Then run::
 
-    modal run benchmarks/kudge.py [--model MODEL]
+    modal run benchmarks/kudge/kudge.py [--model MODEL]
 
 ``MODEL`` defaults to ``gpt-5.4-nano``.  Pass any OpenAI model name, e.g.::
 
-    modal run benchmarks/kudge.py --model gpt-4o-mini
+    modal run benchmarks/kudge/kudge.py --model gpt-4o-mini
 
 Results are written to two files (slug derived from the model name):
 
-* ``benchmarks/results/kudge_<slug>.npz`` — response matrix and metadata
+* ``benchmarks/kudge/solver_outputs/kudge_<slug>.npz`` — response matrix and metadata
   arrays (``response_matrix``, ``item_ids``, ``subsets``, ``gold``,
   ``predicted``).  ``response_matrix`` has shape ``(1, n_items)``, dtype int8.
-* ``benchmarks/results/kudge_<slug>_responses.jsonl`` — one JSON record per
+* ``benchmarks/kudge/solver_outputs/kudge_<slug>_responses.jsonl`` — one JSON record per
   item with ``id``, ``subset``, ``gold``, ``predicted``, ``correct``, and the
   full ``raw`` model response.
 """
@@ -94,7 +94,7 @@ def _model_slug(model: str) -> str:
 
 def _out_paths(model: str) -> tuple[Path, Path]:
     slug = _model_slug(model)
-    base = Path(__file__).parent / "results" / "kudge_challenge_easy_hard"
+    base = Path(__file__).parent / "solver_outputs"
     return base / f"kudge_{slug}.npz", base / f"kudge_{slug}_responses.jsonl"
 
 # ---------------------------------------------------------------------------

@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "IRT" / "charts_and_tables" / "safety" / "case_studies"
 CASE_CSV = OUT_DIR / "safety_mistral_qwen2_solver_judge_case_study_examples_metadata_only.csv"
 SUMMARY_CSV = OUT_DIR / "safety_mistral_qwen2_solver_judge_case_study_summary.csv"
-PROMPT_LOOKUP = ROOT / "K-Factor" / "solver_outputs" / "attack_results" / "direct" / "safety_solver_judge_comparison" / "safety_input_index_to_harmmetric_prompt_id.csv"
+PROMPT_LOOKUP = ROOT / "K-Factor" / "results" / "safety_solver_judge_comparison" / "safety_input_index_to_harmmetric_prompt_id.csv"
 XLSX_PATH = OUT_DIR / "safety_mistral_qwen2_solver_judge_case_study_examples_with_prompts.xlsx"
 RAW_SOLVER_JSON = ROOT / "benchmarks" / "safety" / "solver_outputs" / "final" / "all_attacks_all_models_scored.json"
 
