@@ -44,8 +44,8 @@ cs321m_project/
 │   ├── results/           # K-Factor fit outputs
 │   ├── results_continuous/ # Continuous K-Factor fit outputs
 │   └── charts_and_tables/ # Final tables, figures, data, and case studies for the paper
-├── HarmBench/             # Upstream HarmBench resources used by safety experiments
-├── HarmMetric_Eval/       # Upstream HarmMetric evaluation resources
+├── HarmBench/             # Optional upstream checkout for regenerating HarmBench attacks (see setup)
+├── HarmMetric_Eval/       # Optional upstream checkout for HarmMetric source-data inspection (see setup)
 ├── scripts/               # Utility scripts for generating case study notebooks/CSVs
 │   ├── create_safety_case_study_notebook.py
 │   └── export_safety_case_study_xlsx.py
@@ -53,7 +53,6 @@ cs321m_project/
 ├── src/                   # torch_measure package source (IRT, factor models, metrics, viz)
 ├── tests/                 # Unit tests
 ├── tutorials/             # Example notebooks
-├── trash/                 # Non-essential files (logs, scratch outputs)
 ├── pyproject.toml         # Package definition and dependencies
 ├── requirements.txt       # Flexible dependency bounds for local setup
 ├── requirements-lock.txt  # Exact package versions from the reproduction environment
@@ -101,7 +100,39 @@ The regular `requirements.txt` is a flexible dependency list for development
 and fresh setups; `requirements-lock.txt` records exact installed package
 versions.
 
-### 2. Configure credentials
+### 2. Add optional upstream checkouts for full safety regeneration
+
+The checked-in response matrices are enough to reproduce the IRT/K-Factor
+analysis. If you want to regenerate HarmBench attacks from scratch, fork or
+clone the upstream HarmBench repository so it appears at the repo root as
+`cs321m_project/HarmBench/`; the safety attack-generation Modal scripts mount
+that directory into the cloud container.
+
+```bash
+# From cs321m_project/
+git clone https://github.com/centerforaisafety/HarmBench.git HarmBench
+```
+
+The adapted HarmMetric pipeline used by this project is tracked under
+`benchmarks/HarmMetric_Eval/`. A separate top-level `HarmMetric_Eval/` checkout
+is only needed if you want to inspect or rerun upstream HarmMetric source-data
+processing notebooks outside the tracked benchmark pipeline.
+
+```bash
+# Optional; only for upstream HarmMetric source-data inspection
+git clone https://github.com/Qusgo/HarmMetric_Eval.git HarmMetric_Eval
+```
+
+After these optional checkouts, the relevant external-resource layout is:
+
+```text
+cs321m_project/
+├── HarmBench/                 # Upstream HarmBench checkout
+├── HarmMetric_Eval/           # Optional upstream HarmMetric checkout
+└── benchmarks/HarmMetric_Eval/ # Tracked adapted HarmMetric evaluation pipeline
+```
+
+### 3. Configure credentials
 
 Local scripts that call Anthropic directly read `ANTHROPIC_API_KEY` from `.env`.
 Copy `.env.example` to `.env` only if you plan to run those local scripts:
@@ -121,7 +152,7 @@ modal secret create anthropic-secret ANTHROPIC_API_KEY=sk-ant-...
 modal secret create hf-secret        HF_TOKEN=hf_...   # for gated HF models
 ```
 
-### 3. Register a Jupyter kernel (for K-Factor notebooks)
+### 4. Register a Jupyter kernel (for K-Factor notebooks)
 
 ```bash
 python -m ipykernel install --user --name cs321m-project --display-name "cs321m-project"
