@@ -27,6 +27,8 @@ VERSION_TAG = "release_v6"
 
 @dataclass(frozen=True)
 class ModelSpec:
+    """Container for per-model result file path and display name."""
+
     model_id: str
     display_name: str
     response_file: Path
@@ -101,6 +103,7 @@ _FORMAT_STDIN = (
 
 
 def build_solver_prompt(question: str, starter_code: str) -> str:
+    """Format a LiveCodeBench problem as a solver prompt string."""
     question = (question or "").strip()
     starter_code = (starter_code or "").strip()
     if starter_code:
@@ -188,6 +191,7 @@ def write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: list[str]) -> 
 
 
 def main() -> None:
+    """Parse collected result files and write response matrix, item, and subject metadata CSVs."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--output-dir", type=Path, default=OUT_DIR)
     parser.add_argument(

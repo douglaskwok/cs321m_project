@@ -51,6 +51,7 @@ def read_jsonl(path: Path) -> list[dict[str, Any]]:
 
 
 def build_matrix(paths: list[Path]) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """Aggregate per-model JSONL files into a (models × items) response matrix."""
     model_rows: dict[str, dict[str, float]] = {}
     subject_metadata_rows: list[dict[str, Any]] = []
     item_metadata_by_id: dict[str, dict[str, Any]] = {}
@@ -106,6 +107,7 @@ def build_matrix(paths: list[Path]) -> tuple[pd.DataFrame, pd.DataFrame, pd.Data
 
 
 def main() -> None:
+    """Discover challenge result files, build the response matrix, and write output CSVs."""
     parser = argparse.ArgumentParser(description="Create KUDGE challenge response matrix.")
     parser.add_argument("--input-dir", type=Path, default=DEFAULT_INPUT_DIR)
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)

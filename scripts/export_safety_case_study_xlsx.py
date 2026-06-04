@@ -1,3 +1,9 @@
+"""Export safety case study CSVs to a two-sheet Excel workbook (OOXML format).
+
+Joins case metadata with raw solver responses and HarmMetric judge scores,
+then writes an Examples sheet and a Summary sheet to an .xlsx file.
+"""
+
 import csv
 import html
 import zipfile
@@ -62,6 +68,7 @@ def cell_xml(row_idx, col_idx, value):
 
 
 def sheet_xml(rows, columns, title):
+    """Build the OOXML string for a complete worksheet with a frozen header row."""
     sheet_rows = []
     header_cells = "".join(cell_xml(1, idx + 1, col) for idx, col in enumerate(columns))
     sheet_rows.append(f'<row r="1">{header_cells}</row>')
@@ -85,6 +92,7 @@ def sheet_xml(rows, columns, title):
 
 
 def main():
+    """Enrich case study rows with prompts and judge scores, then write the XLSX file."""
     cases = read_csv(CASE_CSV)
     summary = read_csv(SUMMARY_CSV)
 

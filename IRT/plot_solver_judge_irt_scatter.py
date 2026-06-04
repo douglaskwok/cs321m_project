@@ -58,6 +58,7 @@ HIGH_CONTRAST_COLORS = [
 
 
 def normalize_model_name(raw_name: str) -> tuple[str, str]:
+    """Map a raw model name string to a (canonical_key, display_name) pair."""
     compact = (
         str(raw_name)
         .strip()
@@ -104,6 +105,7 @@ def normalize_model_name(raw_name: str) -> tuple[str, str]:
 
 
 def load_side_by_side(csv_path: Path) -> pd.DataFrame:
+    """Load and inner-join solver and judge ability tables from a side-by-side CSV."""
     raw = pd.read_csv(csv_path)
 
     # The first CSV row is consumed by pandas as the header, so the visible
@@ -182,6 +184,7 @@ def _label_offsets(df: pd.DataFrame) -> tuple[float, float]:
 
 
 def plot_case(case: dict, df: pd.DataFrame, out_dir: Path, model_colors: dict[str, tuple]) -> None:
+    """Render and save the solver-vs-judge scatter plot for one domain."""
     stats_text = spearman_text(df)
 
     fig, ax = plt.subplots(figsize=(9.1, 5.4), dpi=180)
@@ -245,6 +248,7 @@ def plot_case(case: dict, df: pd.DataFrame, out_dir: Path, model_colors: dict[st
 
 
 def plot_combined(all_data: dict[str, pd.DataFrame], out_dir: Path, model_colors: dict[str, tuple]) -> None:
+    """Render and save a 2×2 combined scatter plot across all four domains."""
     fig, axes = plt.subplots(2, 2, figsize=(14.6, 10.2), dpi=180)
     axes_flat = axes.ravel()
     for ax, case in zip(axes_flat, CASES):
@@ -302,6 +306,7 @@ def plot_combined(all_data: dict[str, pd.DataFrame], out_dir: Path, model_colors
 
 
 def main() -> None:
+    """Load all domain CSVs, assign colors, and generate per-domain and combined scatter figures."""
     out_dir = Path("IRT/figures")
     out_dir.mkdir(parents=True, exist_ok=True)
     all_data = {case["name"]: load_side_by_side(case["csv"]) for case in CASES}

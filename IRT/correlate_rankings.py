@@ -57,6 +57,7 @@ def _extract_table(
     prefix: str,
     data_start_row: int,
 ) -> pd.DataFrame:
+    """Extract and type-convert a solver or judge subtable from a raw side-by-side CSV."""
     if cols is None:
         table = raw.iloc[data_start_row:, positions].copy()
     else:
@@ -70,6 +71,7 @@ def _extract_table(
 
 
 def main() -> None:
+    """Load a side-by-side ranking CSV, compute Spearman rho, and print results."""
     args = parse_args()
     csv_path = Path(args.csv_path)
     raw = pd.read_csv(csv_path)

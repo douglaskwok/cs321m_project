@@ -85,6 +85,7 @@ def build_matrix(
     *,
     include_order: bool = True,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """Aggregate per-model judging files into a (models × item-order pairs) response matrix."""
     model_rows: dict[str, dict[str, float]] = {}
     model_metadata: list[dict[str, str]] = []
     item_metadata_by_id: dict[str, dict[str, Any]] = {}
@@ -144,6 +145,7 @@ def build_matrix(
 
 
 def main() -> None:
+    """Discover judging files, build the response matrix, and write output CSVs."""
     parser = argparse.ArgumentParser(
         description="Create an MMLU-Pro judging response matrix from JSONL outputs."
     )

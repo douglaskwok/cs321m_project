@@ -1,3 +1,6 @@
+# Minimum version bounds used during development.
+# For exact pinned versions, run: pip freeze > requirements.txt after installing.
+
 # Core torch_measure dependencies (from pyproject.toml)
 torch>=2.4
 numpy>=1.24

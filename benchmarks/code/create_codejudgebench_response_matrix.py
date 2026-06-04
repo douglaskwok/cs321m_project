@@ -25,6 +25,8 @@ OUT_DIR = ROOT / "response_matrices"
 
 @dataclass(frozen=True)
 class ModelSpec:
+    """Container for a judge model's result file path and display name."""
+
     subject_id: str
     model: str
     response_file: Path
@@ -116,6 +118,7 @@ def write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: list[str]) -> 
 
 
 def main() -> None:
+    """Validate result files, build the response matrix, and write output CSVs."""
     missing_files = [spec.response_file for spec in MODEL_SPECS if not spec.response_file.exists()]
     if missing_files:
         formatted = "\n".join(str(path) for path in missing_files)

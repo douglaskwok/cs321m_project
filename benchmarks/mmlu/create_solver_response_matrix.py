@@ -69,6 +69,7 @@ def correctness_value(value: Any) -> float:
 
 
 def build_matrix(files: list[Path]) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    """Aggregate per-model JSONL files into a (models × items) response matrix DataFrame."""
     model_rows: dict[str, dict[str, float]] = {}
     model_metadata: list[dict[str, str]] = []
     item_metadata_by_id: dict[str, dict[str, Any]] = {}
@@ -121,6 +122,7 @@ def build_matrix(files: list[Path]) -> tuple[pd.DataFrame, pd.DataFrame, pd.Data
 
 
 def main() -> None:
+    """Discover solver files, build the response matrix, and write output CSVs."""
     parser = argparse.ArgumentParser(
         description="Create an MMLU-Pro solver response matrix from JSONL outputs."
     )

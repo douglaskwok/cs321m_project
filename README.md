@@ -149,7 +149,15 @@ python benchmarks/mmlu/create_solver_response_matrix.py
 python benchmarks/mmlu/create_judging_response_matrix.py
 python benchmarks/kudge/create_challenge_response_matrix.py
 python benchmarks/kudge/create_judge_response_matrix.py
+
+# Safety solver: combine per-attack results into the final solver matrix
+python benchmarks/safety/combine_attack_results_for_final_solver.py
+
+# Safety judge: build the HarmMetric response matrix
+python benchmarks/HarmMetric_Eval/create_harmmetric_response_matrix.py
 ```
+
+> **Note:** The safety solver matrix requires prior attack generation (Stage 1). The pre-computed matrix in `benchmarks/safety/final_solver/response_matrices/` and the HarmMetric matrix in `benchmarks/HarmMetric_Eval/response_matrices/` can be used directly.
 
 ### Stage 3: Run IRT analysis
 
@@ -265,6 +273,14 @@ Pre-computed response matrices are checked in under `benchmarks/*/response_matri
 - `torch.manual_seed` is called before every individual model fit in K-Factor.
 - `requirements.txt` pins the package versions used during the final paper runs.
 - Modal container images pin their own versions inside each script's `pip_install(...)` call for cloud reproducibility.
+
+---
+
+## Code Attribution
+
+- **`src/`** — this repository is a fork of the [`torch_measure`](https://github.com/anthropics/torch_measure) package (MIT License). The core IRT and factor model implementations in `src/` are from the upstream library; this project adds benchmark collection, response matrix construction, and analysis notebooks on top of it.
+- **`benchmarks/HarmMetric_Eval/`** — adapted from the [HarmMetric Eval](https://huggingface.co/datasets/anonymous-review-anonymous/HarmMetric_Eval) repository (*HarmMetric Eval: Benchmarking Metrics and Judges for LLM Harmfulness Assessment*). We added Modal-based cloud collection scripts (`modal_claude_harmmetric.py`, `modal_qwen35_harmmetric.py`) and the response matrix construction script (`create_harmmetric_response_matrix.py`).
+- All other code in `benchmarks/`, `IRT/`, `K-Factor/`, and `scripts/` is original work for this project.
 
 ---
 
