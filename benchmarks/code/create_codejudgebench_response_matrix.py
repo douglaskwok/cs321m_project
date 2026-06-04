@@ -2,7 +2,7 @@
 
 The input files are taken from:
 
-    benchmarks/code/results/final files to use/
+    benchmarks/code/judging_outputs/
 
 The output follows the same convention as the other benchmark matrices:
 ``subject_id`` rows, item columns, plus separate item/subject metadata files.
@@ -19,7 +19,7 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parent
-FINAL_DIR = ROOT / "results" / "final files to use"
+FINAL_DIR = ROOT / "judging_outputs"
 OUT_DIR = ROOT / "response_matrices"
 
 

@@ -10,7 +10,7 @@ DEFAULT_MODEL_ID = os.environ.get("MODEL_ID", "Qwen/Qwen3.5-0.8B")
 MODAL_GPU = os.environ.get("MODAL_GPU", "B200+")
 DATASET_ID = "ScalerLab/JudgeBench"
 MMLU_PRO_ID = "TIGER-Lab/MMLU-Pro"
-OUT_DIR = Path("qwen35_solving_outputs")
+OUT_DIR = Path("solving_outputs")
 
 image = (
     modal.Image.debian_slim(python_version="3.11")

@@ -26,8 +26,7 @@ import pandas as pd
 MMLU_DIR = Path(__file__).parent
 DEFAULT_OUTPUT_DIR = MMLU_DIR / "response_matrices"
 DEFAULT_INPUT_DIRS = [
-    MMLU_DIR / "qwen35_judging_outputs",
-    MMLU_DIR / "anthropic_judging_outputs",
+    MMLU_DIR / "judging_outputs",
 ]
 
 

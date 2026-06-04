@@ -48,16 +48,16 @@ image = (
         remote_path="/root/benchmarks/mmlu/response_matrices",
     )
     .add_local_dir(
-        REPO_ROOT / "benchmarks" / "safety" / "final_solver" / "response_matrices",
-        remote_path="/root/benchmarks/safety/final_solver/response_matrices",
+        REPO_ROOT / "benchmarks" / "safety" / "solver_outputs" / "final" / "response_matrices",
+        remote_path="/root/benchmarks/safety/solver_outputs/final/response_matrices",
     )
     .add_local_dir(
-        REPO_ROOT / "benchmarks" / "kudge" / "results" / "kudge_challenge_easy_hard" / "response_matrices",
-        remote_path="/root/benchmarks/kudge/results/kudge_challenge_easy_hard/response_matrices",
+        REPO_ROOT / "benchmarks" / "kudge" / "solver_outputs" / "response_matrices",
+        remote_path="/root/benchmarks/kudge/solver_outputs/response_matrices",
     )
     .add_local_dir(
-        REPO_ROOT / "benchmarks" / "kudge" / "results" / "kudge_judge_easy_hard" / "response_matrices",
-        remote_path="/root/benchmarks/kudge/results/kudge_judge_easy_hard/response_matrices",
+        REPO_ROOT / "benchmarks" / "kudge" / "judging_outputs" / "response_matrices",
+        remote_path="/root/benchmarks/kudge/judging_outputs/response_matrices",
     )
     .add_local_dir(
         REPO_ROOT / "benchmarks" / "code" / "response_matrices",

@@ -4,7 +4,7 @@ Utility scripts for generating case study artifacts from safety benchmark result
 
 | Script | Purpose |
 |---|---|
-| `create_safety_case_study_notebook.py` | Selects representative safety case studies (items where solver and judge diverge) and writes them as a notebook to `IRT/paper_artifacts/safety/case_studies/` |
+| `create_safety_case_study_notebook.py` | Selects representative safety case studies (items where solver and judge diverge) and writes them as a notebook to `IRT/charts_and_tables/safety/case_studies/` |
 | `export_safety_case_study_xlsx.py` | Exports the safety case studies to an Excel spreadsheet for manual review |
 
 ## Usage
@@ -16,4 +16,4 @@ python scripts/export_safety_case_study_xlsx.py
 
 ## Outputs
 
-- `IRT/paper_artifacts/safety/case_studies/` — generated notebooks and CSV tables, one per case study target model pair
+- `IRT/charts_and_tables/safety/case_studies/` — generated notebooks and CSV tables, one per case study target model pair

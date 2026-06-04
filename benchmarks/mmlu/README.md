@@ -19,7 +19,9 @@ MMLU-Pro multiple-choice knowledge (solver) and JudgeBench-MMLU pairwise judge b
 - `judgebench_mmlu_pro_questions_unique.csv/.jsonl` — questions unique to JudgeBench
 - `judgebench_mmlu_pro_answer_key_checked.csv/.jsonl` — verified answer keys
 - `judgebench_mmlu_pro_knowledge_by_split.jsonl` — knowledge-domain split metadata
-- `final files to use/` — curated final inputs used in the paper runs
+- `solving_outputs/` — per-model MMLU-Pro solver JSONL outputs
+- `judging_outputs/` — final per-model JudgeBench-MMLU judging JSONL outputs
+- `judging_outputs/smoke_runs/` — small limit/smoke judging runs excluded from response matrices
 
 ## Usage
 

@@ -49,6 +49,7 @@ app = modal.App("safety-claude", image=image)
 
 
 DEFAULT_INPUT_PATH = Path(__file__).parent / "safety_solver.json"
+DEFAULT_OUTPUT_ROOT = Path(__file__).parent / "solver_outputs" / "attack_results"
 DEFAULT_MODEL = "haiku-4.5"
 DEFAULT_LIMIT = -1
 DEFAULT_TARGET_MODEL_NAME = ""
@@ -79,8 +80,25 @@ def _slug(value: str) -> str:
     return re.sub(r"[^a-z0-9]+", "", value.lower())
 
 
-def _default_output_paths(model_id: str) -> tuple[Path, Path]:
-    out_dir = Path(__file__).parent / "results"
+def _attack_family_from_input(input_path: Path) -> str:
+    name = input_path.name.lower()
+    if "autodan" in name:
+        return "autodan"
+    if "gcg" in name:
+        return "gcg"
+    if "pair" in name:
+        return "pair"
+    if "pap" in name:
+        return "pap"
+    if "humanjailbreaks" in name:
+        return "humanjailbreaks"
+    if "dan" in name:
+        return "dan"
+    return "direct"
+
+
+def _default_output_paths(model_id: str, input_path: Path) -> tuple[Path, Path]:
+    out_dir = DEFAULT_OUTPUT_ROOT / _attack_family_from_input(input_path)
     slug = _slug(model_id)
     return (
         out_dir / f"safety_solver_{slug}_responses.jsonl",
@@ -196,7 +214,7 @@ def main(
     model_id = _model_id(model)
     input_file = Path(input_path)
     resolved_target_model_name = target_model_name.strip() or _default_target_model_name(model_id)
-    out_jsonl, out_json = _default_output_paths(model_id)
+    out_jsonl, out_json = _default_output_paths(model_id, input_file)
     if output_jsonl:
         out_jsonl = Path(output_jsonl)
     if output_json:

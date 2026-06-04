@@ -23,7 +23,7 @@ DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "IRT" / "results_continuous"
 RESPONSE_MATRICES = {
     "harmjudge_safety_judge": {
         "prefix": "harmjudge_safety_solver",
-        "matrix_dir": PROJECT_ROOT / "benchmarks/safety/final_judge_results/response_matrices",
+        "matrix_dir": PROJECT_ROOT / "benchmarks/safety/judge_outputs/response_matrices",
         "benchmark_id": "harmjudge_safety_judge",
         "item_id_field": "prompt_id",
         "item_content_field": "source",

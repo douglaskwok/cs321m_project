@@ -1,3 +1,0 @@
-role,selected_k,selection_metric
-solver,1,heldout_loss
-judge,1,heldout_loss

@@ -17,7 +17,7 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parent
-RESULTS_DIR = ROOT / "results"
+RESULTS_DIR = ROOT / "solving_outputs"
 SELECTED_PAIRS_FILE = ROOT / "codegen_selected_pairs.json"
 OUT_DIR = ROOT / "response_matrices"
 

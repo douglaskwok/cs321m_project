@@ -10,8 +10,8 @@ LiveCodeBench coding solver and CodeJudgeBench pairwise code judge benchmarks.
 | `codejudgebench_pairwise.py` | Runs a model as a pairwise judge on the CodeJudgeBench codegen subset |
 | `codejudgebench_pairwise_faithful.py` | Variant of pairwise judge with faithfulness-focused prompt |
 | `select_codegen_subset.py` | Selects a stratified 676-pair subset from CodeJudgeBench for judging |
-| `create_livecodebench_response_matrix.py` | Aggregates per-model `.npz` results into a combined response matrix CSV |
-| `create_codejudgebench_response_matrix.py` | Aggregates per-model judge results into a combined response matrix CSV |
+| `create_livecodebench_response_matrix.py` | Aggregates per-model solver JSONL results into a combined response matrix CSV |
+| `create_codejudgebench_response_matrix.py` | Aggregates per-model judge JSONL results into a combined response matrix CSV |
 | `run_codejudgebench_verdict_models.py` | Runs verdict models on CodeJudgeBench solutions |
 | `judgebench_investigation.py` | Exploratory analysis of CodeJudgeBench data |
 | `pairwise.py` | General pairwise utilities shared across judge scripts |
@@ -34,6 +34,11 @@ python benchmarks/code/create_codejudgebench_response_matrix.py
 
 ## Outputs
 
+- `solving_outputs/` — final per-model LiveCodeBench solver JSONL outputs.
+- `solving_outputs/npz_checkpoints/` — solver-run `.npz` checkpoints; not used by the matrix builder.
+- `solving_outputs/experiments/` — non-final solver experiments and smoke runs.
+- `judging_outputs/` — final per-model CodeJudgeBench judge JSONL outputs.
+- `judging_outputs/npz_checkpoints/` — judge-run `.npz` checkpoints; not used by the matrix builder.
 - `response_matrices/livecodebench_response_matrix.csv` — binary solver matrix (models × problems)
 - `response_matrices/codejudgebench_pairwise_response_matrix.csv` — binary judge matrix (models × item pairs)
 - `response_matrices/*_item_metadata.csv` — item difficulty, platform, etc.

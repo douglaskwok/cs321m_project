@@ -26,17 +26,17 @@ Then run::
 name — models whose name starts with ``claude-`` are routed to Anthropic
 automatically, e.g.::
 
-    modal run benchmarks/code/codejudgebench_pairwise.py --model claude-sonnet-4-6
+    modal run benchmarks/code/codejudgebench_pairwise.py --model claude-haiku-4-5-20251001
     modal run benchmarks/code/codejudgebench_pairwise.py --model gpt-4o-mini
 
 Results are written to two files (slug derived from the model name):
 
-* ``benchmarks/code/results/codejudgebench_pairwise_<slug>.npz`` — response
+* ``benchmarks/code/judging_outputs/npz_checkpoints/codejudgebench_pairwise_<slug>.npz`` — response
   matrix and metadata (``response_matrix``, ``pair_ids``, ``difficulties``,
   ``gold``, ``predicted``, ``orderings``).  ``response_matrix`` has shape
   ``(1, 2 * n_pairs)``, dtype int8, with forward and backward orderings
   interleaved as [fwd_0, bwd_0, fwd_1, bwd_1, ...].
-* ``benchmarks/code/results/codejudgebench_pairwise_<slug>_responses.jsonl`` —
+* ``benchmarks/code/judging_outputs/codejudgebench_pairwise_<slug>_responses.jsonl`` —
   one JSON record per judgment with ``pair_id``, ``ordering``, ``difficulty``,
   ``gold``, ``predicted``, ``correct``, and the full ``raw`` model response.
 """
@@ -118,9 +118,9 @@ def _model_slug(model: str) -> str:
 
 def _out_paths(model: str) -> tuple[Path, Path]:
     slug = _model_slug(model)
-    base = Path(__file__).parent / "results"
+    base = Path(__file__).parent / "judging_outputs"
     return (
-        base / f"codejudgebench_pairwise_{slug}.npz",
+        base / "npz_checkpoints" / f"codejudgebench_pairwise_{slug}.npz",
         base / f"codejudgebench_pairwise_{slug}_responses.jsonl",
     )
 

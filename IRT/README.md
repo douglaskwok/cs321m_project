@@ -69,4 +69,4 @@ python IRT/correlate_rankings.py "IRT/IRT - Safety.csv"
 - `results_modal/<matrix>/heldout_eval_summary.csv` — held-out AUC, log-likelihood, Brier score, ECE across random splits
 - `results_modal/<matrix>/information_criteria.csv` — AIC/BIC per model variant
 - `figures/` — scatter plots (PDF + PNG) for all four domains
-- `paper_artifacts/` — curated paper-ready tables, charts, and case studies (see `paper_artifacts/README.md`)
+- `charts_and_tables/` — curated paper-ready tables, charts, and case studies (see `charts_and_tables/README.md`)

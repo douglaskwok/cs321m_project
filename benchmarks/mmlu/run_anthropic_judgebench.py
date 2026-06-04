@@ -15,8 +15,8 @@ JUDGEBENCH_SPLIT_PATHS = {
     "gpt": Path("gpt-00000-of-00001.jsonl"),
     "claude": Path("claude-00000-of-00001.jsonl"),
 }
-SOLVING_OUT_DIR = Path("anthropic_solving_outputs")
-JUDGING_OUT_DIR = Path("anthropic_judging_outputs")
+SOLVING_OUT_DIR = Path("solving_outputs")
+JUDGING_OUT_DIR = Path("judging_outputs")
 
 
 def model_slug(model_id: str) -> str:

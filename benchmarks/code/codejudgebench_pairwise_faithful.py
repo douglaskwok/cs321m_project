@@ -126,9 +126,9 @@ def _out_paths(
         prompt_style,
         prefill_verdict,
     )
-    base = Path(__file__).parent / "results"
+    base = Path(__file__).parent / "judging_outputs"
     return (
-        base / f"codejudgebench_pairwise_{slug}.npz",
+        base / "npz_checkpoints" / f"codejudgebench_pairwise_{slug}.npz",
         base / f"codejudgebench_pairwise_{slug}_responses.jsonl",
     )
 

@@ -24,10 +24,10 @@ automatically, e.g.::
 
 Results are written to two files (slug derived from the model name):
 
-* ``benchmarks/code/results/livecodebench_<slug>.npz`` — response matrix and
+* ``benchmarks/code/solving_outputs/npz_checkpoints/livecodebench_<slug>.npz`` — response matrix and
   metadata (``response_matrix``, ``item_ids``, ``difficulties``, ``platforms``).
   ``response_matrix`` has shape ``(1, n_items)``, dtype int8.
-* ``benchmarks/code/results/livecodebench_<slug>_responses.jsonl`` — one JSON
+* ``benchmarks/code/solving_outputs/livecodebench_<slug>_responses.jsonl`` — one JSON
   record per problem with ``id``, ``difficulty``, ``platform``, ``correct``,
   and the full ``raw`` model response.
 """
@@ -107,9 +107,9 @@ def _model_slug(model: str) -> str:
 
 def _out_paths(model: str) -> tuple[Path, Path]:
     slug = _model_slug(model)
-    base = Path(__file__).parent / "results"
+    base = Path(__file__).parent / "solving_outputs"
     return (
-        base / f"livecodebench_{slug}.npz",
+        base / "npz_checkpoints" / f"livecodebench_{slug}.npz",
         base / f"livecodebench_{slug}_responses.jsonl",
     )
 

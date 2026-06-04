@@ -19,7 +19,7 @@ Models are tested as *solvers* (targets of adversarial jailbreak attacks). A mod
 | `merge_harmbench_attack_cases.py` | Merges attack cases across attack methods |
 | `sample_attack_cases_by_dimension.py` | Samples attack cases stratified by harm dimension |
 | `sample_harmbench_attack_cases.py` | Samples a fixed-size subset of attack cases |
-| `combine_attack_results_for_final_solver.py` | Combines results across attack methods into the final solver matrix |
+| `combine_attack_results_for_final solver.py` | Combines results across attack methods into the final solver matrix |
 | `create_harmmetric_attack_method_prompts.py` | Creates HarmMetric-formatted prompts for the judge pipeline |
 | `create_harmmetric_official_attack_prompts.py` | Creates prompts from official HarmBench attack scenarios |
 
@@ -32,7 +32,7 @@ Models are tested as *solvers* (targets of adversarial jailbreak attacks). A mod
 - `attack_cases_sampled_by_dimension/` — stratified subsets by harm dimension
 - `attack_method_prompts/` — formatted HarmMetric input prompts
 - `data_processing/` — intermediate processing scripts and outputs
-- `final_solver/` — final combined results and response matrices used in the paper
+- `solver_outputs/final/` — final combined results and response matrices used in the paper
 
 ## Usage
 
@@ -42,13 +42,13 @@ modal run benchmarks/safety/run_hf_safety.py --model qwen3.5-0.8b
 modal run benchmarks/safety/run_claude_safety.py --model claude-haiku-4-5-20251001
 
 # Build the final solver response matrix from collected results
-python benchmarks/safety/combine_attack_results_for_final_solver.py
+python benchmarks/safety/combine_attack_results_for_final solver.py
 ```
 
 ## Outputs
 
-- `final_solver/response_matrices/safety_all_attacks_response_matrix.csv` — binary solver matrix (models × attack instances)
-- `final_solver/response_matrices/safety_all_attacks_item_metadata.csv` — item metadata (attack method, harm category, etc.)
+- `solver_outputs/final/response_matrices/safety_all_attacks_response_matrix.csv` — binary solver matrix (models × attack instances)
+- `solver_outputs/final/response_matrices/safety_all_attacks_item_metadata.csv` — item metadata (attack method, harm category, etc.)
 
 ## Data source
 

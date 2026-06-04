@@ -9,7 +9,7 @@ Run locally (no Modal):
     pip install datasets
     python benchmarks/code/select_codegen_subset.py
 
-Output: benchmarks/code/results/codegen_selected_pairs.json
+Output: benchmarks/code/codegen_selected_pairs.json
   A JSON array of 676 objects, each with keys:
     question_id   – the LCB question identifier
     split         – dataset split the row came from
@@ -27,7 +27,7 @@ DATASET_ID = "mattymchen/codejudgebench"
 CONFIG = "codegen"
 TARGET_FAMILIES = ["claude", "qwen", "gemini"]
 EXPECTED_UNIQUE_IDS = 676
-OUTPUT_FILE = Path(__file__).parent / "results" / "codegen_selected_pairs.json"
+OUTPUT_FILE = Path(__file__).parent / "codegen_selected_pairs.json"
 
 
 def detect_family(model_str: str) -> str | None:

@@ -46,7 +46,7 @@ from tqdm.auto import tqdm
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "IRT" / "results"
+DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "IRT" / "solver_outputs" / "attack_results" / "direct"
 RESPONSE_MATRICES = {
     "solver": {
         "prefix": "mmlu_pro_solver",
@@ -66,7 +66,7 @@ RESPONSE_MATRICES = {
     },
     "safety": {
         "prefix": "safety_all_attacks",
-        "matrix_dir": PROJECT_ROOT / "benchmarks/safety/final_solver/response_matrices",
+        "matrix_dir": PROJECT_ROOT / "benchmarks/safety/solver_outputs/final/response_matrices",
         "benchmark_id": "safety_all_attacks",
         "item_id_field": "attack_family:input_index",
         "item_content_field": "attack_family",
@@ -74,7 +74,7 @@ RESPONSE_MATRICES = {
     },
     "kudge_challenge": {
         "prefix": "kudge_challenge_easy_hard",
-        "matrix_dir": PROJECT_ROOT / "benchmarks/kudge/results/kudge_challenge_easy_hard/response_matrices",
+        "matrix_dir": PROJECT_ROOT / "benchmarks/kudge/solver_outputs/response_matrices",
         "benchmark_id": "kudge_challenge_easy_hard",
         "item_id_field": "id",
         "item_content_field": "subset",
@@ -82,7 +82,7 @@ RESPONSE_MATRICES = {
     },
     "kudge_judge": {
         "prefix": "kudge_judge_easy_hard",
-        "matrix_dir": PROJECT_ROOT / "benchmarks/kudge/results/kudge_judge_easy_hard/response_matrices",
+        "matrix_dir": PROJECT_ROOT / "benchmarks/kudge/judging_outputs/response_matrices",
         "benchmark_id": "kudge_judge_easy_hard",
         "item_id_field": "id",
         "item_content_field": "subset",

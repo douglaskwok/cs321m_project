@@ -8,14 +8,20 @@ This project investigates whether a large language model that performs well as a
 
 ```
 cs321m_project/
-├── benchmarks/            # Scripts that run models on benchmarks and build response matrices
+├── benchmarks/            # Benchmark runners, collected outputs, and response matrices
 │   ├── llm_client.py      # Shared helper: routes queries to OpenAI, Anthropic, or HF Transformers
-│   ├── code/              # LiveCodeBench (coding solver) + CodeJudgeBench (coding judge)
-│   ├── mmlu/              # MMLU-Pro (solver + judge)
-│   ├── safety/            # HarmBench safety (solver) + HarmMetric (judge)
-│   ├── kudge/             # KUDGE Korean preference benchmark (solver + judge)
-│   └── HarmMetric_Eval/   # HarmMetric judge evaluation pipeline
-├── IRT/                   # IRT analysis: fitting, evaluation, figures, paper artifacts
+│   ├── code/              # LiveCodeBench solver + CodeJudgeBench judge
+│   │   ├── solving_outputs/
+│   │   ├── judging_outputs/
+│   │   └── response_matrices/
+│   ├── mmlu/              # MMLU-Pro solver + JudgeBench-MMLU judge
+│   │   ├── solving_outputs/
+│   │   ├── judging_outputs/
+│   │   └── response_matrices/
+│   ├── safety/            # HarmBench safety solver outputs and matrices
+│   ├── kudge/             # KUDGE Korean preference benchmark
+│   └── HarmMetric_Eval/   # HarmMetric judge evaluation pipeline and matrices
+├── IRT/                   # IRT analysis: fitting, evaluation, figures, charts, and tables
 │   ├── irt.py             # Core IRT fitting script (1PL/2PL/3PL, MLE + item-marginal MMLE)
 │   ├── run_irt_modal.py   # Runs irt.py on Modal cloud GPUs
 │   ├── irt.ipynb          # Interactive IRT exploration notebook
@@ -23,19 +29,26 @@ cs321m_project/
 │   ├── correlate_rankings.py             # Spearman rank correlation between solver/judge abilities
 │   ├── IRT - *.csv        # Per-domain solver/judge ability tables (paper-ready)
 │   ├── results_modal/     # IRT fit outputs from Modal runs
+│   ├── results_continuous_modal/          # Continuous IRT fit outputs
 │   ├── figures/           # Generated scatter plots (PDF + PNG)
-│   └── paper_artifacts/   # Final tables, charts, and case studies for the paper
-├── K-Factor/              # K-Factor (logistic FM) analysis: fitting, evaluation, paper artifacts
+│   └── charts_and_tables/ # Final tables, charts, data, and case studies for the paper
+├── K-Factor/              # K-Factor (logistic FM) analysis: fitting, evaluation, charts, and tables
 │   ├── kfactor.ipynb      # Main K-Factor notebook (binary response matrices)
 │   ├── kfactor_continuous.ipynb          # K-Factor for continuous scores (HarmMetric)
 │   ├── run_all_kfactor_notebooks.py      # Batch-executes kfactor.ipynb for all domains
 │   ├── compare_*_solver_judge_difficulty.ipynb  # Per-domain solver-vs-judge difficulty comparisons
 │   ├── results/           # K-Factor fit outputs
-│   └── paper_artifacts/   # Final tables, figures, and case studies for the paper
+│   ├── results_continuous/ # Continuous K-Factor fit outputs
+│   └── charts_and_tables/ # Final tables, figures, data, and case studies for the paper
+├── HarmBench/             # Upstream HarmBench resources used by safety experiments
+├── HarmMetric_Eval/       # Upstream HarmMetric evaluation resources
 ├── scripts/               # Utility scripts for generating case study notebooks/CSVs
 │   ├── create_safety_case_study_notebook.py
 │   └── export_safety_case_study_xlsx.py
+├── docs/                  # Documentation source
 ├── src/                   # torch_measure package source (IRT, factor models, metrics, viz)
+├── tests/                 # Unit tests
+├── tutorials/             # Example notebooks
 ├── trash/                 # Non-essential files (logs, scratch outputs)
 ├── pyproject.toml         # Package definition and dependencies
 ├── requirements.txt       # Pinned environment for reproducing results
@@ -151,13 +164,13 @@ python benchmarks/kudge/create_challenge_response_matrix.py
 python benchmarks/kudge/create_judge_response_matrix.py
 
 # Safety solver: combine per-attack results into the final solver matrix
-python benchmarks/safety/combine_attack_results_for_final_solver.py
+python benchmarks/safety/combine_attack_results_for_final solver.py
 
 # Safety judge: build the HarmMetric response matrix
 python benchmarks/HarmMetric_Eval/create_harmmetric_response_matrix.py
 ```
 
-> **Note:** The safety solver matrix requires prior attack generation (Stage 1). The pre-computed matrix in `benchmarks/safety/final_solver/response_matrices/` and the HarmMetric matrix in `benchmarks/HarmMetric_Eval/response_matrices/` can be used directly.
+> **Note:** The safety solver matrix requires prior attack generation (Stage 1). The pre-computed matrix in `benchmarks/safety/solver_outputs/final/response_matrices/` and the HarmMetric matrix in `benchmarks/HarmMetric_Eval/response_matrices/` can be used directly.
 
 ### Stage 3: Run IRT analysis
 
@@ -184,7 +197,7 @@ python IRT/irt.py --matrix solver --seed 123 --heldout-repeats 5
 
 ### Stage 4: Run K-Factor analysis
 
-Fits LogisticFM with K=1 and K=2 and evaluates held-out AUC.
+Fits LogisticFM with K=1 and K=2; paper-facing K selection uses lower in-sample reconstruction loss.
 
 **Batch (all domains):**
 ```bash
@@ -207,7 +220,7 @@ python IRT/correlate_rankings.py "IRT/IRT - Coding.csv"
 python IRT/correlate_rankings.py "IRT/IRT - Kudge.csv"
 python IRT/correlate_rankings.py "IRT/IRT - Safety.csv"
 
-# K-Factor per-domain comparison notebooks → K-Factor/paper_artifacts/
+# K-Factor per-domain comparison notebooks → K-Factor/charts_and_tables/
 jupyter nbconvert --to notebook --execute K-Factor/compare_code_solver_judge_difficulty.ipynb
 jupyter nbconvert --to notebook --execute K-Factor/compare_mmlu_solver_judge_difficulty.ipynb
 jupyter nbconvert --to notebook --execute K-Factor/compare_safety_solver_judge_difficulty.ipynb
@@ -226,12 +239,12 @@ python scripts/create_safety_case_study_notebook.py
 | IRT model selection (AIC/BIC/heldout AUC) | `IRT/irt.py` | `IRT/results_modal/<matrix>/heldout_eval_summary.csv` |
 | Model ability rankings | `IRT/irt.py` | `IRT/results_modal/<matrix>/capability_scores.csv` |
 | Solver vs. judge scatter (IRT) | `IRT/plot_solver_judge_irt_scatter.py` | `IRT/figures/` |
-| K-Factor model selection | `K-Factor/kfactor.ipynb` | `K-Factor/results/<domain>/*_kfactor_fit_summary.csv` |
-| Solver vs. judge item difficulty (K-Factor) | `K-Factor/compare_*_solver_judge_difficulty.ipynb` | `K-Factor/paper_artifacts/` |
-| Safety case studies | `scripts/create_safety_case_study_notebook.py` | `IRT/paper_artifacts/safety/case_studies/` |
+| K-Factor model selection | `K-Factor/kfactor.ipynb` | `K-Factor/charts_and_tables/*_kfactor_fit_summary_insample*.csv` |
+| Solver vs. judge item difficulty (K-Factor) | `K-Factor/compare_*_solver_judge_difficulty.ipynb` | `K-Factor/charts_and_tables/` |
+| Safety case studies | `scripts/create_safety_case_study_notebook.py` | `IRT/charts_and_tables/safety/case_studies/` |
 | Rank correlation tables | `IRT/correlate_rankings.py` | stdout / optional `--output` CSV |
 
-Pre-computed final outputs used in the paper are in `IRT/paper_artifacts/` and `K-Factor/paper_artifacts/`.
+Pre-computed final outputs used in the paper are in `IRT/charts_and_tables/` and `K-Factor/charts_and_tables/`.
 
 ---
 

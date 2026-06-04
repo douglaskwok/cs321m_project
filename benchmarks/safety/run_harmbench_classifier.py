@@ -34,10 +34,10 @@ image = modal.Image.debian_slim(python_version="3.11").pip_install(
 app = modal.App("safety-harmbench-classifier", image=image)
 
 
-DEFAULT_INPUT_PATH = Path(__file__).parent / "final_solver" / "humanjailbreaks_all_models.json"
+DEFAULT_INPUT_PATH = Path(__file__).parent / "solver_outputs" / "final" / "humanjailbreaks_all_models.json"
 DEFAULT_BEHAVIORS_PATH = Path(__file__).parent / "safety_solver.json"
-DEFAULT_OUTPUT_PATH = Path(__file__).parent / "final_solver" / "humanjailbreaks_all_models_scored.json"
-DEFAULT_SUMMARY_PATH = Path(__file__).parent / "final_solver" / "humanjailbreaks_all_models_summary.csv"
+DEFAULT_OUTPUT_PATH = Path(__file__).parent / "solver_outputs" / "final" / "humanjailbreaks_all_models_scored.json"
+DEFAULT_SUMMARY_PATH = Path(__file__).parent / "solver_outputs" / "final" / "humanjailbreaks_all_models_summary.csv"
 DEFAULT_CLASSIFIER = "cais/HarmBench-Llama-2-13b-cls"
 
 

@@ -5,13 +5,13 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT_DIR = ROOT / "IRT" / "paper_artifacts" / "safety" / "case_studies"
+OUT_DIR = ROOT / "IRT" / "charts_and_tables" / "safety" / "case_studies"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-SOLVER_MATRIX = ROOT / "benchmarks" / "safety" / "final_solver" / "response_matrices" / "safety_all_attacks_response_matrix.csv"
-SOLVER_META = ROOT / "benchmarks" / "safety" / "final_solver" / "response_matrices" / "safety_all_attacks_item_metadata.csv"
+SOLVER_MATRIX = ROOT / "benchmarks" / "safety" / "solver_outputs" / "final" / "response_matrices" / "safety_all_attacks_response_matrix.csv"
+SOLVER_META = ROOT / "benchmarks" / "safety" / "solver_outputs" / "final" / "response_matrices" / "safety_all_attacks_item_metadata.csv"
 JUDGE_MATRIX = ROOT / "benchmarks" / "HarmMetric_Eval" / "response_matrices" / "harmmetric_eval_response_matrix.csv"
-PROMPT_LOOKUP = ROOT / "K-Factor" / "results" / "safety_solver_judge_comparison" / "safety_input_index_to_harmmetric_prompt_id.csv"
+PROMPT_LOOKUP = ROOT / "K-Factor" / "solver_outputs" / "attack_results" / "direct" / "safety_solver_judge_comparison" / "safety_input_index_to_harmmetric_prompt_id.csv"
 
 TARGETS = [
     {
@@ -239,7 +239,7 @@ sections.append(
         [
             {"artifact": "combined metadata", "path": str(combined_path.relative_to(ROOT))},
             {"artifact": "summary", "path": str(summary_path.relative_to(ROOT))},
-            {"artifact": "notebook", "path": "IRT/paper_artifacts/safety/case_studies/safety_mistral_qwen2_case_study_examples.ipynb"},
+            {"artifact": "notebook", "path": "IRT/charts_and_tables/safety/case_studies/safety_mistral_qwen2_case_study_examples.ipynb"},
         ],
         ["artifact", "path"],
     )
@@ -264,7 +264,7 @@ def find_repo_root(start: Path) -> Path:
 repo_root = find_repo_root(Path.cwd())
 case_path = repo_root / "{combined_path.relative_to(ROOT)}"
 lookup_path = repo_root / "K-Factor/results/safety_solver_judge_comparison/safety_input_index_to_harmmetric_prompt_id.csv"
-raw_solver_path = repo_root / "benchmarks/safety/final_solver/all_attacks_all_models_scored.json"
+raw_solver_path = repo_root / "benchmarks/safety/solver_outputs/final/all_attacks_all_models_scored.json"
 judge_score_files = {{
     "Mistral-14B": repo_root / "benchmarks/HarmMetric_Eval/Final files to use/Ministral-3-14B-Instruct-2512-BF16-HarmJudge-safety_solver_prompt_scores.csv",
     "Qwen3.5-2B": repo_root / "benchmarks/HarmMetric_Eval/Final files to use/Qwen3.5-2B-HarmJudge-safety_solver_prompt_scores.csv",

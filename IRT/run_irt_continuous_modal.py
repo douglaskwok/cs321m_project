@@ -38,8 +38,8 @@ image = (
     .add_local_file(REPO_ROOT / "IRT" / "irt_continuous.py", remote_path="/root/IRT/irt_continuous.py")
     .add_local_dir(REPO_ROOT / "src", remote_path="/root/src")
     .add_local_dir(
-        REPO_ROOT / "benchmarks" / "safety" / "final_judge_results" / "response_matrices",
-        remote_path="/root/benchmarks/safety/final_judge_results/response_matrices",
+        REPO_ROOT / "benchmarks" / "safety" / "judge_outputs" / "response_matrices",
+        remote_path="/root/benchmarks/safety/judge_outputs/response_matrices",
     )
     .add_local_dir(
         REPO_ROOT / "benchmarks" / "HarmMetric_Eval" / "response_matrices",

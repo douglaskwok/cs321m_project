@@ -28,7 +28,7 @@ MODELS = [
 EXPECTED_RECORDS = 2103
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent.parent
-RESULTS_DIR = SCRIPT_DIR / "results"
+RESULTS_DIR = SCRIPT_DIR / "judging_outputs"
 LOG_DIR = REPO_ROOT / "logs"
 RUNNER = SCRIPT_DIR / "codejudgebench_pairwise_faithful.py"
 
@@ -42,7 +42,7 @@ def result_paths(model: str, seed: int, max_tokens: int) -> tuple[Path, Path]:
     if not getattr(result_paths, "prefill_verdict", True):
         slug += "_noprefill"
     return (
-        RESULTS_DIR / f"codejudgebench_pairwise_{slug}.npz",
+        RESULTS_DIR / "npz_checkpoints" / f"codejudgebench_pairwise_{slug}.npz",
         RESULTS_DIR / f"codejudgebench_pairwise_{slug}_responses.jsonl",
     )
 

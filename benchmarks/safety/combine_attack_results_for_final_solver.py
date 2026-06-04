@@ -1,4 +1,4 @@
-"""Combine per-model safety result JSONs into final_solver files."""
+"""Combine per-model safety result JSONs into final solver files."""
 
 from __future__ import annotations
 
@@ -9,8 +9,8 @@ from typing import Any
 
 
 SAFETY_DIR = Path(__file__).parent
-DEFAULT_RESULTS_DIR = SAFETY_DIR / "results"
-DEFAULT_OUTPUT_DIR = SAFETY_DIR / "final_solver"
+DEFAULT_RESULTS_DIR = SAFETY_DIR / "solver_outputs" / "attack_results"
+DEFAULT_OUTPUT_DIR = SAFETY_DIR / "solver_outputs" / "final"
 
 RESULT_PATTERNS = {
     "autodan": "safety_solver_autodan_vicuna_7b_v1_5_sampled_*.json",
@@ -45,7 +45,7 @@ def read_json_list(path: Path) -> list[dict[str, Any]]:
 def result_files(results_dir: Path, pattern: str) -> list[Path]:
     return sorted(
         path
-        for path in results_dir.glob(pattern)
+        for path in results_dir.rglob(pattern)
         if path.is_file() and not path.name.endswith("_responses.jsonl")
     )
 
@@ -72,13 +72,14 @@ def combine_pattern(results_dir: Path, name: str, pattern: str) -> list[dict[str
 
 
 def combine_direct(results_dir: Path) -> list[dict[str, Any]]:
-    missing = [name for name in DIRECT_RESULT_FILES if not (results_dir / name).is_file()]
+    paths_by_name = {path.name: path for path in results_dir.rglob("*.json") if path.is_file()}
+    missing = [name for name in DIRECT_RESULT_FILES if name not in paths_by_name]
     if missing:
         raise FileNotFoundError(f"Missing direct result file(s): {missing}")
 
     combined: list[dict[str, Any]] = []
     for file_name in DIRECT_RESULT_FILES:
-        combined.extend(normalize_rows(results_dir / file_name))
+        combined.extend(normalize_rows(paths_by_name[file_name]))
     return combined
 
 
@@ -103,7 +104,7 @@ def parse_outputs(value: str) -> list[str]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Combine per-model safety result JSONs into final_solver outputs."
+        description="Combine per-model safety result JSONs into final solver outputs."
     )
     parser.add_argument("--results-dir", type=Path, default=DEFAULT_RESULTS_DIR)
     parser.add_argument("--output-dir", type=Path, default=DEFAULT_OUTPUT_DIR)
