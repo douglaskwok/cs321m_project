@@ -115,6 +115,7 @@ def build_solver_prompt(question: str, starter_code: str) -> str:
 
 
 def read_selected_ids(path: Path) -> list[str]:
+    """Read selected CodeJudgeBench pairs and return unique LiveCodeBench question IDs."""
     with path.open(encoding="utf-8") as f:
         selected_pairs = json.load(f)
     allowed_ids = [str(row["question_id"]) for row in selected_pairs]
@@ -122,6 +123,7 @@ def read_selected_ids(path: Path) -> list[str]:
 
 
 def read_jsonl_scores(path: Path, selected: set[str]) -> tuple[dict[str, int], dict[str, dict[str, Any]]]:
+    """Read one model JSONL file and return selected item scores plus item metadata."""
     scores: dict[str, int] = {}
     metadata: dict[str, dict[str, Any]] = {}
     if not path.exists():
@@ -183,6 +185,7 @@ def load_livecodebench_metadata(selected: set[str], include_prompt: bool = True)
 
 
 def write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: list[str]) -> None:
+    """Write dictionaries to a UTF-8 CSV with the provided column order."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)

@@ -43,11 +43,13 @@ ATTACK_METHODS = {
 
 
 def load_behaviors(path: Path) -> list[dict[str, str]]:
+    """Read HarmBench behavior metadata CSV rows as dictionaries."""
     with path.open("r", encoding="utf-8", newline="") as fh:
         return list(csv.DictReader(fh))
 
 
 def behavior_text(row: dict[str, str]) -> str:
+    """Return the behavior prompt, prefixed by context when present."""
     behavior = row.get("Behavior", "")
     context = row.get("ContextString", "")
     if context:
@@ -56,6 +58,7 @@ def behavior_text(row: dict[str, str]) -> str:
 
 
 def load_test_cases(path: Path) -> dict[str, list[str]]:
+    """Read test_cases.json and normalize each behavior ID to a list of prompt strings."""
     if path.is_dir():
         path = path / "test_cases.json"
     with path.open("r", encoding="utf-8") as fh:
@@ -73,6 +76,7 @@ def load_test_cases(path: Path) -> dict[str, list[str]]:
 
 
 def resolve_attack_cases_path(base_dir: Path, candidates: list[str]) -> Path | None:
+    """Return the first candidate attack-case file or directory containing test_cases.json."""
     for candidate in candidates:
         path = base_dir / candidate
         if path.is_file():
@@ -83,6 +87,7 @@ def resolve_attack_cases_path(base_dir: Path, candidates: list[str]) -> Path | N
 
 
 def load_dan_template() -> str:
+    """Load and return the DAN jailbreak template from the local HarmBench checkout."""
     jailbreaks_path = HARMBENCH_ROOT / "baselines" / "human_jailbreaks" / "jailbreaks.py"
     spec = importlib.util.spec_from_file_location("harmbench_jailbreaks", jailbreaks_path)
     if spec is None or spec.loader is None:
@@ -102,6 +107,7 @@ def load_dan_template() -> str:
 
 
 def base_index_from_behavior_id(behavior_id: str) -> int | None:
+    """Extract a trailing numeric index from a behavior ID, or None if absent."""
     try:
         return int(behavior_id.rsplit("_", 1)[1])
     except (IndexError, ValueError):
@@ -116,6 +122,7 @@ def make_row(
     sample_index: int,
     attack_cases_source: str,
 ) -> dict[str, Any]:
+    """Build one HarmMetric prompt row from a sampled attack prompt and behavior metadata."""
     behavior_id = row["BehaviorID"]
     return {
         "harmful_prompt": harmful_prompt,
@@ -141,6 +148,7 @@ def build_rows_from_test_cases(
     rng: random.Random,
     attack_cases_source: str,
 ) -> list[dict[str, Any]]:
+    """Sample one generated attack case per behavior and return HarmMetric prompt rows."""
     rows: list[dict[str, Any]] = []
     for row in behaviors:
         behavior_id = row.get("BehaviorID", "")
@@ -161,6 +169,7 @@ def build_rows_from_test_cases(
 
 
 def build_dan_rows(behaviors: list[dict[str, str]]) -> list[dict[str, Any]]:
+    """Build DAN-template prompt rows for every behavior."""
     dan_template = load_dan_template()
     source = "HarmBench/baselines/human_jailbreaks/jailbreaks.py:DAN_template"
     rows: list[dict[str, Any]] = []
@@ -179,12 +188,14 @@ def build_dan_rows(behaviors: list[dict[str, str]]) -> list[dict[str, Any]]:
 
 
 def write_json(path: Path, rows: Any) -> None:
+    """Write rows to path as pretty UTF-8 JSON."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as fh:
         json.dump(rows, fh, ensure_ascii=False, indent=2)
 
 
 def main() -> None:
+    """Parse CLI options and write per-method plus combined HarmMetric prompt files."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--attack-cases-dir", type=Path, default=DEFAULT_ATTACK_CASES_DIR)
     parser.add_argument("--behaviors", type=Path, default=DEFAULT_BEHAVIORS)

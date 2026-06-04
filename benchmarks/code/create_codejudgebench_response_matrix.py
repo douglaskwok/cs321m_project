@@ -82,6 +82,7 @@ MODEL_SPECS = [
 
 
 def read_rows(path: Path) -> list[dict[str, Any]]:
+    """Read a JSONL result file and return non-empty rows as dictionaries."""
     rows: list[dict[str, Any]] = []
     with path.open(encoding="utf-8") as f:
         for line in f:
@@ -91,6 +92,7 @@ def read_rows(path: Path) -> list[dict[str, Any]]:
 
 
 def read_scores(path: Path) -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
+    """Return item scores and metadata from one CodeJudgeBench model output file."""
     scores: dict[str, Any] = {}
     metadata: dict[str, dict[str, Any]] = {}
     for row in read_rows(path):
@@ -110,6 +112,7 @@ def read_scores(path: Path) -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
 
 
 def write_csv(path: Path, rows: list[dict[str, Any]], fieldnames: list[str]) -> None:
+    """Write dictionaries to a UTF-8 CSV with the provided column order."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=fieldnames)

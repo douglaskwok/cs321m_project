@@ -116,6 +116,7 @@ ABILITY_COLS = [
 
 
 def set_seed(seed: int) -> None:
+    """Seed Python, NumPy, and PyTorch RNGs with the provided integer."""
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
@@ -124,6 +125,7 @@ def set_seed(seed: int) -> None:
 
 
 def save_table(df: pd.DataFrame, path_stem: Path) -> None:
+    """Write a DataFrame to matching CSV and JSON files at path_stem."""
     path_stem.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(path_stem.with_suffix(".csv"), index=False)
     df.to_json(path_stem.with_suffix(".json"), orient="records", indent=2)
@@ -132,6 +134,7 @@ def save_table(df: pd.DataFrame, path_stem: Path) -> None:
 
 
 def center_item_difficulty(model):
+    """Shift fitted item difficulty to mean zero and adjust ability by the same offset."""
     with torch.no_grad():
         shift = model.difficulty.mean()
         model.difficulty.sub_(shift)
@@ -311,10 +314,12 @@ def _bernoulli_log_prob(probs: torch.Tensor, observed: torch.Tensor) -> torch.Te
 
 
 def count_trainable_parameters(model) -> int:
+    """Return the number of trainable parameters in a fitted PyTorch model."""
     return int(sum(p.numel() for p in model.parameters() if p.requires_grad))
 
 
 def information_criterion_row(fit_name, log_likelihood, n_parameters, n_observed, bic_n, likelihood_type):
+    """Build one AIC/BIC result row from a log likelihood and parameter count."""
     aic = -2 * log_likelihood + 2 * n_parameters
     bic = -2 * log_likelihood + math.log(max(bic_n, 1)) * n_parameters
     return {
@@ -330,6 +335,7 @@ def information_criterion_row(fit_name, log_likelihood, n_parameters, n_observed
 
 
 def conditional_bernoulli_log_likelihood(model, data: torch.Tensor) -> float:
+    """Return observed-entry Bernoulli log likelihood for a fitted conditional IRT model."""
     data = data.to(model.device).float()
     mask = _observed_mask(data)
     with torch.no_grad():
@@ -339,6 +345,7 @@ def conditional_bernoulli_log_likelihood(model, data: torch.Tensor) -> float:
 
 
 def flipped_1pl_item_marginal_log_likelihood(data: torch.Tensor, flipped_model, n_quadrature=31) -> float:
+    """Return 1PL item-marginal log likelihood using quadrature over the flipped model ability."""
     y_matrix = data.T.to(flipped_model.device).float()
     mask = _observed_mask(y_matrix)
 
@@ -386,6 +393,7 @@ def prior_item_marginal_log_likelihood(
     c_beta=9.0,
     seed=0,
 ) -> float:
+    """Return MC item-marginal log likelihood for 2PL/3PL abilities under sampled item priors."""
     assert pl in {2, 3}
     y_matrix = data.to(device).float()
     mask = _observed_mask(y_matrix)
@@ -532,6 +540,7 @@ def build_capability_table(
 
 
 def ability_laplace_se(model, data):
+    """Return per-subject Laplace standard errors from fitted model Fisher information."""
     data = data.to(model.device).float()
     mask = ~torch.isnan(data) & (data != -1)
 
@@ -565,6 +574,7 @@ def ability_laplace_se(model, data):
 
 
 def add_regular_se_columns(capability_df: pd.DataFrame, regular_fits: dict, data: torch.Tensor):
+    """Return capability_df with SE and 95% CI columns for regular 1PL/2PL/3PL fits."""
     capability_df = capability_df.copy()
     for fit_name in ["1pl_regular", "2pl_regular", "3pl_regular"]:
         se = ability_laplace_se(regular_fits[fit_name]["model"], data)
@@ -575,6 +585,7 @@ def add_regular_se_columns(capability_df: pd.DataFrame, regular_fits: dict, data
 
 
 def fit_1pl_item_marginal_capability(data, max_epochs=200, lr=0.01, n_quadrature=31, device="cpu", seed=0):
+    """Fit flipped 1PL MMLE on data and return centered subject ability estimates."""
     torch.manual_seed(seed)
     model = Rasch(
         n_subjects=data.shape[1],
@@ -594,6 +605,7 @@ def fit_1pl_item_marginal_capability(data, max_epochs=200, lr=0.01, n_quadrature
 
 
 def bootstrap_item_capabilities(data, fit_fn, fit_kwargs, n_boot=50, seed=0):
+    """Resample item columns, refit abilities with fit_fn, and return a bootstraps-by-subject array."""
     rng = np.random.default_rng(seed)
     _, n_items = data.shape
     boot = []
@@ -612,6 +624,7 @@ def bootstrap_item_capabilities(data, fit_fn, fit_kwargs, n_boot=50, seed=0):
 
 
 def add_bootstrap_summary(capability_df, boot, subject_ids, col):
+    """Merge bootstrap mean, SE, and percentile intervals for one ability column."""
     summary = pd.DataFrame(
         {
             "model": subject_ids,
@@ -625,6 +638,7 @@ def add_bootstrap_summary(capability_df, boot, subject_ids, col):
 
 
 def maybe_add_item_bootstrap(capability_df, rm, device, run_item_bootstrap=False, n_boot=50, seed=0):
+    """Optionally add item-bootstrap uncertainty columns for item-marginal ability estimates."""
     if not run_item_bootstrap:
         return capability_df
 
@@ -680,6 +694,7 @@ def _heldout_metric_row(fit_name, rep, metrics, data, test_mask):
 
 
 def heldout_auc_for_regular_model(model_cls, data, fit_kwargs, train_mask, test_mask, device):
+    """Fit one regular IRT model on train_mask and return heldout metrics, model, and history."""
     model = model_cls(data.shape[0], data.shape[1], device=device)
     history = model.fit(
         data,
@@ -696,6 +711,7 @@ def heldout_auc_for_regular_model(model_cls, data, fit_kwargs, train_mask, test_
 
 
 def heldout_auc_for_1pl_item_marginal(data, fit_kwargs, train_mask, test_mask, device):
+    """Fit flipped 1PL on train_mask and return heldout metrics, fitted model, and history."""
     flipped = Rasch(
         n_subjects=data.shape[1],
         n_items=data.shape[0],
@@ -728,6 +744,7 @@ def item_marginal_prior_probs(
     c_beta=9.0,
     seed=0,
 ):
+    """Return dense predicted probabilities from 2PL/3PL item-prior marginalization."""
     theta = theta.to(device).float()
     torch.manual_seed(seed)
     gen = torch.Generator(device=device)
@@ -755,6 +772,7 @@ def item_marginal_prior_probs(
 
 
 def heldout_auc_for_prior_item_marginal(data, fit_kwargs, predict_kwargs, train_mask, test_mask, device, seed=0):
+    """Fit 2PL/3PL item-marginal abilities on train data and return heldout metrics."""
     train_data = data.clone()
     train_data[~train_mask] = float("nan")
 
@@ -850,11 +868,13 @@ def summarize_heldout_eval(heldout_eval_raw: pd.DataFrame, fit_order: list[str])
 
 
 def add_aic_bic_to_summary(summary: pd.DataFrame, information_criteria: pd.DataFrame) -> pd.DataFrame:
+    """Return heldout summary with AIC/BIC columns joined by fit name."""
     ic = information_criteria[["fit", "aic", "bic"]]
     return summary.merge(ic, on="fit", how="left")
 
 
 def parse_args():
+    """Parse CLI arguments for the IRT fitting script."""
     parser = argparse.ArgumentParser(description="Fit IRT models for benchmark response matrices.")
     parser.add_argument("--seed", type=int, default=123)
     parser.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")

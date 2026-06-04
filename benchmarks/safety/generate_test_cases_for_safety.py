@@ -21,11 +21,13 @@ DEFAULT_OUTPUT_DIR = Path(__file__).parent / "attack_cases"
 
 
 def load_behaviors(path: Path) -> list[dict[str, str]]:
+    """Read HarmBench behavior metadata CSV rows as dictionaries."""
     with path.open("r", encoding="utf-8", newline="") as fh:
         return list(csv.DictReader(fh))
 
 
 def behavior_text(row: dict[str, str]) -> str:
+    """Return the behavior prompt, prefixed by context when present."""
     behavior = row.get("Behavior", "")
     context = row.get("ContextString", "")
     if context:
@@ -34,6 +36,7 @@ def behavior_text(row: dict[str, str]) -> str:
 
 
 def load_human_jailbreaks() -> list[str]:
+    """Load human jailbreak prompt templates from the local HarmBench checkout."""
     jailbreaks_path = HARMBENCH_ROOT / "baselines" / "human_jailbreaks" / "jailbreaks.py"
     if not jailbreaks_path.exists():
         raise FileNotFoundError(
@@ -49,6 +52,7 @@ def load_human_jailbreaks() -> list[str]:
 
 
 def generate_direct(behaviors: list[dict[str, str]]) -> dict[str, list[str]]:
+    """Return DirectRequest test cases keyed by behavior ID."""
     return {
         row["BehaviorID"]: [behavior_text(row)]
         for row in behaviors
@@ -61,6 +65,7 @@ def generate_human(
     random_subset: int,
     seed: int,
 ) -> dict[str, list[str]]:
+    """Return human-jailbreak test cases keyed by behavior ID."""
     jailbreaks = load_human_jailbreaks()
     rng = random.Random(seed)
     test_cases: dict[str, list[str]] = {}
@@ -84,6 +89,7 @@ def write_outputs(
     output_dir: Path,
     method_config: dict,
 ) -> None:
+    """Write HarmBench-style test_cases, logs, and method_config JSON files."""
     output_dir.mkdir(parents=True, exist_ok=True)
     with (output_dir / "test_cases.json").open("w", encoding="utf-8") as fh:
         json.dump(test_cases, fh, ensure_ascii=False, indent=2)
@@ -94,6 +100,7 @@ def write_outputs(
 
 
 def main() -> None:
+    """Parse CLI options and generate direct or human-jailbreak test-case files."""
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--method",

@@ -35,6 +35,7 @@ DIRECT_RESULT_FILES = [
 
 
 def read_json_list(path: Path) -> list[dict[str, Any]]:
+    """Read path as a JSON list of result dictionaries."""
     with path.open("r", encoding="utf-8") as fh:
         data = json.load(fh)
     if not isinstance(data, list):
@@ -43,6 +44,7 @@ def read_json_list(path: Path) -> list[dict[str, Any]]:
 
 
 def result_files(results_dir: Path, pattern: str) -> list[Path]:
+    """Return sorted result JSON files under results_dir matching pattern."""
     return sorted(
         path
         for path in results_dir.rglob(pattern)
@@ -51,6 +53,7 @@ def result_files(results_dir: Path, pattern: str) -> list[Path]:
 
 
 def normalize_rows(result_file: Path) -> list[dict[str, Any]]:
+    """Read a result file and return rows with score, input_index, and result_file fields."""
     combined: list[dict[str, Any]] = []
     rows = read_json_list(result_file)
     for idx, row in enumerate(rows):
@@ -63,6 +66,7 @@ def normalize_rows(result_file: Path) -> list[dict[str, Any]]:
 
 
 def combine_pattern(results_dir: Path, name: str, pattern: str) -> list[dict[str, Any]]:
+    """Combine all normalized rows for one named attack pattern."""
     combined: list[dict[str, Any]] = []
     for result_file in result_files(results_dir, pattern):
         combined.extend(normalize_rows(result_file))
@@ -72,6 +76,7 @@ def combine_pattern(results_dir: Path, name: str, pattern: str) -> list[dict[str
 
 
 def combine_direct(results_dir: Path) -> list[dict[str, Any]]:
+    """Combine normalized rows from the fixed direct-prompt result file list."""
     paths_by_name = {path.name: path for path in results_dir.rglob("*.json") if path.is_file()}
     missing = [name for name in DIRECT_RESULT_FILES if name not in paths_by_name]
     if missing:
@@ -84,6 +89,7 @@ def combine_direct(results_dir: Path) -> list[dict[str, Any]]:
 
 
 def write_json(path: Path, rows: list[dict[str, Any]]) -> None:
+    """Write rows to path as pretty UTF-8 JSON."""
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8") as fh:
         json.dump(rows, fh, ensure_ascii=False, indent=2)
@@ -91,6 +97,7 @@ def write_json(path: Path, rows: list[dict[str, Any]]) -> None:
 
 
 def parse_outputs(value: str) -> list[str]:
+    """Parse an output selector string into validated output names."""
     if value.strip().lower() == "all":
         return ["direct", *RESULT_PATTERNS]
     outputs = [part.strip().lower() for part in value.split(",") if part.strip()]
@@ -103,6 +110,7 @@ def parse_outputs(value: str) -> list[str]:
 
 
 def main() -> None:
+    """Parse CLI options and write requested combined safety solver outputs."""
     parser = argparse.ArgumentParser(
         description="Combine per-model safety result JSONs into final solver outputs."
     )

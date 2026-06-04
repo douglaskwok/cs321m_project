@@ -15,11 +15,13 @@ DEFAULT_OUTPUT = Path(__file__).parent / "safety_solver_humanjailbreaks_sampled.
 
 
 def load_behavior_sources(behaviors_path: Path) -> dict[str, str]:
+    """Read behavior IDs and source tags from the behavior metadata CSV."""
     with behaviors_path.open("r", encoding="utf-8", newline="") as fh:
         return {row["BehaviorID"]: row.get("Tags", "") for row in csv.DictReader(fh)}
 
 
 def load_test_cases(path: Path) -> dict[str, list[str]]:
+    """Read test_cases.json and normalize each behavior ID to a list of prompt strings."""
     with path.open("r", encoding="utf-8") as fh:
         data = json.load(fh)
     if not isinstance(data, dict):
@@ -40,6 +42,7 @@ def sample_cases(
     output_path: Path,
     seed: int,
 ) -> None:
+    """Sample one attack prompt per behavior and write solver-format JSON rows."""
     sources = load_behavior_sources(behaviors_path)
     test_cases = load_test_cases(test_cases_path)
     rng = random.Random(seed)
@@ -67,6 +70,7 @@ def sample_cases(
 
 
 def main() -> None:
+    """Parse CLI options and sample HarmBench attack cases."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--test-cases", type=Path, default=DEFAULT_ATTACK_CASES)
     parser.add_argument("--behaviors", type=Path, default=DEFAULT_BEHAVIORS)
