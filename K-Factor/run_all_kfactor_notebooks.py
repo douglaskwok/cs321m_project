@@ -1,3 +1,16 @@
+"""Batch-execute kfactor.ipynb and kfactor_continuous.ipynb for all benchmark domains.
+
+Parameterises each notebook by injecting the KFACTOR_MATRIX string, runs it with
+``jupyter nbconvert --execute``, and saves the executed notebook in-place.
+
+Usage::
+
+    cd K-Factor
+    python run_all_kfactor_notebooks.py
+
+Results for each domain land in ``K-Factor/results/<domain>/``.
+"""
+
 import json
 import subprocess
 from pathlib import Path
@@ -22,6 +35,7 @@ CONTINUOUS_MATRICES = [
 
 
 def parameterized_notebook(source_path: Path, matrix_name: str, out_path: Path) -> None:
+    """Rewrite the KFACTOR_MATRIX assignment in source_path and save to out_path."""
     nb = json.loads(source_path.read_text())
     replaced = False
     needle = 'KFACTOR_MATRIX = "'
@@ -47,6 +61,7 @@ def parameterized_notebook(source_path: Path, matrix_name: str, out_path: Path) 
 
 
 def run_notebook(source_name: str, matrix_name: str) -> None:
+    """Parameterise and execute a single notebook for the given matrix domain."""
     source_path = ROOT / source_name
     temp_path = TMP / f".tmp_{source_path.stem}_{matrix_name}.ipynb"
     parameterized_notebook(source_path, matrix_name, temp_path)
@@ -74,6 +89,7 @@ def run_notebook(source_name: str, matrix_name: str) -> None:
 
 
 def main() -> None:
+    """Run all K-Factor notebooks across binary and continuous benchmark matrices."""
     for matrix in BINARY_MATRICES:
         run_notebook("kfactor.ipynb", matrix)
     for matrix in CONTINUOUS_MATRICES:

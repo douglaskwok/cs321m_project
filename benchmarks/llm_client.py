@@ -36,6 +36,7 @@ def resolve_model_alias(model: str) -> str:
 
 
 def _model_provider(model: str) -> str:
+    """Return 'anthropic', 'openai', or 'hf' based on the model name prefix."""
     if model.startswith("claude-"):
         return "anthropic"
     if model.startswith(("gpt-", "o1", "o3", "o4", "chatgpt-")):
@@ -45,6 +46,12 @@ def _model_provider(model: str) -> str:
 
 @lru_cache(maxsize=2)
 def _load_hf_model(model: str):
+    """Load and cache a HuggingFace model and its tokenizer/processor.
+
+    Returns (model_type, processor_or_tokenizer, hf_model). Dispatches to
+    Qwen3.5 (image-text-to-text), Mistral3 (conditional generation), or
+    generic causal-LM based on the model name prefix.
+    """
     import torch
 
     model_kwargs = {
@@ -94,6 +101,7 @@ def _query_hf_model(
     system: str = "",
     messages: list[dict] | None = None,
 ) -> str:
+    """Run a single inference pass against a locally loaded HF model and return the decoded text."""
     import torch
 
     model_type, processor_or_tokenizer, hf_model = _load_hf_model(model)

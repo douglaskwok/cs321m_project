@@ -1,3 +1,31 @@
+"""Fit IRT models (1PL/2PL/3PL) on benchmark response matrices and evaluate held-out predictive accuracy.
+
+For each matrix the script fits six model variants — joint MLE (JMLE) and item-marginal
+MMLE for each of 1PL, 2PL, and 3PL — then reports held-out AUC, log-likelihood, Brier
+score, ECE, and information criteria (AIC/BIC).
+
+Usage
+-----
+Local::
+
+    python IRT/irt.py --matrix solver --seed 123 --heldout-repeats 5
+
+On Modal (GPU-accelerated)::
+
+    modal run IRT/run_irt_modal.py --matrix solver --seed 123 --heldout-repeats 5 --gpu A10G
+
+Available ``--matrix`` values: solver, judging, safety, kudge_challenge, kudge_judge,
+code_solver, code_judge.
+
+Outputs (written to ``--output-dir``, default ``IRT/results/<matrix>/``):
+
+* ``capability_scores.csv`` / ``.json`` — per-model ability under all six estimators
+* ``capability_scores_with_uncertainty.csv`` — adds Laplace SE and 95% CI
+* ``heldout_eval_raw.csv`` — per-repetition heldout metrics
+* ``heldout_eval_summary.csv`` — mean ± SD heldout metrics + AIC/BIC
+* ``run_config.json`` — hyperparameters and dataset summary for this run
+"""
+
 from __future__ import annotations
 
 import argparse
@@ -112,6 +140,9 @@ def center_item_difficulty(model):
 
 
 def load_response_matrix(matrix_kind: str):
+    """Load a response matrix CSV and metadata from the path config in RESPONSE_MATRICES.
+
+    Returns (df, subject_meta, item_meta, rm) where rm is a ResponseMatrix object."""
     if matrix_kind not in RESPONSE_MATRICES:
         choices = ", ".join(sorted(RESPONSE_MATRICES))
         raise ValueError(f"Unknown matrix kind {matrix_kind!r}. Choose one of: {choices}")
@@ -143,6 +174,7 @@ def load_response_matrix(matrix_kind: str):
 
 
 def fit_regular_models(rm: ResponseMatrix, regular_specs: dict, device: str):
+    """Fit a set of IRT models via joint MLE and return a dict of {name: {model, history}}."""
     regular_fits = {}
     for fit_name, (model_cls, fit_kwargs) in regular_specs.items():
         print(f"\nFitting {fit_name}")
@@ -160,6 +192,10 @@ def fit_regular_models(rm: ResponseMatrix, regular_specs: dict, device: str):
 
 
 def fit_1pl_item_marginal(rm: ResponseMatrix, device: str):
+    """Fit a 1PL Rasch model via EM with item-marginalisation (MMLE).
+
+    The model is fit on the transposed matrix so that items play the role of subjects,
+    then subject ability is recovered as -difficulty. Returns (theta, model, history)."""
     rasch_item_marginal = Rasch(
         n_subjects=rm.n_items,
         n_items=rm.n_subjects,
@@ -195,6 +231,12 @@ def fit_abilities_item_marginalized_pl(
     device="cpu",
     seed=0,
 ):
+    """Estimate subject ability by marginalising over item parameters via Monte Carlo.
+
+    Item difficulty, discrimination (2PL/3PL), and guessing (3PL) parameters are treated
+    as random variables drawn from prior distributions; ability is optimised via Adam to
+    maximise the resulting marginal log-likelihood. Returns (ability_tensor, loss_history).
+    """
     assert pl in {2, 3}
     torch.manual_seed(seed)
 
@@ -393,6 +435,7 @@ def build_information_criteria_table(
     device: str,
     seed: int,
 ):
+    """Compute AIC and BIC for all six model variants and return a sorted DataFrame."""
     n_observed = int(_observed_mask(rm.data).sum().item())
     rows = []
 
@@ -464,6 +507,7 @@ def build_capability_table(
     theta_2pl_item_marginal: torch.Tensor,
     theta_3pl_item_marginal: torch.Tensor,
 ):
+    """Assemble a DataFrame of per-model ability estimates (all six estimators) plus accuracy and rank columns."""
     accuracy = df.mean(axis=1, skipna=True)
     n_observed = df.notna().sum(axis=1)
 
@@ -733,6 +777,10 @@ def heldout_auc_for_prior_item_marginal(data, fit_kwargs, predict_kwargs, train_
 
 
 def evaluate_heldout_auc(regular_specs, item_marginal_specs, data, device, n_repeats=5, train_frac=0.8, seed=0):
+    """Evaluate all model variants on random train/test splits and return per-repetition metrics.
+
+    For each repeat a new mask is drawn; models are refit on the training entries and scored
+    on heldout entries (AUC, log-likelihood, Brier, ECE). Returns a long-form DataFrame."""
     data = data.to(device).float()
     observed = ~torch.isnan(data) & (data != -1)
     rows = []
@@ -780,6 +828,7 @@ def evaluate_heldout_auc(regular_specs, item_marginal_specs, data, device, n_rep
 
 
 def summarize_heldout_eval(heldout_eval_raw: pd.DataFrame, fit_order: list[str]):
+    """Aggregate per-repetition heldout metrics to mean ± SD, ordered by fit_order."""
     summary = (
         heldout_eval_raw.groupby("fit")
         .agg(
@@ -829,6 +878,7 @@ def parse_args():
 
 
 def main():
+    """Fit all IRT models for a single response matrix and write results to --output-dir."""
     args = parse_args()
     if args.output_dir is None:
         args.output_dir = DEFAULT_OUTPUT_DIR / args.matrix
